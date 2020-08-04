@@ -1,1 +1,1 @@
-/opt/local/bin/gcc-mp-10 -Wall -ansi -pedantic -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Assembler.dir/main.c.o  -o Assembler 
+/opt/local/bin/gcc-mp-10 -Wall -ansi -pedantic -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Assembler.dir/main.c.o  -o Assembler 
