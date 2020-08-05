@@ -5,12 +5,24 @@
 #ifndef ASSEMBLER_LIST_H
 #define ASSEMBLER_LIST_H
 
-typedef struct node_t* List;
+typedef struct node_t* ListNode;
+typedef ListNode List;
+typedef void (*printNodeFunction)(void* nodeData);
 
-/* Function to add a node_t at the beginning of Linked List.
+List listCreate();
+
+ListNode listCreateListNode(void* data, size_t dataSize);
+
+void listDestroy(List list);
+
+void listNodeDestroy(ListNode node);
+
+int listSize(List list);
+
+/* Function to add a node_t at the beginning of Linked ListNode.
 This function expects a pointer to the data to be added
 and size of the data type */
-void push(List *headRef, void *newData, size_t dataSize);
+void listInsertNodeAtEnd(List list, void *newData, size_t dataSize);
 
 /* Function to print nodes in a given linked list. fpitr is used
 to access the function to be used for printing current node_t data.

@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/omrikaisari/CLionProjects/Assembler/List.c
-stdio.h
--
-stdlib.h
--
-List.h
-/Users/omrikaisari/CLionProjects/Assembler/List.h
-List.h
-/Users/omrikaisari/CLionProjects/Assembler/List.h
-
 /Users/omrikaisari/CLionProjects/Assembler/List.h
 
 /Users/omrikaisari/CLionProjects/Assembler/Tester.c

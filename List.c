@@ -9,47 +9,86 @@
 #include<stdlib.h>
 #include "List.h"
 
+
 /* A linked list node_t */
 struct node_t {
-    /* Any data type can be stored in this node_t*/
     void *data;
-    List next;
+    ListNode next;
+    ListNode previous;
 };
 
-
-
-void push(List *headRef, void *newData, size_t dataSize) {
-    /* Allocate memory for node_t*/
-    List newNode = (List) malloc(sizeof(struct node_t));
+List listCreate() {
+    ListNode head = (ListNode) malloc(sizeof(struct node_t));
     int i;
-    
-    newNode->data = malloc(dataSize);
-    newNode->next = (*headRef);
-    
-    /* Copy contents of newData to newly allocated memory.
-     Assumption: char takes 1 byte.*/
-    for (i=0; i < dataSize; i++)
-        *((char *)newNode->data + i) = *((char *)newData + i);
-    
-    /*Change head pointer as new node_t is added at the beginning*/
-    (*headRef) = newNode;
+    head->next = NULL;
+    head->previous=NULL;
+    head->data = NULL;
+    return head;
 }
 
-void printList(struct node_t *node, void (*fptr)(void *)) {
+ListNode listCreateListNode(void* data, size_t dataSize) {
+    ListNode node = (ListNode) malloc(sizeof(struct node_t));
+    int i;
+    node->data = malloc(dataSize);
+    for (i=0; i < dataSize; i++)
+        *((char *)node->data + i) = *((char *)data + i);
+    return node;
+}
+
+
+
+void listNodeDestroy(ListNode node) {
+    if (node == NULL)
+        return;
+    if (node->data!=NULL)
+        free(node->data);
+    free(node);
+}
+
+
+
+void listDestroy(List list) {
+    ListNode current = list;
+    ListNode next;
+    if (list == NULL)
+        return;
+    while (current->next!=NULL) {
+        next = current->next;
+        listNodeDestroy(current);
+        current = next;
+    }
+    listNodeDestroy(current);
+}
+
+int listSize(List list) {
+    int size = 0;
+    ListNode current = list;
+    if (list == NULL)
+        return size;
+    while (current->next!=NULL) {
+        size++;
+        current = current->next;
+    }
+    return size;
+}
+
+void listInsertNodeAtEnd(List list, void *newData, size_t dataSize) {
+    ListNode newNode = listCreateListNode(newData,dataSize);
+    ListNode temp = list;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->next=NULL;
+    newNode->previous=temp;
+}
+
+void printList(List node, printNodeFunction function) {
     while (node != NULL)
     {
-        (*fptr)(node->data);
+        if (node->data != NULL)
+            (*function)(node->data);
         node = node->next;
     }
 }
 
-void printInt(void *n) {
-    printf(" %d", *(int *)n);
-}
-
-void printFloat(void *f) {
-    printf(" %f", *(float *)f);
-}
-
-
-#include "List.h"
