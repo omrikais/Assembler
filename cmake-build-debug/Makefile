@@ -143,32 +143,59 @@ Assembler/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/build
 .PHONY : Assembler/fast
 
-main.o: main.c.o
+List.o: List.c.o
 
-.PHONY : main.o
+.PHONY : List.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/main.c.o
-.PHONY : main.c.o
+List.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/List.c.o
+.PHONY : List.c.o
 
-main.i: main.c.i
+List.i: List.c.i
 
-.PHONY : main.i
+.PHONY : List.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/main.c.i
-.PHONY : main.c.i
+List.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/List.c.i
+.PHONY : List.c.i
 
-main.s: main.c.s
+List.s: List.c.s
 
-.PHONY : main.s
+.PHONY : List.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/main.c.s
-.PHONY : main.c.s
+List.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/List.c.s
+.PHONY : List.c.s
+
+Tester.o: Tester.c.o
+
+.PHONY : Tester.o
+
+# target to build an object file
+Tester.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Tester.c.o
+.PHONY : Tester.c.o
+
+Tester.i: Tester.c.i
+
+.PHONY : Tester.i
+
+# target to preprocess a source file
+Tester.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Tester.c.i
+.PHONY : Tester.c.i
+
+Tester.s: Tester.c.s
+
+.PHONY : Tester.s
+
+# target to generate assembly for a file
+Tester.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Tester.c.s
+.PHONY : Tester.c.s
 
 # Help Target
 help:
@@ -179,9 +206,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Assembler"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... List.o"
+	@echo "... List.i"
+	@echo "... List.s"
+	@echo "... Tester.o"
+	@echo "... Tester.i"
+	@echo "... Tester.s"
 .PHONY : help
 
 

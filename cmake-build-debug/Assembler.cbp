@@ -76,7 +76,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/main.c">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/List.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/List.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/Tester.c">
 			<Option target="Assembler"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/CMakeLists.txt">
