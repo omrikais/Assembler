@@ -76,19 +76,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/InstructionWord.c">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/constants.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/InstructionWord.h">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instructionWord.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/List.c">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instructionWord.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/List.h">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/Tester.c">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/tester.c">
 			<Option target="Assembler"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/CMakeLists.txt">

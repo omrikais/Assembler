@@ -143,86 +143,113 @@ Assembler/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/build
 .PHONY : Assembler/fast
 
-InstructionWord.o: InstructionWord.c.o
+instructionWord.o: instructionWord.c.o
 
-.PHONY : InstructionWord.o
-
-# target to build an object file
-InstructionWord.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/InstructionWord.c.o
-.PHONY : InstructionWord.c.o
-
-InstructionWord.i: InstructionWord.c.i
-
-.PHONY : InstructionWord.i
-
-# target to preprocess a source file
-InstructionWord.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/InstructionWord.c.i
-.PHONY : InstructionWord.c.i
-
-InstructionWord.s: InstructionWord.c.s
-
-.PHONY : InstructionWord.s
-
-# target to generate assembly for a file
-InstructionWord.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/InstructionWord.c.s
-.PHONY : InstructionWord.c.s
-
-List.o: List.c.o
-
-.PHONY : List.o
+.PHONY : instructionWord.o
 
 # target to build an object file
-List.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/List.c.o
-.PHONY : List.c.o
+instructionWord.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instructionWord.c.o
+.PHONY : instructionWord.c.o
 
-List.i: List.c.i
+instructionWord.i: instructionWord.c.i
 
-.PHONY : List.i
+.PHONY : instructionWord.i
 
 # target to preprocess a source file
-List.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/List.c.i
-.PHONY : List.c.i
+instructionWord.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instructionWord.c.i
+.PHONY : instructionWord.c.i
 
-List.s: List.c.s
+instructionWord.s: instructionWord.c.s
 
-.PHONY : List.s
+.PHONY : instructionWord.s
 
 # target to generate assembly for a file
-List.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/List.c.s
-.PHONY : List.c.s
+instructionWord.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instructionWord.c.s
+.PHONY : instructionWord.c.s
 
-Tester.o: Tester.c.o
+list.o: list.c.o
 
-.PHONY : Tester.o
+.PHONY : list.o
 
 # target to build an object file
-Tester.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Tester.c.o
-.PHONY : Tester.c.o
+list.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/list.c.o
+.PHONY : list.c.o
 
-Tester.i: Tester.c.i
+list.i: list.c.i
 
-.PHONY : Tester.i
+.PHONY : list.i
 
 # target to preprocess a source file
-Tester.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Tester.c.i
-.PHONY : Tester.c.i
+list.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/list.c.i
+.PHONY : list.c.i
 
-Tester.s: Tester.c.s
+list.s: list.c.s
 
-.PHONY : Tester.s
+.PHONY : list.s
 
 # target to generate assembly for a file
-Tester.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Tester.c.s
-.PHONY : Tester.c.s
+list.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/list.c.s
+.PHONY : list.c.s
+
+parser.o: parser.c.o
+
+.PHONY : parser.o
+
+# target to build an object file
+parser.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.o
+.PHONY : parser.c.o
+
+parser.i: parser.c.i
+
+.PHONY : parser.i
+
+# target to preprocess a source file
+parser.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.i
+.PHONY : parser.c.i
+
+parser.s: parser.c.s
+
+.PHONY : parser.s
+
+# target to generate assembly for a file
+parser.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.s
+.PHONY : parser.c.s
+
+tester.o: tester.c.o
+
+.PHONY : tester.o
+
+# target to build an object file
+tester.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/tester.c.o
+.PHONY : tester.c.o
+
+tester.i: tester.c.i
+
+.PHONY : tester.i
+
+# target to preprocess a source file
+tester.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/tester.c.i
+.PHONY : tester.c.i
+
+tester.s: tester.c.s
+
+.PHONY : tester.s
+
+# target to generate assembly for a file
+tester.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/tester.c.s
+.PHONY : tester.c.s
 
 # Help Target
 help:
@@ -233,15 +260,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Assembler"
-	@echo "... InstructionWord.o"
-	@echo "... InstructionWord.i"
-	@echo "... InstructionWord.s"
-	@echo "... List.o"
-	@echo "... List.i"
-	@echo "... List.s"
-	@echo "... Tester.o"
-	@echo "... Tester.i"
-	@echo "... Tester.s"
+	@echo "... instructionWord.o"
+	@echo "... instructionWord.i"
+	@echo "... instructionWord.s"
+	@echo "... list.o"
+	@echo "... list.i"
+	@echo "... list.s"
+	@echo "... parser.o"
+	@echo "... parser.i"
+	@echo "... parser.s"
+	@echo "... tester.o"
+	@echo "... tester.i"
+	@echo "... tester.s"
 .PHONY : help
 
 

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "List.h"
+#include "list.h"
 /*Created by Omri Kaisari on 05/08/2020.*/
 
 void printInt(void *n) {
