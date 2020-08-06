@@ -5,10 +5,12 @@
 #include <string.h>
 #include <stdlib.h>
 
+char *trimLabel(char *line);
+
 Bool isAlphabetic(char c);
 
 Bool parserIsNewLabel(char *line) {
-    if (strchr(line, LABAL_DELIM) == NULL)
+    if (strchr(line, LABAL_DELIM_CHAR) == NULL)
         return FALSE;
     return TRUE;
 }
@@ -21,7 +23,7 @@ Bool parserIsDirective(char *line) {
 
 
 char *parserGetLabel(char *line) {
-    char *endLocation = strchr(line, LABAL_DELIM);
+    char *endLocation = strchr(line, LABAL_DELIM_CHAR);
     char *label = malloc(sizeof(*label) * (endLocation - line));
     char *originalPtr = label;
     char *token;
@@ -38,6 +40,20 @@ Bool isAlphabetic(char c) {
     if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
         return TRUE;
     return FALSE;
+}
+
+char *trimLabel(char *line) {  /*this function assumes that there is label in line*/
+    char tmpStr[MAX_LENGTH];
+    char *token;
+    char *trimmed;
+    strcpy(tmpStr, line);
+    token = strtok(tmpStr, LABEL_DELIM);
+    if (token == NULL)
+        return NULL;        /*there is nothing after the label*/
+    token = strtok(NULL, WHITH_DELIMITERS);  /*now the first word is the operation*/
+    trimmed = malloc(sizeof(trimmed) * (MAX_LENGTH));
+    strcpy(trimmed, token);
+    return trimmed;
 }
 
 Directive parserGetDirective(char *line) {
@@ -61,6 +77,12 @@ Directive parserGetDirective(char *line) {
         return EXTERN;
     return NO_DIRECTIVE_FOUND;
 }
+
+Operation parseGetOperation(char *line) { /*trim the line, and then only get the operation*/
+    return ADD;
+}
+
+
 
 
 
