@@ -24,12 +24,14 @@ int main() {
     printList(list, printInt);
     printf("\nThe List Size is: %d\n", listSize(list));
     listDestroy(list);
-    char *label = parserGetLabel("      ?sholom: sadjlaslkdjsakl");
+/*    char *label = parserGetLabel("      ?sholom: sadjlaslkdjsakl");
     parserIsNewLabel("hdfjksfhsdjk: sadjlaslkdjsakl");
     printf("%s\n", label);
     char string[] = "SHlom";
     char *token;
     token = strtok(string, ":");
-    printf("%s", token);
+    printf("%s", token);*/
+    char str[] = ".data hi!"
+    
     return 0;
 }

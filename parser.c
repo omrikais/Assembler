@@ -14,9 +14,31 @@ Bool parserIsNewLabel(char *line) {
 }
 
 Bool parserIsDirective(char *line) {
-    if (strchr(line, DIRECTIVE_DELIM) == NULL)
+    if (strchr(line, DIRECTIVE_CHAR) == NULL)
         return FALSE;
     return TRUE;
+}
+
+Directive parserGetDirective(char *line) {
+    char tmpLine[MAX_LENGTH];
+    char *token;
+    char *directives[] = {DIRECTIVES};
+    strcpy(tmpLine, line);
+    token = strtok(tmpLine, DIRECTIVE_DELIM);
+    if (token[0] == tmpLine[0])     /*the first char is the same -> there were some chars before '.'*/
+        token = strtok(NULL, DIRECTIVE_DELIM);
+    token = strtok(token, WHITH_DELIMITERS); /*should be only the directive name*/
+    if (token == NULL)
+        return NO_DIRECTIVE_FOUND;
+    if (strcmp(token, directives[ENTRY]) == 0)
+        return ENTRY;
+    if (strcmp(token, directives[DATA]) == 0)
+        return DATA;
+    if (strcmp(token, directives[STRING]) == 0)
+        return STRING;
+    if (strcmp(token, directives[EXTERN]) == 0)
+        return EXTERN;
+    return NO_DIRECTIVE_FOUND;
 }
 
 char *parserGetLabel(char *line) {
