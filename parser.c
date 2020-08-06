@@ -11,6 +11,8 @@ Bool isAlphabetic(char c);
 
 Operation findOperation(char *word);
 
+int findIndexOfElement(const int *array, Operation operation);
+
 
 Bool parserIsNewLabel(char *line) {
     if (strchr(line, LABAL_DELIM_CHAR) == NULL)
@@ -61,11 +63,11 @@ char *trimLabel(char *line) {  /*this function assumes that there is label in li
 
 Operation findOperation(char *word) {
     char *functions[] = {FUNCTIONS};
-    int functions_numbers[] = {FUNCTIONS_NUMBERS};
+    int functionsNumbers[] = {FUNCTIONS_NUMBERS};
     int i;
     for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i) {
         if (strcmp(word, functions[i]) == 0) {
-            Operation operation = functions_numbers[i];
+            Operation operation = functionsNumbers[i];
             return operation;
         }
     }
@@ -115,6 +117,22 @@ Directive parserGetDirective(char *line) {
         return EXTERN;
     return NO_DIRECTIVE_FOUND;
 }
+
+int findIndexOfElement(const int *array, Operation operation) {
+    int i;
+    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i) {
+        if (array[i] == operation)
+            return i;
+    }
+    return -1;
+}
+
+int parserGetNumberOfOperands(Operation operation) {
+    int functionsNumbers[] = {FUNCTIONS_NUMBERS};
+    int numberOfOperandsByFunction[] = {NUMBER_OF_OPERANDS};
+    return numberOfOperandsByFunction[findIndexOfElement(functionsNumbers, operation)];
+}
+
 
 
 

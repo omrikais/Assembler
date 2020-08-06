@@ -17,6 +17,7 @@ Directive parserGetDirective(char *line);
 
 Operation parseGetOperation(char *line);
 
+int parserGetNumberOfOperands(Operation operation);
 
 #endif /*ASSEMBLER_PARSER_H*/
 
