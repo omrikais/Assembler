@@ -11,6 +11,8 @@ Bool parserIsNewLabel(char *line);
 
 char *parserGetLabel(char *line);
 
+Bool parserIsDirective(char *line);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 

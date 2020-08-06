@@ -23,5 +23,7 @@ typedef enum addressing AddressingMethod;
 #define MAX_LENGTH 82
 
 #define LABAL_DELIM ':'
+#define WHITH_DELIMITERS " \t"
+#define DIRECTIVE_DELIM '.'
 
 #endif /*ASSEMBLER_CONSTANTS_H*/

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "list.h"
 #include "parser.h"
+#include <string.h>
 
 /*Created by Omri Kaisari on 05/08/2020.*/
 
@@ -23,8 +24,12 @@ int main() {
     printList(list, printInt);
     printf("\nThe List Size is: %d\n", listSize(list));
     listDestroy(list);
-    char *label = parserGetLabel("hdfjksfhsdjk: sadjlaslkdjsakl");
+    char *label = parserGetLabel("      ?sholom: sadjlaslkdjsakl");
     parserIsNewLabel("hdfjksfhsdjk: sadjlaslkdjsakl");
-    printf("%s", label);
+    printf("%s\n", label);
+    char string[] = "SHlom";
+    char *token;
+    token = strtok(string, ":");
+    printf("%s", token);
     return 0;
 }
