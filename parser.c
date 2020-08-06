@@ -17,6 +17,7 @@ char *parserGetLabel(char *line) {
     char *label = malloc(sizeof(*label) * (endLocation - line));
     memcpy(label, line, endLocation - line);
     return label;
+    
 }
 
 
