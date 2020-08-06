@@ -13,6 +13,8 @@ char *parserGetLabel(char *line);
 
 Bool parserIsDirective(char *line);
 
+Directive parserGetDirective(char *line);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 

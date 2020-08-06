@@ -29,6 +29,6 @@ typedef enum directive Directive;
 #define LABAL_DELIM ':'
 #define WHITH_DELIMITERS " \t"
 #define DIRECTIVE_DELIM "."
-#define DIRECTIVE_CHAR ','
+#define DIRECTIVE_CHAR '.'
 
 #endif /*ASSEMBLER_CONSTANTS_H*/

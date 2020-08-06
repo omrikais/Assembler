@@ -19,6 +19,27 @@ Bool parserIsDirective(char *line) {
     return TRUE;
 }
 
+
+char *parserGetLabel(char *line) {
+    char *endLocation = strchr(line, LABAL_DELIM);
+    char *label = malloc(sizeof(*label) * (endLocation - line));
+    char *originalPtr = label;
+    char *token;
+    memcpy(label, line, endLocation - line);
+    token = strtok(label, WHITH_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
+    label = token;
+    if (isAlphabetic(label[0]))
+        return label;
+    free(originalPtr);
+    return NULL;
+}
+
+Bool isAlphabetic(char c) {
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+        return TRUE;
+    return FALSE;
+}
+
 Directive parserGetDirective(char *line) {
     char tmpLine[MAX_LENGTH];
     char *token;
@@ -39,26 +60,6 @@ Directive parserGetDirective(char *line) {
     if (strcmp(token, directives[EXTERN]) == 0)
         return EXTERN;
     return NO_DIRECTIVE_FOUND;
-}
-
-char *parserGetLabel(char *line) {
-    char *endLocation = strchr(line, LABAL_DELIM);
-    char *label = malloc(sizeof(*label) * (endLocation - line));
-    char *originalPtr = label;
-    char *token;
-    memcpy(label, line, endLocation - line);
-    token = strtok(label, WHITH_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
-    label = token;
-    if (isAlphabetic(label[0]))
-        return label;
-    free(originalPtr);
-    return NULL;
-}
-
-Bool isAlphabetic(char c) {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-        return TRUE;
-    return FALSE;
 }
 
 

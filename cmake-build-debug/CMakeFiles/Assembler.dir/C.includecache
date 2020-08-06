@@ -8,25 +8,7 @@
 
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 
-/Users/omrikaisari/CLionProjects/Assembler/instructionWord.c
-stdlib.h
-/Users/omrikaisari/CLionProjects/Assembler/stdlib.h
-instructionWord.h
-/Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
-constants.h
-/Users/omrikaisari/CLionProjects/Assembler/constants.h
-
-/Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
-
 /Users/omrikaisari/CLionProjects/Assembler/list.h
-
-/Users/omrikaisari/CLionProjects/Assembler/parser.c
-parser.h
-/Users/omrikaisari/CLionProjects/Assembler/parser.h
-string.h
--
-stdlib.h
--
 
 /Users/omrikaisari/CLionProjects/Assembler/parser.h
 constants.h

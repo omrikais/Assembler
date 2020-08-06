@@ -31,7 +31,8 @@ int main() {
     char *token;
     token = strtok(string, ":");
     printf("%s", token);*/
-    char str[] = ".data hi!"
-    
+    char str[] = "DUI:    .string hi!";
+    Bool y1 = parserIsDirective(str);
+    Directive x1 = parserGetDirective(str);
     return 0;
 }
