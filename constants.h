@@ -3,6 +3,19 @@
 
 #ifndef ASSEMBLER_CONSTANTS_H
 #define ASSEMBLER_CONSTANTS_H
+#define FUNCTIONS "mov","cmp","add","sub","lea","clr","not","inc","dec","jmp","bne","jsr","red","prn","rts","stop"
+#define FUNCTIONS_NUMBERS 0,1,21,22,4,51,52,53,54,91,92,93,12,13,14,15
+#define NUMBER_OF_OPERANDS 2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0
+#define NUMBER_OF_FUNCTIONS 16
+#define DIRECTIVES "data","string","entry","extern"
+#define NA -1
+#define MAX_LENGTH 82
+#define LABEL_DELIM_CHAR ':'
+#define LABEL_DELIM ":"
+#define WHITE_DELIMITERS " \t"
+#define NEW_LINE_DELIM "\n"
+#define DIRECTIVE_DELIM "."
+#define DIRECTIVE_CHAR '.'
 
 enum boolean {
     FALSE, TRUE
@@ -44,18 +57,5 @@ typedef enum directive Directive;
 
 typedef enum operations Operation;
 
-#define FUNCTIONS "mov","cmp","add","sub","lea","clr","not","inc","dec","jmp","bne","jsr","red","prn","rts","stop"
-#define FUNCTIONS_NUMBERS 0,1,21,22,4,51,52,53,54,91,92,93,12,13,14,15
-#define NUMBER_OF_OPERANDS 2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0
-#define NUMBER_OF_FUNCTIONS 16
-#define DIRECTIVES "data","string","entry","extern"
-#define NA -1
-#define MAX_LENGTH 82
-#define LABAL_DELIM_CHAR ':'
-#define LABEL_DELIM ":"
-#define WHITH_DELIMITERS " \t"
-#define NEW_LINE_DELIM "\n"
-#define DIRECTIVE_DELIM "."
-#define DIRECTIVE_CHAR '.'
 
 #endif /*ASSEMBLER_CONSTANTS_H*/

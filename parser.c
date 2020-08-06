@@ -15,7 +15,7 @@ int findIndexOfElement(const int *array, Operation operation);
 
 
 Bool parserIsNewLabel(char *line) {
-    if (strchr(line, LABAL_DELIM_CHAR) == NULL)
+    if (strchr(line, LABEL_DELIM_CHAR) == NULL)
         return FALSE;
     return TRUE;
 }
@@ -28,12 +28,12 @@ Bool parserIsDirective(char *line) {
 
 
 char *parserGetLabel(char *line) {
-    char *endLocation = strchr(line, LABAL_DELIM_CHAR);
+    char *endLocation = strchr(line, LABEL_DELIM_CHAR);
     char *label = malloc(sizeof(*label) * (endLocation - line));
     char *originalPtr = label;
     char *token;
     memcpy(label, line, endLocation - line);
-    token = strtok(label, WHITH_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
+    token = strtok(label, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
     label = token;
     if (isAlphabetic(label[0]))
         return label;
@@ -55,7 +55,7 @@ char *trimLabel(char *line) {  /*this function assumes that there is label in li
     token = strtok(tmpStr, LABEL_DELIM);
     if (token == NULL)
         return NULL;        /*there is nothing after the label*/
-    token = strtok(NULL, WHITH_DELIMITERS);  /*now the first word is the operation*/
+    token = strtok(NULL, WHITE_DELIMITERS);  /*now the first word is the operation*/
     trimmed = malloc(sizeof(trimmed) * (MAX_LENGTH));
     strcpy(trimmed, token);
     return trimmed;
@@ -89,7 +89,7 @@ Operation parseGetOperation(char *line) { /*trim the line, and then only get the
     startPtr = operationWord;
     if (operationWord == NULL)
         return OPERATION_NOT_FOUND;
-    operationWord = strtok(operationWord, WHITH_DELIMITERS);
+    operationWord = strtok(operationWord, WHITE_DELIMITERS);
     operationWord = strtok(operationWord, NEW_LINE_DELIM);
     operation = findOperation(operationWord);
     free(startPtr);
@@ -104,7 +104,7 @@ Directive parserGetDirective(char *line) {
     token = strtok(tmpLine, DIRECTIVE_DELIM);
     if (token[0] == tmpLine[0])     /*the first char is the same -> there were some chars before '.'*/
         token = strtok(NULL, DIRECTIVE_DELIM);
-    token = strtok(token, WHITH_DELIMITERS); /*should be only the directive name*/
+    token = strtok(token, WHITE_DELIMITERS); /*should be only the directive name*/
     if (token == NULL)
         return NO_DIRECTIVE_FOUND;
     if (strcmp(token, directives[ENTRY]) == 0)
