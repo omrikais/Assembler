@@ -124,7 +124,7 @@ int findIndexOfElement(const int *array, Operation operation) {
         if (array[i] == operation)
             return i;
     }
-    return -1;
+    return NA;
 }
 
 int parserGetNumberOfOperands(Operation operation) {
