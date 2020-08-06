@@ -143,6 +143,33 @@ Assembler/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/build
 .PHONY : Assembler/fast
 
+InstructionWord.o: InstructionWord.c.o
+
+.PHONY : InstructionWord.o
+
+# target to build an object file
+InstructionWord.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/InstructionWord.c.o
+.PHONY : InstructionWord.c.o
+
+InstructionWord.i: InstructionWord.c.i
+
+.PHONY : InstructionWord.i
+
+# target to preprocess a source file
+InstructionWord.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/InstructionWord.c.i
+.PHONY : InstructionWord.c.i
+
+InstructionWord.s: InstructionWord.c.s
+
+.PHONY : InstructionWord.s
+
+# target to generate assembly for a file
+InstructionWord.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/InstructionWord.c.s
+.PHONY : InstructionWord.c.s
+
 List.o: List.c.o
 
 .PHONY : List.o
@@ -206,6 +233,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Assembler"
+	@echo "... InstructionWord.o"
+	@echo "... InstructionWord.i"
+	@echo "... InstructionWord.s"
 	@echo "... List.o"
 	@echo "... List.i"
 	@echo "... List.s"

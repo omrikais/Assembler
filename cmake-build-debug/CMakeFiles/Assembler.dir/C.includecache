@@ -6,11 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/omrikaisari/CLionProjects/Assembler/List.h
+/Users/omrikaisari/CLionProjects/Assembler/InstructionWord.c
+InstructionWord.h
+/Users/omrikaisari/CLionProjects/Assembler/InstructionWord.h
 
-/Users/omrikaisari/CLionProjects/Assembler/Tester.c
-stdio.h
--
-List.h
-/Users/omrikaisari/CLionProjects/Assembler/List.h
+/Users/omrikaisari/CLionProjects/Assembler/InstructionWord.h
 

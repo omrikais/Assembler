@@ -10,16 +10,15 @@
 #include "List.h"
 
 
-/* A linked list node_t */
-struct node_t {
+/* A linked list nodeT */
+struct nodeT {
     void *data;
     ListNode next;
     ListNode previous;
 };
 
 List listCreate() {
-    ListNode head = (ListNode) malloc(sizeof(struct node_t));
-    int i;
+    ListNode head = (ListNode) malloc(sizeof(struct nodeT));
     head->next = NULL;
     head->previous=NULL;
     head->data = NULL;
@@ -27,7 +26,7 @@ List listCreate() {
 }
 
 ListNode listCreateListNode(void* data, size_t dataSize) {
-    ListNode node = (ListNode) malloc(sizeof(struct node_t));
+    ListNode node = (ListNode) malloc(sizeof(struct nodeT));
     int i;
     node->data = malloc(dataSize);
     for (i=0; i < dataSize; i++)

@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/InstructionWord.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/InstructionWord.h">
+			<Option target="Assembler"/>
+		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/List.c">
 			<Option target="Assembler"/>
 		</Unit>
