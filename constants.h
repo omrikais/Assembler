@@ -20,4 +20,8 @@ typedef enum addressing AddressingMethod;
 
 #define NA -1
 
+#define MAX_LENGTH 82
+
+#define LABAL_DELIM ':'
+
 #endif /*ASSEMBLER_CONSTANTS_H*/

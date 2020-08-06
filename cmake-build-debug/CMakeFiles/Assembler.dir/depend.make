@@ -8,9 +8,12 @@ CMakeFiles/Assembler.dir/instructionWord.c.o: ../instructionWord.h
 CMakeFiles/Assembler.dir/list.c.o: ../list.c
 CMakeFiles/Assembler.dir/list.c.o: ../list.h
 
+CMakeFiles/Assembler.dir/parser.c.o: ../constants.h
 CMakeFiles/Assembler.dir/parser.c.o: ../parser.c
 CMakeFiles/Assembler.dir/parser.c.o: ../parser.h
 
+CMakeFiles/Assembler.dir/tester.c.o: ../constants.h
 CMakeFiles/Assembler.dir/tester.c.o: ../list.h
+CMakeFiles/Assembler.dir/tester.c.o: ../parser.h
 CMakeFiles/Assembler.dir/tester.c.o: ../tester.c
 
