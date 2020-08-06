@@ -9,6 +9,9 @@ char *trimLabel(char *line);
 
 Bool isAlphabetic(char c);
 
+Operation findOperation(char *word);
+
+
 Bool parserIsNewLabel(char *line) {
     if (strchr(line, LABAL_DELIM_CHAR) == NULL)
         return FALSE;
@@ -56,6 +59,41 @@ char *trimLabel(char *line) {  /*this function assumes that there is label in li
     return trimmed;
 }
 
+Operation findOperation(char *word) {
+    char *functions[] = {FUNCTIONS};
+    int functions_numbers[] = {FUNCTIONS_NUMBERS};
+    int i;
+    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i) {
+        if (strcmp(word, functions[i]) == 0) {
+            Operation operation = functions_numbers[i];
+            return operation;
+        }
+    }
+    return OPRATION_NOT_FOUND;
+    
+    
+}
+
+Operation parseGetOperation(char *line) { /*trim the line, and then only get the operation*/
+    char *operationWord = NULL;
+    char *startPtr;
+    Operation operation;
+    if (parserIsNewLabel(line) == TRUE)
+        operationWord = trimLabel(line);
+    else {
+        operationWord = malloc(sizeof(*operationWord) * MAX_LENGTH);
+        strcpy(operationWord, line);
+    }
+    startPtr = operationWord;
+    if (operationWord == NULL)
+        return OPRATION_NOT_FOUND;
+    operationWord = strtok(operationWord, WHITH_DELIMITERS);
+    operationWord = strtok(operationWord, NEW_LINE_DELIM);
+    operation = findOperation(operationWord);
+    free(startPtr);
+    return operation;
+}
+
 Directive parserGetDirective(char *line) {
     char tmpLine[MAX_LENGTH];
     char *token;
@@ -78,9 +116,9 @@ Directive parserGetDirective(char *line) {
     return NO_DIRECTIVE_FOUND;
 }
 
-Operation parseGetOperation(char *line) { /*trim the line, and then only get the operation*/
-    return ADD;
-}
+
+
+
 
 
 

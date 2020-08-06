@@ -15,6 +15,9 @@ Bool parserIsDirective(char *line);
 
 Directive parserGetDirective(char *line);
 
+Operation parseGetOperation(char *line);
+
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 

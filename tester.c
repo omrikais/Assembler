@@ -34,5 +34,7 @@ int main() {
     char str[] = "DUI:    .string hi!";
     Bool y1 = parserIsDirective(str);
     Directive x1 = parserGetDirective(str);
+    char str2[] = "inc 3 2";
+    Operation operation = parseGetOperation(str2);
     return 0;
 }
