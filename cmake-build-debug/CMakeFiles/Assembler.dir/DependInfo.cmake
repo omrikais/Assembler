@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/omrikaisari/CLionProjects/Assembler/errors.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/errors.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/instructionWord.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/instructionWord.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/list.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/list.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/parser.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/parser.c.o"

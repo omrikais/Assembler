@@ -79,6 +79,12 @@
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/constants.h">
 			<Option target="Assembler"/>
 		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.h">
+			<Option target="Assembler"/>
+		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instructionWord.c">
 			<Option target="Assembler"/>
 		</Unit>

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "Assembler"
   "Assembler.pdb"
+  "CMakeFiles/Assembler.dir/errors.c.o"
   "CMakeFiles/Assembler.dir/instructionWord.c.o"
   "CMakeFiles/Assembler.dir/list.c.o"
   "CMakeFiles/Assembler.dir/parser.c.o"

@@ -71,7 +71,7 @@ Operation findOperation(char *word) {
             return operation;
         }
     }
-    return OPRATION_NOT_FOUND;
+    return OPERATION_NOT_FOUND;
     
     
 }
@@ -88,7 +88,7 @@ Operation parseGetOperation(char *line) { /*trim the line, and then only get the
     }
     startPtr = operationWord;
     if (operationWord == NULL)
-        return OPRATION_NOT_FOUND;
+        return OPERATION_NOT_FOUND;
     operationWord = strtok(operationWord, WHITH_DELIMITERS);
     operationWord = strtok(operationWord, NEW_LINE_DELIM);
     operation = findOperation(operationWord);
@@ -132,6 +132,11 @@ int parserGetNumberOfOperands(Operation operation) {
     int numberOfOperandsByFunction[] = {NUMBER_OF_OPERANDS};
     return numberOfOperandsByFunction[findIndexOfElement(functionsNumbers, operation)];
 }
+
+/*
+ * לבדוק שיש כמות מדויקת של אופרנדים, לבדוק על פי פסיקים ולהוציא הודעות שגיאה הקשורות לפסיקים אם לא
+ * במידה וכמות הפסיקים מדויקת, אפשר לעבור למודול שמפעיל את המודול הזה ומרכיב על פי הנתונים מכאן את מילת הפקודה
+ * */
 
 
 

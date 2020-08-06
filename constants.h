@@ -35,7 +35,7 @@ enum operations {
     PRN = 13,
     RTS = 14,
     STOP = 15,
-    OPRATION_NOT_FOUND
+    OPERATION_NOT_FOUND
 };
 
 typedef enum addressing AddressingMethod;
