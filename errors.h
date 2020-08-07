@@ -6,8 +6,13 @@ enum errorType {
     TOO_MANY_OPERANDS,
     TOO_FEW_OPERANDS,
     DIRECTIVE_NOT_FOUND,
-    ILLEGAL_LABEL
+    ILLEGAL_LABEL,
+    ILLEGAL_COMMA,
+    MISSING_COMMA,
+    NO_ERRORS_FOUND
 };
+
+typedef enum errorType Error;
 
 
 #ifndef ASSEMBLER_ERRORS_H

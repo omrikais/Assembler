@@ -6,6 +6,7 @@
 #define ASSEMBLER_PARSER_H
 
 #include "constants.h"
+#include "errors.h"
 
 Bool parserIsNewLabel(char *line);
 
@@ -18,6 +19,8 @@ Directive parserGetDirective(char *line);
 Operation parseGetOperation(char *line);
 
 int parserGetNumberOfOperands(Operation operation);
+
+Error parserCheckArguments(const char *line, int numberOfOperands);
 
 #endif /*ASSEMBLER_PARSER_H*/
 

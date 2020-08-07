@@ -16,6 +16,8 @@
 #define NEW_LINE_DELIM "\n"
 #define DIRECTIVE_DELIM "."
 #define DIRECTIVE_CHAR '.'
+#define SPACE_DELIM " "
+#define COMMA_CHAR ','
 
 enum boolean {
     FALSE, TRUE

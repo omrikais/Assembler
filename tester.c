@@ -37,5 +37,12 @@ int main() {
     char str2[] = "stop 3 2";
     Operation operation = parseGetOperation(str2);
     int y2 = parserGetNumberOfOperands(operation);
+    char s1[] = "hi, my \n,name is omri";
+    char *token = strtok(s1, WHITE_DELIMITERS);
+    printf("%s\n", token);
+    token = strtok(NULL, " \t\n,");
+    printf("%s\n", token);
+    char line[] = "hi: inc 3,    ";
+    Error error = parserCheckArguments(line, 2);
     return 0;
 }

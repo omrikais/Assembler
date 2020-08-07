@@ -4,6 +4,7 @@
 #include "parser.h"
 #include <string.h>
 #include <stdlib.h>
+#include "ctype.h"
 
 char *trimLabel(char *line);
 
@@ -12,6 +13,8 @@ Bool isAlphabetic(char c);
 Operation findOperation(char *word);
 
 int findIndexOfElement(const int *array, Operation operation);
+
+Error checkZeroOperandsSyntax(char const *line);
 
 
 Bool parserIsNewLabel(char *line) {
@@ -52,10 +55,10 @@ char *trimLabel(char *line) {  /*this function assumes that there is label in li
     char *token;
     char *trimmed;
     strcpy(tmpStr, line);
-    token = strtok(tmpStr, LABEL_DELIM);
+    token = strtok(tmpStr, ":");
     if (token == NULL)
         return NULL;        /*there is nothing after the label*/
-    token = strtok(NULL, WHITE_DELIMITERS);  /*now the first word is the operation*/
+    token = strtok(NULL, ":");  /*now the first word is the operation*/
     trimmed = malloc(sizeof(trimmed) * (MAX_LENGTH));
     strcpy(trimmed, token);
     return trimmed;
@@ -133,9 +136,74 @@ int parserGetNumberOfOperands(Operation operation) {
     return numberOfOperandsByFunction[findIndexOfElement(functionsNumbers, operation)];
 }
 
+Error parserCheckArguments(const char *line, int numberOfOperands) {/*This function expects to receive instruction
+ * line*/
+    char tmpLine[MAX_LENGTH];
+    char *trimmed;
+    char *token;
+    strcpy(tmpLine, line);
+    token = tmpLine;
+    if (parserIsNewLabel(tmpLine)) {
+        trimmed = trimLabel(tmpLine);
+        strcpy(tmpLine, trimmed);
+        free(trimmed);
+        token = tmpLine;
+    }
+    if (isprint(tmpLine[0]) == 0)
+        token = strtok(tmpLine, WHITE_DELIMITERS);   /*now token is on the op word*/
+    if (numberOfOperands == 0)
+        return checkZeroOperandsSyntax(token);
+    if (numberOfOperands == 1) {
+        if (strchr(token, COMMA_CHAR) != NULL)
+            return ILLEGAL_COMMA;
+        token = strtok(tmpLine, WHITE_DELIMITERS);
+        token = strtok(NULL, WHITE_DELIMITERS);     /*token should be on the first operand*/
+        if (token == NULL || token[0] == '\n')
+            return TOO_FEW_OPERANDS;
+        token = strtok(NULL, WHITE_DELIMITERS);
+        if (token == NULL || token[0] == '\n')
+            return NO_ERRORS_FOUND;
+        return TOO_MANY_OPERANDS;
+    }
+    if (numberOfOperands == 2) {
+        if (strchr(token, COMMA_CHAR) == NULL) {
+            return MISSING_COMMA;
+        }
+        token = strtok(tmpLine, ", \t\n");
+        token = strtok(NULL, ", \t\n");     /*token should be on the first operand*/
+        if (token == NULL || token[0] == '\n')
+            return TOO_FEW_OPERANDS;
+        token = strtok(NULL, ", \t\n");           /*token should be on the second operand*/
+        if (token == NULL || token[0] == '\n')
+            return TOO_FEW_OPERANDS;
+        token = strtok(NULL, ", \t\n");
+        if (token != NULL)
+            return TOO_MANY_OPERANDS;
+        return NO_ERRORS_FOUND;
+    }
+    return NO_ERRORS_FOUND;
+    
+}
+
+Error checkZeroOperandsSyntax(char const *line) {    /*line begins with the op word*/
+    char tmpLine[MAX_LENGTH];
+    char *token;
+    strcpy(tmpLine, line);
+    token = tmpLine;
+    if (strchr(tmpLine, COMMA_CHAR) != NULL) {
+        return ILLEGAL_COMMA;
+    }
+    token = strtok(tmpLine, WHITE_DELIMITERS);   /*token is still on the op word*/
+    token = strtok(NULL, WHITE_DELIMITERS);  /*token should be on \n or null*/
+    if (token == NULL || *token == '\n')
+        return NO_ERRORS_FOUND;
+    return TOO_MANY_OPERANDS;
+}
+
+
 /*
- * לבדוק שיש כמות מדויקת של אופרנדים, לבדוק על פי פסיקים ולהוציא הודעות שגיאה הקשורות לפסיקים אם לא
- * במידה וכמות הפסיקים מדויקת, אפשר לעבור למודול שמפעיל את המודול הזה ומרכיב על פי הנתונים מכאן את מילת הפקודה
+ * צריך להוסיף מתודה שבודקת כמות גדולה מדי של פסיקים, פסיקים רצופים ופסיקים במקומות לא נכונים
+ * אפשר לעשות זאת ע״י יצירת מחרוזת חסרת רווחים ובדיקה עליה ועוד כל מיני
  * */
 
 

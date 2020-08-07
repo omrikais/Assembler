@@ -13,10 +13,12 @@ CMakeFiles/Assembler.dir/list.c.o
  /Users/omrikaisari/CLionProjects/Assembler/list.h
 CMakeFiles/Assembler.dir/parser.c.o
  /Users/omrikaisari/CLionProjects/Assembler/constants.h
+ /Users/omrikaisari/CLionProjects/Assembler/errors.h
  /Users/omrikaisari/CLionProjects/Assembler/parser.c
  /Users/omrikaisari/CLionProjects/Assembler/parser.h
 CMakeFiles/Assembler.dir/tester.c.o
  /Users/omrikaisari/CLionProjects/Assembler/constants.h
+ /Users/omrikaisari/CLionProjects/Assembler/errors.h
  /Users/omrikaisari/CLionProjects/Assembler/list.h
  /Users/omrikaisari/CLionProjects/Assembler/parser.h
  /Users/omrikaisari/CLionProjects/Assembler/tester.c
