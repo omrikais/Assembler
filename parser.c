@@ -16,6 +16,12 @@ int findIndexOfElement(const int *array, Operation operation);
 
 Error checkZeroOperandsSyntax(char const *line);
 
+Bool isConsecutiveCommas(const char *string);
+
+Error isTooFewOrManyOperands(const char *line, int numberOfOperands);
+
+int howManyCommas(const char *string);
+
 
 Bool parserIsNewLabel(char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
@@ -59,6 +65,8 @@ char *trimLabel(char *line) {  /*this function assumes that there is label in li
     if (token == NULL)
         return NULL;        /*there is nothing after the label*/
     token = strtok(NULL, ":");  /*now the first word is the operation*/
+    while (isspace(token[0]))
+        ++token;
     trimmed = malloc(sizeof(trimmed) * (MAX_LENGTH));
     strcpy(trimmed, token);
     return trimmed;
@@ -136,13 +144,14 @@ int parserGetNumberOfOperands(Operation operation) {
     return numberOfOperandsByFunction[findIndexOfElement(functionsNumbers, operation)];
 }
 
-Error parserCheckArguments(const char *line, int numberOfOperands) {/*This function expects to receive instruction
+Error parserCheckOperands(const char *line, int numberOfOperands) {/*This function expects to receive instruction
  * line*/
-    char tmpLine[MAX_LENGTH];
-    char *trimmed;
-    char *token;
+    char tmpLine[MAX_LENGTH], *trimmed, *token;
+    Error result;
     strcpy(tmpLine, line);
     token = tmpLine;
+    if (isConsecutiveCommas(line) == TRUE)
+        return COSECUTIVE_COMMA;
     if (parserIsNewLabel(tmpLine)) {
         trimmed = trimLabel(tmpLine);
         strcpy(tmpLine, trimmed);
@@ -153,36 +162,50 @@ Error parserCheckArguments(const char *line, int numberOfOperands) {/*This funct
         token = strtok(tmpLine, WHITE_DELIMITERS);   /*now token is on the op word*/
     if (numberOfOperands == 0)
         return checkZeroOperandsSyntax(token);
+    result = isTooFewOrManyOperands(tmpLine, numberOfOperands);
+    return result;
+}
+
+Error isTooFewOrManyOperands(const char *line, int numberOfOperands) { /*assumes that line begins with opcode */
+    char tmpLine[MAX_LENGTH];
+    char *token;
+    int commaCounter = howManyCommas(line);
+    strcpy(tmpLine, line);
+    token = strtok(tmpLine, ", \t");
+    token = strtok(NULL, ", \t");     /*token should be on the first operand*/
+    if (token == NULL || token[0] == '\n')
+        return TOO_FEW_OPERANDS;
     if (numberOfOperands == 1) {
-        if (strchr(token, COMMA_CHAR) != NULL)
+        token = strtok(NULL, ", \t");
+        if (commaCounter > 0)
             return ILLEGAL_COMMA;
-        token = strtok(tmpLine, WHITE_DELIMITERS);
-        token = strtok(NULL, WHITE_DELIMITERS);     /*token should be on the first operand*/
-        if (token == NULL || token[0] == '\n')
-            return TOO_FEW_OPERANDS;
-        token = strtok(NULL, WHITE_DELIMITERS);
         if (token == NULL || token[0] == '\n')
             return NO_ERRORS_FOUND;
         return TOO_MANY_OPERANDS;
     }
     if (numberOfOperands == 2) {
-        if (strchr(token, COMMA_CHAR) == NULL) {
-            return MISSING_COMMA;
-        }
-        token = strtok(tmpLine, ", \t\n");
-        token = strtok(NULL, ", \t\n");     /*token should be on the first operand*/
-        if (token == NULL || token[0] == '\n')
-            return TOO_FEW_OPERANDS;
-        token = strtok(NULL, ", \t\n");           /*token should be on the second operand*/
+        token = strtok(NULL, ", \t");           /*token should be on the second operand*/
         if (token == NULL || token[0] == '\n')
             return TOO_FEW_OPERANDS;
         token = strtok(NULL, ", \t\n");
         if (token != NULL)
             return TOO_MANY_OPERANDS;
+        if (commaCounter > 1)
+            return ILLEGAL_COMMA;
+        if (commaCounter < 1)
+            return MISSING_COMMA;
         return NO_ERRORS_FOUND;
     }
     return NO_ERRORS_FOUND;
-    
+}
+
+int howManyCommas(const char *string) {
+    int counter = 0;
+    int i;
+    for (i = 0; i < strlen(string); i++)
+        if (string[i] == ',')
+            counter++;
+    return counter;
 }
 
 Error checkZeroOperandsSyntax(char const *line) {    /*line begins with the op word*/
@@ -198,6 +221,12 @@ Error checkZeroOperandsSyntax(char const *line) {    /*line begins with the op w
     if (token == NULL || *token == '\n')
         return NO_ERRORS_FOUND;
     return TOO_MANY_OPERANDS;
+}
+
+Bool isConsecutiveCommas(const char *string) {
+    char *doubleComma;
+    doubleComma = strstr(string, ",,");
+    return doubleComma == NULL ? FALSE : TRUE;
 }
 
 

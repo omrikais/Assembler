@@ -20,7 +20,7 @@ Operation parseGetOperation(char *line);
 
 int parserGetNumberOfOperands(Operation operation);
 
-Error parserCheckArguments(const char *line, int numberOfOperands);
+Error parserCheckOperands(const char *line, int numberOfOperands);
 
 #endif /*ASSEMBLER_PARSER_H*/
 

@@ -9,6 +9,7 @@ enum errorType {
     ILLEGAL_LABEL,
     ILLEGAL_COMMA,
     MISSING_COMMA,
+    COSECUTIVE_COMMA,
     NO_ERRORS_FOUND
 };
 

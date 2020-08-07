@@ -42,7 +42,7 @@ int main() {
     printf("%s\n", token);
     token = strtok(NULL, " \t\n,");
     printf("%s\n", token);
-    char line[] = "hi: inc 3,    ";
-    Error error = parserCheckArguments(line, 2);
+    char line[] = "hi: inc ,   ";
+    Error error = parserCheckOperands(line, 0);
     return 0;
 }
