@@ -6,9 +6,19 @@
 
 #IncludeRegexTransform: 
 
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
+parser.h
+/Users/omrikaisari/CLionProjects/Assembler/parser.h
+instructionWord.h
+/Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
+list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
+
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
+
+/Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
 
 /Users/omrikaisari/CLionProjects/Assembler/list.h
 stdlib.h
@@ -25,10 +35,14 @@ list.h
 /Users/omrikaisari/CLionProjects/Assembler/tester.c
 stdio.h
 -
+string.h
+-
 list.h
 /Users/omrikaisari/CLionProjects/Assembler/list.h
 parser.h
 /Users/omrikaisari/CLionProjects/Assembler/parser.h
-string.h
--
+instructionWord.h
+/Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
+code_table.h
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
 

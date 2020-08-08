@@ -16,4 +16,8 @@ int instructionWordDetermineNumberOfWords(InstructionWord word);
 
 void instructionWordSetIC(InstructionWord word, int valueOfIc);
 
+int instructionWordGetNumberOfWords(InstructionWord word);
+
+size_t instructionWordGetSize();
+
 #endif /*ASSEMBLER_INSTRUCTIONWORD_H*/

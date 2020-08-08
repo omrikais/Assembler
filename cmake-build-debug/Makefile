@@ -143,6 +143,60 @@ Assembler/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/build
 .PHONY : Assembler/fast
 
+code_table.o: code_table.c.o
+
+.PHONY : code_table.o
+
+# target to build an object file
+code_table.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/code_table.c.o
+.PHONY : code_table.c.o
+
+code_table.i: code_table.c.i
+
+.PHONY : code_table.i
+
+# target to preprocess a source file
+code_table.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/code_table.c.i
+.PHONY : code_table.c.i
+
+code_table.s: code_table.c.s
+
+.PHONY : code_table.s
+
+# target to generate assembly for a file
+code_table.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/code_table.c.s
+.PHONY : code_table.c.s
+
+data_table.o: data_table.c.o
+
+.PHONY : data_table.o
+
+# target to build an object file
+data_table.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/data_table.c.o
+.PHONY : data_table.c.o
+
+data_table.i: data_table.c.i
+
+.PHONY : data_table.i
+
+# target to preprocess a source file
+data_table.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/data_table.c.i
+.PHONY : data_table.c.i
+
+data_table.s: data_table.c.s
+
+.PHONY : data_table.s
+
+# target to generate assembly for a file
+data_table.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/data_table.c.s
+.PHONY : data_table.c.s
+
 errors.o: errors.c.o
 
 .PHONY : errors.o
@@ -251,33 +305,6 @@ parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.s
 .PHONY : parser.c.s
 
-table_builder.o: table_builder.c.o
-
-.PHONY : table_builder.o
-
-# target to build an object file
-table_builder.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/table_builder.c.o
-.PHONY : table_builder.c.o
-
-table_builder.i: table_builder.c.i
-
-.PHONY : table_builder.i
-
-# target to preprocess a source file
-table_builder.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/table_builder.c.i
-.PHONY : table_builder.c.i
-
-table_builder.s: table_builder.c.s
-
-.PHONY : table_builder.s
-
-# target to generate assembly for a file
-table_builder.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/table_builder.c.s
-.PHONY : table_builder.c.s
-
 tester.o: tester.c.o
 
 .PHONY : tester.o
@@ -314,6 +341,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Assembler"
+	@echo "... code_table.o"
+	@echo "... code_table.i"
+	@echo "... code_table.s"
+	@echo "... data_table.o"
+	@echo "... data_table.i"
+	@echo "... data_table.s"
 	@echo "... errors.o"
 	@echo "... errors.i"
 	@echo "... errors.s"
@@ -326,9 +359,6 @@ help:
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"
-	@echo "... table_builder.o"
-	@echo "... table_builder.i"
-	@echo "... table_builder.s"
 	@echo "... tester.o"
 	@echo "... tester.i"
 	@echo "... tester.s"

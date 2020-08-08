@@ -72,19 +72,30 @@ int listSize(List list) {
 }
 
 void listInsertNodeAtEnd(List list, void *newData, size_t dataSize) {
-    ListNode newNode = listCreateListNode(newData,dataSize);
+    ListNode newNode = listCreateListNode(newData, dataSize);
     ListNode temp = list;
     while (temp->next != NULL) {
         temp = temp->next;
     }
     temp->next = newNode;
-    newNode->next=NULL;
-    newNode->previous=temp;
+    newNode->next = NULL;
+    newNode->previous = temp;
+}
+
+void *listGetDataElementAtIndex(List list, int i) {
+    /*the first element is in index 1
+     * returns the original data element*/
+    int j = 0;
+    ListNode current = list;
+    while (j < i) {
+        current = current->next;
+        j++;
+    }
+    return current->data;
 }
 
 void printList(List node, printNodeFunction function) {
-    while (node != NULL)
-    {
+    while (node != NULL) {
         if (node->data != NULL)
             (*function)(node->data);
         node = node->next;

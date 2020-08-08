@@ -76,7 +76,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.h">
+			<Option target="Assembler"/>
+		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/constants.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/data_table.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/data_table.h">
 			<Option target="Assembler"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.c">
@@ -101,12 +113,6 @@
 			<Option target="Assembler"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.h">
-			<Option target="Assembler"/>
-		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/table_builder.c">
-			<Option target="Assembler"/>
-		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/table_builder.h">
 			<Option target="Assembler"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/tester.c">

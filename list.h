@@ -35,4 +35,6 @@ void printInt(void *n);
 /* Function to print a float*/
 void printFloat(void *f);
 
+void *listGetDataElementAtIndex(List list, int i);
+
 #endif /*ASSEMBLER_LIST_H*/

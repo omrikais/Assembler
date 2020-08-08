@@ -7,6 +7,7 @@
 #define FUNCTIONS_NUMBERS 0,1,21,22,4,51,52,53,54,91,92,93,12,13,14,15
 #define NUMBER_OF_OPERANDS 2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0
 #define NUMBER_OF_FUNCTIONS 16
+#define BEGIN_ADDRESS 100
 #define DIRECTIVES "data","string","entry","extern"
 #define NA -1
 #define MAX_LENGTH 82

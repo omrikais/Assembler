@@ -37,6 +37,10 @@ InstructionWord instructionWordCreate(int opcode, int func, int sourceAddressing
     return word;
 }
 
+size_t instructionWordGetSize() {
+    return sizeof(struct instructionWordT);
+}
+
 
 void instructionWordDestroy(InstructionWord word) {
     free(word);
@@ -65,5 +69,9 @@ int instructionWordDetermineNumberOfWords(InstructionWord word) {
     totalWords += instructionWordHowManyWordsByOperand(word->destinationAddressingMethod) +
                   instructionWordHowManyWordsByOperand(word->sourceAddressingMethod);
     return totalWords;
+}
+
+int instructionWordGetNumberOfWords(InstructionWord word) {
+    return word->numberOfWords;
 }
 

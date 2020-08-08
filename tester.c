@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <string.h>
 #include "list.h"
 #include "parser.h"
-#include <string.h>
+#include "instructionWord.h"
+#include "code_table.h"
 
 /*Created by Omri Kaisari on 05/08/2020.*/
 
@@ -51,9 +53,13 @@ int main() {
     char s3[] = ".string \"abcds\"";
     int *arr = parserGetStingData(s3);
     printf("%s\n", (char *) arr);
-    char s4[] = "hi: .data 4,5,6,7,9,8\n";
+    char s4[] = "hi: .data +4,5,6,7,9,+8\n";
     List list1 = parserGetDataArray(s4);
     printList(list1, printInt);
     printf("\nThe List Size is: %d\n", listSize(list1));
+    InstructionWord word = instructionWordCreate(12, 4, 1, 2, 3, 2, 3, 2);
+    InstructionsList list2 = instructionListCreate();
+    instructionListAddInstruction(list2, word);
+    InstructionWord word1 = instructionListGetInstruction(list2, 1);
     return 0;
 }

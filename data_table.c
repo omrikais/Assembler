@@ -1,15 +1,8 @@
 
 /*Created by Omri Kaisari on 08/08/2020.*/
 
-#include "table_builder.h"
+#include "data_table.h"
 #include <stdlib.h>
-
-
-struct codeListT {
-    List instructions;
-    int IC;
-    int numberOfInstructions;
-};
 
 struct dataListT {
     List data;
@@ -17,6 +10,6 @@ struct dataListT {
     int numberOfDataItems;
 };
 
+DataItemsList instructionListCreate() {
 
-
-
+}
