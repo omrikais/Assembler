@@ -21,6 +21,7 @@
 #define IMMEDIATE_ADDRESSING_SYMBOL '#'
 #define RELATIVE_ADDRESSING_SYMBOL '&'
 #define REGISTER_CHAR 'r'
+#define STRING_DELIM "\""
 
 
 enum boolean {

@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Assembler.dir/instructionWord.c.o"
   "CMakeFiles/Assembler.dir/list.c.o"
   "CMakeFiles/Assembler.dir/parser.c.o"
+  "CMakeFiles/Assembler.dir/table_builder.c.o"
   "CMakeFiles/Assembler.dir/tester.c.o"
 )
 

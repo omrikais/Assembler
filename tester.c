@@ -42,11 +42,18 @@ int main() {
     printf("%s\n", token);
     token = strtok(NULL, " \t\n,");
     printf("%s\n", token);
-    char line[] = "hi: inc ,   ";
-    Error error = parserCheckOperands(line, 0);
+    char line[] = "hi: inc 1,2   ";
+    Error error = parserCheckOperands(line, 2);
     char s2[] = "inc r33  , 2";
     char *operand = parserGetOperand(s2, 1);
     AddressingMethod addressingMethod = parserGetAddressingMethodOfOperand(operand);
     printf("%s\n", operand);
+    char s3[] = ".string \"abcds\"";
+    int *arr = parserGetStingData(s3);
+    printf("%s\n", (char *) arr);
+    char s4[] = "hi: .data 4,5,6,7,9,8\n";
+    List list1 = parserGetDataArray(s4);
+    printList(list1, printInt);
+    printf("\nThe List Size is: %d\n", listSize(list1));
     return 0;
 }

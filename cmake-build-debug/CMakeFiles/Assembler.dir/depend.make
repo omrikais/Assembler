@@ -13,8 +13,17 @@ CMakeFiles/Assembler.dir/list.c.o: ../list.h
 
 CMakeFiles/Assembler.dir/parser.c.o: ../constants.h
 CMakeFiles/Assembler.dir/parser.c.o: ../errors.h
+CMakeFiles/Assembler.dir/parser.c.o: ../list.h
 CMakeFiles/Assembler.dir/parser.c.o: ../parser.c
 CMakeFiles/Assembler.dir/parser.c.o: ../parser.h
+
+CMakeFiles/Assembler.dir/table_builder.c.o: ../constants.h
+CMakeFiles/Assembler.dir/table_builder.c.o: ../errors.h
+CMakeFiles/Assembler.dir/table_builder.c.o: ../instructionWord.h
+CMakeFiles/Assembler.dir/table_builder.c.o: ../list.h
+CMakeFiles/Assembler.dir/table_builder.c.o: ../parser.h
+CMakeFiles/Assembler.dir/table_builder.c.o: ../table_builder.c
+CMakeFiles/Assembler.dir/table_builder.c.o: ../table_builder.h
 
 CMakeFiles/Assembler.dir/tester.c.o: ../constants.h
 CMakeFiles/Assembler.dir/tester.c.o: ../errors.h

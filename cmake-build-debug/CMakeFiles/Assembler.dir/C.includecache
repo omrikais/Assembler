@@ -11,12 +11,16 @@
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
 
 /Users/omrikaisari/CLionProjects/Assembler/list.h
+stdlib.h
+-
 
 /Users/omrikaisari/CLionProjects/Assembler/parser.h
 constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 errors.h
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
+list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 
 /Users/omrikaisari/CLionProjects/Assembler/tester.c
 stdio.h

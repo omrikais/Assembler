@@ -103,6 +103,12 @@
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.h">
 			<Option target="Assembler"/>
 		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/table_builder.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/table_builder.h">
+			<Option target="Assembler"/>
+		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/tester.c">
 			<Option target="Assembler"/>
 		</Unit>

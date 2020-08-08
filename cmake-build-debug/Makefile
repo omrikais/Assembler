@@ -251,6 +251,33 @@ parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.s
 .PHONY : parser.c.s
 
+table_builder.o: table_builder.c.o
+
+.PHONY : table_builder.o
+
+# target to build an object file
+table_builder.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/table_builder.c.o
+.PHONY : table_builder.c.o
+
+table_builder.i: table_builder.c.i
+
+.PHONY : table_builder.i
+
+# target to preprocess a source file
+table_builder.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/table_builder.c.i
+.PHONY : table_builder.c.i
+
+table_builder.s: table_builder.c.s
+
+.PHONY : table_builder.s
+
+# target to generate assembly for a file
+table_builder.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/table_builder.c.s
+.PHONY : table_builder.c.s
+
 tester.o: tester.c.o
 
 .PHONY : tester.o
@@ -299,6 +326,9 @@ help:
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"
+	@echo "... table_builder.o"
+	@echo "... table_builder.i"
+	@echo "... table_builder.s"
 	@echo "... tester.o"
 	@echo "... tester.i"
 	@echo "... tester.s"

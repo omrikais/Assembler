@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/omrikaisari/CLionProjects/Assembler/instructionWord.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/instructionWord.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/list.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/list.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/parser.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/parser.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/table_builder.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/table_builder.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/tester.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir/tester.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

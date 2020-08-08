@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "ctype.h"
 
-char *trimLabel(char *line);
+char *trimLabel(const char *line);
 
 Bool isAlphabetic(char c);
 
@@ -71,18 +71,23 @@ char *deleteSpaces(const char *line) {
     return cleanStr;
 }
 
-char *trimLabel(char *line) {  /*this function assumes that there is label in line*/
+char *trimLabel(const char *line) {
     char tmpStr[MAX_LENGTH];
     char *token;
     char *trimmed;
     strcpy(tmpStr, line);
+    if (parserIsNewLabel(line) == FALSE) {
+        trimmed = malloc(sizeof((*line) * (strlen(line) + 1)));
+        strcpy(trimmed, token);
+        return trimmed;
+    }
     token = strtok(tmpStr, ":");
     if (token == NULL)
         return NULL;        /*there is nothing after the label*/
     token = strtok(NULL, ":");  /*now the first word is the operation*/
     while (isspace(token[0]))
         ++token;
-    trimmed = malloc(sizeof(trimmed) * (MAX_LENGTH));
+    trimmed = malloc(sizeof((*trimmed) * (strlen(token) + 1)));
     strcpy(trimmed, token);
     return trimmed;
 }
@@ -142,6 +147,35 @@ Directive parserGetDirective(char *line) {
     if (strcmp(token, directives[EXTERN]) == 0)
         return EXTERN;
     return NO_DIRECTIVE_FOUND;
+}
+
+char *parserGetStingData(const char *line) {
+    /*returns an ascii array of the string
+     * assumes to get a string directive line*/
+    char tmpLine[MAX_LENGTH], *token;
+    char *stringAsciiArray;
+    strcpy(tmpLine, line);
+    strtok(tmpLine, STRING_DELIM);
+    token = strtok(NULL, STRING_DELIM);/*token is now on the string*/
+    stringAsciiArray = malloc(sizeof(*stringAsciiArray) * (strlen(token) + 1));
+    strcpy(stringAsciiArray, token);
+    return stringAsciiArray;
+}
+
+List parserGetDataArray(const char *line) {
+    /*assumes to get a data directive with valid arguments*/
+    char tmpLine[MAX_LENGTH], *token, *trimmed, *rest;
+    List dataList = listCreate();
+    int currentNumber;
+    trimmed = trimLabel(line);
+    strcpy(tmpLine, trimmed);
+    free(trimmed);
+    rest = tmpLine;
+    while ((token = strtok_r(rest, ".data, \n", &rest))) {
+        currentNumber = atoi(token);
+        listInsertNodeAtEnd(dataList, &currentNumber, sizeof(int));
+    }
+    return dataList;
 }
 
 int findIndexOfElement(const int *array, Operation operation) {

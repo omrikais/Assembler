@@ -4,7 +4,7 @@
 
 #ifndef ASSEMBLER_LIST_H
 #define ASSEMBLER_LIST_H
-
+#include <stdlib.h>
 typedef struct nodeT *ListNode;
 typedef ListNode List;
 typedef void (*printNodeFunction)(void* nodeData);

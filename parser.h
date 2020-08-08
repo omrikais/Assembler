@@ -7,6 +7,8 @@
 
 #include "constants.h"
 #include "errors.h"
+#include "list.h"
+
 
 Bool parserIsNewLabel(char *line);
 
@@ -25,6 +27,10 @@ Error parserCheckOperands(const char *line, int numberOfOperands);
 char *parserGetOperand(const char *line, int operandIndex);
 
 AddressingMethod parserGetAddressingMethodOfOperand(const char *operand);
+
+char *parserGetStingData(const char *line);
+
+List parserGetDataArray(const char *line);
 
 #endif /*ASSEMBLER_PARSER_H*/
 
