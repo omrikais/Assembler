@@ -24,6 +24,8 @@ Error parserCheckOperands(const char *line, int numberOfOperands);
 
 char *parserGetOperand(const char *line, int operandIndex);
 
+AddressingMethod parserGetAddressingMethodOfOperand(const char *operand);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 

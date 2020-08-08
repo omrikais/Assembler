@@ -260,6 +260,17 @@ char *parserGetOperand(const char *line, int operandIndex) {
     return operand;
 }
 
+AddressingMethod parserGetAddressingMethodOfOperand(const char *operand) {
+    /*assumes that operand is an operand string with no spaces*/
+    if (operand[0] == IMMEDIATE_ADDRESSING_SYMBOL)
+        return IMMEDIATE;
+    if (operand[0] == RELATIVE_ADDRESSING_SYMBOL)
+        return RELATIVE;
+    if (operand[0] == REGISTER_CHAR && strlen(operand) == 2)
+        return REGISTER;
+    return DIRECT;
+}
+
 
 
 

@@ -18,6 +18,10 @@
 #define DIRECTIVE_CHAR '.'
 #define SPACE_DELIM " "
 #define COMMA_CHAR ','
+#define IMMEDIATE_ADDRESSING_SYMBOL '#'
+#define RELATIVE_ADDRESSING_SYMBOL '&'
+#define REGISTER_CHAR 'r'
+
 
 enum boolean {
     FALSE, TRUE
