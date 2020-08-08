@@ -56,6 +56,21 @@ Bool isAlphabetic(char c) {
     return FALSE;
 }
 
+char *deleteSpaces(const char *line) {
+    char tmpLine[MAX_LENGTH], *cleanStr;
+    int i = 0, j = 0;
+    while (i < strlen(line) && (line[i] != '\0' || line[i] != '\n')) {
+        if (line[i] != ' ') {
+            tmpLine[j++] = line[i++];
+        } else
+            i++;
+    }
+    tmpLine[j] = '\0';
+    cleanStr = malloc(sizeof(*cleanStr) * (strlen(tmpLine) + 1));
+    strcpy(cleanStr, tmpLine);
+    return cleanStr;
+}
+
 char *trimLabel(char *line) {  /*this function assumes that there is label in line*/
     char tmpStr[MAX_LENGTH];
     char *token;
@@ -228,6 +243,24 @@ Bool isConsecutiveCommas(const char *string) {
     doubleComma = strstr(string, ",,");
     return doubleComma == NULL ? FALSE : TRUE;
 }
+
+char *parserGetOperand(const char *line, int operandIndex) {
+    /*assumes that line is an instruction without label and with correct operands structure */
+    char tmpLine[MAX_LENGTH];
+    char *token, *operand;
+    strcpy(tmpLine, line);
+    strtok(tmpLine, ":, \n");
+    token = strtok(NULL, ":, \n");/*token now is on the first argument*/
+    if (operandIndex == 1) {
+        operand = deleteSpaces(token);
+        return operand;
+    }
+    token = strtok(NULL, ":, \n");/*token now is on the second argument*/
+    operand = deleteSpaces(token);
+    return operand;
+}
+
+
 
 
 /*

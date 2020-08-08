@@ -44,5 +44,8 @@ int main() {
     printf("%s\n", token);
     char line[] = "hi: inc ,   ";
     Error error = parserCheckOperands(line, 0);
+    char s2[] = "inc #3  , 2";
+    char *operand = parserGetOperand(s2, 2);
+    printf("%s\n", operand);
     return 0;
 }

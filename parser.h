@@ -22,6 +22,8 @@ int parserGetNumberOfOperands(Operation operation);
 
 Error parserCheckOperands(const char *line, int numberOfOperands);
 
+char *parserGetOperand(const char *line, int operandIndex);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 
