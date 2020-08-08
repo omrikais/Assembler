@@ -33,13 +33,15 @@ void instructionListAddInstruction(InstructionsList instructions, InstructionWor
 }
 
 void instructionListDestroy(InstructionsList instructions) {
-    listDestroy(instructions->instructions);
+    listDestroy(instructions->instructions, (destroyFunction) instructionWordDestroy);
     free(instructions);
 }
 
 InstructionWord instructionListGetInstruction(InstructionsList instructions, int i) {
     return (InstructionWord) listGetDataElementAtIndex(instructions->instructions, i);
 }
+
+
 
 
 

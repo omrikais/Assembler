@@ -36,27 +36,26 @@ ListNode listCreateListNode(void* data, size_t dataSize) {
 
 
 
-void listNodeDestroy(ListNode node) {
+void listNodeDestroy(ListNode node, destroyFunction destroy) {
     if (node == NULL)
         return;
-    if (node->data!=NULL)
-        free(node->data);
+    if (node->data != NULL)
+        destroy(node->data);
     free(node);
 }
 
 
-
-void listDestroy(List list) {
+void listDestroy(List list, destroyFunction destroy) {
     ListNode current = list;
     ListNode next;
     if (list == NULL)
         return;
-    while (current->next!=NULL) {
+    while (current->next != NULL) {
         next = current->next;
-        listNodeDestroy(current);
+        listNodeDestroy(current, destroy);
         current = next;
     }
-    listNodeDestroy(current);
+    listNodeDestroy(current, destroy);
 }
 
 int listSize(List list) {
@@ -104,5 +103,17 @@ void printList(List node, printNodeFunction function) {
 
 size_t listGetSizeOf() {
     return sizeof(struct nodeT);
+}
+
+void *listFindElement(List list, void *element, equals compereFunction) {
+    ListNode current = list;
+    while (current != NULL) {
+        if (current->data != NULL) {
+            if (compereFunction(element, current->data) == 0)
+                return current->data;
+        }
+        current = current->next;
+    }
+    return NULL;
 }
 

@@ -39,6 +39,6 @@ void *dataItemsListGetData(DataItemsList list, int i) {
 }
 
 void dataItemsListDestroy(DataItemsList list) {
-    listDestroy(list->data);
+    listDestroy(list->data, NULL);
     free(list);
 }

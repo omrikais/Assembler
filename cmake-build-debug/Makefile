@@ -305,6 +305,33 @@ parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.s
 .PHONY : parser.c.s
 
+symbol_table.o: symbol_table.c.o
+
+.PHONY : symbol_table.o
+
+# target to build an object file
+symbol_table.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/symbol_table.c.o
+.PHONY : symbol_table.c.o
+
+symbol_table.i: symbol_table.c.i
+
+.PHONY : symbol_table.i
+
+# target to preprocess a source file
+symbol_table.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/symbol_table.c.i
+.PHONY : symbol_table.c.i
+
+symbol_table.s: symbol_table.c.s
+
+.PHONY : symbol_table.s
+
+# target to generate assembly for a file
+symbol_table.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/symbol_table.c.s
+.PHONY : symbol_table.c.s
+
 tester.o: tester.c.o
 
 .PHONY : tester.o
@@ -359,6 +386,9 @@ help:
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"
+	@echo "... symbol_table.o"
+	@echo "... symbol_table.i"
+	@echo "... symbol_table.s"
 	@echo "... tester.o"
 	@echo "... tester.i"
 	@echo "... tester.s"

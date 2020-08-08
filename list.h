@@ -4,18 +4,26 @@
 
 #ifndef ASSEMBLER_LIST_H
 #define ASSEMBLER_LIST_H
+
 #include <stdlib.h>
+#include "constants.h"
+
 typedef struct nodeT *ListNode;
 typedef ListNode List;
-typedef void (*printNodeFunction)(void* nodeData);
+
+typedef void (*printNodeFunction)(void *nodeData);
+
+typedef void (*destroyFunction)(void *nodeData);
+
+typedef int (*equals)(const void *a, const void *b);
 
 List listCreate();
 
-ListNode listCreateListNode(void* data, size_t dataSize);
+ListNode listCreateListNode(void *data, size_t dataSize);
 
-void listDestroy(List list);
+void listDestroy(List list, destroyFunction destroy);
 
-void listNodeDestroy(ListNode node);
+void listNodeDestroy(ListNode node, destroyFunction destroy);
 
 int listSize(List list);
 
@@ -36,6 +44,9 @@ void printInt(void *n);
 void printFloat(void *f);
 
 void *listGetDataElementAtIndex(List list, int i);
+
+void *listFindElement(List list, void *element, equals compereFunction);
+
 
 size_t listGetSizeOf();
 

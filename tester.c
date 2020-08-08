@@ -5,6 +5,7 @@
 #include "instructionWord.h"
 #include "code_table.h"
 #include "data_table.h"
+#include "symbol_table.h"
 
 /*Created by Omri Kaisari on 05/08/2020.*/
 
@@ -26,7 +27,7 @@ int main() {
     listInsertNodeAtEnd(list, &u, sizeof(x));
     printList(list, printInt);
     printf("\nThe List Size is: %d\n", listSize(list));
-    listDestroy(list);
+    listDestroy(list, free);
 /*    char *label = parserGetLabel("      ?sholom: sadjlaslkdjsakl");
     parserIsNewLabel("hdfjksfhsdjk: sadjlaslkdjsakl");
     printf("%s\n", label);
@@ -70,5 +71,13 @@ int main() {
     dataItemsListAddDataElement(dataItemsList, list1, parserGetSizeOfElement(list1, DATA));
     List list3 = (List) dataItemsListGetData(dataItemsList, 2);
     printList(list3, printInt);
+    List symbols = listCreate();
+    SymbolEntry entry = symbolEntryCreate("Hi", 100, code);
+    SymbolEntry entry1 = symbolEntryCreate("Omri", 105, code);
+    SymbolEntry entry2 = symbolEntryCreate("Marlena", 1010, code);
+    listInsertNodeAtEnd(symbols, entry, symboleSizeOf());
+    listInsertNodeAtEnd(symbols, entry1, symboleSizeOf());
+    listInsertNodeAtEnd(symbols, entry2, symboleSizeOf());
+    SymbolEntry s = listFindElement(symbols, "Marlena", (equals) symbolEntryCompare);
     return 0;
 }
