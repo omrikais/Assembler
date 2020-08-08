@@ -102,3 +102,7 @@ void printList(List node, printNodeFunction function) {
     }
 }
 
+size_t listGetSizeOf() {
+    return sizeof(struct nodeT);
+}
+

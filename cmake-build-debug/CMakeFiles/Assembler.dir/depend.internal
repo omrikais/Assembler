@@ -9,6 +9,10 @@ CMakeFiles/Assembler.dir/code_table.c.o
  /Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
  /Users/omrikaisari/CLionProjects/Assembler/list.h
  /Users/omrikaisari/CLionProjects/Assembler/parser.h
+CMakeFiles/Assembler.dir/data_table.c.o
+ /Users/omrikaisari/CLionProjects/Assembler/data_table.c
+ /Users/omrikaisari/CLionProjects/Assembler/data_table.h
+ /Users/omrikaisari/CLionProjects/Assembler/list.h
 CMakeFiles/Assembler.dir/errors.c.o
  /Users/omrikaisari/CLionProjects/Assembler/errors.c
  /Users/omrikaisari/CLionProjects/Assembler/errors.h
@@ -28,6 +32,7 @@ CMakeFiles/Assembler.dir/parser.c.o
 CMakeFiles/Assembler.dir/tester.c.o
  /Users/omrikaisari/CLionProjects/Assembler/code_table.h
  /Users/omrikaisari/CLionProjects/Assembler/constants.h
+ /Users/omrikaisari/CLionProjects/Assembler/data_table.h
  /Users/omrikaisari/CLionProjects/Assembler/errors.h
  /Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
  /Users/omrikaisari/CLionProjects/Assembler/list.h

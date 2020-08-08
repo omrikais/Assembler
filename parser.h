@@ -32,6 +32,8 @@ char *parserGetStingData(const char *line);
 
 List parserGetDataArray(const char *line);
 
+size_t parserGetSizeOfElement(void *element, Directive type);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 

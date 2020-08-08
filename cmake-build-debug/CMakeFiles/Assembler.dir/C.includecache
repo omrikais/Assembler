@@ -16,6 +16,10 @@ list.h
 
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
+list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
+
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
 
 /Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
@@ -45,4 +49,6 @@ instructionWord.h
 /Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
 code_table.h
 /Users/omrikaisari/CLionProjects/Assembler/code_table.h
+data_table.h
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
 

@@ -4,6 +4,7 @@
 #include "parser.h"
 #include "instructionWord.h"
 #include "code_table.h"
+#include "data_table.h"
 
 /*Created by Omri Kaisari on 05/08/2020.*/
 
@@ -58,8 +59,16 @@ int main() {
     printList(list1, printInt);
     printf("\nThe List Size is: %d\n", listSize(list1));
     InstructionWord word = instructionWordCreate(12, 4, 1, 2, 3, 2, 3, 2);
+    InstructionWord word2 = instructionWordCreate(15, 4, 1, 2, 3, 2, 3, 2);
     InstructionsList list2 = instructionListCreate();
     instructionListAddInstruction(list2, word);
+    instructionListAddInstruction(list2, word2);
     InstructionWord word1 = instructionListGetInstruction(list2, 1);
+    InstructionWord word3 = instructionListGetInstruction(list2, 2);
+    DataItemsList dataItemsList = dataItemsListCreate();
+    dataItemsListAddDataElement(dataItemsList, "abcde", strlen("abcde"));
+    dataItemsListAddDataElement(dataItemsList, list1, parserGetSizeOfElement(list1, DATA));
+    List list3 = (List) dataItemsListGetData(dataItemsList, 2);
+    printList(list3, printInt);
     return 0;
 }

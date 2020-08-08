@@ -37,4 +37,6 @@ void printFloat(void *f);
 
 void *listGetDataElementAtIndex(List list, int i);
 
+size_t listGetSizeOf();
+
 #endif /*ASSEMBLER_LIST_H*/

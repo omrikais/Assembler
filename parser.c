@@ -305,6 +305,13 @@ AddressingMethod parserGetAddressingMethodOfOperand(const char *operand) {
     return DIRECT;
 }
 
+size_t parserGetSizeOfElement(void *element, Directive type) {
+    if (type == STRING)
+        return strlen((char *) element);
+    else
+        return listGetSizeOf();
+}
+
 
 
 

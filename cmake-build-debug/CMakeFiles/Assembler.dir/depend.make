@@ -9,6 +9,10 @@ CMakeFiles/Assembler.dir/code_table.c.o: ../instructionWord.h
 CMakeFiles/Assembler.dir/code_table.c.o: ../list.h
 CMakeFiles/Assembler.dir/code_table.c.o: ../parser.h
 
+CMakeFiles/Assembler.dir/data_table.c.o: ../data_table.c
+CMakeFiles/Assembler.dir/data_table.c.o: ../data_table.h
+CMakeFiles/Assembler.dir/data_table.c.o: ../list.h
+
 CMakeFiles/Assembler.dir/errors.c.o: ../errors.c
 CMakeFiles/Assembler.dir/errors.c.o: ../errors.h
 
@@ -27,6 +31,7 @@ CMakeFiles/Assembler.dir/parser.c.o: ../parser.h
 
 CMakeFiles/Assembler.dir/tester.c.o: ../code_table.h
 CMakeFiles/Assembler.dir/tester.c.o: ../constants.h
+CMakeFiles/Assembler.dir/tester.c.o: ../data_table.h
 CMakeFiles/Assembler.dir/tester.c.o: ../errors.h
 CMakeFiles/Assembler.dir/tester.c.o: ../instructionWord.h
 CMakeFiles/Assembler.dir/tester.c.o: ../list.h
