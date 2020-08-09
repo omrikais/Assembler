@@ -37,16 +37,16 @@ Bool parser_is_directive(char *line) {
 
 
 char *parser_get_label(char *line) {
-    char *endLocation = strchr(line, LABEL_DELIM_CHAR);
-    char *label = malloc(sizeof(*label) * (endLocation - line));
-    char *originalPtr = label;
-    char *token;
-    memcpy(label, line, endLocation - line);
-    token = strtok(label, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
-    label = token;
-    if (is_alphabetic(label[0]))
-        return label;
-    free(originalPtr);
+    char tmpLine[MAX_LENGTH];
+    char *token, *result;
+    strcpy(tmpLine, line);
+    token = strtok(tmpLine, ":");
+    token = strtok(token, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
+    if (is_alphabetic(token[0])) {
+        result = malloc(sizeof(char) * (strlen(token) + 1));
+        strcpy(result, token);
+        return result;
+    }
     return NULL;
 }
 
@@ -324,6 +324,32 @@ size_t parser_get_size_of_element(void *element, Directive type) {
         return strlen((char *) element);
     else
         return list_get_size_of();
+}
+
+
+char *parser_get_extern_label(const char *line, Error *result) {
+    char tmpLine[MAX_LENGTH];
+    char *token, *operand;
+    strcpy(tmpLine, line);
+    token = strtok(tmpLine, ".extern \n");/*should be on label*/
+    if (token == NULL) {
+        *result = MissingLabel;
+        return NULL;
+    }
+    operand = malloc(sizeof(char) * (strlen(token) + 1));
+    strcpy(operand, token);
+    if (is_alphabetic(token[0]) != True) {
+        free(operand);
+        *result = IllegalLabel;
+        return NULL;
+    }
+    if (strtok(NULL, " \n\t") != NULL) {
+        free(operand);
+        *result = TooManyParametersOfExtern;
+        return NULL;
+    }
+    *result = NoErrorsFound;
+    return operand;
 }
 
 

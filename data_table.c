@@ -29,11 +29,11 @@ void data_items_list_add_data_element(DataItemsList list, void *dataElement, siz
     /*if the Data element is List - it uses the original list (it is not being copied)*/
     /*the DC should be updated by the reading module*/
     list_insert_node_at_end(list->data, dataElement, sizeOfDataElement);
-    ++(list->numberOfDataItems);
+    (list->numberOfDataItems)++;
 }
 
 void data_items_list_update_dc(DataItemsList list, int value) {
-    list->DC = value;
+    (list->DC) += value;
 }
 
 void *data_items_list_get_data(DataItemsList list, int i) {
@@ -44,6 +44,10 @@ void *data_items_list_get_data(DataItemsList list, int i) {
 void data_items_list_destroy(DataItemsList list) {
     list_destroy(list->data, data_item_list_destroy);
     free(list);
+}
+
+int data_items_get_dc(DataItemsList list) {
+    return list->DC;
 }
 
 void data_item_list_destroy(List list) {

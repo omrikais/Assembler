@@ -12,6 +12,17 @@ CMakeFiles/Assembler.dir/builder.c.o: ../list.h
 CMakeFiles/Assembler.dir/builder.c.o: ../parser.h
 CMakeFiles/Assembler.dir/builder.c.o: ../symbol_table.h
 
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../builder.h
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../builder_tests.c
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../code_table.h
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../constants.h
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../data_table.h
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../errors.h
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../instruction_word.h
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../list.h
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../parser.h
+CMakeFiles/Assembler.dir/builder_tests.c.o: ../symbol_table.h
+
 CMakeFiles/Assembler.dir/code_table.c.o: ../code_table.c
 CMakeFiles/Assembler.dir/code_table.c.o: ../code_table.h
 CMakeFiles/Assembler.dir/code_table.c.o: ../constants.h
@@ -46,14 +57,4 @@ CMakeFiles/Assembler.dir/symbol_table.c.o: ../constants.h
 CMakeFiles/Assembler.dir/symbol_table.c.o: ../list.h
 CMakeFiles/Assembler.dir/symbol_table.c.o: ../symbol_table.c
 CMakeFiles/Assembler.dir/symbol_table.c.o: ../symbol_table.h
-
-CMakeFiles/Assembler.dir/tester.c.o: ../code_table.h
-CMakeFiles/Assembler.dir/tester.c.o: ../constants.h
-CMakeFiles/Assembler.dir/tester.c.o: ../data_table.h
-CMakeFiles/Assembler.dir/tester.c.o: ../errors.h
-CMakeFiles/Assembler.dir/tester.c.o: ../instruction_word.h
-CMakeFiles/Assembler.dir/tester.c.o: ../list.h
-CMakeFiles/Assembler.dir/tester.c.o: ../parser.h
-CMakeFiles/Assembler.dir/tester.c.o: ../symbol_table.h
-CMakeFiles/Assembler.dir/tester.c.o: ../tester.c
 

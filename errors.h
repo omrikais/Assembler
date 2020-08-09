@@ -9,7 +9,10 @@ enum error_t {
     IllegalLabel,
     IllegalComma,
     MissingComma,
+    TooManyParametersOfExtern,
     ConsecutiveComma,
+    MissingLabel,
+    LabelAlreadyExists,
     NoErrorsFound
 };
 

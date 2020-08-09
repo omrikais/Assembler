@@ -16,5 +16,9 @@ Builder init();
 
 void close(Builder builder);
 
+Error evaluate_directive_line(Builder builder, char *line);
+
+void add_data_item_to_table(Builder builder, const char *line, Directive directive);
+
 
 #endif /*ASSEMBLER_BUILDER_H*/

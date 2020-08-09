@@ -170,6 +170,33 @@ builder.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder.c.s
 .PHONY : builder.c.s
 
+builder_tests.o: builder_tests.c.o
+
+.PHONY : builder_tests.o
+
+# target to build an object file
+builder_tests.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder_tests.c.o
+.PHONY : builder_tests.c.o
+
+builder_tests.i: builder_tests.c.i
+
+.PHONY : builder_tests.i
+
+# target to preprocess a source file
+builder_tests.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder_tests.c.i
+.PHONY : builder_tests.c.i
+
+builder_tests.s: builder_tests.c.s
+
+.PHONY : builder_tests.s
+
+# target to generate assembly for a file
+builder_tests.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder_tests.c.s
+.PHONY : builder_tests.c.s
+
 code_table.o: code_table.c.o
 
 .PHONY : code_table.o
@@ -359,33 +386,6 @@ symbol_table.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/symbol_table.c.s
 .PHONY : symbol_table.c.s
 
-tester.o: tester.c.o
-
-.PHONY : tester.o
-
-# target to build an object file
-tester.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/tester.c.o
-.PHONY : tester.c.o
-
-tester.i: tester.c.i
-
-.PHONY : tester.i
-
-# target to preprocess a source file
-tester.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/tester.c.i
-.PHONY : tester.c.i
-
-tester.s: tester.c.s
-
-.PHONY : tester.s
-
-# target to generate assembly for a file
-tester.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/tester.c.s
-.PHONY : tester.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -398,6 +398,9 @@ help:
 	@echo "... builder.o"
 	@echo "... builder.i"
 	@echo "... builder.s"
+	@echo "... builder_tests.o"
+	@echo "... builder_tests.i"
+	@echo "... builder_tests.s"
 	@echo "... code_table.o"
 	@echo "... code_table.i"
 	@echo "... code_table.s"
@@ -419,9 +422,6 @@ help:
 	@echo "... symbol_table.o"
 	@echo "... symbol_table.i"
 	@echo "... symbol_table.s"
-	@echo "... tester.o"
-	@echo "... tester.i"
-	@echo "... tester.s"
 .PHONY : help
 
 

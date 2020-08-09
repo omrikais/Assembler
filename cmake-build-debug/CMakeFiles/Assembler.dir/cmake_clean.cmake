@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "Assembler"
   "Assembler.pdb"
   "CMakeFiles/Assembler.dir/builder.c.o"
+  "CMakeFiles/Assembler.dir/builder_tests.c.o"
   "CMakeFiles/Assembler.dir/code_table.c.o"
   "CMakeFiles/Assembler.dir/data_table.c.o"
   "CMakeFiles/Assembler.dir/errors.c.o"
@@ -9,7 +10,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Assembler.dir/list.c.o"
   "CMakeFiles/Assembler.dir/parser.c.o"
   "CMakeFiles/Assembler.dir/symbol_table.c.o"
-  "CMakeFiles/Assembler.dir/tester.c.o"
 )
 
 # Per-language clean rules from dependency scanning.

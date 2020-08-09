@@ -36,6 +36,8 @@ size_t parser_get_size_of_element(void *element, Directive type);
 
 Bool parser_is_empty_line(const char *line);
 
+char *parser_get_extern_label(const char *line, Error *result);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 

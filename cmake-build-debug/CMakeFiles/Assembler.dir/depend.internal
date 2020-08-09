@@ -12,6 +12,17 @@ CMakeFiles/Assembler.dir/builder.c.o
  /Users/omrikaisari/CLionProjects/Assembler/list.h
  /Users/omrikaisari/CLionProjects/Assembler/parser.h
  /Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
+CMakeFiles/Assembler.dir/builder_tests.c.o
+ /Users/omrikaisari/CLionProjects/Assembler/builder.h
+ /Users/omrikaisari/CLionProjects/Assembler/builder_tests.c
+ /Users/omrikaisari/CLionProjects/Assembler/code_table.h
+ /Users/omrikaisari/CLionProjects/Assembler/constants.h
+ /Users/omrikaisari/CLionProjects/Assembler/data_table.h
+ /Users/omrikaisari/CLionProjects/Assembler/errors.h
+ /Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
+ /Users/omrikaisari/CLionProjects/Assembler/list.h
+ /Users/omrikaisari/CLionProjects/Assembler/parser.h
+ /Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
 CMakeFiles/Assembler.dir/code_table.c.o
  /Users/omrikaisari/CLionProjects/Assembler/code_table.c
  /Users/omrikaisari/CLionProjects/Assembler/code_table.h
@@ -47,13 +58,3 @@ CMakeFiles/Assembler.dir/symbol_table.c.o
  /Users/omrikaisari/CLionProjects/Assembler/list.h
  /Users/omrikaisari/CLionProjects/Assembler/symbol_table.c
  /Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
-CMakeFiles/Assembler.dir/tester.c.o
- /Users/omrikaisari/CLionProjects/Assembler/code_table.h
- /Users/omrikaisari/CLionProjects/Assembler/constants.h
- /Users/omrikaisari/CLionProjects/Assembler/data_table.h
- /Users/omrikaisari/CLionProjects/Assembler/errors.h
- /Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
- /Users/omrikaisari/CLionProjects/Assembler/list.h
- /Users/omrikaisari/CLionProjects/Assembler/parser.h
- /Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
- /Users/omrikaisari/CLionProjects/Assembler/tester.c
