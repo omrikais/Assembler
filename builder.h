@@ -12,5 +12,9 @@
 
 typedef struct builder_t *Builder;
 
+Builder init();
+
+void close(Builder builder);
+
 
 #endif /*ASSEMBLER_BUILDER_H*/

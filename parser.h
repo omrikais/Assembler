@@ -34,6 +34,8 @@ List parser_get_data_array(const char *line);
 
 size_t parser_get_size_of_element(void *element, Directive type);
 
+Bool parser_is_empty_line(const char *line);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 

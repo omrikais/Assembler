@@ -284,6 +284,14 @@ Bool is_consecutive_commas(const char *string) {
     return doubleComma == NULL ? False : True;
 }
 
+Bool parser_is_empty_line(const char *line) {
+    char tmpLine[MAX_LENGTH];
+    strcpy(tmpLine, line);
+    if (strtok(tmpLine, " \t\n;") == NULL)
+        return True;
+    return False;
+}
+
 char *parser_get_operand(const char *line, int operandIndex) {
     /*assumes that line is an instruction without label and with correct operands structure */
     char tmpLine[MAX_LENGTH];
@@ -321,11 +329,8 @@ size_t parser_get_size_of_element(void *element, Directive type) {
 
 
 
-/*
- * צריך להוסיף פונקציות לקבלת הארגומנטים, פונקציות לקבלת שיטות המיעון של כל אופרנד ועוד ענייני סדר וניקיון.
- * לאחר מכן אפשר להתחיל בבניית מודול בניית הטבלאות שמקבל את הנתונים מהפרסר, מציב אותם במילות הוראה ויוצר ממילות ההוראה רשימת
- * הוראות שמהווה את תמונת הקוד.
- * */
+
+
 
 
 

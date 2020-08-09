@@ -20,5 +20,10 @@ Builder init() {
 void close(Builder builder) {
     list_destroy(builder->symbols, (DestroyFunction) symbol_entry_destroy);
     data_items_list_destroy(builder->dataList);
+    instruction_list_destroy(builder->instructions);
+    free(builder);
 }
+
+
+
 

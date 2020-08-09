@@ -83,5 +83,7 @@ int main() {
     list_insert_node_at_end(symbols, entry2, symbol_size_of());
     SymbolEntry s = list_find_element(symbols, "Marlena", (Equals) symbol_entry_compare);
     data_items_list_destroy(dataItemsList);
+    char s32[] = "          \n      ;   ?        \n";
+    Bool aBool = parser_is_empty_line((s32));
     return 0;
 }
