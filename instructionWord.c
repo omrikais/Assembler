@@ -5,7 +5,7 @@
 #include "instructionWord.h"
 #include "constants.h"
 
-struct instructionWordT {
+struct instruction_word_t {
     int opcode;
     int func;
     int sourceAddressingMethod;
@@ -18,12 +18,12 @@ struct instructionWordT {
     int numberOfWords;
 };
 
-int instructionWordHowManyWordsByOperand(int addressingMethod);
+int instruction_word_how_many_words_by_operand(int addressingMethod);
 
 
-InstructionWord instructionWordCreate(int opcode, int func, int sourceAddressingMethod, int sourceRegister,
-                                      int destinationAddressingMethod, int destinationRegister,
-                                      int sourceOperandContent, int destinationOperandContent) {
+InstructionWord instruction_word_create(int opcode, int func, int sourceAddressingMethod, int sourceRegister,
+                                        int destinationAddressingMethod, int destinationRegister,
+                                        int sourceOperandContent, int destinationOperandContent) {
     InstructionWord word = malloc(sizeof(*word));
     word->opcode = opcode;
     word->func = func;
@@ -33,25 +33,25 @@ InstructionWord instructionWordCreate(int opcode, int func, int sourceAddressing
     word->destinationRegister = destinationRegister;
     word->sourceOperandContent = sourceOperandContent;
     word->destinationOperandContent = destinationOperandContent;
-    word->numberOfWords = instructionWordDetermineNumberOfWords(word);
+    word->numberOfWords = instruction_word_determine_number_of_words(word);
     return word;
 }
 
-size_t instructionWordGetSize() {
-    return sizeof(struct instructionWordT);
+size_t instruction_word_get_size() {
+    return sizeof(struct instruction_word_t);
 }
 
 
-void instructionWordDestroy(InstructionWord word) {
+void instruction_word_destroy(InstructionWord word) {
     free(word);
 }
 
-int instructionWordHowManyWordsByOperand(int addressingMethod) {
+int instruction_word_how_many_words_by_operand(int addressingMethod) {
     int numberOfWords = 0;
     switch (addressingMethod) {
-        case IMMEDIATE:
-        case DIRECT:
-        case RELATIVE:
+        case Immediate:
+        case Direct:
+        case Relative:
             numberOfWords = 1;
             break;
         default:
@@ -60,18 +60,18 @@ int instructionWordHowManyWordsByOperand(int addressingMethod) {
     return numberOfWords;
 }
 
-void instructionWordSetIC(InstructionWord word, int valueOfIc) {
+void instruction_word_set_ic(InstructionWord word, int valueOfIc) {
     word->valueOfIC = valueOfIc;
 }
 
-int instructionWordDetermineNumberOfWords(InstructionWord word) {
+int instruction_word_determine_number_of_words(InstructionWord word) {
     int totalWords = 1;     /*this number includes the instruction word itself*/
-    totalWords += instructionWordHowManyWordsByOperand(word->destinationAddressingMethod) +
-                  instructionWordHowManyWordsByOperand(word->sourceAddressingMethod);
+    totalWords += instruction_word_how_many_words_by_operand(word->destinationAddressingMethod) +
+                  instruction_word_how_many_words_by_operand(word->sourceAddressingMethod);
     return totalWords;
 }
 
-int instructionWordGetNumberOfWords(InstructionWord word) {
+int instruction_word_get_number_of_words(InstructionWord word) {
     return word->numberOfWords;
 }
 

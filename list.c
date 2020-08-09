@@ -10,33 +10,32 @@
 #include "list.h"
 
 
-/* A linked list nodeT */
-struct nodeT {
+/* A linked list node_t */
+struct node_t {
     void *data;
     ListNode next;
     ListNode previous;
 };
 
-List listCreate() {
-    ListNode head = (ListNode) malloc(sizeof(struct nodeT));
+List list_create() {
+    ListNode head = (ListNode) malloc(sizeof(struct node_t));
     head->next = NULL;
-    head->previous=NULL;
+    head->previous = NULL;
     head->data = NULL;
     return head;
 }
 
-ListNode listCreateListNode(void* data, size_t dataSize) {
-    ListNode node = (ListNode) malloc(sizeof(struct nodeT));
+ListNode list_create_list_node(void *data, size_t dataSize) {
+    ListNode node = (ListNode) malloc(sizeof(struct node_t));
     int i;
     node->data = malloc(dataSize);
-    for (i=0; i < dataSize; i++)
-        *((char *)node->data + i) = *((char *)data + i);
+    for (i = 0; i < dataSize; i++)
+        *((char *) node->data + i) = *((char *) data + i);
     return node;
 }
 
 
-
-void listNodeDestroy(ListNode node, destroyFunction destroy) {
+void list_node_destroy(ListNode node, DestroyFunction destroy) {
     if (node == NULL)
         return;
     if (node->data != NULL)
@@ -45,33 +44,33 @@ void listNodeDestroy(ListNode node, destroyFunction destroy) {
 }
 
 
-void listDestroy(List list, destroyFunction destroy) {
+void list_destroy(List list, DestroyFunction destroy) {
     ListNode current = list;
     ListNode next;
     if (list == NULL)
         return;
     while (current->next != NULL) {
         next = current->next;
-        listNodeDestroy(current, destroy);
+        list_node_destroy(current, destroy);
         current = next;
     }
-    listNodeDestroy(current, destroy);
+    list_node_destroy(current, destroy);
 }
 
-int listSize(List list) {
+int list_size(List list) {
     int size = 0;
     ListNode current = list;
     if (list == NULL)
         return size;
-    while (current->next!=NULL) {
+    while (current->next != NULL) {
         size++;
         current = current->next;
     }
     return size;
 }
 
-void listInsertNodeAtEnd(List list, void *newData, size_t dataSize) {
-    ListNode newNode = listCreateListNode(newData, dataSize);
+void list_insert_node_at_end(List list, void *newData, size_t dataSize) {
+    ListNode newNode = list_create_list_node(newData, dataSize);
     ListNode temp = list;
     while (temp->next != NULL) {
         temp = temp->next;
@@ -81,9 +80,9 @@ void listInsertNodeAtEnd(List list, void *newData, size_t dataSize) {
     newNode->previous = temp;
 }
 
-void *listGetDataElementAtIndex(List list, int i) {
+void *list_get_data_element_at_index(List list, int i) {
     /*the first element is in index 1
-     * returns the original data element*/
+     * returns the original Data element*/
     int j = 0;
     ListNode current = list;
     while (j < i) {
@@ -93,19 +92,19 @@ void *listGetDataElementAtIndex(List list, int i) {
     return current->data;
 }
 
-void printList(List node, printNodeFunction function) {
+void print_list(List node, PrintNodeFunction printFunction) {
     while (node != NULL) {
         if (node->data != NULL)
-            (*function)(node->data);
+            (*printFunction)(node->data);
         node = node->next;
     }
 }
 
-size_t listGetSizeOf() {
-    return sizeof(struct nodeT);
+size_t list_get_size_of() {
+    return sizeof(struct node_t);
 }
 
-void *listFindElement(List list, void *element, equals compereFunction) {
+void *list_find_element(List list, void *element, Equals compereFunction) {
     ListNode current = list;
     while (current != NULL) {
         if (current->data != NULL) {

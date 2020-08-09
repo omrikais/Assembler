@@ -6,23 +6,23 @@
 
 #include "list.h"
 
-enum proprety {
-    external,
-    enrty,
-    code,
-    data
+enum property {
+    External,
+    EntryP,
+    Code,
+    DataP
 };
 
-typedef enum proprety Proprety;
+typedef enum property Property;
 
 typedef struct symbol_entry_type *SymbolEntry;
 
-SymbolEntry symbolEntryCreate(const char *label, int value, Proprety proprety);
+SymbolEntry symbol_entry_create(const char *label, int value, Property property);
 
-void symbolEntryDestroy(SymbolEntry entry);
+void symbol_entry_destroy(SymbolEntry entry);
 
-int symbolEntryCompare(char *label, SymbolEntry entry);
+int symbol_entry_compare(char *label, SymbolEntry entry);
 
-size_t symboleSizeOf();
+size_t symbol_size_of();
 
 #endif /*ASSEMBLER_SYMBOL_TABLE_H*/

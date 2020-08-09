@@ -5,40 +5,40 @@
 #include <stdlib.h>
 
 
-struct codeListT {
+struct code_list_t {
     List instructions;
     int IC;
     int numberOfInstructions;
 };
 
 
-InstructionsList instructionListCreate() {
-    InstructionsList instructions = malloc(sizeof(struct codeListT));
-    instructions->instructions = listCreate();
+InstructionsList instruction_list_create() {
+    InstructionsList instructions = malloc(sizeof(struct code_list_t));
+    instructions->instructions = list_create();
     instructions->IC = BEGIN_ADDRESS;
     instructions->numberOfInstructions = 0;
     return instructions;
 }
 
 
-int instructionListGetIC(InstructionsList instructions) {
+int instruction_list_get_ic(InstructionsList instructions) {
     return instructions->IC;
 }
 
-void instructionListAddInstruction(InstructionsList instructions, InstructionWord word) {
+void instruction_list_add_instruction(InstructionsList instructions, InstructionWord word) {
     /*assumes that word is a valid instruction word with all its elements*/
-    listInsertNodeAtEnd(instructions->instructions, word, instructionWordGetSize());
+    list_insert_node_at_end(instructions->instructions, word, instruction_word_get_size());
     ++(instructions->numberOfInstructions);
-    instructions->IC += instructionWordGetNumberOfWords(word);
+    instructions->IC += instruction_word_get_number_of_words(word);
 }
 
-void instructionListDestroy(InstructionsList instructions) {
-    listDestroy(instructions->instructions, (destroyFunction) instructionWordDestroy);
+void instruction_list_destroy(InstructionsList instructions) {
+    list_destroy(instructions->instructions, (DestroyFunction) instruction_word_destroy);
     free(instructions);
 }
 
-InstructionWord instructionListGetInstruction(InstructionsList instructions, int i) {
-    return (InstructionWord) listGetDataElementAtIndex(instructions->instructions, i);
+InstructionWord instruction_list_get_instruction(InstructionsList instructions, int i) {
+    return (InstructionWord) list_get_data_element_at_index(instructions->instructions, i);
 }
 
 

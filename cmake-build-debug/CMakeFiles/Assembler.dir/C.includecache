@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/Users/omrikaisari/CLionProjects/Assembler/code_table.c
+code_table.h
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
+stdlib.h
+-
+
 /Users/omrikaisari/CLionProjects/Assembler/code_table.h
 parser.h
 /Users/omrikaisari/CLionProjects/Assembler/parser.h
@@ -16,19 +22,55 @@ list.h
 
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 
+/Users/omrikaisari/CLionProjects/Assembler/data_table.c
+data_table.h
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
+stdlib.h
+-
+
 /Users/omrikaisari/CLionProjects/Assembler/data_table.h
 list.h
 /Users/omrikaisari/CLionProjects/Assembler/list.h
 
+/Users/omrikaisari/CLionProjects/Assembler/errors.c
+errors.h
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
 
+/Users/omrikaisari/CLionProjects/Assembler/errors.h
+
+/Users/omrikaisari/CLionProjects/Assembler/instructionWord.c
+stdlib.h
+/Users/omrikaisari/CLionProjects/Assembler/stdlib.h
+instructionWord.h
 /Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
+constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
+
+/Users/omrikaisari/CLionProjects/Assembler/instructionWord.h
+
+/Users/omrikaisari/CLionProjects/Assembler/list.c
+stdio.h
+-
+stdlib.h
+-
+list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 
 /Users/omrikaisari/CLionProjects/Assembler/list.h
 stdlib.h
 -
 constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
+
+/Users/omrikaisari/CLionProjects/Assembler/parser.c
+parser.h
+/Users/omrikaisari/CLionProjects/Assembler/parser.h
+string.h
+-
+stdlib.h
+-
+ctype.h
+/Users/omrikaisari/CLionProjects/Assembler/ctype.h
 
 /Users/omrikaisari/CLionProjects/Assembler/parser.h
 constants.h
@@ -37,6 +79,14 @@ errors.h
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
 list.h
 /Users/omrikaisari/CLionProjects/Assembler/list.h
+
+/Users/omrikaisari/CLionProjects/Assembler/symbol_table.c
+stdlib.h
+-
+string.h
+-
+symbol_table.h
+/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
 
 /Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
 list.h

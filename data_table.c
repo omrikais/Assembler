@@ -4,41 +4,41 @@
 #include "data_table.h"
 #include <stdlib.h>
 
-struct dataListT {
+struct data_list_t {
     List data;
     int DC;
     int numberOfDataItems;
 };
 
-DataItemsList dataItemsListCreate() {
-    DataItemsList list = malloc(sizeof(struct dataListT));
-    list->data = listCreate();
+DataItemsList data_items_list_create() {
+    DataItemsList list = malloc(sizeof(struct data_list_t));
+    list->data = list_create();
     list->DC = 0;
     list->numberOfDataItems = 0;
     return list;
 }
 
-int dataItemsListGetDC(DataItemsList list) {
+int data_items_list_get_dc(DataItemsList list) {
     return list->DC;
 }
 
-void dataItemsListAddDataElement(DataItemsList list, void *dataElement, size_t sizeOfDataElement) {
+void data_items_list_add_data_element(DataItemsList list, void *dataElement, size_t sizeOfDataElement) {
     /*assumes that dataElement is a valid array of chars or ints */
-    /*if the data element is List - it uses the original list (it is not being copied)*/
+    /*if the Data element is List - it uses the original list (it is not being copied)*/
     /*the DC should be updated by the reading module*/
-    listInsertNodeAtEnd(list->data, dataElement, sizeOfDataElement);
+    list_insert_node_at_end(list->data, dataElement, sizeOfDataElement);
     ++(list->numberOfDataItems);
 }
 
-void dataItemsListUpdateDC(DataItemsList list, int value) {
+void data_items_list_update_dc(DataItemsList list, int value) {
     list->DC = value;
 }
 
-void *dataItemsListGetData(DataItemsList list, int i) {
-    return listGetDataElementAtIndex(list->data, i);
+void *data_items_list_get_data(DataItemsList list, int i) {
+    return list_get_data_element_at_index(list->data, i);
 }
 
-void dataItemsListDestroy(DataItemsList list) {
-    listDestroy(list->data, NULL);
+void data_items_list_destroy(DataItemsList list) {
+    list_destroy(list->data, NULL);
     free(list);
 }

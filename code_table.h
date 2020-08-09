@@ -9,17 +9,17 @@
 #include "instructionWord.h"
 #include "list.h"
 
-typedef struct codeListT *InstructionsList;
+typedef struct code_list_t *InstructionsList;
 
 
-InstructionsList instructionListCreate();
+InstructionsList instruction_list_create();
 
-int instructionListGetIC(InstructionsList instructions);
+int instruction_list_get_ic(InstructionsList instructions);
 
-void instructionListAddInstruction(InstructionsList instructions, InstructionWord word);
+void instruction_list_add_instruction(InstructionsList instructions, InstructionWord word);
 
-void instructionListDestroy(InstructionsList instructions);
+void instruction_list_destroy(InstructionsList instructions);
 
-InstructionWord instructionListGetInstruction(InstructionsList instructions, int i);
+InstructionWord instruction_list_get_instruction(InstructionsList instructions, int i);
 
 #endif /*ASSEMBLER_CODE_TABLE_H*/

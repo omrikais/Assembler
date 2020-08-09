@@ -9,75 +9,75 @@
 
 /*Created by Omri Kaisari on 05/08/2020.*/
 
-void printInt(void *n) {
+void print_int(void *n) {
     printf(" %d", *((int *) n));
 }
 
-void printFloat(void *f) {
+void print_float(void *f) {
     printf(" %f", *(float *) f);
 }
 
 
 int main() {
-    List list = listCreate();
+    List list = list_create();
     int x = 1, y = 2, z = 3, u = 4;
-    listInsertNodeAtEnd(list, &x, sizeof(x));
-    listInsertNodeAtEnd(list, &y, sizeof(x));
-    listInsertNodeAtEnd(list, &z, sizeof(x));
-    listInsertNodeAtEnd(list, &u, sizeof(x));
-    printList(list, printInt);
-    printf("\nThe List Size is: %d\n", listSize(list));
-    listDestroy(list, free);
-/*    char *label = parserGetLabel("      ?sholom: sadjlaslkdjsakl");
-    parserIsNewLabel("hdfjksfhsdjk: sadjlaslkdjsakl");
+    list_insert_node_at_end(list, &x, sizeof(x));
+    list_insert_node_at_end(list, &y, sizeof(x));
+    list_insert_node_at_end(list, &z, sizeof(x));
+    list_insert_node_at_end(list, &u, sizeof(x));
+    print_list(list, print_int);
+    printf("\nThe List Size is: %d\n", list_size(list));
+    list_destroy(list, free);
+/*    char *label = parser_get_label("      ?sholom: sadjlaslkdjsakl");
+    parser_is_new_label("hdfjksfhsdjk: sadjlaslkdjsakl");
     printf("%s\n", label);
     char string[] = "SHlom";
     char *token;
     token = strtok(string, ":");
     printf("%s", token);*/
     char str[] = "DUI:    .string hi!";
-    Bool y1 = parserIsDirective(str);
-    Directive x1 = parserGetDirective(str);
+    Bool y1 = parser_is_directive(str);
+    Directive x1 = parser_get_directive(str);
     char str2[] = "stop 3 2";
-    Operation operation = parseGetOperation(str2);
-    int y2 = parserGetNumberOfOperands(operation);
+    Operation operation = parse_get_operation(str2);
+    int y2 = parser_get_number_of_operands(operation);
     char s1[] = "hi, my \n,name is omri";
     char *token = strtok(s1, WHITE_DELIMITERS);
     printf("%s\n", token);
     token = strtok(NULL, " \t\n,");
     printf("%s\n", token);
     char line[] = "hi: inc 1,2   ";
-    Error error = parserCheckOperands(line, 2);
+    Error error = parser_check_operands(line, 2);
     char s2[] = "inc r33  , 2";
-    char *operand = parserGetOperand(s2, 1);
-    AddressingMethod addressingMethod = parserGetAddressingMethodOfOperand(operand);
+    char *operand = parser_get_operand(s2, 1);
+    AddressingMethod addressingMethod = parser_get_addressing_method_of_operand(operand);
     printf("%s\n", operand);
     char s3[] = ".string \"abcds\"";
-    int *arr = parserGetStingData(s3);
+    int *arr = parser_get_sting_data(s3);
     printf("%s\n", (char *) arr);
-    char s4[] = "hi: .data +4,5,6,7,9,+8\n";
-    List list1 = parserGetDataArray(s4);
-    printList(list1, printInt);
-    printf("\nThe List Size is: %d\n", listSize(list1));
-    InstructionWord word = instructionWordCreate(12, 4, 1, 2, 3, 2, 3, 2);
-    InstructionWord word2 = instructionWordCreate(15, 4, 1, 2, 3, 2, 3, 2);
-    InstructionsList list2 = instructionListCreate();
-    instructionListAddInstruction(list2, word);
-    instructionListAddInstruction(list2, word2);
-    InstructionWord word1 = instructionListGetInstruction(list2, 1);
-    InstructionWord word3 = instructionListGetInstruction(list2, 2);
-    DataItemsList dataItemsList = dataItemsListCreate();
-    dataItemsListAddDataElement(dataItemsList, "abcde", strlen("abcde"));
-    dataItemsListAddDataElement(dataItemsList, list1, parserGetSizeOfElement(list1, DATA));
-    List list3 = (List) dataItemsListGetData(dataItemsList, 2);
-    printList(list3, printInt);
-    List symbols = listCreate();
-    SymbolEntry entry = symbolEntryCreate("Hi", 100, code);
-    SymbolEntry entry1 = symbolEntryCreate("Omri", 105, code);
-    SymbolEntry entry2 = symbolEntryCreate("Marlena", 1010, code);
-    listInsertNodeAtEnd(symbols, entry, symboleSizeOf());
-    listInsertNodeAtEnd(symbols, entry1, symboleSizeOf());
-    listInsertNodeAtEnd(symbols, entry2, symboleSizeOf());
-    SymbolEntry s = listFindElement(symbols, "Marlena", (equals) symbolEntryCompare);
+    char s4[] = "hi: .Data +4,5,6,7,9,+8\n";
+    List list1 = parser_get_data_array(s4);
+    print_list(list1, print_int);
+    printf("\nThe List Size is: %d\n", list_size(list1));
+    InstructionWord word = instruction_word_create(12, 4, 1, 2, 3, 2, 3, 2);
+    InstructionWord word2 = instruction_word_create(15, 4, 1, 2, 3, 2, 3, 2);
+    InstructionsList list2 = instruction_list_create();
+    instruction_list_add_instruction(list2, word);
+    instruction_list_add_instruction(list2, word2);
+    InstructionWord word1 = instruction_list_get_instruction(list2, 1);
+    InstructionWord word3 = instruction_list_get_instruction(list2, 2);
+    DataItemsList dataItemsList = data_items_list_create();
+    data_items_list_add_data_element(dataItemsList, "abcde", strlen("abcde"));
+    data_items_list_add_data_element(dataItemsList, list1, parser_get_size_of_element(list1, Data));
+    List list3 = (List) data_items_list_get_data(dataItemsList, 2);
+    print_list(list3, print_int);
+    List symbols = list_create();
+    SymbolEntry entry = symbol_entry_create("Hi", 100, Code);
+    SymbolEntry entry1 = symbol_entry_create("Omri", 105, Code);
+    SymbolEntry entry2 = symbol_entry_create("Marlena", 1010, Code);
+    list_insert_node_at_end(symbols, entry, symbol_size_of());
+    list_insert_node_at_end(symbols, entry1, symbol_size_of());
+    list_insert_node_at_end(symbols, entry2, symbol_size_of());
+    SymbolEntry s = list_find_element(symbols, "Marlena", (Equals) symbol_entry_compare);
     return 0;
 }

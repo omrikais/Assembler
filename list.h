@@ -8,46 +8,46 @@
 #include <stdlib.h>
 #include "constants.h"
 
-typedef struct nodeT *ListNode;
+typedef struct node_t *ListNode;
 typedef ListNode List;
 
-typedef void (*printNodeFunction)(void *nodeData);
+typedef void (*PrintNodeFunction)(void *nodeData);
 
-typedef void (*destroyFunction)(void *nodeData);
+typedef void (*DestroyFunction)(void *nodeData);
 
-typedef int (*equals)(const void *a, const void *b);
+typedef int (*Equals)(const void *a, const void *b);
 
-List listCreate();
+List list_create();
 
-ListNode listCreateListNode(void *data, size_t dataSize);
+ListNode list_create_list_node(void *data, size_t dataSize);
 
-void listDestroy(List list, destroyFunction destroy);
+void list_destroy(List list, DestroyFunction destroy);
 
-void listNodeDestroy(ListNode node, destroyFunction destroy);
+void list_node_destroy(ListNode node, DestroyFunction destroy);
 
-int listSize(List list);
+int list_size(List list);
 
-/* Function to add a nodeT at the beginning of Linked ListNode.
-This function expects a pointer to the data to be added
-and size of the data type */
-void listInsertNodeAtEnd(List list, void *newData, size_t dataSize);
+/* Function to add a node_t at the beginning of Linked ListNode.
+This function expects a pointer to the Data to be added
+and size of the Data type */
+void list_insert_node_at_end(List list, void *newData, size_t dataSize);
 
-/* Function to print nodes in a given linked list. fpitr is used
-to access the function to be used for printing current nodeT data.
-Note that different data types need different specifier in printf() */
-void printList(List node, void (*fptr)(void *));
+/* Function to print nodes in a given linked list. printFunction is used
+to access the function to be used for printing current node_t Data.
+Note that different Data types need different specifier in printf() */
+void print_list(List node, PrintNodeFunction printFunction);
 
 /*Function to print an integer*/
-void printInt(void *n);
+void print_int(void *n);
 
 /* Function to print a float*/
-void printFloat(void *f);
+void print_float(void *f);
 
-void *listGetDataElementAtIndex(List list, int i);
+void *list_get_data_element_at_index(List list, int i);
 
-void *listFindElement(List list, void *element, equals compereFunction);
+void *list_find_element(List list, void *element, Equals compereFunction);
 
 
-size_t listGetSizeOf();
+size_t list_get_size_of();
 
 #endif /*ASSEMBLER_LIST_H*/

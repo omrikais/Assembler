@@ -10,29 +10,29 @@
 #include "list.h"
 
 
-Bool parserIsNewLabel(char *line);
+Bool parser_is_new_label(const char *line);
 
-char *parserGetLabel(char *line);
+char *parser_get_label(char *line);
 
-Bool parserIsDirective(char *line);
+Bool parser_is_directive(char *line);
 
-Directive parserGetDirective(char *line);
+Directive parser_get_directive(char *line);
 
-Operation parseGetOperation(char *line);
+Operation parse_get_operation(char *line);
 
-int parserGetNumberOfOperands(Operation operation);
+int parser_get_number_of_operands(Operation operation);
 
-Error parserCheckOperands(const char *line, int numberOfOperands);
+Error parser_check_operands(const char *line, int numberOfOperands);
 
-char *parserGetOperand(const char *line, int operandIndex);
+char *parser_get_operand(const char *line, int operandIndex);
 
-AddressingMethod parserGetAddressingMethodOfOperand(const char *operand);
+AddressingMethod parser_get_addressing_method_of_operand(const char *operand);
 
-char *parserGetStingData(const char *line);
+char *parser_get_sting_data(const char *line);
 
-List parserGetDataArray(const char *line);
+List parser_get_data_array(const char *line);
 
-size_t parserGetSizeOfElement(void *element, Directive type);
+size_t parser_get_size_of_element(void *element, Directive type);
 
 #endif /*ASSEMBLER_PARSER_H*/
 

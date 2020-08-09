@@ -8,8 +8,8 @@
 #define NUMBER_OF_OPERANDS 2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0
 #define NUMBER_OF_FUNCTIONS 16
 #define BEGIN_ADDRESS 100
-#define DIRECTIVES "data","string","entry","extern"
-#define NA -1
+#define DIRECTIVES "Data","string","entry","extern"
+#define NA (-1)
 #define MAX_LENGTH 82
 #define LABEL_DELIM_CHAR ':'
 #define LABEL_DELIM ":"
@@ -26,17 +26,17 @@
 
 
 enum boolean {
-    FALSE, TRUE
+    False, True
 };
 
 typedef enum boolean Bool;
 
 enum addressing {
-    IMMEDIATE = 0, DIRECT = 1, RELATIVE = 2, REGISTER = 3
+    Immediate = 0, Direct = 1, Relative = 2, Register = 3
 };
 
 enum directive {
-    DATA = 0, STRING, ENTRY, EXTERN, NO_DIRECTIVE_FOUND
+    Data = 0, String, Entry, Extern, NoDirectiveFound
 };
 
 enum operations {
@@ -56,7 +56,7 @@ enum operations {
     PRN = 13,
     RTS = 14,
     STOP = 15,
-    OPERATION_NOT_FOUND
+    OperationNotFound
 };
 
 typedef enum addressing AddressingMethod;

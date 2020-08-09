@@ -7,28 +7,28 @@
 struct symbol_entry_type {
     char *label;
     int value;
-    Proprety proprety;
+    Property property;
 };
 
-SymbolEntry symbolEntryCreate(const char *label, int value, Proprety proprety) {
+SymbolEntry symbol_entry_create(const char *label, int value, Property property) {
     SymbolEntry entry = malloc(sizeof(struct symbol_entry_type));
-    entry->proprety = proprety;
+    entry->property = property;
     entry->value = value;
     entry->label = malloc(sizeof(char) * (strlen(label) + 1));
     strcpy(entry->label, label);
     return entry;
 }
 
-int symbolEntryCompare(char *label, SymbolEntry entry) {
+int symbol_entry_compare(char *label, SymbolEntry entry) {
     return strcmp(label, entry->label);
 }
 
-void symbolEntryDestroy(SymbolEntry entry) {
+void symbol_entry_destroy(SymbolEntry entry) {
     free(entry->label);
     free(entry);
 }
 
-size_t symboleSizeOf() {
+size_t symbol_size_of() {
     return sizeof(struct symbol_entry_type);
 }
  
