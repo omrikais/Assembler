@@ -38,8 +38,12 @@ ListNode list_create_list_node(void *data, size_t dataSize) {
 void list_node_destroy(ListNode node, DestroyFunction destroy) {
     if (node == NULL)
         return;
-    if (node->data != NULL)
-        destroy(node->data);
+    if (node->data != NULL) {
+        if (destroy != NULL)
+            destroy(node->data);
+        else
+            free(node->data);
+    }
     free(node);
 }
 

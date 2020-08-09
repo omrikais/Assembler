@@ -159,7 +159,7 @@ List parser_get_sting_data(const char *line) {
     strcpy(tmpLine, line);
     strtok(tmpLine, STRING_DELIM);
     token = strtok(NULL, STRING_DELIM);/*token is now on the string*/
-    stringAsciiArray = malloc(sizeof(*stringAsciiArray) * (strlen(token) + 1));
+    stringAsciiArray = malloc(sizeof(int) * (strlen(token) + 1));
     strcpy(stringAsciiArray, token);
     for (i; i < strlen(stringAsciiArray) + 1; ++i) {
         current = (int) stringAsciiArray[i];
@@ -178,7 +178,7 @@ List parser_get_data_array(const char *line) {
     strcpy(tmpLine, trimmed);
     free(trimmed);
     rest = tmpLine;
-    while ((token = strtok_r(rest, ".Data, \n", &rest))) {
+    while ((token = strtok_r(rest, ".data, \n", &rest))) {
         currentNumber = atoi(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(int));
     }

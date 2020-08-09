@@ -8,7 +8,7 @@
 #define NUMBER_OF_OPERANDS 2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0
 #define NUMBER_OF_FUNCTIONS 16
 #define BEGIN_ADDRESS 100
-#define DIRECTIVES "Data","string","entry","extern"
+#define DIRECTIVES "data","string","entry","extern"
 #define NA (-1)
 #define MAX_LENGTH 82
 #define LABEL_DELIM_CHAR ':'

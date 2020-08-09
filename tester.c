@@ -52,12 +52,12 @@ int main() {
     char *operand = parser_get_operand(s2, 1);
     AddressingMethod addressingMethod = parser_get_addressing_method_of_operand(operand);
     printf("%s\n", operand);
-    char s3[] = "Hi: .string \"2<3+2=1\"";
+    char s3[] = "Hi: .string \"Shalom\"\n";
     List arr = parser_get_sting_data(s3);
     print_list(arr, print_int);
     printf("\n");
     /*printf("%s\n", (char *) arr);*/
-    char s4[] = "hi: .Data +4,5,6,7,9,+8\n";
+    char s4[] = "hi: .data +4,5,6,7,9,+8\n";
     List list1 = parser_get_data_array(s4);
     print_list(list1, print_int);
     /*print_list(list1, print_int);*/
@@ -70,9 +70,9 @@ int main() {
     InstructionWord word1 = instruction_list_get_instruction(list2, 1);
     InstructionWord word3 = instruction_list_get_instruction(list2, 2);
     DataItemsList dataItemsList = data_items_list_create();
-    data_items_list_add_data_element(dataItemsList, "abcde", strlen("abcde"));
+    data_items_list_add_data_element(dataItemsList, arr, parser_get_size_of_element(arr, Data));
     data_items_list_add_data_element(dataItemsList, list1, parser_get_size_of_element(list1, Data));
-    List list3 = (List) data_items_list_get_data(dataItemsList, 2);
+    List list3 = (List) data_items_list_get_data(dataItemsList, 1);
     print_list(list3, print_int);
     List symbols = list_create();
     SymbolEntry entry = symbol_entry_create("Hi", 100, Code);
@@ -82,5 +82,6 @@ int main() {
     list_insert_node_at_end(symbols, entry1, symbol_size_of());
     list_insert_node_at_end(symbols, entry2, symbol_size_of());
     SymbolEntry s = list_find_element(symbols, "Marlena", (Equals) symbol_entry_compare);
+    data_items_list_destroy(dataItemsList);
     return 0;
 }

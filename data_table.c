@@ -10,6 +10,8 @@ struct data_list_t {
     int numberOfDataItems;
 };
 
+void data_item_list_destroy(List list);
+
 DataItemsList data_items_list_create() {
     DataItemsList list = malloc(sizeof(struct data_list_t));
     list->data = list_create();
@@ -35,10 +37,15 @@ void data_items_list_update_dc(DataItemsList list, int value) {
 }
 
 void *data_items_list_get_data(DataItemsList list, int i) {
-    return list_get_data_element_at_index(list->data, i);
+    List result = list_get_data_element_at_index(list->data, i);
+    return result;
 }
 
 void data_items_list_destroy(DataItemsList list) {
-    list_destroy(list->data, NULL);
+    list_destroy(list->data, data_item_list_destroy);
     free(list);
+}
+
+void data_item_list_destroy(List list) {
+    list_destroy(list, NULL);
 }
