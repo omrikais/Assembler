@@ -1,8 +1,8 @@
 
 /* Created by Omri Kaisari on 05/08/2020.*/
 
-#ifndef ASSEMBLER_INSTRUCTIONWORD_H
-#define ASSEMBLER_INSTRUCTIONWORD_H
+#ifndef ASSEMBLER_INSTRUCTION_WORD_H
+#define ASSEMBLER_INSTRUCTION_WORD_H
 
 typedef struct instruction_word_t *InstructionWord;
 
@@ -20,4 +20,4 @@ int instruction_word_get_number_of_words(InstructionWord word);
 
 size_t instruction_word_get_size();
 
-#endif /*ASSEMBLER_INSTRUCTIONWORD_H*/
+#endif /*ASSEMBLER_INSTRUCTION_WORD_H*/

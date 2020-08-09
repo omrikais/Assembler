@@ -149,17 +149,24 @@ Directive parser_get_directive(char *line) {
     return NoDirectiveFound;
 }
 
-char *parser_get_sting_data(const char *line) {
+List parser_get_sting_data(const char *line) {
     /*returns an ascii array of the string
      * assumes to get a string directive line*/
     char tmpLine[MAX_LENGTH], *token;
     char *stringAsciiArray;
+    int i = 0, current;
+    List charList = list_create();
     strcpy(tmpLine, line);
     strtok(tmpLine, STRING_DELIM);
     token = strtok(NULL, STRING_DELIM);/*token is now on the string*/
     stringAsciiArray = malloc(sizeof(*stringAsciiArray) * (strlen(token) + 1));
     strcpy(stringAsciiArray, token);
-    return stringAsciiArray;
+    for (i; i < strlen(stringAsciiArray) + 1; ++i) {
+        current = (int) stringAsciiArray[i];
+        list_insert_node_at_end(charList, &current, sizeof(int));
+    }
+    free(stringAsciiArray);
+    return charList;
 }
 
 List parser_get_data_array(const char *line) {

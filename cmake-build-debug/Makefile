@@ -143,6 +143,33 @@ Assembler/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/build
 .PHONY : Assembler/fast
 
+builder.o: builder.c.o
+
+.PHONY : builder.o
+
+# target to build an object file
+builder.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder.c.o
+.PHONY : builder.c.o
+
+builder.i: builder.c.i
+
+.PHONY : builder.i
+
+# target to preprocess a source file
+builder.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder.c.i
+.PHONY : builder.c.i
+
+builder.s: builder.c.s
+
+.PHONY : builder.s
+
+# target to generate assembly for a file
+builder.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder.c.s
+.PHONY : builder.c.s
+
 code_table.o: code_table.c.o
 
 .PHONY : code_table.o
@@ -224,32 +251,32 @@ errors.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/errors.c.s
 .PHONY : errors.c.s
 
-instructionWord.o: instructionWord.c.o
+instruction_word.o: instruction_word.c.o
 
-.PHONY : instructionWord.o
+.PHONY : instruction_word.o
 
 # target to build an object file
-instructionWord.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instructionWord.c.o
-.PHONY : instructionWord.c.o
+instruction_word.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instruction_word.c.o
+.PHONY : instruction_word.c.o
 
-instructionWord.i: instructionWord.c.i
+instruction_word.i: instruction_word.c.i
 
-.PHONY : instructionWord.i
+.PHONY : instruction_word.i
 
 # target to preprocess a source file
-instructionWord.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instructionWord.c.i
-.PHONY : instructionWord.c.i
+instruction_word.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instruction_word.c.i
+.PHONY : instruction_word.c.i
 
-instructionWord.s: instructionWord.c.s
+instruction_word.s: instruction_word.c.s
 
-.PHONY : instructionWord.s
+.PHONY : instruction_word.s
 
 # target to generate assembly for a file
-instructionWord.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instructionWord.c.s
-.PHONY : instructionWord.c.s
+instruction_word.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instruction_word.c.s
+.PHONY : instruction_word.c.s
 
 list.o: list.c.o
 
@@ -368,6 +395,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Assembler"
+	@echo "... builder.o"
+	@echo "... builder.i"
+	@echo "... builder.s"
 	@echo "... code_table.o"
 	@echo "... code_table.i"
 	@echo "... code_table.s"
@@ -377,9 +407,9 @@ help:
 	@echo "... errors.o"
 	@echo "... errors.i"
 	@echo "... errors.s"
-	@echo "... instructionWord.o"
-	@echo "... instructionWord.i"
-	@echo "... instructionWord.s"
+	@echo "... instruction_word.o"
+	@echo "... instruction_word.i"
+	@echo "... instruction_word.s"
 	@echo "... list.o"
 	@echo "... list.i"
 	@echo "... list.s"

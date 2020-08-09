@@ -2,7 +2,7 @@
 /* Created by Omri Kaisari on 05/08/2020.*/
 
 #include "stdlib.h"
-#include "instructionWord.h"
+#include "instruction_word.h"
 #include "constants.h"
 
 struct instruction_word_t {

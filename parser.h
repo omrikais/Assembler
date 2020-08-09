@@ -28,7 +28,7 @@ char *parser_get_operand(const char *line, int operandIndex);
 
 AddressingMethod parser_get_addressing_method_of_operand(const char *operand);
 
-char *parser_get_sting_data(const char *line);
+List parser_get_sting_data(const char *line);
 
 List parser_get_data_array(const char *line);
 

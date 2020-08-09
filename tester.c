@@ -2,7 +2,7 @@
 #include <string.h>
 #include "list.h"
 #include "parser.h"
-#include "instructionWord.h"
+#include "instruction_word.h"
 #include "code_table.h"
 #include "data_table.h"
 #include "symbol_table.h"
@@ -52,12 +52,15 @@ int main() {
     char *operand = parser_get_operand(s2, 1);
     AddressingMethod addressingMethod = parser_get_addressing_method_of_operand(operand);
     printf("%s\n", operand);
-    char s3[] = ".string \"abcds\"";
-    int *arr = parser_get_sting_data(s3);
-    printf("%s\n", (char *) arr);
+    char s3[] = "Hi: .string \"2<3+2=1\"";
+    List arr = parser_get_sting_data(s3);
+    print_list(arr, print_int);
+    printf("\n");
+    /*printf("%s\n", (char *) arr);*/
     char s4[] = "hi: .Data +4,5,6,7,9,+8\n";
     List list1 = parser_get_data_array(s4);
     print_list(list1, print_int);
+    /*print_list(list1, print_int);*/
     printf("\nThe List Size is: %d\n", list_size(list1));
     InstructionWord word = instruction_word_create(12, 4, 1, 2, 3, 2, 3, 2);
     InstructionWord word2 = instruction_word_create(15, 4, 1, 2, 3, 2, 3, 2);

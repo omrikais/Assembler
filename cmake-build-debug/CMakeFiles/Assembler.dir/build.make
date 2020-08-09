@@ -103,18 +103,18 @@ CMakeFiles/Assembler.dir/list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/list.c.s"
 	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/omrikaisari/CLionProjects/Assembler/list.c -o CMakeFiles/Assembler.dir/list.c.s
 
-CMakeFiles/Assembler.dir/instructionWord.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/instructionWord.c.o: ../instructionWord.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Assembler.dir/instructionWord.c.o"
-	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/instructionWord.c.o   -c /Users/omrikaisari/CLionProjects/Assembler/instructionWord.c
+CMakeFiles/Assembler.dir/instruction_word.c.o: CMakeFiles/Assembler.dir/flags.make
+CMakeFiles/Assembler.dir/instruction_word.c.o: ../instruction_word.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Assembler.dir/instruction_word.c.o"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/instruction_word.c.o   -c /Users/omrikaisari/CLionProjects/Assembler/instruction_word.c
 
-CMakeFiles/Assembler.dir/instructionWord.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/instructionWord.c.i"
-	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/omrikaisari/CLionProjects/Assembler/instructionWord.c > CMakeFiles/Assembler.dir/instructionWord.c.i
+CMakeFiles/Assembler.dir/instruction_word.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/instruction_word.c.i"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/omrikaisari/CLionProjects/Assembler/instruction_word.c > CMakeFiles/Assembler.dir/instruction_word.c.i
 
-CMakeFiles/Assembler.dir/instructionWord.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/instructionWord.c.s"
-	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/omrikaisari/CLionProjects/Assembler/instructionWord.c -o CMakeFiles/Assembler.dir/instructionWord.c.s
+CMakeFiles/Assembler.dir/instruction_word.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/instruction_word.c.s"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/omrikaisari/CLionProjects/Assembler/instruction_word.c -o CMakeFiles/Assembler.dir/instruction_word.c.s
 
 CMakeFiles/Assembler.dir/parser.c.o: CMakeFiles/Assembler.dir/flags.make
 CMakeFiles/Assembler.dir/parser.c.o: ../parser.c
@@ -181,31 +181,46 @@ CMakeFiles/Assembler.dir/symbol_table.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/symbol_table.c.s"
 	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/omrikaisari/CLionProjects/Assembler/symbol_table.c -o CMakeFiles/Assembler.dir/symbol_table.c.s
 
+CMakeFiles/Assembler.dir/builder.c.o: CMakeFiles/Assembler.dir/flags.make
+CMakeFiles/Assembler.dir/builder.c.o: ../builder.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Assembler.dir/builder.c.o"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/builder.c.o   -c /Users/omrikaisari/CLionProjects/Assembler/builder.c
+
+CMakeFiles/Assembler.dir/builder.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/builder.c.i"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/omrikaisari/CLionProjects/Assembler/builder.c > CMakeFiles/Assembler.dir/builder.c.i
+
+CMakeFiles/Assembler.dir/builder.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/builder.c.s"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/omrikaisari/CLionProjects/Assembler/builder.c -o CMakeFiles/Assembler.dir/builder.c.s
+
 # Object files for target Assembler
 Assembler_OBJECTS = \
 "CMakeFiles/Assembler.dir/tester.c.o" \
 "CMakeFiles/Assembler.dir/list.c.o" \
-"CMakeFiles/Assembler.dir/instructionWord.c.o" \
+"CMakeFiles/Assembler.dir/instruction_word.c.o" \
 "CMakeFiles/Assembler.dir/parser.c.o" \
 "CMakeFiles/Assembler.dir/errors.c.o" \
 "CMakeFiles/Assembler.dir/code_table.c.o" \
 "CMakeFiles/Assembler.dir/data_table.c.o" \
-"CMakeFiles/Assembler.dir/symbol_table.c.o"
+"CMakeFiles/Assembler.dir/symbol_table.c.o" \
+"CMakeFiles/Assembler.dir/builder.c.o"
 
 # External object files for target Assembler
 Assembler_EXTERNAL_OBJECTS =
 
 Assembler: CMakeFiles/Assembler.dir/tester.c.o
 Assembler: CMakeFiles/Assembler.dir/list.c.o
-Assembler: CMakeFiles/Assembler.dir/instructionWord.c.o
+Assembler: CMakeFiles/Assembler.dir/instruction_word.c.o
 Assembler: CMakeFiles/Assembler.dir/parser.c.o
 Assembler: CMakeFiles/Assembler.dir/errors.c.o
 Assembler: CMakeFiles/Assembler.dir/code_table.c.o
 Assembler: CMakeFiles/Assembler.dir/data_table.c.o
 Assembler: CMakeFiles/Assembler.dir/symbol_table.c.o
+Assembler: CMakeFiles/Assembler.dir/builder.c.o
 Assembler: CMakeFiles/Assembler.dir/build.make
 Assembler: CMakeFiles/Assembler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable Assembler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable Assembler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Assembler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,10 +1,11 @@
 file(REMOVE_RECURSE
   "Assembler"
   "Assembler.pdb"
+  "CMakeFiles/Assembler.dir/builder.c.o"
   "CMakeFiles/Assembler.dir/code_table.c.o"
   "CMakeFiles/Assembler.dir/data_table.c.o"
   "CMakeFiles/Assembler.dir/errors.c.o"
-  "CMakeFiles/Assembler.dir/instructionWord.c.o"
+  "CMakeFiles/Assembler.dir/instruction_word.c.o"
   "CMakeFiles/Assembler.dir/list.c.o"
   "CMakeFiles/Assembler.dir/parser.c.o"
   "CMakeFiles/Assembler.dir/symbol_table.c.o"

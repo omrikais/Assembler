@@ -76,6 +76,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.h">
+			<Option target="Assembler"/>
+		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.c">
 			<Option target="Assembler"/>
 		</Unit>
@@ -97,10 +103,10 @@
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instructionWord.c">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instructionWord.h">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h">
 			<Option target="Assembler"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.c">

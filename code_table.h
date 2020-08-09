@@ -6,7 +6,7 @@
 #define ASSEMBLER_CODE_TABLE_H
 
 #include "parser.h"
-#include "instructionWord.h"
+#include "instruction_word.h"
 #include "list.h"
 
 typedef struct code_list_t *InstructionsList;
