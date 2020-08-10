@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/omrikaisari/CLionProjects/Assembler/builder.c
-stdlib.h
--
-builder.h
-/Users/omrikaisari/CLionProjects/Assembler/builder.h
-string.h
--
-
 /Users/omrikaisari/CLionProjects/Assembler/builder.h
 code_table.h
 /Users/omrikaisari/CLionProjects/Assembler/code_table.h
@@ -27,6 +19,26 @@ constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 symbol_table.h
 /Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
+
+/Users/omrikaisari/CLionProjects/Assembler/builder_tests.c
+stdio.h
+-
+string.h
+-
+list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
+parser.h
+/Users/omrikaisari/CLionProjects/Assembler/parser.h
+instruction_word.h
+/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
+code_table.h
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
+data_table.h
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
+symbol_table.h
+/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
+builder.h
+/Users/omrikaisari/CLionProjects/Assembler/builder.h
 
 /Users/omrikaisari/CLionProjects/Assembler/code_table.h
 parser.h

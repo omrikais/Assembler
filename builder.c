@@ -36,11 +36,13 @@ void close(Builder builder) {
 
 Error evaluate(Builder builder, char *line) {
     char *label;
+    Error result;
+    InstructionWord word = NULL;
     if (parser_is_empty_line(line) == True)
         return NoErrorsFound;
     if (parser_is_directive(line) == True)
         return evaluate_directive_line(builder, line);
-    return NoErrorsFound;
+    return evaluate_code_line(builder, line);
 }
 
 Error evaluate_extern(Builder builder, char *line) {
@@ -117,7 +119,9 @@ List get_symbol_table(Builder builder) {
 Error evaluate_code_line(Builder builder, char *line) {
     char *label;
     SymbolEntry entry;
-    InstructionWord instructionWord;
+    InstructionWord word = NULL;
+    Error result;
+    int IC = instruction_list_get_ic(builder->instructions);
     if (parser_is_new_label(line) == True) {
         label = parser_get_label(line);
         if (label == NULL)
@@ -130,7 +134,9 @@ Error evaluate_code_line(Builder builder, char *line) {
         list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
         free(label);
     }
-
+    word = fill_instruction_word(&result, line);
+    instruction_word_set_ic(word, IC);
+    instruction_list_add_instruction(builder->instructions, word);
     return NoErrorsFound;
 }
 
@@ -198,6 +204,12 @@ void handle_operand(const char *line, int *addressingMethod, int *registerOfOper
     free(operand);
 }
 /*need to split to two or 3 functions*/
+
+
+/*delete it - for testing only*/
+DataItemsList get_data_list(Builder builder) {
+    return builder->dataList;
+}
 
 /*
 Error handle_label(Builder builder,char * line) {
