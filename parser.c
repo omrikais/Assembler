@@ -77,7 +77,7 @@ char *trim_label(const char *line) {
     char *trimmed;
     strcpy(tmpStr, line);
     if (parser_is_new_label(line) == False) {
-        trimmed = malloc(sizeof((*line) * (strlen(line) + 1)));
+        trimmed = malloc(sizeof(char) * (strlen(tmpStr) + 1));
         strcpy(trimmed, tmpStr);
         return trimmed;
     }
@@ -87,7 +87,7 @@ char *trim_label(const char *line) {
     token = strtok(NULL, ":");  /*now the first word is the operation*/
     while (isspace(token[0]))
         ++token;
-    trimmed = malloc(sizeof(*trimmed) * (strlen(token) + 1));
+    trimmed = malloc(sizeof(char) * (strlen(token) + 1));
     strcpy(trimmed, token);
     return trimmed;
 }
@@ -107,7 +107,7 @@ Operation find_operation(char *word) {
 
 }
 
-Operation parse_get_operation(char *line) { /*trim the line, and then only get the operation*/
+Operation parse_get_operation(const char *line) { /*trim the line, and then only get the operation*/
     char *operationWord = NULL;
     char *startPtr;
     Operation operation;
@@ -178,8 +178,9 @@ List parser_get_data_array(const char *line) {
     strcpy(tmpLine, trimmed);
     free(trimmed);
     rest = tmpLine;
-    token = strtok_r(rest, "., \n", &rest);
-    while ((token = strtok_r(rest, "., \n", &rest))) {
+    token = strtok(tmpLine,"., \n");
+    /*token = strtok_r(rest, "., \n", &rest);*/
+    while ((token = strtok(NULL,"., \n")) != NULL) {
         currentNumber = atoi(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(int));
     }

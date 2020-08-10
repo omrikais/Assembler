@@ -18,7 +18,7 @@ Bool parser_is_directive(char *line);
 
 Directive parser_get_directive(char *line);
 
-Operation parse_get_operation(char *line);
+Operation parse_get_operation(const char *line);
 
 int parser_get_number_of_operands(Operation operation);
 

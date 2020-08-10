@@ -8,129 +8,129 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
+				<Option working_dir="/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
+				<Option working_dir="/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
+				<Option working_dir="/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Assembler">
-				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Assembler" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
+				<Option output="/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Assembler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include"/>
-					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include-fixed"/>
-					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assembler"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assembler"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Assembler/fast">
-				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Assembler" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
+				<Option output="/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Assembler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include"/>
-					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include-fixed"/>
-					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assembler/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 Assembler/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/builder.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/builder.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder_tests.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/builder_tests.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/code_table.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/code_table.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/constants.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/constants.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/data_table.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/data_table.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/data_table.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/data_table.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/errors.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/errors.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/instruction_word.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/instruction_word.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/list.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/list.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/parser.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/parser.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/symbol_table.c">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/symbol_table.c">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/symbol_table.h">
 			<Option target="Assembler"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/CMakeLists.txt">
+		<Unit filename="/home/omrikaisari/CLionProjects/Assembler/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

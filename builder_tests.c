@@ -15,7 +15,7 @@ int main() {
     char line2[] = "              Hello: .data 2,4";
     char line3[] = "   Ho: .string \"My name is Omri\"";
     char line4[] = "   .extern Hello";
-    char line5[] = "add &kklkl,         Hi      \n";
+    char line5[] = "    HoHo: add &kklkl,         Hi      \n";
     InstructionWord word = NULL;
     Error error = evaluate_directive_line(builder, line);
     Error error2 = evaluate_directive_line(builder, line2);

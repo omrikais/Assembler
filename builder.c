@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include "builder.h"
+#include <string.h>
 
 struct builder_t {
     InstructionsList instructions;
@@ -132,14 +133,16 @@ Error evaluate_code_line(Builder builder, char *line) {
     return NoErrorsFound;
 }
 
-InstructionWord fill_instruction_word(Error *result, char *line) {
+InstructionWord fill_instruction_word(Error *result, const char *line) {
     /*assumes instruction code line*/
     int opCode, functionCode, sourceAddressingMethod = 0, destinationAddressingMethod = 0, sourceRegister = 0, destinationRegister = 0;
     int sourceOperandContent = 0, destinationOperandContent = 0, numberOfOperands;
-    char *operand1, *operand2;
+    char *operand1, *operand2, tmpLine[MAX_LENGTH];
     char *sourceContent = NULL, *destinationContent = NULL;
-    Operation operation = parse_get_operation(line);
+    Operation operation;
     InstructionWord word = NULL;
+    strcpy(tmpLine,line);
+    operation = parse_get_operation(tmpLine);
     if (operation == OperationNotFound) {
         *result = CommandNotFound;
         return NULL;
@@ -147,7 +150,7 @@ InstructionWord fill_instruction_word(Error *result, char *line) {
     opCode = (int) operation / 10;
     functionCode = (int) operation % 10;
     numberOfOperands = parser_get_number_of_operands(operation);
-    *result = parser_check_operands(line, numberOfOperands);
+    *result = parser_check_operands(tmpLine, numberOfOperands);
     if (*result != NoErrorsFound) {
         instruction_word_destroy(word);
         return NULL;
@@ -156,7 +159,7 @@ InstructionWord fill_instruction_word(Error *result, char *line) {
         word = instruction_word_create(opCode, functionCode, 0, 0, 0, 0, 0, 0);
         return word;
     }
-    operand1 = parser_get_operand(line, 1);
+    operand1 = parser_get_operand(tmpLine, 1);
     sourceAddressingMethod = parser_get_addressing_method_of_operand(operand1);
     if (sourceAddressingMethod == Immediate) {/*an error mechanism is needed here*/
         sourceOperandContent = parser_get_immediate_operand(operand1);
@@ -165,6 +168,7 @@ InstructionWord fill_instruction_word(Error *result, char *line) {
     } else {
         sourceContent = parser_get_label_from_operand(operand1);
     }
+    free(operand1);
     if (numberOfOperands == 1) {
         word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                        destinationAddressingMethod, destinationRegister, sourceOperandContent,
@@ -173,7 +177,7 @@ InstructionWord fill_instruction_word(Error *result, char *line) {
         free(sourceContent);
         return word;
     }
-    operand2 = parser_get_operand(line, 2);
+    operand2 = parser_get_operand(tmpLine, 2);
     destinationAddressingMethod = parser_get_addressing_method_of_operand(operand2);
     if (destinationAddressingMethod == Immediate) {/*an error mechanism is needed here*/
         destinationOperandContent = parser_get_immediate_operand(operand2);
@@ -182,6 +186,7 @@ InstructionWord fill_instruction_word(Error *result, char *line) {
     } else {
         destinationContent = parser_get_label_from_operand(operand2);
     }
+    free(operand2);
     word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                    destinationAddressingMethod, destinationRegister, sourceOperandContent,
                                    destinationOperandContent);

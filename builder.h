@@ -23,6 +23,6 @@ void add_data_item_to_table(Builder builder, const char *line, Directive directi
 /*to delete*/
 List get_symbol_table(Builder builder);
 
-InstructionWord fill_instruction_word(Error *result, char *line);
+InstructionWord fill_instruction_word(Error *result, const char *line);
 
 #endif /*ASSEMBLER_BUILDER_H*/
