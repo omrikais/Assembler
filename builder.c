@@ -111,3 +111,80 @@ void add_data_item_to_table(Builder builder, const char *line, Directive directi
 List get_symbol_table(Builder builder) {
     return builder->symbols;
 }
+
+Error evaluate_code_line(Builder builder, char *line) {
+    char *label;
+    SymbolEntry entry;
+    InstructionWord instructionWord;
+    if (parser_is_new_label(line) == True) {
+        label = parser_get_label(line);
+        if (label == NULL)
+            return IllegalLabel;
+        if (is_label_exists(builder->symbols, label) == True) {
+            free(label);
+            return LabelAlreadyExists;
+        }
+        entry = symbol_entry_create(label, instruction_list_get_ic(builder->instructions), Code);
+        list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
+        free(label);
+    }
+
+    return NoErrorsFound;
+}
+
+InstructionWord fill_instruction_word(Error *result, char *line) {
+    /*assumes instruction code line*/
+    int opCode, functionCode, sourceAddressingMethod, destinationAddressingMethod, sourceRegister, destinationRegister;
+    int sourceOperandContent, destinationOperandContent, numberOfOperands;
+    Operation operation = parse_get_operation(line);
+    InstructionWord word;
+    if (operation == OperationNotFound) {
+        *result = CommandNotFound;
+        return NULL;
+    }
+    opCode = (int) operation / 10;
+    functionCode = (int) operation % 10;
+    numberOfOperands = parser_get_number_of_operands(operation);
+    if (numberOfOperands == 0) {
+        word = instruction_word_create(opCode, functionCode, 0, 0, 0, 0, 0, 0);
+    }
+    *result = parser_check_operands(line, numberOfOperands);
+    if (*result != NoErrorsFound)
+        return NULL;
+    /*continue this*/
+}
+
+/*
+Error handle_label(Builder builder,char * line) {
+    SymbolEntry entry;
+    char tmpLine[MAX_LENGTH];
+    char *label = NULL;
+    Directive directive;
+    if (parser_is_new_label(line) == True) {
+        label = parser_get_label(line);
+        if (label == NULL)
+            return IllegalLabel;
+    }
+    if (is_label_exists(builder->symbols, label) == True) {
+        free(label);
+        return LabelAlreadyExists;
+    }
+    if (parser_is_directive(line) == True) {
+        directive = parser_get_directive(line);
+        if (directive!=NoDirectiveFound) {
+            free(label);
+            return DirectiveNotFound;
+        }
+        if ((directive==Data) || (directive == String)) {
+            entry = symbol_entry_create(label, data_items_get_dc(builder->dataList), DataP);
+            list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
+            free(label);
+            return NoErrorsFound;
+        }
+
+    }
+
+}
+*/
+
+
