@@ -57,7 +57,7 @@ Bool is_alphabetic(char c) {
 }
 
 char *delete_spaces(const char *line) {
-    char tmpLine[MAX_LENGTH], *cleanStr;
+    char tmpLine[MAX_LENGTH], *cleanStr = NULL;
     int i = 0, j = 0;
     while (i < strlen(line) && (line[i] != '\0' || line[i] != '\n')) {
         if (line[i] != ' ') {
@@ -66,7 +66,7 @@ char *delete_spaces(const char *line) {
             i++;
     }
     tmpLine[j] = '\0';
-    cleanStr = malloc(sizeof(*cleanStr) * (strlen(tmpLine) + 1));
+    cleanStr = malloc(sizeof(char) * (strlen(tmpLine) + 1));
     strcpy(cleanStr, tmpLine);
     return cleanStr;
 }
@@ -87,7 +87,7 @@ char *trim_label(const char *line) {
     token = strtok(NULL, ":");  /*now the first word is the operation*/
     while (isspace(token[0]))
         ++token;
-    trimmed = malloc(sizeof((*trimmed) * (strlen(token) + 1)));
+    trimmed = malloc(sizeof(*trimmed) * (strlen(token) + 1));
     strcpy(trimmed, token);
     return trimmed;
 }
@@ -295,19 +295,20 @@ Bool parser_is_empty_line(const char *line) {
 
 char *parser_get_operand(const char *line, int operandIndex) {
     /*assumes that line  with correct operands structure */
-    char *token, *operand, *strPtr;
-    char *noLabelLine = trim_label(line);
-    strPtr = noLabelLine;
-    strtok(noLabelLine, ":, \n");
+    char tmpLine[MAX_LENGTH];
+    char *token, *operand;
+    char *noLabelLine;
+    noLabelLine = trim_label(line);
+    strcpy(tmpLine, noLabelLine);
+    free(noLabelLine);
+    strtok(tmpLine, ":, \n");
     token = strtok(NULL, ":, \n");/*token now is on the first argument*/
     if (operandIndex == 1) {
         operand = delete_spaces(token);
-        free(strPtr);
         return operand;
     }
     token = strtok(NULL, ":, \n");/*token now is on the second argument*/
     operand = delete_spaces(token);
-    free(strPtr);
     return operand;
 }
 

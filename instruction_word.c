@@ -47,11 +47,15 @@ size_t instruction_word_get_size() {
 }
 
 void instruction_word_set_destination_string(InstructionWord word, const char *string) {
+    if (string == NULL)
+        return;
     word->destinationOperandContentStr = malloc(sizeof(char) * (strlen(string) + 1));
     strcpy(word->destinationOperandContentStr, string);
 }
 
 void instruction_word_set_source_string(InstructionWord word, const char *string) {
+    if (string == NULL)
+        return;
     word->sourceOperandContentStr = malloc(sizeof(char) * (strlen(string) + 1));
     strcpy(word->sourceOperandContentStr, string);
 }

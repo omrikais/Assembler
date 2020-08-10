@@ -139,7 +139,7 @@ InstructionWord fill_instruction_word(Error *result, char *line) {
     char *operand1, *operand2;
     char *sourceContent = NULL, *destinationContent = NULL;
     Operation operation = parse_get_operation(line);
-    InstructionWord word;
+    InstructionWord word = NULL;
     if (operation == OperationNotFound) {
         *result = CommandNotFound;
         return NULL;
