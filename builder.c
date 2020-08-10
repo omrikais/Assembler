@@ -31,16 +31,17 @@ void close(Builder builder) {
     free(builder);
 }
 
-Error evaluate(char *line) {
+Error evaluate(Builder builder, char *line) {
     char *label;
-    if (parser_is_new_label(line) == True) {
-        label = parser_get_label(line);
-        /*if (parser_is_directive(line);*/
-    }
+    if (parser_is_empty_line(line) == True)
+        return NoErrorsFound;
+    if (parser_is_directive(line) == True)
+        return evaluate_directive_line(builder, line);
     return NoErrorsFound;
 }
 
 Error evaluate_extern(Builder builder, char *line) {
+    /*assumes to get a line with .extern label*/
     Error result;
     SymbolEntry entry;
     char *label = parser_get_extern_label(line, &result);
@@ -50,7 +51,7 @@ Error evaluate_extern(Builder builder, char *line) {
         free(label);
         return LabelAlreadyExists;
     }
-    entry = symbol_entry_create(label, data_items_get_dc(builder->dataList), DataP);
+    entry = symbol_entry_create(label, 0, DataP);
     list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
     return NoErrorsFound;
 }
@@ -104,4 +105,9 @@ void add_data_item_to_table(Builder builder, const char *line, Directive directi
     size_t size = list_size(data);
     data_items_list_add_data_element(builder->dataList, data, list_get_size_of());
     data_items_list_update_dc(builder->dataList, size);
+}
+
+/*to delete*/
+List get_symbol_table(Builder builder) {
+    return builder->symbols;
 }

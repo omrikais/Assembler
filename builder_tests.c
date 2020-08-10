@@ -10,13 +10,16 @@
 
 int main() {
     Builder builder = init();
+    List list;
     char line[] = "   Hello:      .data 1,2,3,4,5";
     char line2[] = "              Hello: .data 2,4";
-    char line3[] = "   Hello: .string \"My name is Omri\"";
-    char line4[] = "  Hello: .string \"Hi\"";
+    char line3[] = "   Ho: .string \"My name is Omri\"";
+    char line4[] = "   .extern Hello";
     Error error = evaluate_directive_line(builder, line);
     Error error2 = evaluate_directive_line(builder, line2);
     Error error3 = evaluate_directive_line(builder, line3);
     Error error4 = evaluate_directive_line(builder, line4);
+    list = get_symbol_table(builder);
+    printf("%d", symbol_get_location(list_find_element(list, "Ho", (Equals) symbol_entry_compare)));
     return 0;
 }

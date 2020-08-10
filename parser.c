@@ -178,7 +178,8 @@ List parser_get_data_array(const char *line) {
     strcpy(tmpLine, trimmed);
     free(trimmed);
     rest = tmpLine;
-    while ((token = strtok_r(rest, ".data, \n", &rest))) {
+    token = strtok_r(rest, "., \n", &rest);
+    while ((token = strtok_r(rest, "., \n", &rest))) {
         currentNumber = atoi(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(int));
     }
@@ -331,7 +332,8 @@ char *parser_get_extern_label(const char *line, Error *result) {
     char tmpLine[MAX_LENGTH];
     char *token, *operand;
     strcpy(tmpLine, line);
-    token = strtok(tmpLine, ".extern \n");/*should be on label*/
+    token = strtok(tmpLine, ". \n\t");/*should be on extern*/
+    token = strtok(NULL, ". \n\t");/*should be on label*/
     if (token == NULL) {
         *result = MissingLabel;
         return NULL;

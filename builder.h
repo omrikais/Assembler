@@ -20,5 +20,7 @@ Error evaluate_directive_line(Builder builder, char *line);
 
 void add_data_item_to_table(Builder builder, const char *line, Directive directive);
 
+/*to delete*/
+List get_symbol_table(Builder builder);
 
 #endif /*ASSEMBLER_BUILDER_H*/

@@ -6,14 +6,14 @@
 
 struct symbol_entry_type {
     char *label;
-    int value;
+    int location;
     Property property;
 };
 
-SymbolEntry symbol_entry_create(const char *label, int value, Property property) {
+SymbolEntry symbol_entry_create(const char *label, int location, Property property) {
     SymbolEntry entry = malloc(sizeof(struct symbol_entry_type));
     entry->property = property;
-    entry->value = value;
+    entry->location = location;
     entry->label = malloc(sizeof(char) * (strlen(label) + 1));
     strcpy(entry->label, label);
     return entry;
@@ -28,9 +28,15 @@ void symbol_entry_destroy(SymbolEntry entry) {
     free(entry);
 }
 
+int symbol_get_location(SymbolEntry entry) {
+    return entry->location;
+}
+
+
 size_t symbol_size_of() {
     return sizeof(struct symbol_entry_type);
 }
+
  
  
 

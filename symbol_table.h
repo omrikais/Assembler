@@ -17,7 +17,9 @@ typedef enum property Property;
 
 typedef struct symbol_entry_type *SymbolEntry;
 
-SymbolEntry symbol_entry_create(const char *label, int value, Property property);
+SymbolEntry symbol_entry_create(const char *label, int location, Property property);
+
+int symbol_get_location(SymbolEntry entry);
 
 void symbol_entry_destroy(SymbolEntry entry);
 
