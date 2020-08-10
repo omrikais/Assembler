@@ -6,73 +6,73 @@
 
 #IncludeRegexTransform: 
 
-/home/omrikaisari/CLionProjects/Assembler/builder.h
+/Users/omrikaisari/CLionProjects/Assembler/builder.h
 code_table.h
-/home/omrikaisari/CLionProjects/Assembler/code_table.h
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
 data_table.h
-/home/omrikaisari/CLionProjects/Assembler/data_table.h
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
 list.h
-/home/omrikaisari/CLionProjects/Assembler/list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 instruction_word.h
-/home/omrikaisari/CLionProjects/Assembler/instruction_word.h
+/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
 constants.h
-/home/omrikaisari/CLionProjects/Assembler/constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
 symbol_table.h
-/home/omrikaisari/CLionProjects/Assembler/symbol_table.h
+/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
 
-/home/omrikaisari/CLionProjects/Assembler/builder_tests.c
+/Users/omrikaisari/CLionProjects/Assembler/builder_tests.c
 stdio.h
 -
 string.h
 -
 list.h
-/home/omrikaisari/CLionProjects/Assembler/list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 parser.h
-/home/omrikaisari/CLionProjects/Assembler/parser.h
+/Users/omrikaisari/CLionProjects/Assembler/parser.h
 instruction_word.h
-/home/omrikaisari/CLionProjects/Assembler/instruction_word.h
+/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
 code_table.h
-/home/omrikaisari/CLionProjects/Assembler/code_table.h
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
 data_table.h
-/home/omrikaisari/CLionProjects/Assembler/data_table.h
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
 symbol_table.h
-/home/omrikaisari/CLionProjects/Assembler/symbol_table.h
+/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
 builder.h
-/home/omrikaisari/CLionProjects/Assembler/builder.h
+/Users/omrikaisari/CLionProjects/Assembler/builder.h
 
-/home/omrikaisari/CLionProjects/Assembler/code_table.h
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
 parser.h
-/home/omrikaisari/CLionProjects/Assembler/parser.h
+/Users/omrikaisari/CLionProjects/Assembler/parser.h
 instruction_word.h
-/home/omrikaisari/CLionProjects/Assembler/instruction_word.h
+/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
 list.h
-/home/omrikaisari/CLionProjects/Assembler/list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 
-/home/omrikaisari/CLionProjects/Assembler/constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
 
-/home/omrikaisari/CLionProjects/Assembler/data_table.h
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
 list.h
-/home/omrikaisari/CLionProjects/Assembler/list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 
-/home/omrikaisari/CLionProjects/Assembler/errors.h
+/Users/omrikaisari/CLionProjects/Assembler/errors.h
 
-/home/omrikaisari/CLionProjects/Assembler/instruction_word.h
+/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
 
-/home/omrikaisari/CLionProjects/Assembler/list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 stdlib.h
 -
 constants.h
-/home/omrikaisari/CLionProjects/Assembler/constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
 
-/home/omrikaisari/CLionProjects/Assembler/parser.h
+/Users/omrikaisari/CLionProjects/Assembler/parser.h
 constants.h
-/home/omrikaisari/CLionProjects/Assembler/constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
 errors.h
-/home/omrikaisari/CLionProjects/Assembler/errors.h
+/Users/omrikaisari/CLionProjects/Assembler/errors.h
 list.h
-/home/omrikaisari/CLionProjects/Assembler/list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 
-/home/omrikaisari/CLionProjects/Assembler/symbol_table.h
+/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
 list.h
-/home/omrikaisari/CLionProjects/Assembler/list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
 

@@ -157,6 +157,7 @@ InstructionWord fill_instruction_word(Error *result, const char *line) {
     }
     if (numberOfOperands == 0) {
         word = instruction_word_create(opCode, functionCode, 0, 0, 0, 0, 0, 0);
+        *result = NoErrorsFound;
         return word;
     }
     operand1 = parser_get_operand(tmpLine, 1);
@@ -175,6 +176,7 @@ InstructionWord fill_instruction_word(Error *result, const char *line) {
                                        destinationOperandContent);
         instruction_word_set_source_string(word, sourceContent);
         free(sourceContent);
+        *result = NoErrorsFound;
         return word;
     }
     operand2 = parser_get_operand(tmpLine, 2);
@@ -194,6 +196,7 @@ InstructionWord fill_instruction_word(Error *result, const char *line) {
     instruction_word_set_destination_string(word, destinationContent);
     free(sourceContent);
     free(destinationContent);
+    *result = NoErrorsFound;
     return word;
 }/*need to split to two or 3 functions*/
 

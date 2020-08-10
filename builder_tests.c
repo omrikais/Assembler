@@ -21,7 +21,7 @@ int main() {
     Error error2 = evaluate_directive_line(builder, line2);
     Error error3 = evaluate_directive_line(builder, line3);
     Error error4 = evaluate_directive_line(builder, line4);
-    Error error5 = -1;
+    Error error5;
     list = get_symbol_table(builder);
     printf("%d", symbol_get_location(list_find_element(list, "Ho", (Equals) symbol_entry_compare)));
     word = fill_instruction_word(&error5, line5);
