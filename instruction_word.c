@@ -4,6 +4,7 @@
 #include "stdlib.h"
 #include "instruction_word.h"
 #include "constants.h"
+#include <string.h>
 
 struct instruction_word_t {
     int opcode;
@@ -13,7 +14,9 @@ struct instruction_word_t {
     int destinationAddressingMethod;
     int destinationRegister;
     int sourceOperandContent;
+    char *sourceOperandContentStr;
     int destinationOperandContent;
+    char *destinationOperandContentStr;
     int valueOfIC;
     int numberOfWords;
 };
@@ -34,6 +37,8 @@ InstructionWord instruction_word_create(int opcode, int func, int sourceAddressi
     word->sourceOperandContent = sourceOperandContent;
     word->destinationOperandContent = destinationOperandContent;
     word->numberOfWords = instruction_word_determine_number_of_words(word);
+    word->destinationOperandContentStr = NULL;
+    word->sourceOperandContentStr = NULL;
     return word;
 }
 
@@ -41,8 +46,28 @@ size_t instruction_word_get_size() {
     return sizeof(struct instruction_word_t);
 }
 
+void instruction_word_set_destination_string(InstructionWord word, const char *string) {
+    word->destinationOperandContentStr = malloc(sizeof(char) * (strlen(string) + 1));
+    strcpy(word->destinationOperandContentStr, string);
+}
+
+void instruction_word_set_source_string(InstructionWord word, const char *string) {
+    word->sourceOperandContentStr = malloc(sizeof(char) * (strlen(string) + 1));
+    strcpy(word->sourceOperandContentStr, string);
+}
+
+const char *instruction_word_get_destination_string(InstructionWord word) {
+    return word->destinationOperandContentStr;
+}
+
+const char *instruction_word_get_source_string(InstructionWord word) {
+    return word->sourceOperandContentStr;
+}
+
 
 void instruction_word_destroy(InstructionWord word) {
+    if (word == NULL)
+        return;
     free(word);
 }
 

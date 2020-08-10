@@ -18,6 +18,14 @@ void instruction_word_set_ic(InstructionWord word, int valueOfIc);
 
 int instruction_word_get_number_of_words(InstructionWord word);
 
+void instruction_word_set_destination_string(InstructionWord word, const char *string);
+
+void instruction_word_set_source_string(InstructionWord word, const char *string);
+
+const char *instruction_word_get_destination_string(InstructionWord word);
+
+const char *instruction_word_get_source_string(InstructionWord word);
+
 size_t instruction_word_get_size();
 
 #endif /*ASSEMBLER_INSTRUCTION_WORD_H*/

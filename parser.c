@@ -149,7 +149,7 @@ Directive parser_get_directive(char *line) {
     return NoDirectiveFound;
 }
 
-List parser_get_sting_data(const char *line) {
+List parser_get_string_data(const char *line) {
     /*returns an ascii array of the string
      * assumes to get a string directive line*/
     char tmpLine[MAX_LENGTH], *token;
@@ -294,18 +294,20 @@ Bool parser_is_empty_line(const char *line) {
 }
 
 char *parser_get_operand(const char *line, int operandIndex) {
-    /*assumes that line is an instruction without label and with correct operands structure */
-    char tmpLine[MAX_LENGTH];
-    char *token, *operand;
-    strcpy(tmpLine, line);
-    strtok(tmpLine, ":, \n");
+    /*assumes that line  with correct operands structure */
+    char *token, *operand, *strPtr;
+    char *noLabelLine = trim_label(line);
+    strPtr = noLabelLine;
+    strtok(noLabelLine, ":, \n");
     token = strtok(NULL, ":, \n");/*token now is on the first argument*/
     if (operandIndex == 1) {
         operand = delete_spaces(token);
+        free(strPtr);
         return operand;
     }
     token = strtok(NULL, ":, \n");/*token now is on the second argument*/
     operand = delete_spaces(token);
+    free(strPtr);
     return operand;
 }
 
@@ -353,6 +355,37 @@ char *parser_get_extern_label(const char *line, Error *result) {
     *result = NoErrorsFound;
     return operand;
 }
+
+int parser_get_register_num(const char *operand) {
+    char *endPtr;
+    long int registerNumber = strtol(operand + 1, &endPtr, 10);
+    if (registerNumber < 0 || registerNumber > 7)
+        return NA;
+    return (int) registerNumber;
+}
+
+int parser_get_immediate_operand(const char *operand) {
+    int operandValue = atoi(operand + 1);
+    int i = 1;
+    if (strlen(operand) <= 1)
+        return NA;
+    for (i; i < strlen(operand); ++i)
+        if (is_alphabetic(operand[i]) == True)  /*change it - should be is_not_number*/
+            return NA;
+    return operandValue;
+}
+
+char *parser_get_label_from_operand(const char *operand) {
+    char *label;
+    char *toCopy = operand;
+    if (operand[0] == RELATIVE_ADDRESSING_SYMBOL)
+        toCopy += 1;
+    label = malloc(sizeof(char) * (strlen(toCopy) + 1));
+    strcpy(label, toCopy);
+    return label;
+}
+
+
 
 
 
