@@ -15,6 +15,8 @@ Error evaluate_extern(Builder builder, char *line);
 
 Bool is_label_exists(List list, char *label);
 
+void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, int *operandContent,
+                    char **operandContentString, int operandIndex);
 
 Builder init() {
     Builder builder = malloc(sizeof(struct builder_t));
@@ -93,7 +95,6 @@ Error evaluate_directive_line(Builder builder, char *line) {
 }
 
 Bool is_label_exists(List list, char *label) {
-    SymbolEntry entry = symbol_entry_create(label, 0, DataP);
     if (list_find_element(list, label, (Equals) symbol_entry_compare) != NULL) {
         return True;
     }
@@ -133,15 +134,15 @@ Error evaluate_code_line(Builder builder, char *line) {
     return NoErrorsFound;
 }
 
-InstructionWord fill_instruction_word(Error *result, const char *line) {
-    /*assumes instruction code line*/
-    int opCode, functionCode, sourceAddressingMethod = 0, destinationAddressingMethod = 0, sourceRegister = 0, destinationRegister = 0;
+InstructionWord fill_instruction_word(Error *result, const char *line) { /*assumes instruction code line*/
+    int opCode, functionCode, sourceAddressingMethod = 0, destinationAddressingMethod = 0,
+            sourceRegister = 0, destinationRegister = 0;
     int sourceOperandContent = 0, destinationOperandContent = 0, numberOfOperands;
-    char *operand1, *operand2, tmpLine[MAX_LENGTH];
+    char tmpLine[MAX_LENGTH];
     char *sourceContent = NULL, *destinationContent = NULL;
     Operation operation;
     InstructionWord word = NULL;
-    strcpy(tmpLine,line);
+    strcpy(tmpLine, line);
     operation = parse_get_operation(tmpLine);
     if (operation == OperationNotFound) {
         *result = CommandNotFound;
@@ -160,16 +161,7 @@ InstructionWord fill_instruction_word(Error *result, const char *line) {
         *result = NoErrorsFound;
         return word;
     }
-    operand1 = parser_get_operand(tmpLine, 1);
-    sourceAddressingMethod = parser_get_addressing_method_of_operand(operand1);
-    if (sourceAddressingMethod == Immediate) {/*an error mechanism is needed here*/
-        sourceOperandContent = parser_get_immediate_operand(operand1);
-    } else if (sourceAddressingMethod == Register) {
-        sourceRegister = parser_get_register_num(operand1);
-    } else {
-        sourceContent = parser_get_label_from_operand(operand1);
-    }
-    free(operand1);
+    handle_operand(tmpLine, &sourceAddressingMethod, &sourceRegister, &sourceOperandContent, &sourceContent, 1);
     if (numberOfOperands == 1) {
         word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                        destinationAddressingMethod, destinationRegister, sourceOperandContent,
@@ -179,16 +171,8 @@ InstructionWord fill_instruction_word(Error *result, const char *line) {
         *result = NoErrorsFound;
         return word;
     }
-    operand2 = parser_get_operand(tmpLine, 2);
-    destinationAddressingMethod = parser_get_addressing_method_of_operand(operand2);
-    if (destinationAddressingMethod == Immediate) {/*an error mechanism is needed here*/
-        destinationOperandContent = parser_get_immediate_operand(operand2);
-    } else if (destinationAddressingMethod == Register) {
-        destinationRegister = parser_get_register_num(operand2);
-    } else {
-        destinationContent = parser_get_label_from_operand(operand2);
-    }
-    free(operand2);
+    handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
+                   &destinationContent, 2);
     word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                    destinationAddressingMethod, destinationRegister, sourceOperandContent,
                                    destinationOperandContent);
@@ -198,7 +182,22 @@ InstructionWord fill_instruction_word(Error *result, const char *line) {
     free(destinationContent);
     *result = NoErrorsFound;
     return word;
-}/*need to split to two or 3 functions*/
+}
+
+void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, int *operandContent,
+                    char **operandContentString, int operandIndex) {
+    char *operand = parser_get_operand(line, operandIndex);
+    (*addressingMethod) = parser_get_addressing_method_of_operand(operand);
+    if ((*addressingMethod) == Immediate) {/*an error mechanism is needed here*/
+        (*operandContent) = parser_get_immediate_operand(operand);
+    } else if ((*addressingMethod) == Register) {
+        (*registerOfOperand) = parser_get_register_num(operand);
+    } else {
+        (*operandContentString) = parser_get_label_from_operand(operand);
+    }
+    free(operand);
+}
+/*need to split to two or 3 functions*/
 
 /*
 Error handle_label(Builder builder,char * line) {
