@@ -8,6 +8,14 @@
 #include "symbol_table.h"
 #include "builder.h"
 
+void print_int(void *n) {
+    printf(" %d", *((int *) n));
+}
+
+void print_float(void *f) {
+    printf(" %f", *(float *) f);
+}
+
 int main() {
     Builder builder = init();
     char line[] = "   Hello:      .data 1,2,3,4,5";
@@ -38,7 +46,8 @@ int main() {
     Error error14 = evaluate(builder, line14);
     Error error15 = evaluate(builder, line15);
     Error error16 = evaluate(builder, line16);
-    List dataItemsList = data_items_list_get_data(get_data_list(builder), 4);
+    List dataItemsList = data_items_list_get_data(get_data_list(builder), 1);
     print_list(dataItemsList, print_int);
+    close(builder);
     return 0;
 }
