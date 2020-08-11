@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Assembler.dir/instruction_word.c.o"
   "CMakeFiles/Assembler.dir/list.c.o"
   "CMakeFiles/Assembler.dir/parser.c.o"
+  "CMakeFiles/Assembler.dir/reader.c.o"
   "CMakeFiles/Assembler.dir/symbol_table.c.o"
 )
 

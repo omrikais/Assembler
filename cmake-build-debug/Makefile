@@ -359,6 +359,33 @@ parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.s
 .PHONY : parser.c.s
 
+reader.o: reader.c.o
+
+.PHONY : reader.o
+
+# target to build an object file
+reader.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/reader.c.o
+.PHONY : reader.c.o
+
+reader.i: reader.c.i
+
+.PHONY : reader.i
+
+# target to preprocess a source file
+reader.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/reader.c.i
+.PHONY : reader.c.i
+
+reader.s: reader.c.s
+
+.PHONY : reader.s
+
+# target to generate assembly for a file
+reader.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/reader.c.s
+.PHONY : reader.c.s
+
 symbol_table.o: symbol_table.c.o
 
 .PHONY : symbol_table.o
@@ -419,6 +446,9 @@ help:
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"
+	@echo "... reader.o"
+	@echo "... reader.i"
+	@echo "... reader.s"
 	@echo "... symbol_table.o"
 	@echo "... symbol_table.i"
 	@echo "... symbol_table.s"

@@ -124,6 +124,12 @@
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.h">
 			<Option target="Assembler"/>
 		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/reader.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/reader.h">
+			<Option target="Assembler"/>
+		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/symbol_table.c">
 			<Option target="Assembler"/>
 		</Unit>

@@ -23,6 +23,8 @@
 #define RELATIVE_ADDRESSING_SYMBOL '&'
 #define REGISTER_CHAR 'r'
 #define STRING_DELIM "\""
+#define ENDING_LENGTH 3
+#define ASSEMBLER_ENDING_STR ".as"
 
 
 enum boolean {

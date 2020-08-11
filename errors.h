@@ -3,6 +3,8 @@
 
 enum error_t {
     CommandNotFound,
+    FileTypeWrong,
+    FileNotExist,
     TooManyOperands,
     TooFewOperands,
     DirectiveNotFound,
