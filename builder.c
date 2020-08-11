@@ -35,9 +35,6 @@ void close(Builder builder) {
 }
 
 Error evaluate(Builder builder, char *line) {
-    char *label;
-    Error result;
-    InstructionWord word = NULL;
     if (parser_is_empty_line(line) == True)
         return NoErrorsFound;
     if (parser_is_directive(line) == True)

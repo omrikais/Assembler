@@ -161,7 +161,7 @@ List parser_get_string_data(const char *line) {
     token = strtok(NULL, STRING_DELIM);/*token is now on the string*/
     stringAsciiArray = malloc(sizeof(int) * (strlen(token) + 1));
     strcpy(stringAsciiArray, token);
-    for (i; i < strlen(stringAsciiArray) + 1; ++i) {
+    for (; i < strlen(stringAsciiArray) + 1; ++i) {
         current = (int) stringAsciiArray[i];
         list_insert_node_at_end(charList, &current, sizeof(int));
     }
@@ -171,15 +171,13 @@ List parser_get_string_data(const char *line) {
 
 List parser_get_data_array(const char *line) {
     /*assumes to get a Data directive with valid arguments*/
-    char tmpLine[MAX_LENGTH], *token, *trimmed, *rest;
+    char tmpLine[MAX_LENGTH], *token, *trimmed;
     List dataList = list_create();
     int currentNumber;
     trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
-    rest = tmpLine;
     token = strtok(tmpLine,"., \n");
-    /*token = strtok_r(rest, "., \n", &rest);*/
     while ((token = strtok(NULL,"., \n")) != NULL) {
         currentNumber = atoi(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(int));
@@ -371,7 +369,7 @@ int parser_get_immediate_operand(const char *operand) {
     int i = 1;
     if (strlen(operand) <= 1)
         return NA;
-    for (i; i < strlen(operand); ++i)
+    for (; i < strlen(operand); ++i)
         if (is_alphabetic(operand[i]) == True)  /*change it - should be is_not_number*/
             return NA;
     return operandValue;
@@ -379,7 +377,7 @@ int parser_get_immediate_operand(const char *operand) {
 
 char *parser_get_label_from_operand(const char *operand) {
     char *label;
-    char *toCopy = operand;
+    const char *toCopy = operand;
     if (operand[0] == RELATIVE_ADDRESSING_SYMBOL)
         toCopy += 1;
     label = malloc(sizeof(char) * (strlen(toCopy) + 1));

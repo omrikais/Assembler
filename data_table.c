@@ -42,7 +42,7 @@ void *data_items_list_get_data(DataItemsList list, int i) {
 }
 
 void data_items_list_destroy(DataItemsList list) {
-    list_destroy(list->data, data_item_list_destroy);
+    list_destroy(list->data, (DestroyFunction) data_item_list_destroy);
     free(list);
 }
 

@@ -1,3 +1,3 @@
-/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir
+/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug/CMakeFiles/Assembler.dir
