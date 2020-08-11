@@ -5,6 +5,7 @@ enum error_t {
     CommandNotFound,
     FileTypeWrong,
     FileNotExist,
+    NoFiles,
     TooManyOperands,
     TooFewOperands,
     DirectiveNotFound,
@@ -15,7 +16,8 @@ enum error_t {
     ConsecutiveComma,
     MissingLabel,
     LabelAlreadyExists,
-    NoErrorsFound
+    NoErrorsFound,
+    NoMoreFiles
 };
 
 typedef enum error_t Error;
