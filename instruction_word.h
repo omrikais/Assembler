@@ -26,6 +26,8 @@ const char *instruction_word_get_destination_string(InstructionWord word);
 
 const char *instruction_word_get_source_string(InstructionWord word);
 
+void instruction_word_destroy_tmp(InstructionWord word);
+
 size_t instruction_word_get_size();
 
 #endif /*ASSEMBLER_INSTRUCTION_WORD_H*/

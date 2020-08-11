@@ -25,6 +25,8 @@ void symbol_entry_destroy(SymbolEntry entry);
 
 int symbol_entry_compare(char *label, SymbolEntry entry);
 
+void symbol_entry_tmp_destroy(SymbolEntry entry);
+
 size_t symbol_size_of();
 
 #endif /*ASSEMBLER_SYMBOL_TABLE_H*/

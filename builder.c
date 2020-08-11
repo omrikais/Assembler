@@ -86,6 +86,7 @@ Error evaluate_directive_line(Builder builder, char *line) {
             }
             entry = symbol_entry_create(label, data_items_get_dc(builder->dataList), DataP);
             list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
+            symbol_entry_tmp_destroy(entry);/*check it*/
             free(label);
         }
         add_data_item_to_table(builder, line, directive);
@@ -109,6 +110,7 @@ void add_data_item_to_table(Builder builder, const char *line, Directive directi
     size_t size = list_size(data);
     data_items_list_add_data_element(builder->dataList, data, list_get_size_of());
     data_items_list_update_dc(builder->dataList, size);
+    list_node_destroy(data,NULL);
 }
 
 /*to delete*/
@@ -133,10 +135,12 @@ Error evaluate_code_line(Builder builder, char *line) {
         entry = symbol_entry_create(label, instruction_list_get_ic(builder->instructions), Code);
         list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
         free(label);
+        symbol_entry_tmp_destroy(entry);
     }
     word = fill_instruction_word(&result, line);
     instruction_word_set_ic(word, IC);
     instruction_list_add_instruction(builder->instructions, word);
+    instruction_word_destroy_tmp(word);/*check this*/
     return NoErrorsFound;
 }
 

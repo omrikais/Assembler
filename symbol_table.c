@@ -28,6 +28,11 @@ void symbol_entry_destroy(SymbolEntry entry) {
     free(entry);
 }
 
+void symbol_entry_tmp_destroy(SymbolEntry entry) {
+    if (entry != NULL)
+        free(entry);
+}
+
 int symbol_get_location(SymbolEntry entry) {
     return entry->location;
 }

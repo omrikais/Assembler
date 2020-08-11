@@ -72,6 +72,16 @@ const char *instruction_word_get_source_string(InstructionWord word) {
 void instruction_word_destroy(InstructionWord word) {
     if (word == NULL)
         return;
+    if (word->destinationOperandContentStr!=NULL)
+        free(word->destinationOperandContentStr);
+    if (word->sourceOperandContentStr != NULL)
+        free(word->sourceOperandContentStr);
+    free(word);
+}
+
+void instruction_word_destroy_tmp(InstructionWord word) {
+    if (word == NULL)
+        return;
     free(word);
 }
 
