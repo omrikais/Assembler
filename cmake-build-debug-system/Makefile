@@ -359,6 +359,33 @@ parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.s
 .PHONY : parser.c.s
 
+printer.o: printer.c.o
+
+.PHONY : printer.o
+
+# target to build an object file
+printer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/printer.c.o
+.PHONY : printer.c.o
+
+printer.i: printer.c.i
+
+.PHONY : printer.i
+
+# target to preprocess a source file
+printer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/printer.c.i
+.PHONY : printer.c.i
+
+printer.s: printer.c.s
+
+.PHONY : printer.s
+
+# target to generate assembly for a file
+printer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/printer.c.s
+.PHONY : printer.c.s
+
 reader.o: reader.c.o
 
 .PHONY : reader.o
@@ -446,6 +473,9 @@ help:
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"
+	@echo "... printer.o"
+	@echo "... printer.i"
+	@echo "... printer.s"
 	@echo "... reader.o"
 	@echo "... reader.i"
 	@echo "... reader.s"

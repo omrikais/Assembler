@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/instruction_word.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/list.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/list.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/parser.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/parser.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/printer.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/printer.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/reader.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/reader.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/symbol_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/symbol_table.c.o"
   )
