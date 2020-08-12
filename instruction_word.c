@@ -72,7 +72,7 @@ const char *instruction_word_get_source_string(InstructionWord word) {
 void instruction_word_destroy(InstructionWord word) {
     if (word == NULL)
         return;
-    if (word->destinationOperandContentStr!=NULL)
+    if (word->destinationOperandContentStr != NULL)
         free(word->destinationOperandContentStr);
     if (word->sourceOperandContentStr != NULL)
         free(word->sourceOperandContentStr);
@@ -97,6 +97,14 @@ int instruction_word_how_many_words_by_operand(int addressingMethod) {
             break;
     }
     return numberOfWords;
+}
+
+int instruction_word_get_addressing_method(InstructionWord word, int operandIndex) {
+    if (operandIndex == SOURCE_INDEX)
+        return word->sourceAddressingMethod;
+    if (operandIndex == DESTINATION_INDEX)
+        return word->destinationAddressingMethod;
+    return -1;
 }
 
 void instruction_word_set_ic(InstructionWord word, int valueOfIc) {

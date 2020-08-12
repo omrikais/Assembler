@@ -58,6 +58,11 @@ Error evaluate_extern(Builder builder, char *line) {
     return NoErrorsFound;
 }
 
+Error evaluate_entry(Builder builder, char *line) {
+    char tmpLine[MAX_LENGTH];
+
+}
+
 Error evaluate_directive_line(Builder builder, char *line) {
     /*assumes that this is the first pass*/
     /*here should be some error checking functions connected to directive issues*/
@@ -92,6 +97,38 @@ Error evaluate_directive_line(Builder builder, char *line) {
     if (directive == Extern)
         return evaluate_extern(builder, line);
     return NoErrorsFound;
+}
+
+Error evaluate_entry_directive(Builder builder, char *line) {
+    Error result;
+    SymbolEntry entry = NULL;
+    List symbols = builder->symbols;
+    char *label = parser_get_extern_label(line, &result);
+    if (result != NoErrorsFound)
+        return result;
+    if (is_label_exists(builder->symbols, label) == False) {
+        free(label);
+        return EntryLabelNotExists;
+    }
+    entry = list_find_element(symbols, label, (Equals) symbol_entry_compare);
+    symbol_update_second_property(entry);
+    return NoErrorsFound;
+}
+
+Error builder_update_instructions(Builder builder) {
+    InstructionWord word;
+    InstructionsList instructions = builder->instructions;
+    const char *label;
+    int i, size = instruction_list_get_number_of_instructions(instructions);
+    for (i = 0; i < size; ++i) {
+        word = instruction_list_get_instruction(instructions, i);
+        if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct) {
+            label = instruction_word_get_source_string(word);
+            /*need here a method of getting a label location from the symbol table
+             * then another function to update the source content*/
+
+        }
+    }
 }
 
 Bool is_label_exists(List list, char *label) {

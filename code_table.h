@@ -20,6 +20,8 @@ void instruction_list_add_instruction(InstructionsList instructions, Instruction
 
 void instruction_list_destroy(InstructionsList instructions);
 
+int instruction_list_get_number_of_instructions(InstructionsList instructions);
+
 InstructionWord instruction_list_get_instruction(InstructionsList instructions, int i);
 
 #endif /*ASSEMBLER_CODE_TABLE_H*/

@@ -20,6 +20,10 @@ InstructionsList instruction_list_create() {
     return instructions;
 }
 
+int instruction_list_get_number_of_instructions(InstructionsList instructions) {
+    return instructions->numberOfInstructions;
+}
+
 
 int instruction_list_get_ic(InstructionsList instructions) {
     return instructions->IC;

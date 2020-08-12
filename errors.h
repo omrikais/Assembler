@@ -16,6 +16,7 @@ enum error_t {
     ConsecutiveComma,
     MissingLabel,
     LabelAlreadyExists,
+    EntryLabelNotExists,
     NoErrorsFound,
     NoMoreFiles
 };

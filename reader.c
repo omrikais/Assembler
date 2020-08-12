@@ -65,6 +65,22 @@ Error reader_run_first_pass(Reader reader) {
     return NoErrorsFound;
 }
 
+Error reader_run_second_pass(Reader reader) {
+    /*before calling this function, the file should be at the beginning*/
+    char line[MAX_LENGTH];
+    Error error;
+    while (fgets(line, MAX_LENGTH - 1, reader->input) != NULL && feof(reader->input) == 0) {
+        if (parser_is_new_label(line) == True)
+            continue;
+        if (parser_is_directive(line) == True) {
+            error = evaluate_entry_directive(reader->builder, line);
+            /*error handling should be here*/
+            continue;
+        }
+    }
+
+}
+
 
 Bool is_valid_file_name(const char *file) {
     int length;

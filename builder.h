@@ -31,6 +31,8 @@ DataItemsList get_data_list(Builder builder);
 
 InstructionWord fill_instruction_word(Error *result, const char *line);
 
+Error evaluate_entry_directive(Builder builder, char *line);
+
 void builder_update_data_symbols_location(Builder builder);
 
 #endif /*ASSEMBLER_BUILDER_H*/

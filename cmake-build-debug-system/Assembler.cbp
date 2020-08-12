@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Assembler"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Assembler">
+				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Assembler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include"/>
+					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include-fixed"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 Assembler"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Assembler/fast">
+				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Assembler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include"/>
+					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include-fixed"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 Assembler/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder_tests.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/constants.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/data_table.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/data_table.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/reader.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/reader.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/symbol_table.c">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h">
+			<Option target="Assembler"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

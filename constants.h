@@ -25,6 +25,8 @@
 #define STRING_DELIM "\""
 #define ENDING_LENGTH 3
 #define ASSEMBLER_ENDING_STR ".as"
+#define SOURCE_INDEX   1
+#define DESTINATION_INDEX   2
 
 
 enum boolean {

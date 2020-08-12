@@ -177,8 +177,8 @@ List parser_get_data_array(const char *line) {
     trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
-    token = strtok(tmpLine,"., \n");
-    while ((token = strtok(NULL,"., \n")) != NULL) {
+    token = strtok(tmpLine, "., \n");
+    while ((token = strtok(NULL, "., \n")) != NULL) {
         currentNumber = atoi(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(int));
     }
@@ -384,6 +384,18 @@ char *parser_get_label_from_operand(const char *operand) {
     strcpy(label, toCopy);
     return label;
 }
+
+/*char *parser_get_label_of_entry(char *line) {
+    char tmpLine[MAX_LENGTH], *trimmed, *token;
+    strcpy(tmpLine, line);
+    trimmed = trim_label(tmpLine);
+    strcpy(tmpLine, trimmed);
+    free(trimmed);
+    token = strtok(tmpLine, " \t");
+    token = strtok(NULL, " \t");        *//*now on the label*//*
+
+
+}*/
 
 
 
