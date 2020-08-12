@@ -35,4 +35,6 @@ Error evaluate_entry_directive(Builder builder, char *line);
 
 void builder_update_data_symbols_location(Builder builder);
 
+void builder_update_instructions(Builder builder);
+
 #endif /*ASSEMBLER_BUILDER_H*/

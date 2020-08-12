@@ -68,6 +68,13 @@ const char *instruction_word_get_source_string(InstructionWord word) {
     return word->sourceOperandContentStr;
 }
 
+void instruction_word_set_operand_content(InstructionWord word, int address, int operandIndex) {
+    if (operandIndex == SOURCE_INDEX)
+        word->sourceOperandContent = address;
+    if (operandIndex == DESTINATION_INDEX)
+        word->destinationOperandContent = address;
+}
+
 
 void instruction_word_destroy(InstructionWord word) {
     if (word == NULL)
@@ -109,6 +116,10 @@ int instruction_word_get_addressing_method(InstructionWord word, int operandInde
 
 void instruction_word_set_ic(InstructionWord word, int valueOfIc) {
     word->valueOfIC = valueOfIc;
+}
+
+int instruction_word_get_ic(InstructionWord word) {
+    return word->valueOfIC;
 }
 
 int instruction_word_determine_number_of_words(InstructionWord word) {

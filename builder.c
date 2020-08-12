@@ -18,6 +18,10 @@ Bool is_label_exists(List list, char *label);
 void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, int *operandContent,
                     char **operandContentString, int operandIndex);
 
+void change_operand_direct(Builder builder, InstructionWord word, int operandIndex);
+
+void change_operand_relative(Builder builder, InstructionWord word, int operandIndex);
+
 Builder init() {
     Builder builder = malloc(sizeof(struct builder_t));
     builder->instructions = instruction_list_create();
@@ -115,21 +119,47 @@ Error evaluate_entry_directive(Builder builder, char *line) {
     return NoErrorsFound;
 }
 
-Error builder_update_instructions(Builder builder) {
+void builder_update_instructions(Builder builder) {
     InstructionWord word;
     InstructionsList instructions = builder->instructions;
+    SymbolEntry entry;
+    int location;
     const char *label;
     int i, size = instruction_list_get_number_of_instructions(instructions);
     for (i = 0; i < size; ++i) {
         word = instruction_list_get_instruction(instructions, i);
-        if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct) {
-            label = instruction_word_get_source_string(word);
-            /*need here a method of getting a label location from the symbol table
-             * then another function to update the source content*/
-
-        }
+        if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct)
+            change_operand_direct(builder, word, SOURCE_INDEX);
+        if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Direct)
+            change_operand_direct(builder, word, DESTINATION_INDEX);
+        if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Relative)
+            change_operand_relative(builder, word, SOURCE_INDEX);
+        if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Relative)
+            change_operand_relative(builder, word, DESTINATION_INDEX);
     }
 }
+
+void change_operand_direct(Builder builder, InstructionWord word, int operandIndex) {
+    const char *label;
+    SymbolEntry entry;
+    int location;
+    label = instruction_word_get_source_string(word);
+    entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
+    location = symbol_get_location(entry);
+    instruction_word_set_operand_content(word, location, operandIndex);
+}
+
+void change_operand_relative(Builder builder, InstructionWord word, int operandIndex) {
+    const char *label;
+    SymbolEntry entry;
+    int labelLocation, wordLocation;
+    label = instruction_word_get_source_string(word);
+    entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
+    labelLocation = symbol_get_location(entry);
+    wordLocation = instruction_word_get_ic(word);
+    instruction_word_set_operand_content(word, labelLocation - wordLocation, operandIndex);
+}
+
 
 Bool is_label_exists(List list, char *label) {
     if (list_find_element(list, label, (Equals) symbol_entry_compare) != NULL) {

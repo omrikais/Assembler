@@ -45,7 +45,7 @@ void print_float(void *f);
 
 void *list_get_data_element_at_index(List list, int i);
 
-void *list_find_element(List list, void *element, Equals compereFunction);
+void * list_find_element(List list, const void *element, Equals compereFunction);
 
 
 size_t list_get_size_of();

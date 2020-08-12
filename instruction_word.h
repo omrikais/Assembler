@@ -22,7 +22,11 @@ void instruction_word_set_destination_string(InstructionWord word, const char *s
 
 void instruction_word_set_source_string(InstructionWord word, const char *string);
 
+void instruction_word_set_operand_content(InstructionWord word, int address, int operandIndex);
+
 const char *instruction_word_get_destination_string(InstructionWord word);
+
+int instruction_word_get_ic(InstructionWord word);
 
 const char *instruction_word_get_source_string(InstructionWord word);
 

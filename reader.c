@@ -78,7 +78,8 @@ Error reader_run_second_pass(Reader reader) {
             continue;
         }
     }
-
+    builder_update_instructions(reader->builder);
+    return NoErrorsFound;
 }
 
 
