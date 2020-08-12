@@ -53,6 +53,18 @@ CMakeFiles/Assembler.dir/parser.c.o
  /Users/omrikaisari/CLionProjects/Assembler/list.h
  /Users/omrikaisari/CLionProjects/Assembler/parser.c
  /Users/omrikaisari/CLionProjects/Assembler/parser.h
+CMakeFiles/Assembler.dir/reader.c.o
+ /Users/omrikaisari/CLionProjects/Assembler/builder.h
+ /Users/omrikaisari/CLionProjects/Assembler/code_table.h
+ /Users/omrikaisari/CLionProjects/Assembler/constants.h
+ /Users/omrikaisari/CLionProjects/Assembler/data_table.h
+ /Users/omrikaisari/CLionProjects/Assembler/errors.h
+ /Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
+ /Users/omrikaisari/CLionProjects/Assembler/list.h
+ /Users/omrikaisari/CLionProjects/Assembler/parser.h
+ /Users/omrikaisari/CLionProjects/Assembler/reader.c
+ /Users/omrikaisari/CLionProjects/Assembler/reader.h
+ /Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
 CMakeFiles/Assembler.dir/symbol_table.c.o
  /Users/omrikaisari/CLionProjects/Assembler/constants.h
  /Users/omrikaisari/CLionProjects/Assembler/list.h

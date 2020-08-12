@@ -37,6 +37,10 @@ int symbol_get_location(SymbolEntry entry) {
     return entry->location;
 }
 
+void symbol_update_location(SymbolEntry entry, int diff) {
+    entry->location += diff;
+}
+
 
 size_t symbol_size_of() {
     return sizeof(struct symbol_entry_type);

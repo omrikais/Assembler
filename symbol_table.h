@@ -21,6 +21,8 @@ SymbolEntry symbol_entry_create(const char *label, int location, Property proper
 
 int symbol_get_location(SymbolEntry entry);
 
+void symbol_update_location(SymbolEntry entry, int diff);
+
 void symbol_entry_destroy(SymbolEntry entry);
 
 int symbol_entry_compare(char *label, SymbolEntry entry);

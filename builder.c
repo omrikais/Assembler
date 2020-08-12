@@ -107,12 +107,23 @@ void add_data_item_to_table(Builder builder, const char *line, Directive directi
     size_t size = list_size(data);
     data_items_list_add_data_element(builder->dataList, data, list_get_size_of());
     data_items_list_update_dc(builder->dataList, size);
-    list_node_destroy(data,NULL);
+    list_node_destroy(data, NULL);
 }
 
 /*to delete*/
 List get_symbol_table(Builder builder) {
     return builder->symbols;
+}
+
+void builder_update_data_symbols_location(Builder builder) {
+    int i;
+    List symbols = builder->symbols;
+    SymbolEntry entry;
+    int diff = instruction_list_get_ic(builder->instructions);
+    for (i = 0; i < list_size(symbols); ++i) {
+        entry = list_get_data_element_at_index(symbols, i);
+        symbol_update_location(entry, diff);
+    }
 }
 
 Error evaluate_code_line(Builder builder, char *line) {

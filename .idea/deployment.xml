@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="AWS - ubuntu (17a97273-7673-4453-93e2-0f4810ccae3a)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.baeLfqmR5V" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-system" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="Remote Host (b47c7820-bf73-429f-a150-fad1bfc40917)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.OyQexYGSPy" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="Remote Host (c365c597-a53f-4ab9-9100-a08202f383bb)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.sOhPAagShf" local="$PROJECT_DIR$" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

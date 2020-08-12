@@ -16,4 +16,6 @@ void reader_destroy(Reader reader);
 
 Error reader_load_next_file(Reader reader);
 
+Error reader_run_first_pass(Reader reader);
+
 #endif /*ASSEMBLER_READER_H*/

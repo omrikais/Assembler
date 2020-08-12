@@ -53,6 +53,18 @@ CMakeFiles/Assembler.dir/parser.c.o: ../list.h
 CMakeFiles/Assembler.dir/parser.c.o: ../parser.c
 CMakeFiles/Assembler.dir/parser.c.o: ../parser.h
 
+CMakeFiles/Assembler.dir/reader.c.o: ../builder.h
+CMakeFiles/Assembler.dir/reader.c.o: ../code_table.h
+CMakeFiles/Assembler.dir/reader.c.o: ../constants.h
+CMakeFiles/Assembler.dir/reader.c.o: ../data_table.h
+CMakeFiles/Assembler.dir/reader.c.o: ../errors.h
+CMakeFiles/Assembler.dir/reader.c.o: ../instruction_word.h
+CMakeFiles/Assembler.dir/reader.c.o: ../list.h
+CMakeFiles/Assembler.dir/reader.c.o: ../parser.h
+CMakeFiles/Assembler.dir/reader.c.o: ../reader.c
+CMakeFiles/Assembler.dir/reader.c.o: ../reader.h
+CMakeFiles/Assembler.dir/reader.c.o: ../symbol_table.h
+
 CMakeFiles/Assembler.dir/symbol_table.c.o: ../constants.h
 CMakeFiles/Assembler.dir/symbol_table.c.o: ../list.h
 CMakeFiles/Assembler.dir/symbol_table.c.o: ../symbol_table.c

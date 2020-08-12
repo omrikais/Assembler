@@ -61,9 +61,10 @@ Error reader_run_first_pass(Reader reader) {
         if (error != NoErrorsFound)
             return error;                /*temporary, should continue and print error message*/
     }
-    /*should update the DC by The IC value*/
+    builder_update_data_symbols_location(reader->builder);
     return NoErrorsFound;
 }
+
 
 Bool is_valid_file_name(const char *file) {
     int length;
