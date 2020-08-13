@@ -1,7 +1,7 @@
 
 /* Created by Omri Kaisari on 05/08/2020.*/
 
-#include "stdlib.h"
+#include <stdlib.h>
 #include "instruction_word.h"
 #include "constants.h"
 #include <string.h>
@@ -44,6 +44,17 @@ InstructionWord instruction_word_create(int opcode, int func, int sourceAddressi
 
 size_t instruction_word_get_size() {
     return sizeof(struct instruction_word_t);
+}
+
+int *instruction_word_get_all_parameters(InstructionWord word) {
+    int *parameters = malloc(sizeof(*parameters) * WORD_PARAMETERS);
+    parameters[0] = word->opcode;
+    parameters[1] = word->sourceAddressingMethod;
+    parameters[2] = word->sourceRegister;
+    parameters[3] = word->destinationAddressingMethod;
+    parameters[4] = word->destinationRegister;
+    parameters[5] = word->func;
+    return parameters;
 }
 
 void instruction_word_set_destination_string(InstructionWord word, const char *string) {

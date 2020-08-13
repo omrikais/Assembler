@@ -32,6 +32,8 @@ const char *instruction_word_get_source_string(InstructionWord word);
 
 int instruction_word_get_addressing_method(InstructionWord word, int operandIndex);
 
+int *instruction_word_get_all_parameters(InstructionWord word);
+
 void instruction_word_destroy_tmp(InstructionWord word);
 
 size_t instruction_word_get_size();

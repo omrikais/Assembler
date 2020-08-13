@@ -1,3 +1,5 @@
 /tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/rebuild_cache.dir
 /tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/edit_cache.dir
+/tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/Tester.dir
 /tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/Assembler.dir
+/tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/SandBox.dir

@@ -53,7 +53,7 @@ int main() {
     AddressingMethod addressingMethod = parser_get_addressing_method_of_operand(operand);
     printf("%s\n", operand);
     char s3[] = "Hi: .string \"Shalom\"\n";
-    List arr = parser_get_sting_data(s3);
+    List arr = parser_get_string_data(s3);
     print_list(arr, print_int);
     printf("\n");
     /*printf("%s\n", (char *) arr);*/

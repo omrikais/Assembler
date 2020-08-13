@@ -6,5 +6,7 @@
 #include <stdio.h>
 #include "instruction_word.h"
 
+void print_instruction_word(InstructionWord word, FILE *output);
+
 
 #endif /*ASSEMBLER_PRINTER_H*/

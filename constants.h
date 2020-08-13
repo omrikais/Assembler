@@ -11,6 +11,7 @@
 #define DIRECTIVES "data","string","entry","extern"
 #define NA (-1)
 #define MAX_LENGTH 82
+#define WORD_PARAMETERS 6
 #define LABEL_DELIM_CHAR ':'
 #define LABEL_DELIM ":"
 #define WHITE_DELIMITERS " \t"
@@ -62,6 +63,7 @@ enum operations {
     STOP = 15,
     OperationNotFound
 };
+
 
 typedef enum addressing AddressingMethod;
 

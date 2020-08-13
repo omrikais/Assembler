@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/tmp/tmp.baeLfqmR5V/instruction_word.c" "/tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/Assembler.dir/instruction_word.c.o"
   "/tmp/tmp.baeLfqmR5V/list.c" "/tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/Assembler.dir/list.c.o"
   "/tmp/tmp.baeLfqmR5V/parser.c" "/tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/Assembler.dir/parser.c.o"
+  "/tmp/tmp.baeLfqmR5V/printer.c" "/tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/Assembler.dir/printer.c.o"
   "/tmp/tmp.baeLfqmR5V/reader.c" "/tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/Assembler.dir/reader.c.o"
   "/tmp/tmp.baeLfqmR5V/symbol_table.c" "/tmp/tmp.baeLfqmR5V/cmake-build-debug-remote/CMakeFiles/Assembler.dir/symbol_table.c.o"
   )
