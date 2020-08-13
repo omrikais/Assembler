@@ -36,6 +36,8 @@ int *instruction_word_get_all_parameters(InstructionWord word);
 
 void instruction_word_destroy_tmp(InstructionWord word);
 
+int instruction_word_get_operand_content(InstructionWord word, int operandIndex);
+
 size_t instruction_word_get_size();
 
 #endif /*ASSEMBLER_INSTRUCTION_WORD_H*/

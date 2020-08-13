@@ -62,10 +62,6 @@ Error evaluate_extern(Builder builder, char *line) {
     return NoErrorsFound;
 }
 
-Error evaluate_entry(Builder builder, char *line) {
-    char tmpLine[MAX_LENGTH];
-
-}
 
 Error evaluate_directive_line(Builder builder, char *line) {
     /*assumes that this is the first pass*/

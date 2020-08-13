@@ -21,4 +21,6 @@ int data_items_get_dc(DataItemsList list);
 
 void data_items_list_destroy(DataItemsList list);
 
+List *data_items_get_list_of_data(DataItemsList dataItemsList, size_t *listSize);
+
 #endif /*ASSEMBLER_DATA_TABLE_H*/

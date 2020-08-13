@@ -20,6 +20,19 @@ DataItemsList data_items_list_create() {
     return list;
 }
 
+List *data_items_get_list_of_data(DataItemsList dataItemsList, size_t *listSize) {
+    List data = dataItemsList->data;
+    int i;
+    List *listArray;
+    *listSize = list_size(data);
+    listArray = malloc(sizeof(List) * (*listSize));
+    for (i = 0; i < *listSize; ++i) {
+        listArray[i] = list_get_data_element_at_index(data, i);
+    }
+    return listArray;
+
+}
+
 int data_items_list_get_dc(DataItemsList list) {
     return list->DC;
 }

@@ -144,3 +144,9 @@ int instruction_word_get_number_of_words(InstructionWord word) {
     return word->numberOfWords;
 }
 
+int instruction_word_get_operand_content(InstructionWord word, int operandIndex) {
+    if (operandIndex == DESTINATION_INDEX)
+        return word->destinationOperandContent;
+    return word->sourceOperandContent;
+}
+
