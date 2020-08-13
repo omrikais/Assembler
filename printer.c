@@ -25,7 +25,7 @@ void print_instruction_word(InstructionWord word, FILE *output) {
     instruction += 4;
     free(parameters);
     /*showbits(instruction);*/
-    printf("%x", instruction);
+    printf("%x", instruction);//need to change that - print a string to output
 }
 
 void print_operand(InstructionWord word, int operandIndex) {
