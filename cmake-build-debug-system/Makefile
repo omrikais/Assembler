@@ -328,6 +328,39 @@ errors.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/errors.c.s
 .PHONY : errors.c.s
 
+file_generator.o: file_generator.c.o
+
+.PHONY : file_generator.o
+
+# target to build an object file
+file_generator.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/file_generator.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/file_generator.c.o
+.PHONY : file_generator.c.o
+
+file_generator.i: file_generator.c.i
+
+.PHONY : file_generator.i
+
+# target to preprocess a source file
+file_generator.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/file_generator.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/file_generator.c.i
+.PHONY : file_generator.c.i
+
+file_generator.s: file_generator.c.s
+
+.PHONY : file_generator.s
+
+# target to generate assembly for a file
+file_generator.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/file_generator.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/file_generator.c.s
+.PHONY : file_generator.c.s
+
 instruction_word.o: instruction_word.c.o
 
 .PHONY : instruction_word.o
@@ -606,6 +639,9 @@ help:
 	@echo "... errors.o"
 	@echo "... errors.i"
 	@echo "... errors.s"
+	@echo "... file_generator.o"
+	@echo "... file_generator.i"
+	@echo "... file_generator.s"
 	@echo "... instruction_word.o"
 	@echo "... instruction_word.i"
 	@echo "... instruction_word.s"

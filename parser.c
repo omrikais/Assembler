@@ -103,8 +103,6 @@ Operation find_operation(char *word) {
         }
     }
     return OperationNotFound;
-
-
 }
 
 Operation parse_get_operation(const char *line) { /*trim the line, and then only get the operation*/
@@ -173,13 +171,13 @@ List parser_get_data_array(const char *line) {
     /*assumes to get a Data directive with valid arguments*/
     char tmpLine[MAX_LENGTH], *token, *trimmed;
     List dataList = list_create();
-    int currentNumber;
+    long currentNumber;
     trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
     token = strtok(tmpLine, "., \n");
     while ((token = strtok(NULL, "., \n")) != NULL) {
-        currentNumber = atoi(token);
+        currentNumber = atol(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(int));
     }
     return dataList;
@@ -285,9 +283,12 @@ Bool is_consecutive_commas(const char *string) {
 }
 
 Bool parser_is_empty_line(const char *line) {
-    char tmpLine[MAX_LENGTH];
+    char tmpLine[MAX_LENGTH], *token;
     strcpy(tmpLine, line);
-    if (strtok(tmpLine, " \t\n;") == NULL)
+    token = strtok(tmpLine, " \t\n");
+    if (token == NULL)
+        return True;
+    if (token[0] == ';')
         return True;
     return False;
 }
@@ -364,8 +365,8 @@ int parser_get_register_num(const char *operand) {
     return (int) registerNumber;
 }
 
-int parser_get_immediate_operand(const char *operand) {
-    int operandValue = atoi(operand + 1);
+long parser_get_immediate_operand(const char *operand) {
+    long operandValue = atol(operand + 1);
     int i = 1;
     if (strlen(operand) <= 1)
         return NA;

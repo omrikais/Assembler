@@ -33,7 +33,7 @@ void instruction_list_add_instruction(InstructionsList instructions, Instruction
     /*assumes that word is a valid instruction word with all its elements*/
     list_insert_node_at_end(instructions->instructions, word, instruction_word_get_size());
     ++(instructions->numberOfInstructions);
-    instructions->IC += instruction_word_get_number_of_words(word);
+    (instructions->IC) += instruction_word_get_number_of_words(word);
 }
 
 void instruction_list_destroy(InstructionsList instructions) {
@@ -44,6 +44,7 @@ void instruction_list_destroy(InstructionsList instructions) {
 InstructionWord instruction_list_get_instruction(InstructionsList instructions, int i) {
     return (InstructionWord) list_get_data_element_at_index(instructions->instructions, i);
 }
+
 
 
 

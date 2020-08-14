@@ -20,14 +20,14 @@ DataItemsList data_items_list_create() {
     return list;
 }
 
-List *data_items_get_list_of_data(DataItemsList dataItemsList, size_t *listSize) {
+List *data_items_get_list_of_data(DataItemsList dataItemsList) {
     List data = dataItemsList->data;
+    int listSize = dataItemsList->numberOfDataItems;
     int i;
     List *listArray;
-    *listSize = list_size(data);
-    listArray = malloc(sizeof(List) * (*listSize));
-    for (i = 0; i < *listSize; ++i) {
-        listArray[i] = list_get_data_element_at_index(data, i);
+    listArray = malloc(sizeof(List) * (listSize));
+    for (i = 1; i <= listSize; ++i) {
+        listArray[i - 1] = list_get_data_element_at_index(data, i);
     }
     return listArray;
 
@@ -65,4 +65,12 @@ int data_items_get_dc(DataItemsList list) {
 
 void data_item_list_destroy(List list) {
     list_destroy(list, NULL);
+}
+
+int data_items_get_number_of_data_items(DataItemsList list) {
+    return list->numberOfDataItems;
+}
+
+List data_items_get_data(DataItemsList list) {
+    return list->data;
 }

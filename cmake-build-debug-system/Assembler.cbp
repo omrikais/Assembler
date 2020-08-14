@@ -200,6 +200,16 @@
 			<Option target="Assembler"/>
 			<Option target="SandBox"/>
 		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/file_generator.c">
+			<Option target="Tester"/>
+			<Option target="Assembler"/>
+			<Option target="SandBox"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/file_generator.h">
+			<Option target="Tester"/>
+			<Option target="Assembler"/>
+			<Option target="SandBox"/>
+		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c">
 			<Option target="Tester"/>
 			<Option target="Assembler"/>

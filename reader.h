@@ -10,7 +10,7 @@
 
 typedef struct reader_t *Reader;
 
-Reader reader_create(const char **objectFiles, size_t objectFilesSize, FILE *input, Error *error);
+Reader reader_create(const char **objectFiles, size_t objectFilesSize, Error *error, Builder builder);
 
 void reader_destroy(Reader reader);
 

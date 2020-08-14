@@ -40,7 +40,7 @@ char *parser_get_extern_label(const char *line, Error *result);
 
 int parser_get_register_num(const char *operand);
 
-int parser_get_immediate_operand(const char *operand);
+long parser_get_immediate_operand(const char *operand);
 
 char *parser_get_label_from_operand(const char *operand);
 

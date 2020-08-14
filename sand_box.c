@@ -1,5 +1,6 @@
 /*Created by Omri Kaisari on 13/08/2020.*/
 #include <stdio.h>
+#include <limits.h>
 #include <string.h>
 #include "list.h"
 #include "parser.h"
@@ -10,6 +11,7 @@
 #include "printer.h"
 #include "builder.h"
 #include "reader.h"
+#include "file_generator.h"
 
 void print_int(void *n) {
     printf(" %d", *((int *) n));
@@ -17,8 +19,10 @@ void print_int(void *n) {
 
 
 int main() {
-    InstructionWord word = instruction_word_create(12, 4, 1, 2, 3, 2, 3, 2);
-    print_instruction_word(word, stdout);
+    char *args[] = {"valid.as"};
+    assemble(args, 1);
+    char str[] = "1";
+    printf("%d\n", str[0]);
     return 0;
 }
 

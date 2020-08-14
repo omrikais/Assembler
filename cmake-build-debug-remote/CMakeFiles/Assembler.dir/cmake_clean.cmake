@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Assembler.dir/code_table.c.o"
   "CMakeFiles/Assembler.dir/data_table.c.o"
   "CMakeFiles/Assembler.dir/errors.c.o"
+  "CMakeFiles/Assembler.dir/file_generator.c.o"
   "CMakeFiles/Assembler.dir/instruction_word.c.o"
   "CMakeFiles/Assembler.dir/list.c.o"
   "CMakeFiles/Assembler.dir/parser.c.o"

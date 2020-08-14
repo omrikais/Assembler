@@ -4,11 +4,13 @@
 #ifndef ASSEMBLER_INSTRUCTION_WORD_H
 #define ASSEMBLER_INSTRUCTION_WORD_H
 
+#include "constants.h"
+
 typedef struct instruction_word_t *InstructionWord;
 
 InstructionWord instruction_word_create(int opcode, int func, int sourceAddressingMethod, int sourceRegister,
                                         int destinationAddressingMethod, int destinationRegister,
-                                        int sourceOperandContent, int destinationOperandContent);
+                                        long sourceOperandContent, long destinationOperandContent);
 
 void instruction_word_destroy(InstructionWord word);
 
@@ -32,12 +34,16 @@ const char *instruction_word_get_source_string(InstructionWord word);
 
 int instruction_word_get_addressing_method(InstructionWord word, int operandIndex);
 
-int *instruction_word_get_all_parameters(InstructionWord word);
+long *instruction_word_get_all_parameters(InstructionWord word);
 
 void instruction_word_destroy_tmp(InstructionWord word);
 
 int instruction_word_get_operand_content(InstructionWord word, int operandIndex);
 
 size_t instruction_word_get_size();
+
+void instruction_word_set_is_extern(InstructionWord word, int operandIndex);
+
+Bool instruction_word_is_operand_external(InstructionWord word, int operandIndex);
 
 #endif /*ASSEMBLER_INSTRUCTION_WORD_H*/

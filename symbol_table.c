@@ -47,6 +47,10 @@ void symbol_update_location(SymbolEntry entry, int diff) {
     entry->location += diff;
 }
 
+Property symbol_get_property(SymbolEntry entry) {
+    return entry->property2;
+}
+
 
 size_t symbol_size_of() {
     return sizeof(struct symbol_entry_type);

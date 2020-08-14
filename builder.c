@@ -15,7 +15,7 @@ Error evaluate_extern(Builder builder, char *line);
 
 Bool is_label_exists(List list, char *label);
 
-void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, int *operandContent,
+void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, long *operandContent,
                     char **operandContentString, int operandIndex);
 
 void change_operand_direct(Builder builder, InstructionWord word, int operandIndex);
@@ -122,7 +122,7 @@ void builder_update_instructions(Builder builder) {
     int location;
     const char *label;
     int i, size = instruction_list_get_number_of_instructions(instructions);
-    for (i = 0; i < size; ++i) {
+    for (i = 1; i <= size; ++i) {
         word = instruction_list_get_instruction(instructions, i);
         if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct)
             change_operand_direct(builder, word, SOURCE_INDEX);
@@ -139,9 +139,18 @@ void change_operand_direct(Builder builder, InstructionWord word, int operandInd
     const char *label;
     SymbolEntry entry;
     int location;
-    label = instruction_word_get_source_string(word);
+    Property property;
+    if (operandIndex == DESTINATION_INDEX)
+        label = instruction_word_get_destination_string(word);
+    else
+        label = instruction_word_get_source_string(word);
     entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
     location = symbol_get_location(entry);
+    property = symbol_get_property(entry);
+    if (property == External) {
+        location = 0;
+        instruction_word_set_is_extern(word, operandIndex);
+    }
     instruction_word_set_operand_content(word, location, operandIndex);
 }
 
@@ -183,7 +192,7 @@ void builder_update_data_symbols_location(Builder builder) {
     List symbols = builder->symbols;
     SymbolEntry entry;
     int diff = instruction_list_get_ic(builder->instructions);
-    for (i = 0; i < list_size(symbols); ++i) {
+    for (i = 1; i <= list_size(symbols); ++i) {
         entry = list_get_data_element_at_index(symbols, i);
         symbol_update_location(entry, diff);
     }
@@ -217,8 +226,8 @@ Error evaluate_code_line(Builder builder, char *line) {
 
 InstructionWord fill_instruction_word(Error *result, const char *line) { /*assumes instruction code line*/
     int opCode, functionCode, sourceAddressingMethod = 0, destinationAddressingMethod = 0,
-            sourceRegister = 0, destinationRegister = 0;
-    int sourceOperandContent = 0, destinationOperandContent = 0, numberOfOperands;
+            sourceRegister = 0, destinationRegister = 0, numberOfOperands;
+    long sourceOperandContent = 0, destinationOperandContent = 0;
     char tmpLine[MAX_LENGTH];
     char *sourceContent = NULL, *destinationContent = NULL;
     Operation operation;
@@ -265,7 +274,7 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
     return word;
 }
 
-void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, int *operandContent,
+void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, long *operandContent,
                     char **operandContentString, int operandIndex) {
     char *operand = parser_get_operand(line, operandIndex);
     (*addressingMethod) = parser_get_addressing_method_of_operand(operand);
@@ -278,13 +287,15 @@ void handle_operand(const char *line, int *addressingMethod, int *registerOfOper
     }
     free(operand);
 }
-/*need to split to two or 3 functions*/
 
+InstructionsList builder_get_instructions_list(Builder builder) {
+    return builder->instructions;
+}
 
-/*delete it - for testing only*/
-DataItemsList get_data_list(Builder builder) {
+DataItemsList builder_get_data_items_list(Builder builder) {
     return builder->dataList;
 }
+
 
 /*
 Error handle_label(Builder builder,char * line) {

@@ -24,11 +24,6 @@ Error evaluate_code_line(Builder builder, char *line);
 
 Error evaluate(Builder builder, char *line);
 
-/*to delete*/
-List get_symbol_table(Builder builder);
-
-DataItemsList get_data_list(Builder builder);
-
 InstructionWord fill_instruction_word(Error *result, const char *line);
 
 Error evaluate_entry_directive(Builder builder, char *line);
@@ -36,5 +31,9 @@ Error evaluate_entry_directive(Builder builder, char *line);
 void builder_update_data_symbols_location(Builder builder);
 
 void builder_update_instructions(Builder builder);
+
+InstructionsList builder_get_instructions_list(Builder builder);
+
+DataItemsList builder_get_data_items_list(Builder builder);
 
 #endif /*ASSEMBLER_BUILDER_H*/

@@ -5,7 +5,7 @@
 #define ASSEMBLER_CONSTANTS_H
 #define FUNCTIONS "mov","cmp","add","sub","lea","clr","not","inc","dec","jmp","bne","jsr","red","prn","rts","stop"
 #define FUNCTIONS_NUMBERS 0,1,21,22,4,51,52,53,54,91,92,93,12,13,14,15
-#define NUMBER_OF_OPERANDS 2,2,2,2,1,1,1,1,1,1,1,1,1,1,0,0
+#define NUMBER_OF_OPERANDS 2,2,2,2,2,1,1,1,1,1,1,1,1,1,0,0
 #define NUMBER_OF_FUNCTIONS 16
 #define BEGIN_ADDRESS 100
 #define DIRECTIVES "data","string","entry","extern"
@@ -31,7 +31,7 @@
 
 
 enum boolean {
-    False, True
+    False = 0, True = 1
 };
 
 typedef enum boolean Bool;

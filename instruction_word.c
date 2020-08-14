@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include "instruction_word.h"
-#include "constants.h"
+
 #include <string.h>
 
 struct instruction_word_t {
@@ -13,20 +13,24 @@ struct instruction_word_t {
     int sourceRegister;
     int destinationAddressingMethod;
     int destinationRegister;
-    int sourceOperandContent;
+    long sourceOperandContent;
     char *sourceOperandContentStr;
-    int destinationOperandContent;
+    long destinationOperandContent;
     char *destinationOperandContentStr;
     int valueOfIC;
     int numberOfWords;
+    Bool isDestinationExtern;
+    Bool isSourceExtern;
 };
 
 int instruction_word_how_many_words_by_operand(int addressingMethod);
 
+Bool has_operand(Operation operation, int indexOfOperation);
+
 
 InstructionWord instruction_word_create(int opcode, int func, int sourceAddressingMethod, int sourceRegister,
                                         int destinationAddressingMethod, int destinationRegister,
-                                        int sourceOperandContent, int destinationOperandContent) {
+                                        long sourceOperandContent, long destinationOperandContent) {
     InstructionWord word = malloc(sizeof(*word));
     word->opcode = opcode;
     word->func = func;
@@ -39,6 +43,8 @@ InstructionWord instruction_word_create(int opcode, int func, int sourceAddressi
     word->numberOfWords = instruction_word_determine_number_of_words(word);
     word->destinationOperandContentStr = NULL;
     word->sourceOperandContentStr = NULL;
+    word->isDestinationExtern = -1;
+    word->isSourceExtern = False;
     return word;
 }
 
@@ -46,8 +52,8 @@ size_t instruction_word_get_size() {
     return sizeof(struct instruction_word_t);
 }
 
-int *instruction_word_get_all_parameters(InstructionWord word) {
-    int *parameters = malloc(sizeof(*parameters) * WORD_PARAMETERS);
+long *instruction_word_get_all_parameters(InstructionWord word) {
+    long *parameters = malloc(sizeof(*parameters) * WORD_PARAMETERS);
     parameters[0] = word->opcode;
     parameters[1] = word->sourceAddressingMethod;
     parameters[2] = word->sourceRegister;
@@ -133,10 +139,28 @@ int instruction_word_get_ic(InstructionWord word) {
     return word->valueOfIC;
 }
 
+Bool has_operand(Operation operation, int indexOfOperation) {
+    int numberOfOperand[] = {NUMBER_OF_OPERANDS};
+    int functionsNumbers[] = {FUNCTIONS_NUMBERS}, i;
+    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i) {
+        if (functionsNumbers[i] == operation)
+            break;
+    }
+    if (indexOfOperation == SOURCE_INDEX && numberOfOperand[i] > 0)
+        return True;
+    if (indexOfOperation == DESTINATION_INDEX && numberOfOperand[i] == 2)
+        return True;
+    return False;
+}
+
 int instruction_word_determine_number_of_words(InstructionWord word) {
     int totalWords = 1;     /*this number includes the instruction word itself*/
-    totalWords += instruction_word_how_many_words_by_operand(word->destinationAddressingMethod) +
-                  instruction_word_how_many_words_by_operand(word->sourceAddressingMethod);
+    Bool hasDestination, hasSource;
+    int opcode = (word->opcode) * 10 + word->func;
+    hasSource = has_operand(opcode, SOURCE_INDEX);
+    hasDestination = has_operand(opcode, DESTINATION_INDEX);
+    totalWords += instruction_word_how_many_words_by_operand(word->destinationAddressingMethod) * hasDestination +
+                  instruction_word_how_many_words_by_operand(word->sourceAddressingMethod) * hasSource;
     return totalWords;
 }
 
@@ -148,5 +172,16 @@ int instruction_word_get_operand_content(InstructionWord word, int operandIndex)
     if (operandIndex == DESTINATION_INDEX)
         return word->destinationOperandContent;
     return word->sourceOperandContent;
+}
+
+void instruction_word_set_is_extern(InstructionWord word, int operandIndex) {
+    if (operandIndex == SOURCE_INDEX)
+        (word->isSourceExtern = True);
+    if (operandIndex == DESTINATION_INDEX)
+        (word->isDestinationExtern = True);
+}
+
+Bool instruction_word_is_operand_external(InstructionWord word, int operandIndex) {
+    return (operandIndex == SOURCE_INDEX) ? word->isSourceExtern : word->isDestinationExtern;
 }
 

@@ -33,4 +33,6 @@ void symbol_entry_tmp_destroy(SymbolEntry entry);
 
 size_t symbol_size_of();
 
+Property symbol_get_property(SymbolEntry entry);
+
 #endif /*ASSEMBLER_SYMBOL_TABLE_H*/
