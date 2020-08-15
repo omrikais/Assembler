@@ -27,7 +27,7 @@ void print_int(void *n) {
 
 
 int main() {
-    char *args[] = {"valid.as"};
+    char *args[] = {"valid"};
     long mask = 0;
     mask = ~mask;
     mask <<= 24;

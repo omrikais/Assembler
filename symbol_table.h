@@ -35,4 +35,8 @@ size_t symbol_size_of();
 
 Property symbol_get_property(SymbolEntry entry);
 
+Property symbol_get_second_property(SymbolEntry entry);
+
+const char *symbol_entry_get_label(SymbolEntry entry);
+
 #endif /*ASSEMBLER_SYMBOL_TABLE_H*/

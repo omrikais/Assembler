@@ -30,6 +30,10 @@ void symbol_entry_destroy(SymbolEntry entry) {
     free(entry);
 }
 
+Property symbol_get_second_property(SymbolEntry entry) {
+    return entry->property2;
+}
+
 void symbol_entry_tmp_destroy(SymbolEntry entry) {
     if (entry != NULL)
         free(entry);
@@ -54,6 +58,10 @@ Property symbol_get_property(SymbolEntry entry) {
 
 size_t symbol_size_of() {
     return sizeof(struct symbol_entry_type);
+}
+
+const char *symbol_entry_get_label(SymbolEntry entry) {
+    return entry->label;
 }
 
  

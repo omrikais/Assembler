@@ -65,6 +65,7 @@ CMakeFiles/SandBox.dir/printer.c.o: ../list.h
 CMakeFiles/SandBox.dir/printer.c.o: ../parser.h
 CMakeFiles/SandBox.dir/printer.c.o: ../printer.c
 CMakeFiles/SandBox.dir/printer.c.o: ../printer.h
+CMakeFiles/SandBox.dir/printer.c.o: ../symbol_table.h
 
 CMakeFiles/SandBox.dir/reader.c.o: ../builder.h
 CMakeFiles/SandBox.dir/reader.c.o: ../code_table.h

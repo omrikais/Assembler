@@ -18,7 +18,8 @@ enum error_t {
     LabelAlreadyExists,
     EntryLabelNotExists,
     NoErrorsFound,
-    NoMoreFiles
+    NoMoreFiles,
+    NoEntries
 };
 
 typedef enum error_t Error;

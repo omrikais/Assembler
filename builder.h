@@ -36,4 +36,6 @@ InstructionsList builder_get_instructions_list(Builder builder);
 
 DataItemsList builder_get_data_items_list(Builder builder);
 
+List builder_get_symbols_list(Builder builder);
+
 #endif /*ASSEMBLER_BUILDER_H*/

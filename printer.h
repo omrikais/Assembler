@@ -18,5 +18,7 @@ void print_data(List *dataList, size_t sizeOfDataList, int ICF, FILE *output);
 
 void print_object_file(InstructionsList instructions, DataItemsList dataList, FILE *output);
 
+Error print_entry_file(List symbols, FILE *output);
+
 
 #endif /*ASSEMBLER_PRINTER_H*/

@@ -308,6 +308,14 @@ DataItemsList builder_get_data_items_list(Builder builder) {
     return builder->dataList;
 }
 
+List builder_get_symbols_list(Builder builder) {
+    return builder->symbols;
+}
+
+/*Error builder_generate_entry_array(Builder builder) {
+
+}*/
+
 
 /*
 Error handle_label(Builder builder,char * line) {

@@ -1,6 +1,7 @@
 /*Created by Omri Kaisari on 12/08/2020.*/
 
 #include "printer.h"
+#include "symbol_table.h"
 #include <string.h>
 #include <stdlib.h>
 
@@ -8,6 +9,8 @@
 void print_operand(InstructionWord word, int operandIndex, FILE *output);
 
 void print_current_element(long currentElement, int currentIC, FILE *output);
+
+void print_entry(SymbolEntry entry, FILE *output);
 
 void print_instruction_word(InstructionWord word, FILE *output) {
     long *parameters = instruction_word_get_all_parameters(word);
@@ -121,6 +124,30 @@ void print_header_line(int numberOfInstructionWords, int numberOfDataWords, FILE
     char toPrint[MAX_LENGTH];
     sprintf(toPrint, "%d %d\n", numberOfInstructionWords, numberOfDataWords);
     fputs(toPrint, output);
+}
+
+void print_entry(SymbolEntry entry, FILE *output) {
+    char toPrint[MAX_LENGTH];
+    const char *label = symbol_entry_get_label(entry);
+    int address = symbol_get_location(entry);
+    sprintf(toPrint, "%s %07d\n", label, address);
+    fputs(toPrint, output);
+}
+
+Error print_entry_file(List symbols, FILE *output) {
+    int size = list_size(symbols), i;
+    SymbolEntry entry;
+    Bool isExistsEntry = False;
+    for (i = 1; i <= size; ++i) {
+        entry = list_get_data_element_at_index(symbols, i);
+        if (symbol_get_second_property(entry) == EntryP) {
+            isExistsEntry = True;
+            print_entry(entry, output);
+        }
+    }
+    if (isExistsEntry != True)
+        return NoEntries;
+    return NoErrorsFound;
 }
 
 
