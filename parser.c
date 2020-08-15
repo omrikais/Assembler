@@ -181,8 +181,8 @@ List parser_get_data_array(const char *line) {
     trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
-    token = strtok(tmpLine, "., \n");
-    while ((token = strtok(NULL, "., \n")) != NULL) {
+    token = strtok(tmpLine, "., \n\t");
+    while ((token = strtok(NULL, "., \n\t")) != NULL) {
         currentNumber = atol(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(long));
     }
