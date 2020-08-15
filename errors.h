@@ -19,7 +19,8 @@ enum error_t {
     EntryLabelNotExists,
     NoErrorsFound,
     NoMoreFiles,
-    NoEntries
+    NoEntries,
+    ExternOrInternLabelNotFound
 };
 
 typedef enum error_t Error;

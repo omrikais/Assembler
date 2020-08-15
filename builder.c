@@ -148,6 +148,10 @@ void change_operand_direct(Builder builder, InstructionWord word, int operandInd
     if (isOneOperand == False && operandIndex == SOURCE_INDEX)
         label = instruction_word_get_source_string(word);
     entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
+    if (entry == NULL) {
+        /*TODO: print error message and return*/
+        return;
+    }
     location = symbol_get_location(entry);
     property = symbol_get_property(entry);
     if (property == External) {

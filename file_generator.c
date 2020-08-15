@@ -10,11 +10,12 @@ Error assemble(const char **args, int size) {
     Error error;
     Builder builder = init();
     char **fileNames;
+    Reader reader;
     error = file_generator_make_as_array(args, size, &fileNames);
-    Reader reader = reader_create(fileNames, size, &error, builder);
+    reader = reader_create(fileNames, size, &error, builder);
     char fileName[MAX_LENGTH];
     int i = 0;
-    FILE *output;
+    FILE *outputObject, *outputExtern, *outputEntry;
     if (reader == NULL)
         return error;
     while (reader_load_next_file(reader) != NoMoreFiles) {
@@ -27,14 +28,22 @@ Error assemble(const char **args, int size) {
             /*TODO: error handling*/
         }
         sprintf(fileName, "%s.ob", args[i]);
-        output = fopen(fileName, "w");
-        print_object_file(builder_get_instructions_list(builder), builder_get_data_items_list(builder), output);
-        fclose(output);
+        outputObject = fopen(fileName, "w");
+        sprintf(fileName, "%s.ext", args[i]);
+        outputExtern = fopen(fileName, "w");
+        print_object_file(builder_get_instructions_list(builder), builder_get_data_items_list(builder), outputObject,
+                          outputExtern);
+        fclose(outputObject);
+        fclose(outputExtern);
+        if (ftell(outputExtern) == 0)
+            remove(fileName);
         sprintf(fileName, "%s.en", args[i]);
-        output = fopen(fileName, "w");
-        print_entry_file(builder_get_symbols_list(builder), output);
-        fclose(output);
-        /*TODO: generate files here*/
+        outputEntry = fopen(fileName, "w");
+        error = print_entry_file(builder_get_symbols_list(builder), outputEntry);
+        fclose(outputEntry);
+        if (error == NoEntries) {
+            remove(fileName);
+        }
     }
     return NoErrorsFound;
 }

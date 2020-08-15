@@ -66,7 +66,6 @@ Error reader_run_first_pass(Reader reader) {
 }
 
 Error reader_run_second_pass(Reader reader) {
-    /*before calling this function, the file should be at the beginning*/
     char line[MAX_LENGTH];
     Error error;
     rewind(reader->input);
