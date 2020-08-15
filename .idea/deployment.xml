@@ -2,14 +2,14 @@
 <project version="4">
   <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="AWS - ubuntu (17a97273-7673-4453-93e2-0f4810ccae3a)">
+      <paths name="Google Cloud Platform (9cbe92f5-4a5a-4a9a-b232-9b5141c84bdc)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.baeLfqmR5V" local="$PROJECT_DIR$" />
+            <mapping deploy="/tmp/tmp.BOYisKdkU2" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-system" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-gcp" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-remote" />
           </excludedPaths>
         </serverdata>

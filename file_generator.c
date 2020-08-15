@@ -11,13 +11,14 @@ Error assemble(const char **args, int size) {
     Builder builder = init();
     char **fileNames;
     Reader reader;
-    error = file_generator_make_as_array(args, size, &fileNames);
-    reader = reader_create(fileNames, size, &error, builder);
     char fileName[MAX_LENGTH];
+    error = file_generator_make_as_array(args, size, &fileNames);
+    reader = reader_create((const char **) fileNames, size, &error, builder);
     int i = 0;
     FILE *outputObject, *outputExtern, *outputEntry;
-    if (reader == NULL)
+    if (reader == NULL) {
         return error;
+    }
     while (reader_load_next_file(reader) != NoMoreFiles) {
         error = reader_run_first_pass(reader);
         if (error != NoErrorsFound) {
@@ -34,10 +35,11 @@ Error assemble(const char **args, int size) {
         print_object_file(builder_get_instructions_list(builder), builder_get_data_items_list(builder), outputObject,
                           outputExtern);
         fclose(outputObject);
-        fclose(outputExtern);
         if (ftell(outputExtern) == 0)
             remove(fileName);
-        sprintf(fileName, "%s.en", args[i]);
+        else
+            fclose(outputExtern);
+        sprintf(fileName, "%s.ent", args[i]);
         outputEntry = fopen(fileName, "w");
         error = print_entry_file(builder_get_symbols_list(builder), outputEntry);
         fclose(outputEntry);
@@ -45,6 +47,8 @@ Error assemble(const char **args, int size) {
             remove(fileName);
         }
     }
+    reader_destroy(reader);
+    free_string_array(fileNames, size);
     return NoErrorsFound;
 }
 
@@ -57,7 +61,7 @@ Error file_generator_make_as_array(const char **args, int size, char ***stringAr
     for (i = 0; i < size; ++i) {
         strcpy(currentFileName, args[i]);
         strcat(currentFileName, ".as");
-        (*stringArrayPtr)[i] = malloc(sizeof(char) * strlen(currentFileName));
+        (*stringArrayPtr)[i] = malloc(sizeof(char) * (strlen(currentFileName) + 1));
         strcpy((*stringArrayPtr)[i], currentFileName);
     }
     return NoErrorsFound;

@@ -20,4 +20,6 @@ Error reader_run_first_pass(Reader reader);
 
 Error reader_run_second_pass(Reader reader);
 
+void free_string_array(char **array, size_t size);
+
 #endif /*ASSEMBLER_READER_H*/

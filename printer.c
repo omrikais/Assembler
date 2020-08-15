@@ -98,6 +98,7 @@ void print_object_file(InstructionsList instructions, DataItemsList dataList, FI
     }
     size = data_items_get_number_of_data_items(dataList);
     print_data(arrayOfDataElements, size, ICF, outputObject);
+    free(arrayOfDataElements);
 }
 
 void print_current_element(long currentElement, int currentIC, FILE *output) {

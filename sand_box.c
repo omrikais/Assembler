@@ -27,15 +27,9 @@ void print_int(void *n) {
 
 
 int main() {
-    char *args[] = {"valid"};
+    char *args[] = {"./valid"};
     long mask = 0;
-    mask = ~mask;
-    mask <<= 24;
-    mask = ~mask;
-    showbits(mask);
     assemble(args, 1);
-    char str[] = "1";
-    printf("%d\n", str[0]);
     return 0;
 }
 

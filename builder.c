@@ -51,14 +51,18 @@ Error evaluate_extern(Builder builder, char *line) {
     Error result;
     SymbolEntry entry;
     char *label = parser_get_extern_label(line, &result);
-    if (result != NoErrorsFound)
+    if (result != NoErrorsFound) {
+        free(label);
         return result;
+    }
     if (is_label_exists(builder->symbols, label) == True) {
         free(label);
         return LabelAlreadyExists;
     }
     entry = symbol_entry_create(label, 0, External);
     list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
+    symbol_entry_tmp_destroy(entry);
+    free(label);
     return NoErrorsFound;
 }
 
@@ -104,14 +108,17 @@ Error evaluate_entry_directive(Builder builder, char *line) {
     SymbolEntry entry = NULL;
     List symbols = builder->symbols;
     char *label = parser_get_extern_label(line, &result);
-    if (result != NoErrorsFound)
+    if (result != NoErrorsFound) {
+        free(label);
         return result;
+    }
     if (is_label_exists(builder->symbols, label) == False) {
         free(label);
         return EntryLabelNotExists;
     }
     entry = list_find_element(symbols, label, (Equals) symbol_entry_compare);
     symbol_update_second_property(entry);
+    free(label);
     return NoErrorsFound;
 }
 

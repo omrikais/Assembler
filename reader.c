@@ -15,8 +15,6 @@ Bool is_valid_file_name(const char *file);
 
 char **copy_char_array(const char **charArray, size_t size);
 
-void free_string_array(char **array, size_t size);
-
 Reader reader_create(const char **objectFiles, size_t objectFilesSize, Error *error, Builder builder) {
     Reader reader;
     reader = malloc(sizeof(struct reader_t));
@@ -42,8 +40,10 @@ Error reader_load_next_file(Reader reader) {
     if (reader->nextFileIndex != 0 && (reader->nextFileIndex < reader->objectFilesSize) &&
         (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex - 1])))
         fclose(reader->input);
-    if (reader->nextFileIndex >= reader->objectFilesSize)
+    if (reader->nextFileIndex >= reader->objectFilesSize) {
+        fclose(reader->input);;
         return NoMoreFiles;
+    }
     if (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex]) != True) {
         ++(reader->nextFileIndex);
         return FileTypeWrong;
