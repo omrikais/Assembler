@@ -48,7 +48,7 @@ void symbol_update_location(SymbolEntry entry, int diff) {
 }
 
 Property symbol_get_property(SymbolEntry entry) {
-    return entry->property2;
+    return entry->property;
 }
 
 

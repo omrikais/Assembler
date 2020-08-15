@@ -57,7 +57,7 @@ Error evaluate_extern(Builder builder, char *line) {
         free(label);
         return LabelAlreadyExists;
     }
-    entry = symbol_entry_create(label, 0, DataP);
+    entry = symbol_entry_create(label, 0, External);
     list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
     return NoErrorsFound;
 }
@@ -124,9 +124,11 @@ void builder_update_instructions(Builder builder) {
     int i, size = instruction_list_get_number_of_instructions(instructions);
     for (i = 1; i <= size; ++i) {
         word = instruction_list_get_instruction(instructions, i);
-        if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct)
+        if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct &&
+            has_operand(word, SOURCE_INDEX) == True)
             change_operand_direct(builder, word, SOURCE_INDEX);
-        if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Direct)
+        if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Direct &&
+            has_operand(word, DESTINATION_INDEX) == True)
             change_operand_direct(builder, word, DESTINATION_INDEX);
         if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Relative)
             change_operand_relative(builder, word, SOURCE_INDEX);
@@ -140,9 +142,10 @@ void change_operand_direct(Builder builder, InstructionWord word, int operandInd
     SymbolEntry entry;
     int location;
     Property property;
+    Bool isOneOperand = !(has_operand(word, DESTINATION_INDEX));
     if (operandIndex == DESTINATION_INDEX)
         label = instruction_word_get_destination_string(word);
-    else
+    if (isOneOperand == False && operandIndex == SOURCE_INDEX)
         label = instruction_word_get_source_string(word);
     entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
     location = symbol_get_location(entry);
@@ -158,7 +161,11 @@ void change_operand_relative(Builder builder, InstructionWord word, int operandI
     const char *label;
     SymbolEntry entry;
     int labelLocation, wordLocation;
-    label = instruction_word_get_source_string(word);
+    Bool isOneOperand = !(has_operand(word, DESTINATION_INDEX));
+    if (operandIndex == DESTINATION_INDEX)
+        label = instruction_word_get_destination_string(word);
+    if (isOneOperand == False && operandIndex == SOURCE_INDEX)
+        label = instruction_word_get_source_string(word);
     entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
     labelLocation = symbol_get_location(entry);
     wordLocation = instruction_word_get_ic(word);
@@ -194,7 +201,8 @@ void builder_update_data_symbols_location(Builder builder) {
     int diff = instruction_list_get_ic(builder->instructions);
     for (i = 1; i <= list_size(symbols); ++i) {
         entry = list_get_data_element_at_index(symbols, i);
-        symbol_update_location(entry, diff);
+        if (symbol_get_property(entry) == DataP)
+            symbol_update_location(entry, diff);
     }
 }
 
@@ -238,8 +246,8 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
         *result = CommandNotFound;
         return NULL;
     }
-    opCode = (int) operation / 10;
-    functionCode = (int) operation % 10;
+    opCode = ((int) operation > 19) ? (((int) operation) / 10) : ((int) operation);
+    functionCode = ((int) operation > 19) ? (((int) operation) % 10) : 0;
     numberOfOperands = parser_get_number_of_operands(operation);
     *result = parser_check_operands(tmpLine, numberOfOperands);
     if (*result != NoErrorsFound) {
@@ -251,16 +259,20 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
         *result = NoErrorsFound;
         return word;
     }
-    handle_operand(tmpLine, &sourceAddressingMethod, &sourceRegister, &sourceOperandContent, &sourceContent, 1);
+
     if (numberOfOperands == 1) {
+        handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
+                       &destinationContent, 1);
         word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                        destinationAddressingMethod, destinationRegister, sourceOperandContent,
                                        destinationOperandContent);
-        instruction_word_set_source_string(word, sourceContent);
-        free(sourceContent);
+        instruction_word_set_destination_string(word, destinationContent);
+        free(destinationContent);
         *result = NoErrorsFound;
         return word;
     }
+    handle_operand(tmpLine, &sourceAddressingMethod, &sourceRegister, &sourceOperandContent,
+                   &sourceContent, 1);
     handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
                    &destinationContent, 2);
     word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,

@@ -13,6 +13,14 @@
 #include "reader.h"
 #include "file_generator.h"
 
+void showbits(long x) {
+    int i;
+    for (i = (sizeof(char) * 32) - 1; i >= 0; i--) {
+        putchar(x & (1u << i) ? '1' : '0');
+    }
+    printf("\n");
+}
+
 void print_int(void *n) {
     printf(" %d", *((int *) n));
 }
@@ -20,6 +28,11 @@ void print_int(void *n) {
 
 int main() {
     char *args[] = {"valid.as"};
+    long mask = 0;
+    mask = ~mask;
+    mask <<= 24;
+    mask = ~mask;
+    showbits(mask);
     assemble(args, 1);
     char str[] = "1";
     printf("%d\n", str[0]);

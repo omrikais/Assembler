@@ -44,6 +44,8 @@ long parser_get_immediate_operand(const char *operand);
 
 char *parser_get_label_from_operand(const char *operand);
 
+Bool parser_is_entry(const char *line);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 

@@ -71,9 +71,11 @@ Error reader_run_second_pass(Reader reader) {
     Error error;
     rewind(reader->input);
     while (fgets(line, MAX_LENGTH - 1, reader->input) != NULL && feof(reader->input) == 0) {
+        if (parser_is_empty_line(line) == True)
+            continue;
         if (parser_is_new_label(line) == True)
             continue;
-        if (parser_is_directive(line) == True) {
+        if (parser_is_entry(line) == True) {
             error = evaluate_entry_directive(reader->builder, line);
             /*error handling should be here*/
             continue;

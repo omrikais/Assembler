@@ -46,4 +46,8 @@ void instruction_word_set_is_extern(InstructionWord word, int operandIndex);
 
 Bool instruction_word_is_operand_external(InstructionWord word, int operandIndex);
 
+Bool instruction_word_has_operand(Operation operation, int indexOfOperation);
+
+Bool has_operand(InstructionWord word, int operandIndex);
+
 #endif /*ASSEMBLER_INSTRUCTION_WORD_H*/

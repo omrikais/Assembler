@@ -5,23 +5,19 @@
 #include <stdlib.h>
 
 
-void showbits(unsigned int x) {
-    int i;
-    for (i = (sizeof(char) * 23) - 1; i >= 0; i--) {
-        putchar(x & (1u << i) ? '1' : '0');
-    }
-    printf("\n");
-}
-
 void print_operand(InstructionWord word, int operandIndex, FILE *output);
 
-void print_current_element(int currentElement, int currentIC, FILE *output);
+void print_current_element(long currentElement, int currentIC, FILE *output);
 
 void print_instruction_word(InstructionWord word, FILE *output) {
     long *parameters = instruction_word_get_all_parameters(word);
-    long instruction = 0, i, j, address = instruction_word_get_ic(word);
+    long instruction = 0, i, j, address = instruction_word_get_ic(word), mask = 0;
     int test;
     char toPrint[MAX_LENGTH];
+    Bool hasTwoOperand = has_operand(word, DESTINATION_INDEX);
+    mask = ~mask;
+    mask <<= 24;
+    mask = ~mask;
     instruction += parameters[0];
     instruction <<= 18;
     instruction += parameters[1] << 16;
@@ -32,10 +28,14 @@ void print_instruction_word(InstructionWord word, FILE *output) {
     instruction += 4;
     free(parameters);
     /*showbits(instruction);*/
+    instruction = instruction & mask;
     sprintf(toPrint, "%07d %06x\n", address, instruction);
     fputs(toPrint, output);
-    print_operand(word, SOURCE_INDEX, output);
-    print_operand(word, DESTINATION_INDEX, output);
+    if (hasTwoOperand == True) {
+        print_operand(word, SOURCE_INDEX, output);
+        print_operand(word, DESTINATION_INDEX, output);
+    } else
+        print_operand(word, DESTINATION_INDEX, output);
     /*TODO: delete it - for testing*/
     if (strstr(toPrint, "091e14") != NULL) {
         test = 2;
@@ -45,8 +45,8 @@ void print_instruction_word(InstructionWord word, FILE *output) {
 
 void print_operand(InstructionWord word, int operandIndex, FILE *output) {
     char toPrint[MAX_LENGTH];
-    int address = instruction_word_get_ic(word);
-    long operandContent = instruction_word_get_operand_content(word, operandIndex) << 3;
+    int address = instruction_word_get_ic(word), operation = 0;
+    long operandContent = instruction_word_get_operand_content(word, operandIndex) << 3, mask = 0;
     AddressingMethod addressing = instruction_word_get_addressing_method(word, operandIndex);
     if (addressing == Direct)
         operandContent += 2;
@@ -54,16 +54,24 @@ void print_operand(InstructionWord word, int operandIndex, FILE *output) {
         operandContent += 4;
     if (addressing == Register)
         return;
-    if (addressing == Immediate)
-        operandContent += 4;
+    if (addressing == Immediate) {
+        if (has_operand(word, operandIndex) == True)
+            operandContent += 4;
+        else
+            return;
+    }
     if (operandIndex == SOURCE_INDEX)
         ++address;
     else
         address += (instruction_word_get_number_of_words(word) - 1);
     if (instruction_word_is_operand_external(word, operandIndex) == True)
-        operandContent -= 1;
+        operandContent = 1;
     /*TODO: check is it is extern - for the e bit*/
-    sprintf(toPrint, "%07d %06lx\n", address, (operandContent << 8) >> 8);
+    mask = ~mask;
+    mask <<= 24;
+    mask = ~mask;
+    operandContent = operandContent & mask;
+    sprintf(toPrint, "%07d %06lx\n", address, operandContent);
     fputs(toPrint, output);
 }
 
@@ -83,14 +91,20 @@ void print_object_file(InstructionsList instructions, DataItemsList dataList, FI
     print_data(arrayOfDataElements, size, ICF, output);
 }
 
-void print_current_element(int currentElement, int currentIC, FILE *output) {
+void print_current_element(long currentElement, int currentIC, FILE *output) {
     char toPrint[MAX_LENGTH];
-    sprintf(toPrint, "%07d %06x\n", currentIC, currentElement);
+    long formattedCurrentElement, mask = 0;
+    mask = ~mask;
+    mask <<= 24;
+    mask = ~mask;
+    formattedCurrentElement = currentElement & mask;
+    sprintf(toPrint, "%07d %06lx\n", currentIC, formattedCurrentElement);
     fputs(toPrint, output);
 }
 
 void print_data(List *dataList, size_t sizeOfDataList, int ICF, FILE *output) {
-    int i, j, sizeOfCurrentElementList, *currentElement, currentIC = ICF;
+    int i, j, sizeOfCurrentElementList, currentIC = ICF;
+    long *currentElement;
     List currentList;
     for (i = 0; i < sizeOfDataList; ++i) {
         currentList = dataList[i];

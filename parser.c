@@ -35,6 +35,12 @@ Bool parser_is_directive(char *line) {
     return True;
 }
 
+Bool parser_is_entry(const char *line) {
+    if (strstr(line, ".entry") != NULL)
+        return True;
+    return False;
+}
+
 
 char *parser_get_label(char *line) {
     char tmpLine[MAX_LENGTH];
@@ -178,7 +184,7 @@ List parser_get_data_array(const char *line) {
     token = strtok(tmpLine, "., \n");
     while ((token = strtok(NULL, "., \n")) != NULL) {
         currentNumber = atol(token);
-        list_insert_node_at_end(dataList, &currentNumber, sizeof(int));
+        list_insert_node_at_end(dataList, &currentNumber, sizeof(long));
     }
     return dataList;
 }
