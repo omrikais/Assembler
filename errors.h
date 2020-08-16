@@ -26,7 +26,12 @@ enum error_t {
     NoErrorsFound,
     NoMoreFiles,
     NoEntries,
-    ExternOrInternLabelNotFound
+    ExternOrInternLabelNotFound,
+    TheExternOperandIsAlreadyDefined,
+    NoOpenQuoteMark,
+    NoEndQuoteMark,
+    StringDirectiveHasMoreThenOneArgument,
+    StringWithoutQuotes
 };
 
 typedef enum error_t Error;

@@ -60,10 +60,11 @@ Error reader_load_next_file(Reader reader) {
 }
 
 Error reader_run_first_pass(Reader reader) {
-    char line[MAX_LENGTH];
+    char line[MAX_LINE_LENGTH];
     Error error;
     reader->currentLine = 1;
-    while (fgets(line, MAX_LENGTH - 1, reader->input) != NULL /*&& feof(reader->input) == 0*/) {
+    while (fgets(line, MAX_LINE_LENGTH, reader->input) != NULL /*&& feof(reader->input) == 0*/) {
+        line[81] = '\0';
         error = evaluate(reader->builder, line);
         if (error != NoErrorsFound) {
             error_print(error, reader->currentLine);
@@ -74,6 +75,7 @@ Error reader_run_first_pass(Reader reader) {
     builder_update_data_symbols_location(reader->builder);
     return NoErrorsFound;
 }
+
 
 Error reader_run_second_pass(Reader reader) {
     char line[MAX_LENGTH];

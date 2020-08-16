@@ -59,7 +59,7 @@ Error evaluate_extern(Builder builder, char *line) {
     }
     if (is_label_exists(builder->symbols, label) == True) {
         free(label);
-        return LabelAlreadyExists;
+        return TheExternOperandIsAlreadyDefined;
     }
     entry = symbol_entry_create(label, 0, External);
     list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
@@ -74,6 +74,7 @@ Error evaluate_directive_line(Builder builder, char *line) {
     /*here should be some error checking functions connected to directive issues*/
     Directive directive = parser_get_directive(line);
     SymbolEntry entry;
+    Error error;
     char *label = NULL;
     if (parser_is_new_label(line) == True) {
         label = parser_get_label(line);
@@ -86,15 +87,18 @@ Error evaluate_directive_line(Builder builder, char *line) {
         return DirectiveNotFound;
     }
     if (directive == String || directive == Data) {
+        error = (directive == String) ? parser_check_string_directive_form(line, directive)
+                                      : NoErrorsFound;/*TODO: write the equivalent data function*/
+        if (error != NoErrorsFound)
+            return error;
         if (label != NULL) {
-            /*needs to get the DC value here in order to put the label at the symbol table*/
             if (is_label_exists(builder->symbols, label) == True) {
                 free(label);
                 return LabelAlreadyExists;
             }
             entry = symbol_entry_create(label, data_items_get_dc(builder->dataList), DataP);
             list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
-            symbol_entry_tmp_destroy(entry);/*check it*/
+            symbol_entry_tmp_destroy(entry);
             free(label);
         }
         add_data_item_to_table(builder, line, directive);
@@ -104,6 +108,7 @@ Error evaluate_directive_line(Builder builder, char *line) {
         return evaluate_extern(builder, line);
     return NoErrorsFound;
 }
+
 
 Error evaluate_entry_directive(Builder builder, char *line) {
     Error result;
@@ -239,9 +244,11 @@ Error evaluate_code_line(Builder builder, char *line) {
         symbol_entry_tmp_destroy(entry);
     }
     word = fill_instruction_word(&result, line);
+    if (word == NULL) {
+        return result;
+    }
     instruction_word_set_ic(word, IC);
-    if (word != NULL)
-        instruction_list_add_instruction(builder->instructions, word);
+    instruction_list_add_instruction(builder->instructions, word);
     instruction_word_destroy_tmp(word);/*check this*/
     return result;
 }

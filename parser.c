@@ -22,6 +22,8 @@ Error is_too_few_or_many_operands(const char *line, int numberOfOperands);
 
 int how_many_commas(const char *string);
 
+Bool parser_is_valid_label(const char *label);
+
 
 Bool parser_is_new_label(const char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
@@ -48,7 +50,7 @@ char *parser_get_label(char *line) {
     strcpy(tmpLine, line);
     token = strtok(tmpLine, ":");
     token = strtok(token, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
-    if (is_alphabetic(token[0])) {
+    if (parser_is_valid_label(token)) {
         result = malloc(sizeof(char) * (strlen(token) + 1));
         strcpy(result, token);
         return result;
@@ -63,7 +65,7 @@ Bool is_alphabetic(char c) {
 }
 
 char *delete_spaces(const char *line) {
-    char tmpLine[MAX_LENGTH], *cleanStr = NULL;
+    char tmpLine[MAX_LINE_LENGTH], *cleanStr = NULL;
     int i = 0, j = 0;
     while (i < strlen(line) && (line[i] != '\0' || line[i] != '\n')) {
         if (line[i] != ' ') {
@@ -78,7 +80,7 @@ char *delete_spaces(const char *line) {
 }
 
 char *trim_label(const char *line) {
-    char tmpStr[MAX_LENGTH];
+    char tmpStr[MAX_LINE_LENGTH];
     char *token;
     char *trimmed;
     strcpy(tmpStr, line);
@@ -87,10 +89,10 @@ char *trim_label(const char *line) {
         strcpy(trimmed, tmpStr);
         return trimmed;
     }
-    token = strtok(tmpStr, ":");
-    if (token == NULL)
+    token = strchr(tmpStr, ':');
+    token += 1;
+    if (token[0] == '\0')
         return NULL;        /*there is nothing after the label*/
-    token = strtok(NULL, ":");  /*now the first word is the operation*/
     while (isspace(token[0]))
         ++token;
     trimmed = malloc(sizeof(char) * (strlen(token) + 1));
@@ -139,7 +141,7 @@ Directive parser_get_directive(char *line) {
     token = strtok(tmpLine, DIRECTIVE_DELIM);
     if (token[0] == tmpLine[0])     /*the first char is the same -> there were some chars before '.'*/
         token = strtok(NULL, DIRECTIVE_DELIM);
-    token = strtok(token, WHITE_DELIMITERS); /*should be only the directive name*/
+    token = strtok(token, " \t\n"); /*should be only the directive name*/
     if (token == NULL)
         return NoDirectiveFound;
     if (strcmp(token, directives[Entry]) == 0)
@@ -288,6 +290,20 @@ Bool is_consecutive_commas(const char *string) {
     return doubleComma == NULL ? False : True;
 }
 
+Bool parser_is_valid_label(const char *label) {
+    int i;
+    for (i = 0; i < strlen(label); ++i) {
+        if (i == 0)
+            if (isalpha(label[i]) == 0)
+                return False;
+        if (isalnum(label[i]) == 0)
+            return False;
+    }
+    if (strlen(label) > 31)
+        return False;
+    return True;
+}
+
 Bool parser_is_empty_line(const char *line) {
     char tmpLine[MAX_LENGTH], *token;
     strcpy(tmpLine, line);
@@ -349,7 +365,7 @@ char *parser_get_extern_label(const char *line, Error *result) {
     }
     operand = malloc(sizeof(char) * (strlen(token) + 1));
     strcpy(operand, token);
-    if (is_alphabetic(token[0]) != True) {
+    if (parser_is_valid_label(operand) == False) {
         free(operand);
         *result = IllegalLabel;
         return NULL;
@@ -362,6 +378,7 @@ char *parser_get_extern_label(const char *line, Error *result) {
     *result = NoErrorsFound;
     return operand;
 }
+
 
 int parser_get_register_num(const char *operand) {
     char *endPtr;
@@ -376,9 +393,12 @@ long parser_get_immediate_operand(const char *operand) {
     int i = 1;
     if (strlen(operand) <= 1)
         return NA;
-    for (; i < strlen(operand); ++i)
-        if (is_alphabetic(operand[i]) == True)  /*change it - should be is_not_number*/
+    for (; i < (strlen(operand) - 1); ++i) {
+        if (i == 1 && operand[i] == '-')
+            continue;
+        if (isnumber(operand[i]) == False)  /*change it - should be is_not_number*/
             return NA;
+    }
     return operandValue;
 }
 
@@ -392,17 +412,33 @@ char *parser_get_label_from_operand(const char *operand) {
     return label;
 }
 
-/*char *parser_get_label_of_entry(char *line) {
-    char tmpLine[MAX_LENGTH], *trimmed, *token;
-    strcpy(tmpLine, line);
-    trimmed = trim_label(tmpLine);
+Error parser_check_string_directive_form(const char *line, Directive directive) {
+    /*assumes data (string or data) directive*/
+    char tmpLine[MAX_LINE_LENGTH], *trimmed, *token, *cleanStr, endChar;
+    trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
-    token = strtok(tmpLine, " \t");
-    token = strtok(NULL, " \t");        *//*now on the label*//*
+    cleanStr = delete_spaces(tmpLine);
+    strcpy(tmpLine, cleanStr);
+    token = tmpLine + strlen(".string");
+    if (strchr(token, '\"') == NULL)
+        return StringWithoutQuotes;
+    if (token[0] != '\"')
+        return NoOpenQuoteMark;
+    if (token[strlen(token) - 2] != '\"')
+        return NoEndQuoteMark;
+    token = strtok(token, "\"");
+    token = strtok(NULL, "\"");
+    if (token == NULL)
+        return NoErrorsFound;
+    if (token[0] != '\n')
+        return StringDirectiveHasMoreThenOneArgument;
+    return NoErrorsFound;
+}
 
+Error parser_check_data_directive_form(const char *line, Directive directive) {
 
-}*/
+}
 
 
 

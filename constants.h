@@ -28,6 +28,7 @@
 #define ASSEMBLER_ENDING_STR ".as"
 #define SOURCE_INDEX   1
 #define DESTINATION_INDEX   2
+#define MAX_LINE_LENGTH 255
 
 
 enum boolean {

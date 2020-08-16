@@ -46,6 +46,8 @@ char *parser_get_label_from_operand(const char *operand);
 
 Bool parser_is_entry(const char *line);
 
+Error parser_check_string_directive_form(const char *line, Directive directive);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 
