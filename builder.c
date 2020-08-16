@@ -32,6 +32,8 @@ Builder init() {
 }
 
 void close(Builder builder) {
+    if (builder == NULL)
+        return;
     list_destroy(builder->symbols, (DestroyFunction) symbol_entry_destroy);
     data_items_list_destroy(builder->dataList);
     instruction_list_destroy(builder->instructions);
@@ -238,9 +240,10 @@ Error evaluate_code_line(Builder builder, char *line) {
     }
     word = fill_instruction_word(&result, line);
     instruction_word_set_ic(word, IC);
-    instruction_list_add_instruction(builder->instructions, word);
+    if (word != NULL)
+        instruction_list_add_instruction(builder->instructions, word);
     instruction_word_destroy_tmp(word);/*check this*/
-    return NoErrorsFound;
+    return result;
 }
 
 InstructionWord fill_instruction_word(Error *result, const char *line) { /*assumes instruction code line*/
@@ -270,7 +273,6 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
         *result = NoErrorsFound;
         return word;
     }
-
     if (numberOfOperands == 1) {
         handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
                        &destinationContent, 1);
