@@ -14,7 +14,8 @@ in this line has too many operands. Should be only one.","This line has consecut
  is missing","The label in this line already exist. Please choose another label.","There is not matching label for this\
 entry directive line","","","","","This extern directive line has label that is already defined locally in the file",\
 "An opening quotation mark is missing","An ending quotation mark is missing","String Directive should have only one\
- valid string as an argument", "The argument of the string directive has no quotation marks"
+ valid string as an argument", "The argument of the string directive has no quotation marks","A comma comes immediately\
+ after a directive or operation "
 
 void error_print(Error error, int lineNumber) {
     char *errorsSentences[] = {ERRORS_SENTENCES};

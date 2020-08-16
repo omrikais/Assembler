@@ -24,6 +24,8 @@ int how_many_commas(const char *string);
 
 Bool parser_is_valid_label(const char *label);
 
+Bool is_number(char c);
+
 
 Bool parser_is_new_label(const char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
@@ -396,10 +398,16 @@ long parser_get_immediate_operand(const char *operand) {
     for (; i < (strlen(operand) - 1); ++i) {
         if (i == 1 && operand[i] == '-')
             continue;
-        if (isnumber(operand[i]) == False)  /*change it - should be is_not_number*/
+        if (is_number(operand[i]) == False)
             return NA;
     }
     return operandValue;
+}
+
+Bool is_number(char c) {
+    if (c >= '0' && c <= '9')
+        return True;
+    return False;
 }
 
 char *parser_get_label_from_operand(const char *operand) {
@@ -414,12 +422,13 @@ char *parser_get_label_from_operand(const char *operand) {
 
 Error parser_check_string_directive_form(const char *line, Directive directive) {
     /*assumes data (string or data) directive*/
-    char tmpLine[MAX_LINE_LENGTH], *trimmed, *token, *cleanStr, endChar;
+    char tmpLine[MAX_LINE_LENGTH], *trimmed, *token, *cleanStr;
     trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
     cleanStr = delete_spaces(tmpLine);
     strcpy(tmpLine, cleanStr);
+    free(cleanStr);
     token = tmpLine + strlen(".string");
     if (strchr(token, '\"') == NULL)
         return StringWithoutQuotes;
@@ -437,7 +446,19 @@ Error parser_check_string_directive_form(const char *line, Directive directive) 
 }
 
 Error parser_check_data_directive_form(const char *line, Directive directive) {
-
+    char tmpLine[MAX_LINE_LENGTH], *stringPtr, *token;
+    stringPtr = trim_label(line);
+    strcpy(tmpLine, stringPtr);
+    free(stringPtr);
+    token = delete_spaces(tmpLine);
+    strcpy(tmpLine, token);
+    free(token);
+    token = tmpLine + strlen(".data");
+    if (strstr(token,",,") != NULL)
+        return ConsecutiveComma;
+    if (token[0] == ',')
+        return CommaAfterDirective;
+    return NoErrorsFound;
 }
 
 

@@ -88,7 +88,7 @@ Error evaluate_directive_line(Builder builder, char *line) {
     }
     if (directive == String || directive == Data) {
         error = (directive == String) ? parser_check_string_directive_form(line, directive)
-                                      : NoErrorsFound;/*TODO: write the equivalent data function*/
+                                      : parser_check_data_directive_form(line,directive);/*TODO: write the equivalent data function*/
         if (error != NoErrorsFound)
             return error;
         if (label != NULL) {
