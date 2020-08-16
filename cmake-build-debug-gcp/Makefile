@@ -131,19 +131,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Tester
-
-# Build rule for target.
-Tester: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tester
-.PHONY : Tester
-
-# fast build rule for target.
-Tester/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/build
-.PHONY : Tester/fast
-
-#=============================================================================
 # Target rules for targets named Assembler
 
 # Build rule for target.
@@ -157,17 +144,70 @@ Assembler/fast:
 .PHONY : Assembler/fast
 
 #=============================================================================
-# Target rules for targets named SandBox
+# Target rules for targets named Tester
 
 # Build rule for target.
-SandBox: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SandBox
-.PHONY : SandBox
+Tester: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tester
+.PHONY : Tester
 
 # fast build rule for target.
-SandBox/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/build
-.PHONY : SandBox/fast
+Tester/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/build
+.PHONY : Tester/fast
+
+#=============================================================================
+# Target rules for targets named BuilderTests
+
+# Build rule for target.
+BuilderTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BuilderTests
+.PHONY : BuilderTests
+
+# fast build rule for target.
+BuilderTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/build
+.PHONY : BuilderTests/fast
+
+#=============================================================================
+# Target rules for targets named FileGeneratorTests
+
+# Build rule for target.
+FileGeneratorTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 FileGeneratorTests
+.PHONY : FileGeneratorTests
+
+# fast build rule for target.
+FileGeneratorTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/build
+.PHONY : FileGeneratorTests/fast
+
+Assembler.o: Assembler.c.o
+
+.PHONY : Assembler.o
+
+# target to build an object file
+Assembler.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Assembler.c.o
+.PHONY : Assembler.c.o
+
+Assembler.i: Assembler.c.i
+
+.PHONY : Assembler.i
+
+# target to preprocess a source file
+Assembler.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Assembler.c.i
+.PHONY : Assembler.c.i
+
+Assembler.s: Assembler.c.s
+
+.PHONY : Assembler.s
+
+# target to generate assembly for a file
+Assembler.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/Assembler.c.s
+.PHONY : Assembler.c.s
 
 builder.o: builder.c.o
 
@@ -175,9 +215,10 @@ builder.o: builder.c.o
 
 # target to build an object file
 builder.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/builder.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/builder.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/builder.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/builder.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/builder.c.o
 .PHONY : builder.c.o
 
 builder.i: builder.c.i
@@ -186,9 +227,10 @@ builder.i: builder.c.i
 
 # target to preprocess a source file
 builder.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/builder.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/builder.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/builder.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/builder.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/builder.c.i
 .PHONY : builder.c.i
 
 builder.s: builder.c.s
@@ -197,9 +239,10 @@ builder.s: builder.c.s
 
 # target to generate assembly for a file
 builder.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/builder.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/builder.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/builder.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/builder.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/builder.c.s
 .PHONY : builder.c.s
 
 builder_tests.o: builder_tests.c.o
@@ -208,7 +251,7 @@ builder_tests.o: builder_tests.c.o
 
 # target to build an object file
 builder_tests.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder_tests.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/builder_tests.c.o
 .PHONY : builder_tests.c.o
 
 builder_tests.i: builder_tests.c.i
@@ -217,7 +260,7 @@ builder_tests.i: builder_tests.c.i
 
 # target to preprocess a source file
 builder_tests.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder_tests.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/builder_tests.c.i
 .PHONY : builder_tests.c.i
 
 builder_tests.s: builder_tests.c.s
@@ -226,7 +269,7 @@ builder_tests.s: builder_tests.c.s
 
 # target to generate assembly for a file
 builder_tests.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/builder_tests.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/builder_tests.c.s
 .PHONY : builder_tests.c.s
 
 code_table.o: code_table.c.o
@@ -235,9 +278,10 @@ code_table.o: code_table.c.o
 
 # target to build an object file
 code_table.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/code_table.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/code_table.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/code_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/code_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/code_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/code_table.c.o
 .PHONY : code_table.c.o
 
 code_table.i: code_table.c.i
@@ -246,9 +290,10 @@ code_table.i: code_table.c.i
 
 # target to preprocess a source file
 code_table.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/code_table.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/code_table.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/code_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/code_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/code_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/code_table.c.i
 .PHONY : code_table.c.i
 
 code_table.s: code_table.c.s
@@ -257,9 +302,10 @@ code_table.s: code_table.c.s
 
 # target to generate assembly for a file
 code_table.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/code_table.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/code_table.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/code_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/code_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/code_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/code_table.c.s
 .PHONY : code_table.c.s
 
 data_table.o: data_table.c.o
@@ -268,9 +314,10 @@ data_table.o: data_table.c.o
 
 # target to build an object file
 data_table.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/data_table.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/data_table.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/data_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/data_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/data_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/data_table.c.o
 .PHONY : data_table.c.o
 
 data_table.i: data_table.c.i
@@ -279,9 +326,10 @@ data_table.i: data_table.c.i
 
 # target to preprocess a source file
 data_table.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/data_table.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/data_table.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/data_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/data_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/data_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/data_table.c.i
 .PHONY : data_table.c.i
 
 data_table.s: data_table.c.s
@@ -290,9 +338,10 @@ data_table.s: data_table.c.s
 
 # target to generate assembly for a file
 data_table.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/data_table.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/data_table.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/data_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/data_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/data_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/data_table.c.s
 .PHONY : data_table.c.s
 
 errors.o: errors.c.o
@@ -301,9 +350,10 @@ errors.o: errors.c.o
 
 # target to build an object file
 errors.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/errors.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/errors.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/errors.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/errors.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/errors.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/errors.c.o
 .PHONY : errors.c.o
 
 errors.i: errors.c.i
@@ -312,9 +362,10 @@ errors.i: errors.c.i
 
 # target to preprocess a source file
 errors.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/errors.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/errors.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/errors.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/errors.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/errors.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/errors.c.i
 .PHONY : errors.c.i
 
 errors.s: errors.c.s
@@ -323,9 +374,10 @@ errors.s: errors.c.s
 
 # target to generate assembly for a file
 errors.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/errors.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/errors.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/errors.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/errors.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/errors.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/errors.c.s
 .PHONY : errors.c.s
 
 file_generator.o: file_generator.c.o
@@ -334,9 +386,10 @@ file_generator.o: file_generator.c.o
 
 # target to build an object file
 file_generator.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/file_generator.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/file_generator.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/file_generator.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/file_generator.c.o
 .PHONY : file_generator.c.o
 
 file_generator.i: file_generator.c.i
@@ -345,9 +398,10 @@ file_generator.i: file_generator.c.i
 
 # target to preprocess a source file
 file_generator.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/file_generator.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/file_generator.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/file_generator.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/file_generator.c.i
 .PHONY : file_generator.c.i
 
 file_generator.s: file_generator.c.s
@@ -356,9 +410,10 @@ file_generator.s: file_generator.c.s
 
 # target to generate assembly for a file
 file_generator.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/file_generator.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/file_generator.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/file_generator.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/file_generator.c.s
 .PHONY : file_generator.c.s
 
 instruction_word.o: instruction_word.c.o
@@ -367,9 +422,10 @@ instruction_word.o: instruction_word.c.o
 
 # target to build an object file
 instruction_word.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/instruction_word.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instruction_word.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/instruction_word.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/instruction_word.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/instruction_word.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/instruction_word.c.o
 .PHONY : instruction_word.c.o
 
 instruction_word.i: instruction_word.c.i
@@ -378,9 +434,10 @@ instruction_word.i: instruction_word.c.i
 
 # target to preprocess a source file
 instruction_word.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/instruction_word.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instruction_word.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/instruction_word.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/instruction_word.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/instruction_word.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/instruction_word.c.i
 .PHONY : instruction_word.c.i
 
 instruction_word.s: instruction_word.c.s
@@ -389,9 +446,10 @@ instruction_word.s: instruction_word.c.s
 
 # target to generate assembly for a file
 instruction_word.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/instruction_word.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/instruction_word.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/instruction_word.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/instruction_word.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/instruction_word.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/instruction_word.c.s
 .PHONY : instruction_word.c.s
 
 list.o: list.c.o
@@ -400,9 +458,10 @@ list.o: list.c.o
 
 # target to build an object file
 list.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/list.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/list.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/list.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/list.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/list.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/list.c.o
 .PHONY : list.c.o
 
 list.i: list.c.i
@@ -411,9 +470,10 @@ list.i: list.c.i
 
 # target to preprocess a source file
 list.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/list.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/list.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/list.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/list.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/list.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/list.c.i
 .PHONY : list.c.i
 
 list.s: list.c.s
@@ -422,9 +482,10 @@ list.s: list.c.s
 
 # target to generate assembly for a file
 list.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/list.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/list.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/list.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/list.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/list.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/list.c.s
 .PHONY : list.c.s
 
 parser.o: parser.c.o
@@ -433,9 +494,10 @@ parser.o: parser.c.o
 
 # target to build an object file
 parser.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/parser.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/parser.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/parser.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/parser.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/parser.c.o
 .PHONY : parser.c.o
 
 parser.i: parser.c.i
@@ -444,9 +506,10 @@ parser.i: parser.c.i
 
 # target to preprocess a source file
 parser.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/parser.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/parser.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/parser.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/parser.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/parser.c.i
 .PHONY : parser.c.i
 
 parser.s: parser.c.s
@@ -455,9 +518,10 @@ parser.s: parser.c.s
 
 # target to generate assembly for a file
 parser.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/parser.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/parser.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/parser.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/parser.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/parser.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/parser.c.s
 .PHONY : parser.c.s
 
 printer.o: printer.c.o
@@ -466,9 +530,10 @@ printer.o: printer.c.o
 
 # target to build an object file
 printer.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/printer.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/printer.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/printer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/printer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/printer.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/printer.c.o
 .PHONY : printer.c.o
 
 printer.i: printer.c.i
@@ -477,9 +542,10 @@ printer.i: printer.c.i
 
 # target to preprocess a source file
 printer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/printer.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/printer.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/printer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/printer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/printer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/printer.c.i
 .PHONY : printer.c.i
 
 printer.s: printer.c.s
@@ -488,9 +554,10 @@ printer.s: printer.c.s
 
 # target to generate assembly for a file
 printer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/printer.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/printer.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/printer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/printer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/printer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/printer.c.s
 .PHONY : printer.c.s
 
 reader.o: reader.c.o
@@ -499,9 +566,10 @@ reader.o: reader.c.o
 
 # target to build an object file
 reader.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/reader.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/reader.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/reader.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/reader.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/reader.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/reader.c.o
 .PHONY : reader.c.o
 
 reader.i: reader.c.i
@@ -510,9 +578,10 @@ reader.i: reader.c.i
 
 # target to preprocess a source file
 reader.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/reader.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/reader.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/reader.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/reader.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/reader.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/reader.c.i
 .PHONY : reader.c.i
 
 reader.s: reader.c.s
@@ -521,9 +590,10 @@ reader.s: reader.c.s
 
 # target to generate assembly for a file
 reader.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/reader.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/reader.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/reader.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/reader.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/reader.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/reader.c.s
 .PHONY : reader.c.s
 
 sand_box.o: sand_box.c.o
@@ -532,7 +602,7 @@ sand_box.o: sand_box.c.o
 
 # target to build an object file
 sand_box.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/sand_box.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/sand_box.c.o
 .PHONY : sand_box.c.o
 
 sand_box.i: sand_box.c.i
@@ -541,7 +611,7 @@ sand_box.i: sand_box.c.i
 
 # target to preprocess a source file
 sand_box.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/sand_box.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/sand_box.c.i
 .PHONY : sand_box.c.i
 
 sand_box.s: sand_box.c.s
@@ -550,7 +620,7 @@ sand_box.s: sand_box.c.s
 
 # target to generate assembly for a file
 sand_box.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/sand_box.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/sand_box.c.s
 .PHONY : sand_box.c.s
 
 symbol_table.o: symbol_table.c.o
@@ -559,9 +629,10 @@ symbol_table.o: symbol_table.c.o
 
 # target to build an object file
 symbol_table.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/symbol_table.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/symbol_table.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/symbol_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/symbol_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/symbol_table.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/symbol_table.c.o
 .PHONY : symbol_table.c.o
 
 symbol_table.i: symbol_table.c.i
@@ -570,9 +641,10 @@ symbol_table.i: symbol_table.c.i
 
 # target to preprocess a source file
 symbol_table.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/symbol_table.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/symbol_table.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/symbol_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/symbol_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/symbol_table.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/symbol_table.c.i
 .PHONY : symbol_table.c.i
 
 symbol_table.s: symbol_table.c.s
@@ -581,9 +653,10 @@ symbol_table.s: symbol_table.c.s
 
 # target to generate assembly for a file
 symbol_table.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/symbol_table.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Assembler.dir/build.make CMakeFiles/Assembler.dir/symbol_table.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SandBox.dir/build.make CMakeFiles/SandBox.dir/symbol_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/symbol_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/symbol_table.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/symbol_table.c.s
 .PHONY : symbol_table.c.s
 
 tester.o: tester.c.o
@@ -622,8 +695,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Assembler"
-	@echo "... SandBox"
+	@echo "... BuilderTests"
+	@echo "... FileGeneratorTests"
 	@echo "... Tester"
+	@echo "... Assembler.o"
+	@echo "... Assembler.i"
+	@echo "... Assembler.s"
 	@echo "... builder.o"
 	@echo "... builder.i"
 	@echo "... builder.s"

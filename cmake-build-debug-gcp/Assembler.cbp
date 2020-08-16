@@ -27,11 +27,39 @@
 					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
+			<Target title="Assembler">
+				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Assembler" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp"/>
-				<Option type="4"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 Assembler"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Assembler/fast">
+				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Assembler" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 Assembler/fast"/>
 					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
@@ -75,27 +103,18 @@
 					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Assembler">
-				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Assembler" prefix_auto="0" extension_auto="0"/>
+			<Target title="edit_cache">
 				<Option working_dir="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include/x86_64-linux-gnu"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
+				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 Assembler"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Assembler/fast">
-				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Assembler" prefix_auto="0" extension_auto="0"/>
+			<Target title="BuilderTests">
+				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/BuilderTests" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -107,14 +126,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 Assembler/fast"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 BuilderTests"/>
 					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="SandBox">
-				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/SandBox" prefix_auto="0" extension_auto="0"/>
+			<Target title="BuilderTests/fast">
+				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/BuilderTests" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -126,14 +145,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 SandBox"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 BuilderTests/fast"/>
 					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="SandBox/fast">
-				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/SandBox" prefix_auto="0" extension_auto="0"/>
+			<Target title="FileGeneratorTests">
+				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/FileGeneratorTests" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -145,133 +164,178 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 SandBox/fast"/>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 FileGeneratorTests"/>
+					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FileGeneratorTests/fast">
+				<Option output="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/FileGeneratorTests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 FileGeneratorTests/fast"/>
 					<CompileFile command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -f &quot;/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/tmp/tmp.BOYisKdkU2/builder.c">
-			<Option target="Tester"/>
+		<Unit filename="/tmp/tmp.BOYisKdkU2/Assembler.c">
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.BOYisKdkU2/builder.c">
+			<Option target="Assembler"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/builder.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/builder_tests.c">
-			<Option target="Assembler"/>
+			<Option target="BuilderTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/code_table.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/code_table.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/constants.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/data_table.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/data_table.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/errors.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/errors.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/file_generator.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/file_generator.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/instruction_word.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/instruction_word.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/list.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/list.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/parser.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/parser.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/printer.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/printer.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/reader.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/reader.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/sand_box.c">
-			<Option target="SandBox"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/symbol_table.c">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/symbol_table.h">
-			<Option target="Tester"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/tmp/tmp.BOYisKdkU2/tester.c">
 			<Option target="Tester"/>

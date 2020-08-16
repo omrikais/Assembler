@@ -12,10 +12,10 @@ Error assemble(const char **args, int size) {
     char **fileNames;
     Reader reader;
     char fileName[MAX_LENGTH];
-    error = file_generator_make_as_array(args, size, &fileNames);
-    reader = reader_create((const char **) fileNames, size, &error, builder);
-    int i = 0;
+    int i = 1;
     FILE *outputObject, *outputExtern, *outputEntry;
+    error = file_generator_make_as_array(args, size, &fileNames);
+    reader = reader_create((const char **) fileNames, size - 1, &error, builder);
     if (reader == NULL) {
         return error;
     }
@@ -46,6 +46,7 @@ Error assemble(const char **args, int size) {
         if (error == NoEntries) {
             remove(fileName);
         }
+        ++i;
     }
     reader_destroy(reader);
     free_string_array(fileNames, size);
@@ -57,12 +58,12 @@ Error file_generator_make_as_array(const char **args, int size, char ***stringAr
     int i;
     if (args == NULL)
         return NoFiles;
-    *stringArrayPtr = malloc(sizeof(char *) * size);
-    for (i = 0; i < size; ++i) {
+    *stringArrayPtr = malloc(sizeof(char *) * (size - 1));
+    for (i = 1; i < size; ++i) {
         strcpy(currentFileName, args[i]);
         strcat(currentFileName, ".as");
-        (*stringArrayPtr)[i] = malloc(sizeof(char) * (strlen(currentFileName) + 1));
-        strcpy((*stringArrayPtr)[i], currentFileName);
+        *stringArrayPtr[i - 1] = malloc(sizeof(char) * (strlen(currentFileName) + 1));
+        strcpy(*stringArrayPtr[i - 1], currentFileName);
     }
     return NoErrorsFound;
 }

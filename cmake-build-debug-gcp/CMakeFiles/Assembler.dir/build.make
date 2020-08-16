@@ -181,22 +181,9 @@ CMakeFiles/Assembler.dir/builder.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/builder.c.s"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/builder.c -o CMakeFiles/Assembler.dir/builder.c.s
 
-CMakeFiles/Assembler.dir/builder_tests.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/builder_tests.c.o: ../builder_tests.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Assembler.dir/builder_tests.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/builder_tests.c.o   -c /tmp/tmp.BOYisKdkU2/builder_tests.c
-
-CMakeFiles/Assembler.dir/builder_tests.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/builder_tests.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/builder_tests.c > CMakeFiles/Assembler.dir/builder_tests.c.i
-
-CMakeFiles/Assembler.dir/builder_tests.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/builder_tests.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/builder_tests.c -o CMakeFiles/Assembler.dir/builder_tests.c.s
-
 CMakeFiles/Assembler.dir/reader.c.o: CMakeFiles/Assembler.dir/flags.make
 CMakeFiles/Assembler.dir/reader.c.o: ../reader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Assembler.dir/reader.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Assembler.dir/reader.c.o"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/reader.c.o   -c /tmp/tmp.BOYisKdkU2/reader.c
 
 CMakeFiles/Assembler.dir/reader.c.i: cmake_force
@@ -209,7 +196,7 @@ CMakeFiles/Assembler.dir/reader.c.s: cmake_force
 
 CMakeFiles/Assembler.dir/printer.c.o: CMakeFiles/Assembler.dir/flags.make
 CMakeFiles/Assembler.dir/printer.c.o: ../printer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Assembler.dir/printer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Assembler.dir/printer.c.o"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/printer.c.o   -c /tmp/tmp.BOYisKdkU2/printer.c
 
 CMakeFiles/Assembler.dir/printer.c.i: cmake_force
@@ -222,7 +209,7 @@ CMakeFiles/Assembler.dir/printer.c.s: cmake_force
 
 CMakeFiles/Assembler.dir/file_generator.c.o: CMakeFiles/Assembler.dir/flags.make
 CMakeFiles/Assembler.dir/file_generator.c.o: ../file_generator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Assembler.dir/file_generator.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Assembler.dir/file_generator.c.o"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/file_generator.c.o   -c /tmp/tmp.BOYisKdkU2/file_generator.c
 
 CMakeFiles/Assembler.dir/file_generator.c.i: cmake_force
@@ -232,6 +219,19 @@ CMakeFiles/Assembler.dir/file_generator.c.i: cmake_force
 CMakeFiles/Assembler.dir/file_generator.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/file_generator.c.s"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/file_generator.c -o CMakeFiles/Assembler.dir/file_generator.c.s
+
+CMakeFiles/Assembler.dir/Assembler.c.o: CMakeFiles/Assembler.dir/flags.make
+CMakeFiles/Assembler.dir/Assembler.c.o: ../Assembler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Assembler.dir/Assembler.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/Assembler.c.o   -c /tmp/tmp.BOYisKdkU2/Assembler.c
+
+CMakeFiles/Assembler.dir/Assembler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/Assembler.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/Assembler.c > CMakeFiles/Assembler.dir/Assembler.c.i
+
+CMakeFiles/Assembler.dir/Assembler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/Assembler.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/Assembler.c -o CMakeFiles/Assembler.dir/Assembler.c.s
 
 # Object files for target Assembler
 Assembler_OBJECTS = \
@@ -243,10 +243,10 @@ Assembler_OBJECTS = \
 "CMakeFiles/Assembler.dir/data_table.c.o" \
 "CMakeFiles/Assembler.dir/symbol_table.c.o" \
 "CMakeFiles/Assembler.dir/builder.c.o" \
-"CMakeFiles/Assembler.dir/builder_tests.c.o" \
 "CMakeFiles/Assembler.dir/reader.c.o" \
 "CMakeFiles/Assembler.dir/printer.c.o" \
-"CMakeFiles/Assembler.dir/file_generator.c.o"
+"CMakeFiles/Assembler.dir/file_generator.c.o" \
+"CMakeFiles/Assembler.dir/Assembler.c.o"
 
 # External object files for target Assembler
 Assembler_EXTERNAL_OBJECTS =
@@ -259,10 +259,10 @@ Assembler: CMakeFiles/Assembler.dir/code_table.c.o
 Assembler: CMakeFiles/Assembler.dir/data_table.c.o
 Assembler: CMakeFiles/Assembler.dir/symbol_table.c.o
 Assembler: CMakeFiles/Assembler.dir/builder.c.o
-Assembler: CMakeFiles/Assembler.dir/builder_tests.c.o
 Assembler: CMakeFiles/Assembler.dir/reader.c.o
 Assembler: CMakeFiles/Assembler.dir/printer.c.o
 Assembler: CMakeFiles/Assembler.dir/file_generator.c.o
+Assembler: CMakeFiles/Assembler.dir/Assembler.c.o
 Assembler: CMakeFiles/Assembler.dir/build.make
 Assembler: CMakeFiles/Assembler.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable Assembler"

@@ -17,16 +17,6 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
 				<Option type="4"/>
@@ -37,8 +27,8 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Tester">
-				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Tester" prefix_auto="0" extension_auto="0"/>
+			<Target title="BuilderTests">
+				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/BuilderTests" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -50,14 +40,14 @@
 					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 Tester"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 BuilderTests"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Tester/fast">
-				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Tester" prefix_auto="0" extension_auto="0"/>
+			<Target title="BuilderTests/fast">
+				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/BuilderTests" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -69,7 +59,7 @@
 					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 Tester/fast"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 BuilderTests/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
@@ -113,8 +103,8 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="SandBox">
-				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/SandBox" prefix_auto="0" extension_auto="0"/>
+			<Target title="Tester">
+				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Tester" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -126,14 +116,14 @@
 					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 SandBox"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 Tester"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="SandBox/fast">
-				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/SandBox" prefix_auto="0" extension_auto="0"/>
+			<Target title="Tester/fast">
+				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Tester" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -145,133 +135,207 @@
 					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 SandBox/fast"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 Tester/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FileGeneratorTests">
+				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/FileGeneratorTests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include"/>
+					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include-fixed"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 FileGeneratorTests"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FileGeneratorTests/fast">
+				<Option output="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/FileGeneratorTests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include"/>
+					<Add directory="/opt/local/lib/gcc10/gcc/x86_64-apple-darwin19/10.2.0/include-fixed"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 FileGeneratorTests/fast"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.c">
-			<Option target="Tester"/>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/Assembler.c">
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+		</Unit>
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.c">
+			<Option target="BuilderTests"/>
+			<Option target="Assembler"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/builder_tests.c">
-			<Option target="Assembler"/>
+			<Option target="BuilderTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/code_table.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/constants.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/data_table.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/data_table.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/errors.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/file_generator.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/file_generator.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/list.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/parser.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/printer.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/printer.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/reader.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/reader.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/sand_box.c">
-			<Option target="SandBox"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/symbol_table.c">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h">
-			<Option target="Tester"/>
+			<Option target="BuilderTests"/>
 			<Option target="Assembler"/>
-			<Option target="SandBox"/>
+			<Option target="Tester"/>
+			<Option target="FileGeneratorTests"/>
 		</Unit>
 		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/tester.c">
 			<Option target="Tester"/>
