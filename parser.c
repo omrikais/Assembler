@@ -4,7 +4,7 @@
 #include "parser.h"
 #include <string.h>
 #include <stdlib.h>
-#include "ctype.h"
+#include <ctype.h>
 
 char *trim_label(const char *line);
 
@@ -26,6 +26,9 @@ Bool parser_is_valid_label(const char *label);
 
 Bool is_number(char c);
 
+Error check_comma_between_data_elements(const char *line);
+
+Error check_arguments_of_data(const char *line);
 
 Bool parser_is_new_label(const char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
@@ -453,25 +456,15 @@ Error parser_check_data_directive_form(const char *line, Directive directive) {
     return parser_check_commas_in_data_directive(tmpLine);
 }
 
-Error parser_check_commas_in_data_directive(const char *line) {
-    /*assumes to get line of data directive without a label*/
-    char tmpLine[MAX_LINE_LENGTH], *strPtr;
-    Bool isNumberEnded = False ,isCommaAppeared = True;
+Error check_comma_between_data_elements(const char *line) {
+    Bool isNumberEnded = False, isCommaAppeared = True;
+    char tmpLine[MAX_LINE_LENGTH];
+    const char *strPtr;
     int i;
-    strPtr = delete_spaces(line);
-    strcpy(tmpLine, strPtr);
-    free(strPtr);
-    strPtr = tmpLine + strlen(".data");
-    if (strstr(strPtr, ",,") != NULL)
-        return ConsecutiveComma;
-    if (strPtr[0] == ',')
-        return CommaAfterDirective;
-    if (tmpLine[strlen(tmpLine) - 2] == ',')
-        return CommaAfterLast;
     strcpy(tmpLine, line);
-    strPtr = tmpLine + strlen(".data");
-    for (i = 0; i < strlen(strPtr)-1; ++i) {
-        if (isblank(strPtr[i])) {
+    strPtr = line + strlen(".data");
+    for (i = 0; i < strlen(strPtr) - 1; ++i) {
+        if (isspace(strPtr[i])) {
             isNumberEnded = True;
             continue;
         }
@@ -489,9 +482,42 @@ Error parser_check_commas_in_data_directive(const char *line) {
             continue;
     }
     return NoErrorsFound;
-
-
 }
+
+Error check_arguments_of_data(const char *line) {
+    char tmpLine[MAX_LINE_LENGTH];
+    const char *strPtr;
+    int i;
+    strcpy(tmpLine, line);
+    strPtr = line + strlen(".data");
+    for (i = 0; i < strlen(strPtr) - 1; ++i) {
+        if (!isspace(strPtr[i]) && is_number(strPtr[i]) == False && strPtr[i] != ',' && strPtr[i]!='-' && strPtr[i]!='+')
+            return WrongTypeDataArgument;
+    }
+    return NoErrorsFound;
+}
+
+Error parser_check_commas_in_data_directive(const char *line) {
+    /*assumes to get line of data directive without a label*/
+    char tmpLine[MAX_LINE_LENGTH], *strPtr;
+    Error result;
+    strPtr = delete_spaces(line);
+    strcpy(tmpLine, strPtr);
+    free(strPtr);
+    strPtr = tmpLine + strlen(".data");
+    if (strstr(strPtr, ",,") != NULL)
+        return ConsecutiveComma;
+    if (strPtr[0] == ',')
+        return CommaAfterDirective;
+    if (tmpLine[strlen(tmpLine) - 2] == ',')
+        return CommaAfterLast;
+    result = check_comma_between_data_elements(line);
+    if (result!=NoErrorsFound)
+        return result;
+    return check_arguments_of_data(line);
+}
+
+
 
 
 

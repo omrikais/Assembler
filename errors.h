@@ -33,7 +33,8 @@ enum error_t {
     StringDirectiveHasMoreThenOneArgument,
     StringWithoutQuotes,
     CommaAfterDirective,
-    CommaAfterLast
+    CommaAfterLast,
+    WrongTypeDataArgument
 };
 
 typedef enum error_t Error;
