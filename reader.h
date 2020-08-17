@@ -20,8 +20,6 @@ Error reader_run_first_pass(Reader reader);
 
 Error reader_run_second_pass(Reader reader);
 
-int reader_get_current_line(Reader reader);
-
 void free_string_array(char **array, size_t size);
 
 Builder reader_get_builder(Reader reader);

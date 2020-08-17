@@ -10,7 +10,7 @@ struct reader_t {
     FILE *input;
     int nextFileIndex;
     int currentLine;
-    Bool isErrorOccurred
+    Bool isErrorOccurred;
 };
 
 Bool is_valid_file_name(const char *file);
@@ -47,7 +47,7 @@ Error reader_load_next_file(Reader reader) {
         (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex - 1])))
         fclose(reader->input);
     if (reader->nextFileIndex >= reader->objectFilesSize) {
-        fclose(reader->input);;
+        fclose(reader->input);
         return NoMoreFiles;
     }
     if (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex]) != True) {
@@ -119,7 +119,6 @@ Bool is_valid_file_name(const char *file) {
 
 char **copy_char_array(const char **charArray, size_t size) {
     int i;
-    char *word;
     char **copy = malloc(sizeof(*copy) * size);
     for (i = 0; i < size; ++i) {
         copy[i] = malloc(sizeof(char) * (strlen(charArray[i]) + 1));
@@ -131,15 +130,12 @@ char **copy_char_array(const char **charArray, size_t size) {
 void free_string_array(char **array, size_t size) {
     int i;
     if (array == NULL)
-        return;;
+        return;
     for (i = 0; i < size; ++i)
         free(array[i]);
     free(array);
 }
 
-int reader_get_current_line(Reader reader) {
-    return reader->currentLine;
-}
 
 Builder reader_get_builder(Reader reader) {
     return reader->builder;

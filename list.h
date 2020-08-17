@@ -40,9 +40,6 @@ void print_list(List node, PrintNodeFunction printFunction);
 /*Function to print an integer*/
 void print_int(void *n);
 
-/* Function to print a float*/
-void print_float(void *f);
-
 void *list_get_data_element_at_index(List list, int i);
 
 void * list_find_element(List list, const void *element, Equals compereFunction);

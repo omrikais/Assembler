@@ -8,7 +8,6 @@ struct builder_t {
     InstructionsList instructions;
     DataItemsList dataList;
     List symbols;
-    int passNumber;
 };
 
 Error evaluate_extern(Builder builder, char *line);
@@ -29,7 +28,6 @@ Builder init() {
     builder->instructions = instruction_list_create();
     builder->dataList = data_items_list_create();
     builder->symbols = list_create();
-    builder->passNumber = 1;
     return builder;
 }
 
@@ -88,9 +86,8 @@ Error evaluate_directive_line(Builder builder, char *line) {
         return DirectiveNotFound;
     }
     if (directive == String || directive == Data) {
-        error = (directive == String) ? parser_check_string_directive_form(line, directive)
-                                      : parser_check_data_directive_form(line,
-                                                                         directive);
+        error = (directive == String) ? parser_check_string_directive_form(line)
+                                      : parser_check_data_directive_form(line);
         if (error != NoErrorsFound)
             return error;
         if (label != NULL) {
@@ -134,9 +131,6 @@ Error evaluate_entry_directive(Builder builder, char *line) {
 void builder_update_instructions(Builder builder) {
     InstructionWord word;
     InstructionsList instructions = builder->instructions;
-    SymbolEntry entry;
-    int location;
-    const char *label;
     int i, size = instruction_list_get_number_of_instructions(instructions);
     for (i = 1; i <= size; ++i) {
         word = instruction_list_get_instruction(instructions, i);

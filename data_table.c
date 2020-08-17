@@ -33,10 +33,6 @@ List *data_items_get_list_of_data(DataItemsList dataItemsList) {
 
 }
 
-int data_items_list_get_dc(DataItemsList list) {
-    return list->DC;
-}
-
 void data_items_list_add_data_element(DataItemsList list, void *dataElement, size_t sizeOfDataElement) {
     /*assumes that dataElement is a valid array of chars or ints */
     /*if the Data element is List - it uses the original list (it is not being copied)*/
@@ -69,8 +65,4 @@ void data_item_list_destroy(List list) {
 
 int data_items_get_number_of_data_items(DataItemsList list) {
     return list->numberOfDataItems;
-}
-
-List data_items_get_data(DataItemsList list) {
-    return list->data;
 }

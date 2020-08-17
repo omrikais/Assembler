@@ -14,7 +14,7 @@ void print_entry(SymbolEntry entry, FILE *output);
 
 void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outputExtern) {
     long *parameters = instruction_word_get_all_parameters(word);
-    long instruction = 0, i, j, address = instruction_word_get_ic(word), mask = 0;
+    long instruction = 0, address = instruction_word_get_ic(word), mask = 0;
     char toPrint[MAX_LENGTH];
     Bool hasTwoOperand = has_operand(word, DESTINATION_INDEX);
     mask = ~mask;
@@ -31,7 +31,7 @@ void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outp
     free(parameters);
     /*showbits(instruction);*/
     instruction = instruction & mask;
-    sprintf(toPrint, "%07d %06x\n", address, instruction);
+    sprintf(toPrint, "%07ld %06lx\n", address, instruction);
     fputs(toPrint, outputObject);
     if (hasTwoOperand == True) {
         print_operand(word, SOURCE_INDEX, outputObject, outputExtern);
@@ -53,7 +53,7 @@ void print_extern_entry(InstructionWord word, int operandIndex, FILE *outputExte
 
 void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, FILE *outputExtern) {
     char toPrint[MAX_LENGTH];
-    int address = instruction_word_get_ic(word), operation = 0;
+    int address = instruction_word_get_ic(word);
     long operandContent = instruction_word_get_operand_content(word, operandIndex) << 3, mask = 0;
     AddressingMethod addressing = instruction_word_get_addressing_method(word, operandIndex);
     if (addressing == Direct)

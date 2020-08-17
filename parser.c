@@ -270,8 +270,8 @@ int how_many_commas(const char *string) {
 Error check_zero_operands_syntax(char const *line) {    /*line begins with the op word*/
     char tmpLine[MAX_LENGTH];
     char *token;
-    strcpy(tmpLine, line);
     Error result = NoErrorsFound;
+    strcpy(tmpLine, line);
     if (strchr(tmpLine, COMMA_CHAR) != NULL) {
         result = IllegalComma;
     }
@@ -354,7 +354,7 @@ char *parser_get_extern_label(const char *line, Error *result) {
     char tmpLine[MAX_LENGTH];
     char *token, *operand;
     strcpy(tmpLine, line);
-    token = strtok(tmpLine, ". \n\t");/*should be on extern*/
+    strtok(tmpLine, ". \n\t");/*should be on extern*/
     token = strtok(NULL, ". \n\t");/*should be on label*/
     if (token == NULL) {
         *result = MissingLabel;
@@ -417,7 +417,7 @@ char *parser_get_label_from_operand(const char *operand) {
     return label;
 }
 
-Error parser_check_string_directive_form(const char *line, Directive directive) {
+Error parser_check_string_directive_form(const char *line) {
     /*assumes data (string or data) directive*/
     char tmpLine[MAX_LINE_LENGTH], *trimmed, *token, *cleanStr;
     trimmed = trim_label(line);
@@ -442,8 +442,8 @@ Error parser_check_string_directive_form(const char *line, Directive directive) 
     return NoErrorsFound;
 }
 
-Error parser_check_data_directive_form(const char *line, Directive directive) {
-    char tmpLine[MAX_LINE_LENGTH], *stringPtr, *token;
+Error parser_check_data_directive_form(const char *line) {
+    char tmpLine[MAX_LINE_LENGTH], *stringPtr;
     stringPtr = trim_label(line);
     strcpy(tmpLine, stringPtr);
     free(stringPtr);

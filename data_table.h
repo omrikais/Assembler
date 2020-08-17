@@ -23,8 +23,6 @@ void data_items_list_destroy(DataItemsList list);
 
 List *data_items_get_list_of_data(DataItemsList dataItemsList);
 
-List data_items_get_data(DataItemsList list);
-
 int data_items_get_number_of_data_items(DataItemsList list);
 
 #endif /*ASSEMBLER_DATA_TABLE_H*/
