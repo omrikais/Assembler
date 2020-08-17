@@ -450,15 +450,47 @@ Error parser_check_data_directive_form(const char *line, Directive directive) {
     stringPtr = trim_label(line);
     strcpy(tmpLine, stringPtr);
     free(stringPtr);
-    token = delete_spaces(tmpLine);
-    strcpy(tmpLine, token);
-    free(token);
-    token = tmpLine + strlen(".data");
-    if (strstr(token,",,") != NULL)
+    return parser_check_commas_in_data_directive(tmpLine);
+}
+
+Error parser_check_commas_in_data_directive(const char *line) {
+    /*assumes to get line of data directive without a label*/
+    char tmpLine[MAX_LINE_LENGTH], *strPtr;
+    Bool isNumberEnded = False ,isCommaAppeared = True;
+    int i;
+    strPtr = delete_spaces(line);
+    strcpy(tmpLine, strPtr);
+    free(strPtr);
+    strPtr = tmpLine + strlen(".data");
+    if (strstr(strPtr, ",,") != NULL)
         return ConsecutiveComma;
-    if (token[0] == ',')
+    if (strPtr[0] == ',')
         return CommaAfterDirective;
+    if (tmpLine[strlen(tmpLine) - 2] == ',')
+        return CommaAfterLast;
+    strcpy(tmpLine, line);
+    strPtr = tmpLine + strlen(".data");
+    for (i = 0; i < strlen(strPtr)-1; ++i) {
+        if (isblank(strPtr[i])) {
+            isNumberEnded = True;
+            continue;
+        }
+        if (strPtr[i] == ',') {
+            isNumberEnded = True;
+            isCommaAppeared = True;
+        }
+        if (is_number(strPtr[i]) == True && isCommaAppeared == False && isNumberEnded == True)
+            return MissingComma;
+        if (is_number(strPtr[i]) == True && isCommaAppeared == True && isNumberEnded == True) {
+            isCommaAppeared = False;
+            isNumberEnded = False;
+        }
+        if (is_number(strPtr[i]) == True && isNumberEnded == False)
+            continue;
+    }
     return NoErrorsFound;
+
+
 }
 
 

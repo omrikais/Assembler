@@ -32,7 +32,8 @@ enum error_t {
     NoEndQuoteMark,
     StringDirectiveHasMoreThenOneArgument,
     StringWithoutQuotes,
-    CommaAfterDirective
+    CommaAfterDirective,
+    CommaAfterLast
 };
 
 typedef enum error_t Error;

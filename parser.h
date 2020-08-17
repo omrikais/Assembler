@@ -50,6 +50,8 @@ Error parser_check_string_directive_form(const char *line, Directive directive);
 
 Error parser_check_data_directive_form(const char *line, Directive directive);
 
+Error parser_check_commas_in_data_directive(const char *line);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 
