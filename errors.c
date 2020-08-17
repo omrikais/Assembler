@@ -7,7 +7,7 @@
 
 #define ERRORS_SENTENCES "The specified command doesn't exists",\
 "File type is not .as, please provide .as file","File doesn't exits","No Files were given as command line arguments",\
-"The operation in this line has too many operands","The operation in this line has too many operands","The specified \
+"The operation in this line has too many operands","The operation in this line has too few operands","The specified \
 directive is not define","The label in this line isn't valid. Label should start with alphabetic symbol and consists\
 up to 32 alphanumeric charectars","This line has too many commas","This line has missing comma","The extern directive\
 in this line has too many operands. Should be only one.","This line has consecutive commas","The label of the directive\

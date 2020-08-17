@@ -234,9 +234,10 @@ Error parser_check_operands(const char *line, int numberOfOperands) {/*This func
 }
 
 Error is_too_few_or_many_operands(const char *line, int numberOfOperands) { /*assumes that line begins with opcode */
-    char tmpLine[MAX_LENGTH];
+    char tmpLine[MAX_LINE_LENGTH];
     char *token;
     int commaCounter = how_many_commas(line);
+    Error result = NoErrorsFound;
     strcpy(tmpLine, line);
     strtok(tmpLine, ", \t");
     token = strtok(NULL, ", \t");     /*token should be on the first operand*/
@@ -245,9 +246,9 @@ Error is_too_few_or_many_operands(const char *line, int numberOfOperands) { /*as
     if (numberOfOperands == 1) {
         token = strtok(NULL, ", \t");
         if (commaCounter > 0)
-            return IllegalComma;
+            result = IllegalComma;
         if (token == NULL || token[0] == '\n')
-            return NoErrorsFound;
+            return result;
         return TooManyOperands;
     }
     if (numberOfOperands == 2) {
@@ -258,10 +259,10 @@ Error is_too_few_or_many_operands(const char *line, int numberOfOperands) { /*as
         if (token != NULL)
             return TooManyOperands;
         if (commaCounter > 1)
-            return IllegalComma;
+            result = IllegalComma;
         if (commaCounter < 1)
-            return MissingComma;
-        return NoErrorsFound;
+            result = MissingComma;
+        return result;
     }
     return NoErrorsFound;
 }
@@ -279,13 +280,14 @@ Error check_zero_operands_syntax(char const *line) {    /*line begins with the o
     char tmpLine[MAX_LENGTH];
     char *token;
     strcpy(tmpLine, line);
+    Error result = NoErrorsFound;
     if (strchr(tmpLine, COMMA_CHAR) != NULL) {
-        return IllegalComma;
+        result = IllegalComma;
     }
-    strtok(tmpLine, WHITE_DELIMITERS);   /*token is still on the op word*/
+    strtok(tmpLine, " \n\t,");   /*token is still on the op word*/
     token = strtok(NULL, WHITE_DELIMITERS);  /*token should be on \n or null*/
     if (token == NULL || *token == '\n')
-        return NoErrorsFound;
+        return result;
     return TooManyOperands;
 }
 
