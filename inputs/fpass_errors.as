@@ -6,7 +6,7 @@ CODELABEL: mov r0,r1
 LOCALCODE: add r0,r1
 LOCALDATA: .string "Let's Put some chars in here: !)@(#*$^%&"
 LABEL: .string "That should make a small problem..."
-CODELABEL: .data "WHY AGAIN?!"
+CODELABEL: .string "WHY AGAIN?!"
 .extern LOCALCODE
 .extern LOCALDATA
 .extern WHATEVEREXT

@@ -21,11 +21,11 @@ Error assemble(const char **args, int size) {
     while (reader_load_next_file(reader) != NoMoreFiles) {
         error = reader_run_first_pass(reader);
         if (error != NoErrorsFound) {
-            /*TODO:error handling*/
+            continue;
         }
         error = reader_run_second_pass(reader);
         if (error != NoErrorsFound) {
-            /*TODO: error handling*/
+            continue;
         }
         sprintf(fileName, "%s.ob", args[i]);
         outputObject = fopen(fileName, "w");

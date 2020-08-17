@@ -15,7 +15,9 @@ enum error_t {
     TooManyOperands,
     TooFewOperands,
     DirectiveNotFound,
-    IllegalLabel,
+    LabelNoAlphabeticStart,
+    LabelTooLong,
+    LabelWithNonAlphanumeric,
     IllegalComma,
     MissingComma,
     TooManyParametersOfExtern,
@@ -34,11 +36,12 @@ enum error_t {
     StringWithoutQuotes,
     CommaAfterDirective,
     CommaAfterLast,
-    WrongTypeDataArgument
+    WrongTypeDataArgument,
+    IncompatibleAddressing
 };
 
 typedef enum error_t Error;
 
-void error_print(Error error, int lineNumber);
+void error_print(Error error, int lineNumber, const char *fileName);
 
 #endif /*ASSEMBLER_ERRORS_H*/

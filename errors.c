@@ -8,21 +8,22 @@
 #define ERRORS_SENTENCES "The specified command doesn't exists",\
 "File type is not .as, please provide .as file","File doesn't exits","No Files were given as command line arguments",\
 "The operation in this line has too many operands","The operation in this line has too few operands","The specified \
-directive is not define","The label in this line isn't valid. Label should start with alphabetic symbol and consists\
-up to 32 alphanumeric charectars","This line has too many commas","This line has missing comma","The extern directive\
+directive is not define","The label in this line isn't valid, it doesn't starts with an alphabetic character.",\
+"The label in this line isn't valid, it consists more then 31 characters.",\
+"The label in this line isn't valid, it contains non alphanumeric characters.","This line has too many commas","This line has missing comma","The extern directive\
 in this line has too many operands. Should be only one.","This line has consecutive commas","The label of the directive\
  is missing","The label in this line already exist. Please choose another label.","There is not matching label for this\
 entry directive line","","","","","This extern directive line has label that is already defined locally in the file",\
 "An opening quotation mark is missing","An ending quotation mark is missing","String Directive should have only one\
  valid string as an argument", "The argument of the string directive has no quotation marks","A comma comes immediately\
  after a directive or operation","This line has data directive with a comma after the last element","This directive \
-line has a wrong type of data element"
+line has a wrong type of data element","One of the operands has incompatible addressing method with the operation"
 
-void error_print(Error error, int lineNumber) {
+void error_print(Error error, int lineNumber, const char *fileName) {
     char *errorsSentences[] = {ERRORS_SENTENCES};
     char toPrint[MAX_LINE_LENGTH];
-    sprintf(toPrint, "Error in line %d: %s\n", lineNumber, errorsSentences[error]);
-    fprintf(stderr, toPrint);
+    sprintf(toPrint, "Error in file: %s, at line %d: %s\n", fileName, lineNumber, errorsSentences[error]);
+    fprintf(stderr, "%s", toPrint);
 }
 
 

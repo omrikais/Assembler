@@ -52,6 +52,10 @@ size_t instruction_word_get_size() {
     return sizeof(struct instruction_word_t);
 }
 
+int instruction_word_get_opcode(InstructionWord word) {
+    return word->opcode;
+}
+
 long *instruction_word_get_all_parameters(InstructionWord word) {
     long *parameters = malloc(sizeof(*parameters) * WORD_PARAMETERS);
     parameters[0] = word->opcode;

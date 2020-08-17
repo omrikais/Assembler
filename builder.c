@@ -22,6 +22,8 @@ void change_operand_direct(Builder builder, InstructionWord word, int operandInd
 
 void change_operand_relative(Builder builder, InstructionWord word, int operandIndex);
 
+Error check_operands_addressing_method(InstructionWord word, int numberOfOperands);
+
 Builder init() {
     Builder builder = malloc(sizeof(struct builder_t));
     builder->instructions = instruction_list_create();
@@ -71,15 +73,14 @@ Error evaluate_extern(Builder builder, char *line) {
 
 Error evaluate_directive_line(Builder builder, char *line) {
     /*assumes that this is the first pass*/
-    /*here should be some error checking functions connected to directive issues*/
     Directive directive = parser_get_directive(line);
     SymbolEntry entry;
     Error error;
     char *label = NULL;
     if (parser_is_new_label(line) == True) {
-        label = parser_get_label(line);
+        label = parser_get_label(line, &error);
         if (label == NULL)
-            return IllegalLabel;
+            return error;
     }
     if (directive == NoDirectiveFound) {
         if (label != NULL)
@@ -88,7 +89,8 @@ Error evaluate_directive_line(Builder builder, char *line) {
     }
     if (directive == String || directive == Data) {
         error = (directive == String) ? parser_check_string_directive_form(line, directive)
-                                      : parser_check_data_directive_form(line,directive);/*TODO: write the equivalent data function*/
+                                      : parser_check_data_directive_form(line,
+                                                                         directive);
         if (error != NoErrorsFound)
             return error;
         if (label != NULL) {
@@ -190,7 +192,6 @@ void change_operand_relative(Builder builder, InstructionWord word, int operandI
     instruction_word_set_operand_content(word, labelLocation - wordLocation, operandIndex);
 }
 
-
 Bool is_label_exists(List list, char *label) {
     if (list_find_element(list, label, (Equals) symbol_entry_compare) != NULL) {
         return True;
@@ -198,18 +199,12 @@ Bool is_label_exists(List list, char *label) {
     return False;
 }
 
-
 void add_data_item_to_table(Builder builder, const char *line, Directive directive) {
     List data = (directive == String) ? (parser_get_string_data(line)) : parser_get_data_array(line);
     size_t size = list_size(data);
     data_items_list_add_data_element(builder->dataList, data, list_get_size_of());
     data_items_list_update_dc(builder->dataList, size);
     list_node_destroy(data, NULL);
-}
-
-/*to delete*/
-List get_symbol_table(Builder builder) {
-    return builder->symbols;
 }
 
 void builder_update_data_symbols_location(Builder builder) {
@@ -231,9 +226,9 @@ Error evaluate_code_line(Builder builder, char *line) {
     Error result;
     int IC = instruction_list_get_ic(builder->instructions);
     if (parser_is_new_label(line) == True) {
-        label = parser_get_label(line);
+        label = parser_get_label(line, &result);
         if (label == NULL)
-            return IllegalLabel;
+            return result;
         if (is_label_exists(builder->symbols, label) == True) {
             free(label);
             return LabelAlreadyExists;
@@ -288,7 +283,7 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
                                        destinationOperandContent);
         instruction_word_set_destination_string(word, destinationContent);
         free(destinationContent);
-        *result = NoErrorsFound;
+        *result = check_operands_addressing_method(word, numberOfOperands);
         return word;
     }
     handle_operand(tmpLine, &sourceAddressingMethod, &sourceRegister, &sourceOperandContent,
@@ -302,8 +297,33 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
     instruction_word_set_destination_string(word, destinationContent);
     free(sourceContent);
     free(destinationContent);
-    *result = NoErrorsFound;
+    *result = check_operands_addressing_method(word, numberOfOperands);
     return word;
+}
+
+Error check_operands_addressing_method(InstructionWord word, int numberOfOperands) {
+    int opcode = instruction_word_get_opcode(word);
+    AddressingMethod method1 = instruction_word_get_addressing_method(word, DESTINATION_INDEX);
+    AddressingMethod method2;
+    if (numberOfOperands == 1) {
+        if (method1 == 0 && opcode != PRN)
+            return IncompatibleAddressing;
+        if (method1 == 3 && opcode == 9)
+            return IncompatibleAddressing;
+        if (method1 == 2 && opcode != 9)
+            return IncompatibleAddressing;
+    }
+    if (numberOfOperands == 2) {
+        method2 = instruction_word_get_addressing_method(word, SOURCE_INDEX);
+        if ((method2 == 0 || method2 == 3) && opcode == 4)
+            return IncompatibleAddressing;
+        if (method2 == 2 || method1 == 2)
+            return IncompatibleAddressing;
+        if (method1 == 0 && opcode != 1)
+            return IncompatibleAddressing;
+    }
+    return NoErrorsFound;
+
 }
 
 void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, long *operandContent,
@@ -331,43 +351,3 @@ DataItemsList builder_get_data_items_list(Builder builder) {
 List builder_get_symbols_list(Builder builder) {
     return builder->symbols;
 }
-
-/*Error builder_generate_entry_array(Builder builder) {
-
-}*/
-
-
-/*
-Error handle_label(Builder builder,char * line) {
-    SymbolEntry entry;
-    char tmpLine[MAX_LENGTH];
-    char *label = NULL;
-    Directive directive;
-    if (parser_is_new_label(line) == True) {
-        label = parser_get_label(line);
-        if (label == NULL)
-            return IllegalLabel;
-    }
-    if (is_label_exists(builder->symbols, label) == True) {
-        free(label);
-        return LabelAlreadyExists;
-    }
-    if (parser_is_directive(line) == True) {
-        directive = parser_get_directive(line);
-        if (directive!=NoDirectiveFound) {
-            free(label);
-            return DirectiveNotFound;
-        }
-        if ((directive==Data) || (directive == String)) {
-            entry = symbol_entry_create(label, data_items_get_dc(builder->dataList), DataP);
-            list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
-            free(label);
-            return NoErrorsFound;
-        }
-
-    }
-
-}
-*/
-
-

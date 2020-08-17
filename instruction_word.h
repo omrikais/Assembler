@@ -50,4 +50,6 @@ Bool instruction_word_has_operand(Operation operation, int indexOfOperation);
 
 Bool has_operand(InstructionWord word, int operandIndex);
 
+int instruction_word_get_opcode(InstructionWord word);
+
 #endif /*ASSEMBLER_INSTRUCTION_WORD_H*/

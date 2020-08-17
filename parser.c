@@ -8,8 +8,6 @@
 
 char *trim_label(const char *line);
 
-Bool is_alphabetic(char c);
-
 Operation find_operation(char *word);
 
 int find_index_of_element(const int *array, Operation operation);
@@ -22,7 +20,7 @@ Error is_too_few_or_many_operands(const char *line, int numberOfOperands);
 
 int how_many_commas(const char *string);
 
-Bool parser_is_valid_label(const char *label);
+Error parser_is_valid_label(const char *label);
 
 Bool is_number(char c);
 
@@ -48,14 +46,14 @@ Bool parser_is_entry(const char *line) {
     return False;
 }
 
-
-char *parser_get_label(char *line) {
-    char tmpLine[MAX_LENGTH];
+char *parser_get_label(char *line, Error *error) {
+    char tmpLine[MAX_LINE_LENGTH];
     char *token, *result;
     strcpy(tmpLine, line);
     token = strtok(tmpLine, ":");
     token = strtok(token, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
-    if (parser_is_valid_label(token)) {
+    *error = parser_is_valid_label(token);
+    if (*error == NoErrorsFound) {
         result = malloc(sizeof(char) * (strlen(token) + 1));
         strcpy(result, token);
         return result;
@@ -63,16 +61,10 @@ char *parser_get_label(char *line) {
     return NULL;
 }
 
-Bool is_alphabetic(char c) {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-        return True;
-    return False;
-}
-
 char *delete_spaces(const char *line) {
     char tmpLine[MAX_LINE_LENGTH], *cleanStr = NULL;
     int i = 0, j = 0;
-    while (i < strlen(line) && (line[i] != '\0' || line[i] != '\n')) {
+    while ((i < strlen(line)) && (line[i] != '\0' || line[i] != '\n')) {
         if (line[i] != ' ') {
             tmpLine[j++] = line[i++];
         } else
@@ -144,9 +136,9 @@ Directive parser_get_directive(char *line) {
     char *directives[] = {DIRECTIVES};
     strcpy(tmpLine, line);
     token = strtok(tmpLine, DIRECTIVE_DELIM);
-    if (token[0] == tmpLine[0])     /*the first char is the same -> there were some chars before '.'*/
+    if (token[0] == tmpLine[0])              /*the first char is the same -> there were some chars before '.'*/
         token = strtok(NULL, DIRECTIVE_DELIM);
-    token = strtok(token, " \t\n"); /*should be only the directive name*/
+    token = strtok(token, " \t\n");     /*should be only the directive name*/
     if (token == NULL)
         return NoDirectiveFound;
     if (strcmp(token, directives[Entry]) == 0)
@@ -161,8 +153,7 @@ Directive parser_get_directive(char *line) {
 }
 
 List parser_get_string_data(const char *line) {
-    /*returns an ascii array of the string
-     * assumes to get a string directive line*/
+    /*returns an ascii array of the string ,assumes to get a string directive line*/
     char tmpLine[MAX_LENGTH], *token;
     char *stringAsciiArray;
     int i = 0, current;
@@ -188,7 +179,7 @@ List parser_get_data_array(const char *line) {
     trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
-    token = strtok(tmpLine, "., \n\t");
+    strtok(tmpLine, "., \n\t");
     while ((token = strtok(NULL, "., \n\t")) != NULL) {
         currentNumber = atol(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(long));
@@ -297,18 +288,18 @@ Bool is_consecutive_commas(const char *string) {
     return doubleComma == NULL ? False : True;
 }
 
-Bool parser_is_valid_label(const char *label) {
+Error parser_is_valid_label(const char *label) {
     int i;
     for (i = 0; i < strlen(label); ++i) {
         if (i == 0)
             if (isalpha(label[i]) == 0)
-                return False;
+                return LabelNoAlphabeticStart;
         if (isalnum(label[i]) == 0)
-            return False;
+            return LabelWithNonAlphanumeric;
+        if (strlen(label) > 31)
+            return LabelTooLong;
     }
-    if (strlen(label) > 31)
-        return False;
-    return True;
+    return NoErrorsFound;
 }
 
 Bool parser_is_empty_line(const char *line) {
@@ -359,7 +350,6 @@ size_t parser_get_size_of_element(void *element, Directive type) {
         return list_get_size_of();
 }
 
-
 char *parser_get_extern_label(const char *line, Error *result) {
     char tmpLine[MAX_LENGTH];
     char *token, *operand;
@@ -370,11 +360,14 @@ char *parser_get_extern_label(const char *line, Error *result) {
         *result = MissingLabel;
         return NULL;
     }
+    *result = parser_is_valid_label(token);
+    if (*result != NoErrorsFound)
+        return NULL;
     operand = malloc(sizeof(char) * (strlen(token) + 1));
     strcpy(operand, token);
-    if (parser_is_valid_label(operand) == False) {
+    *result = parser_is_valid_label(operand);
+    if (*result != NoErrorsFound) {
         free(operand);
-        *result = IllegalLabel;
         return NULL;
     }
     if (strtok(NULL, " \n\t") != NULL) {
@@ -385,7 +378,6 @@ char *parser_get_extern_label(const char *line, Error *result) {
     *result = NoErrorsFound;
     return operand;
 }
-
 
 int parser_get_register_num(const char *operand) {
     char *endPtr;
@@ -441,7 +433,7 @@ Error parser_check_string_directive_form(const char *line, Directive directive) 
         return NoOpenQuoteMark;
     if (token[strlen(token) - 2] != '\"')
         return NoEndQuoteMark;
-    token = strtok(token, "\"");
+    strtok(token, "\"");
     token = strtok(NULL, "\"");
     if (token == NULL)
         return NoErrorsFound;
@@ -493,7 +485,8 @@ Error check_arguments_of_data(const char *line) {
     strcpy(tmpLine, line);
     strPtr = line + strlen(".data");
     for (i = 0; i < strlen(strPtr) - 1; ++i) {
-        if (!isspace(strPtr[i]) && is_number(strPtr[i]) == False && strPtr[i] != ',' && strPtr[i]!='-' && strPtr[i]!='+')
+        if (!isspace(strPtr[i]) && is_number(strPtr[i]) == False && strPtr[i] != ',' && strPtr[i] != '-' &&
+            strPtr[i] != '+')
             return WrongTypeDataArgument;
     }
     return NoErrorsFound;
@@ -514,7 +507,7 @@ Error parser_check_commas_in_data_directive(const char *line) {
     if (tmpLine[strlen(tmpLine) - 2] == ',')
         return CommaAfterLast;
     result = check_comma_between_data_elements(line);
-    if (result!=NoErrorsFound)
+    if (result != NoErrorsFound)
         return result;
     return check_arguments_of_data(line);
 }

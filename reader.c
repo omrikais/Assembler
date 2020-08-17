@@ -67,13 +67,13 @@ Error reader_run_first_pass(Reader reader) {
         line[81] = '\0';
         error = evaluate(reader->builder, line);
         if (error != NoErrorsFound) {
-            error_print(error, reader->currentLine);
+            error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
             reader->isErrorOccurred = True;
         }
         reader->currentLine += 1;
     }
     builder_update_data_symbols_location(reader->builder);
-    return NoErrorsFound;
+    return error;
 }
 
 
@@ -94,7 +94,7 @@ Error reader_run_second_pass(Reader reader) {
         if (parser_is_entry(line) == True) {
             error = evaluate_entry_directive(reader->builder, line);
             if (error != NoErrorsFound) {
-                error_print(error, reader->currentLine);
+                error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
                 reader->isErrorOccurred = True;
                 reader->currentLine += 1;
             }
