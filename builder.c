@@ -342,14 +342,8 @@ void handle_operand(const char *line, int *addressingMethod, int *registerOfOper
         (*registerOfOperand) = parser_get_register_num(operand);
     } else if ((*addressingMethod) == NA) {
         *error = InvalidAddressingMethod;
-    } else {
+    } else
         (*operandContentString) = parser_get_label_from_operand(operand);
-        *error = parser_is_valid_label(*operandContentString);
-        if (*error != NoErrorsFound) {
-            free(operand);
-            return;
-        }
-    }
     free(operand);
 }
 
