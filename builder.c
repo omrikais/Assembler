@@ -17,9 +17,9 @@ Bool is_label_exists(List list, char *label);
 void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, long *operandContent,
                     char **operandContentString, int operandIndex, Error *error);
 
-void change_operand_direct(Builder builder, InstructionWord word, int operandIndex);
+Error change_operand_direct(Builder builder, InstructionWord word, int operandIndex);
 
-void change_operand_relative(Builder builder, InstructionWord word, int operandIndex);
+Error change_operand_relative(Builder builder, InstructionWord word, int operandIndex);
 
 Error check_operands_addressing_method(InstructionWord word, int numberOfOperands);
 
@@ -128,26 +128,31 @@ Error evaluate_entry_directive(Builder builder, char *line) {
     return NoErrorsFound;
 }
 
-void builder_update_instructions(Builder builder) {
+/*צריך לחשוב איך להדפיס את השורות האלה*/
+void builder_update_instructions(Builder builder, int lineNumber, char *fileName) {
     InstructionWord word;
+    Error error;
     InstructionsList instructions = builder->instructions;
     int i, size = instruction_list_get_number_of_instructions(instructions);
     for (i = 1; i <= size; ++i) {
         word = instruction_list_get_instruction(instructions, i);
         if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct &&
-            has_operand(word, SOURCE_INDEX) == True)
-            change_operand_direct(builder, word, SOURCE_INDEX);
+            has_operand(word, SOURCE_INDEX) == True) {
+            error = change_operand_direct(builder, word, SOURCE_INDEX);
+        }
         if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Direct &&
             has_operand(word, DESTINATION_INDEX) == True)
-            change_operand_direct(builder, word, DESTINATION_INDEX);
+            error = change_operand_direct(builder, word, DESTINATION_INDEX);
         if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Relative)
-            change_operand_relative(builder, word, SOURCE_INDEX);
+            error = change_operand_relative(builder, word, SOURCE_INDEX);
         if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Relative)
-            change_operand_relative(builder, word, DESTINATION_INDEX);
+            error = change_operand_relative(builder, word, DESTINATION_INDEX);
+        if (error != NoErrorsFound)
+            error_print(error, lineNumber, fileName);
     }
 }
 
-void change_operand_direct(Builder builder, InstructionWord word, int operandIndex) {
+Error change_operand_direct(Builder builder, InstructionWord word, int operandIndex) {
     const char *label;
     SymbolEntry entry;
     int location;
@@ -159,8 +164,7 @@ void change_operand_direct(Builder builder, InstructionWord word, int operandInd
         label = instruction_word_get_source_string(word);
     entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
     if (entry == NULL) {
-        /*TODO: print error message and return*/
-        return;
+        return EntryLabelNotExists;
     }
     location = symbol_get_location(entry);
     property = symbol_get_property(entry);
@@ -169,9 +173,10 @@ void change_operand_direct(Builder builder, InstructionWord word, int operandInd
         instruction_word_set_is_extern(word, operandIndex);
     }
     instruction_word_set_operand_content(word, location, operandIndex);
+    return NoErrorsFound;
 }
 
-void change_operand_relative(Builder builder, InstructionWord word, int operandIndex) {
+Error change_operand_relative(Builder builder, InstructionWord word, int operandIndex) {
     const char *label;
     SymbolEntry entry;
     int labelLocation, wordLocation;
@@ -181,9 +186,12 @@ void change_operand_relative(Builder builder, InstructionWord word, int operandI
     if (isOneOperand == False && operandIndex == SOURCE_INDEX)
         label = instruction_word_get_source_string(word);
     entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
+    if (entry == NULL)
+        return EntryLabelNotExists;
     labelLocation = symbol_get_location(entry);
     wordLocation = instruction_word_get_ic(word);
     instruction_word_set_operand_content(word, labelLocation - wordLocation, operandIndex);
+    return NoErrorsFound;
 }
 
 Bool is_label_exists(List list, char *label) {

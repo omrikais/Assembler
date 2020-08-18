@@ -30,7 +30,7 @@ Error evaluate_entry_directive(Builder builder, char *line);
 
 void builder_update_data_symbols_location(Builder builder);
 
-void builder_update_instructions(Builder builder);
+void builder_update_instructions(Builder builder, int lineNumber, char *fileName);
 
 InstructionsList builder_get_instructions_list(Builder builder);
 

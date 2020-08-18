@@ -96,11 +96,14 @@ Error reader_run_second_pass(Reader reader) {
             if (error != NoErrorsFound) {
                 error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
                 reader->isErrorOccurred = True;
-                reader->currentLine += 1;
+
             }
         }
+        /*כאן צריך להוסיף מכניזם שמעדכן שורת קוד (במסגרת ללואת הווייל) ומוציא שגיאה על כל שורה לא תקינה*/
+        /*if (!parser_is_directive(line) && pa)*/
+        reader->currentLine += 1;
     }
-    builder_update_instructions(reader->builder);
+    builder_update_instructions(reader->builder, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
     return NoErrorsFound;
 }
 
