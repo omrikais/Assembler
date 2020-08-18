@@ -15,7 +15,7 @@ Error evaluate_extern(Builder builder, char *line);
 Bool is_label_exists(List list, char *label);
 
 void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, long *operandContent,
-                    char **operandContentString, int operandIndex);
+                    char **operandContentString, int operandIndex, Error *error);
 
 void change_operand_direct(Builder builder, InstructionWord word, int operandIndex);
 
@@ -271,7 +271,11 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
     }
     if (numberOfOperands == 1) {
         handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
-                       &destinationContent, 1);
+                       &destinationContent, 1, result);
+        if (*result != NoErrorsFound) {
+            /*free all function*/
+            return NULL;
+        }
         word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                        destinationAddressingMethod, destinationRegister, sourceOperandContent,
                                        destinationOperandContent);
@@ -281,9 +285,17 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
         return word;
     }
     handle_operand(tmpLine, &sourceAddressingMethod, &sourceRegister, &sourceOperandContent,
-                   &sourceContent, 1);
+                   &sourceContent, 1, result);
+    if (*result != NoErrorsFound) {
+        /*free all function*/
+        return NULL;
+    }
     handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
-                   &destinationContent, 2);
+                   &destinationContent, 2, result);
+    if (*result != NoErrorsFound) {
+        /*free all function*/
+        return NULL;
+    }
     word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                    destinationAddressingMethod, destinationRegister, sourceOperandContent,
                                    destinationOperandContent);
@@ -321,7 +333,7 @@ Error check_operands_addressing_method(InstructionWord word, int numberOfOperand
 }
 
 void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, long *operandContent,
-                    char **operandContentString, int operandIndex) {
+                    char **operandContentString, int operandIndex, Error *error) {
     char *operand = parser_get_operand(line, operandIndex);
     (*addressingMethod) = parser_get_addressing_method_of_operand(operand);
     if ((*addressingMethod) == Immediate) {/*an error mechanism is needed here*/
@@ -330,6 +342,11 @@ void handle_operand(const char *line, int *addressingMethod, int *registerOfOper
         (*registerOfOperand) = parser_get_register_num(operand);
     } else {
         (*operandContentString) = parser_get_label_from_operand(operand);
+        *error = parser_is_valid_label(*operandContentString);
+        if (*error != NoErrorsFound) {
+            free(operand);
+            return;
+        }
     }
     free(operand);
 }

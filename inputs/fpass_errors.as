@@ -97,10 +97,10 @@ jsr #-1
 prn &op0
 
 ; More General syntax errors
-mov $,#-4
+mov $, label
 mov -9.7
 mov 123
-mov THISISAVERYVERYLONGLABELWHICHISINVALIDHERE
+mov THISISAVERYVERYLONGLABELWHICHISINVALIDHERE, la
 .entry THISISAVERYVERYLONGLABELWHICHISINVALIDHERE
 op operand,operand
 label .data "Hello World!" mov r0,#-4

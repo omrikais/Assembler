@@ -17,7 +17,8 @@ entry directive line","","","","","This extern directive line has label that is 
 "An opening quotation mark is missing","An ending quotation mark is missing","String Directive should have only one\
  valid string as an argument", "The argument of the string directive has no quotation marks","A comma comes immediately\
  after a directive or operation","This line has data directive with a comma after the last element","This directive \
-line has a wrong type of data element","One of the operands has incompatible addressing method with the operation"
+line has a wrong type of data element","One of the operands has incompatible addressing method with the operation",\
+"A label without content is not valid"
 
 void error_print(Error error, int lineNumber, const char *fileName) {
     char *errorsSentences[] = {ERRORS_SENTENCES};

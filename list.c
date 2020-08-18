@@ -5,7 +5,6 @@
 #include "list.h"
 
 
-/* A linked list node_t */
 struct node_t {
     void *data;
     ListNode next;
