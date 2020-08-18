@@ -20,8 +20,6 @@ Error is_too_few_or_many_operands(const char *line, int numberOfOperands);
 
 int how_many_commas(const char *string);
 
-Error parser_is_valid_label(const char *label);
-
 Bool is_number(char c);
 
 Error check_comma_between_data_elements(const char *line);
@@ -35,9 +33,17 @@ Bool parser_is_new_label(const char *line) {
 }
 
 Bool parser_is_directive(char *line) {
-    if (strchr(line, DIRECTIVE_CHAR) == NULL)
-        return False;
-    return True;
+    char tmpLine[MAX_LINE_LENGTH], *token, *trimmed;
+    strcpy(tmpLine, line);
+    if (parser_is_new_label(line)) {
+        trimmed = trim_label(line);
+        strcpy(tmpLine, trimmed);
+        free(trimmed);
+    }
+    token = strtok(tmpLine, " \t\n");   /*directive word*/
+    if (token != NULL && strchr(token, DIRECTIVE_CHAR) != NULL)
+        return True;
+    return False;
 }
 
 Bool parser_is_entry(const char *line) {
@@ -48,7 +54,7 @@ Bool parser_is_entry(const char *line) {
 
 char *parser_get_label(char *line, Error *error) {
     char tmpLine[MAX_LINE_LENGTH];
-    char *token, *result;
+    char *token, *result, *strPtr;
     strcpy(tmpLine, line);
     token = strtok(tmpLine, ":");
     token = strtok(token, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
@@ -56,6 +62,14 @@ char *parser_get_label(char *line, Error *error) {
     if (*error == NoErrorsFound) {
         result = malloc(sizeof(char) * (strlen(token) + 1));
         strcpy(result, token);
+        strcpy(tmpLine, line);
+        token = strtok(tmpLine, "\n: \t");  /*on the label*/
+        token = strtok(NULL, "\n: \t"); /*on the first word after the label*/
+        if (token == NULL) {
+            *error = OnlyLabel;
+            free(result);
+            return NULL;
+        }
         return result;
     }
     return NULL;
@@ -290,14 +304,14 @@ Bool is_consecutive_commas(const char *string) {
 
 Error parser_is_valid_label(const char *label) {
     int i;
+    if (strlen(label) > 31)
+        return LabelTooLong;
     for (i = 0; i < strlen(label); ++i) {
         if (i == 0)
             if (isalpha(label[i]) == 0)
                 return LabelNoAlphabeticStart;
         if (isalnum(label[i]) == 0)
             return LabelWithNonAlphanumeric;
-        if (strlen(label) > 31)
-            return LabelTooLong;
     }
     return NoErrorsFound;
 }
@@ -340,7 +354,9 @@ AddressingMethod parser_get_addressing_method_of_operand(const char *operand) {
         return Relative;
     if (operand[0] == REGISTER_CHAR && strlen(operand) == 2)
         return Register;
-    return Direct;
+    if (isalpha(operand[0]))
+        return Direct;
+    return NA;
 }
 
 size_t parser_get_size_of_element(void *element, Directive type) {

@@ -37,7 +37,9 @@ enum error_t {
     CommaAfterDirective,
     CommaAfterLast,
     WrongTypeDataArgument,
-    IncompatibleAddressing
+    IncompatibleAddressing,
+    OnlyLabel,
+    InvalidAddressingMethod
 };
 
 typedef enum error_t Error;

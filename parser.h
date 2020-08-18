@@ -52,6 +52,8 @@ Error parser_check_data_directive_form(const char *line);
 
 Error parser_check_commas_in_data_directive(const char *line);
 
+Error parser_is_valid_label(const char *label);
+
 #endif /*ASSEMBLER_PARSER_H*/
 
 
