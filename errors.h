@@ -1,6 +1,12 @@
 
 /*Created by Omri Kaisari on 07/08/2020.*/
 
+
+
+
+#ifndef ASSEMBLER_ERRORS_H
+#define ASSEMBLER_ERRORS_H
+
 enum error_t {
     CommandNotFound,
     FileTypeWrong,
@@ -9,7 +15,9 @@ enum error_t {
     TooManyOperands,
     TooFewOperands,
     DirectiveNotFound,
-    IllegalLabel,
+    LabelNoAlphabeticStart,
+    LabelTooLong,
+    LabelWithNonAlphanumeric,
     IllegalComma,
     MissingComma,
     TooManyParametersOfExtern,
@@ -20,13 +28,22 @@ enum error_t {
     NoErrorsFound,
     NoMoreFiles,
     NoEntries,
-    ExternOrInternLabelNotFound
+    ExternOrInternLabelNotFound,
+    TheExternOperandIsAlreadyDefined,
+    NoOpenQuoteMark,
+    NoEndQuoteMark,
+    StringDirectiveHasMoreThenOneArgument,
+    StringWithoutQuotes,
+    CommaAfterDirective,
+    CommaAfterLast,
+    WrongTypeDataArgument,
+    IncompatibleAddressing,
+    OnlyLabel,
+    InvalidAddressingMethod
 };
 
 typedef enum error_t Error;
 
-
-#ifndef ASSEMBLER_ERRORS_H
-#define ASSEMBLER_ERRORS_H
+void error_print(Error error, int lineNumber, const char *fileName);
 
 #endif /*ASSEMBLER_ERRORS_H*/

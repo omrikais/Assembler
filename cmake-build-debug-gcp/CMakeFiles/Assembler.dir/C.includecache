@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/tmp/tmp.BOYisKdkU2/Assembler.c
+file_generator.h
+/tmp/tmp.BOYisKdkU2/file_generator.h
+
 /tmp/tmp.BOYisKdkU2/builder.c
 stdlib.h
 -
@@ -27,26 +31,6 @@ constants.h
 /tmp/tmp.BOYisKdkU2/constants.h
 symbol_table.h
 /tmp/tmp.BOYisKdkU2/symbol_table.h
-
-/tmp/tmp.BOYisKdkU2/builder_tests.c
-stdio.h
--
-string.h
--
-list.h
-/tmp/tmp.BOYisKdkU2/list.h
-parser.h
-/tmp/tmp.BOYisKdkU2/parser.h
-instruction_word.h
-/tmp/tmp.BOYisKdkU2/instruction_word.h
-code_table.h
-/tmp/tmp.BOYisKdkU2/code_table.h
-data_table.h
-/tmp/tmp.BOYisKdkU2/data_table.h
-symbol_table.h
-/tmp/tmp.BOYisKdkU2/symbol_table.h
-builder.h
-/tmp/tmp.BOYisKdkU2/builder.h
 
 /tmp/tmp.BOYisKdkU2/code_table.c
 code_table.h
@@ -77,6 +61,10 @@ list.h
 /tmp/tmp.BOYisKdkU2/errors.c
 errors.h
 /tmp/tmp.BOYisKdkU2/errors.h
+constants.h
+/tmp/tmp.BOYisKdkU2/constants.h
+stdio.h
+-
 
 /tmp/tmp.BOYisKdkU2/errors.h
 
@@ -107,8 +95,6 @@ constants.h
 /tmp/tmp.BOYisKdkU2/constants.h
 
 /tmp/tmp.BOYisKdkU2/list.c
-stdio.h
--
 stdlib.h
 -
 list.h
@@ -128,7 +114,7 @@ string.h
 stdlib.h
 -
 ctype.h
-/tmp/tmp.BOYisKdkU2/ctype.h
+-
 
 /tmp/tmp.BOYisKdkU2/parser.h
 constants.h

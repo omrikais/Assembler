@@ -1,11 +1,6 @@
 
 /*Created by Omri Kaisari on 05/08/2020.*/
 
-
-/*
- * Generic linked list
-*/
-#include<stdio.h>
 #include<stdlib.h>
 #include "list.h"
 
@@ -14,13 +9,11 @@
 struct node_t {
     void *data;
     ListNode next;
-    ListNode previous;
 };
 
 List list_create() {
     ListNode head = (ListNode) malloc(sizeof(struct node_t));
     head->next = NULL;
-    head->previous = NULL;
     head->data = NULL;
     return head;
 }
@@ -81,7 +74,6 @@ void list_insert_node_at_end(List list, void *newData, size_t dataSize) {
     }
     temp->next = newNode;
     newNode->next = NULL;
-    newNode->previous = temp;
 }
 
 void *list_get_data_element_at_index(List list, int i) {

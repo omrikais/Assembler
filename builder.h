@@ -9,6 +9,7 @@
 #include "instruction_word.h"
 #include "constants.h"
 #include "symbol_table.h"
+#include "errors.h"
 
 typedef struct builder_t *Builder;
 
@@ -30,9 +31,11 @@ Error evaluate_entry_directive(Builder builder, char *line);
 
 void builder_update_data_symbols_location(Builder builder);
 
-void builder_update_instructions(Builder builder);
+/*void builder_update_instructions(Builder builder, int lineNumber, char *fileName);*/
 
 InstructionsList builder_get_instructions_list(Builder builder);
+
+void builder_update_instruction(InstructionWord word, Builder builder, Error *error);
 
 DataItemsList builder_get_data_items_list(Builder builder);
 

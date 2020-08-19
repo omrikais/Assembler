@@ -12,7 +12,7 @@
 
 Bool parser_is_new_label(const char *line);
 
-char *parser_get_label(char *line);
+char *parser_get_label(char *line, Error *error);
 
 Bool parser_is_directive(char *line);
 
@@ -45,6 +45,16 @@ long parser_get_immediate_operand(const char *operand);
 char *parser_get_label_from_operand(const char *operand);
 
 Bool parser_is_entry(const char *line);
+
+Error parser_check_string_directive_form(const char *line);
+
+Error parser_check_data_directive_form(const char *line);
+
+Error parser_check_commas_in_data_directive(const char *line);
+
+Error parser_is_valid_label(const char *label);
+
+Bool parser_is_empty_label(const char *line);
 
 #endif /*ASSEMBLER_PARSER_H*/
 

@@ -25,7 +25,6 @@ struct instruction_word_t {
 
 int instruction_word_how_many_words_by_operand(int addressingMethod);
 
-Bool instruction_word_has_operand(Operation operation, int indexOfOperation);
 
 
 InstructionWord instruction_word_create(int opcode, int func, int sourceAddressingMethod, int sourceRegister,
@@ -50,6 +49,10 @@ InstructionWord instruction_word_create(int opcode, int func, int sourceAddressi
 
 size_t instruction_word_get_size() {
     return sizeof(struct instruction_word_t);
+}
+
+int instruction_word_get_opcode(InstructionWord word) {
+    return word->opcode;
 }
 
 long *instruction_word_get_all_parameters(InstructionWord word) {
