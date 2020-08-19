@@ -51,6 +51,20 @@ Bool parser_is_entry(const char *line) {
     return False;
 }
 
+Bool parser_is_empty_label(const char *line) {
+    Error error;
+    char *ptr = NULL;
+    if (parser_is_new_label(line) == True) {
+        ptr = parser_get_label(line, &error);
+        if (error == OnlyLabel)
+            return True;
+    }
+    if (ptr != NULL)
+        free(ptr);
+    return False;
+
+}
+
 char *parser_get_label(char *line, Error *error) {
     char tmpLine[MAX_LINE_LENGTH];
     char *token, *result, *strPtr;

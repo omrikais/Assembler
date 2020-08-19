@@ -129,7 +129,7 @@ Error evaluate_entry_directive(Builder builder, char *line) {
 }
 
 /*צריך לחשוב איך להדפיס את השורות האלה*/
-void builder_update_instructions(Builder builder, int lineNumber, char *fileName) {
+/*void builder_update_instructions(Builder builder, int lineNumber, char *fileName) {
     InstructionWord word;
     Error error;
     InstructionsList instructions = builder->instructions;
@@ -149,6 +149,31 @@ void builder_update_instructions(Builder builder, int lineNumber, char *fileName
             error = change_operand_relative(builder, word, DESTINATION_INDEX);
         if (error != NoErrorsFound)
             error_print(error, lineNumber, fileName);
+    }
+}*/
+
+void builder_update_instruction(InstructionWord word, Builder builder, Error *error) {
+    if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct &&
+        has_operand(word, SOURCE_INDEX) == True) {
+        *error = change_operand_direct(builder, word, SOURCE_INDEX);
+        if (*error != NoErrorsFound)
+            return;
+    }
+    if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Direct &&
+        has_operand(word, DESTINATION_INDEX) == True) {
+        *error = change_operand_direct(builder, word, DESTINATION_INDEX);
+        if (*error != NoErrorsFound)
+            return;
+    }
+    if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Relative) {
+        *error = change_operand_relative(builder, word, SOURCE_INDEX);
+        if (*error != NoErrorsFound)
+            return;
+    }
+    if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Relative) {
+        *error = change_operand_relative(builder, word, DESTINATION_INDEX);
+        if (*error != NoErrorsFound)
+            return;
     }
 }
 

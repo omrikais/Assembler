@@ -79,15 +79,13 @@ Error reader_run_first_pass(Reader reader) {
 
 Error reader_run_second_pass(Reader reader) {
     char line[MAX_LENGTH];
-    Error error;
+    int instructionNumber = 1;
     rewind(reader->input);
     reader->currentLine = 1;
     while (fgets(line, MAX_LENGTH - 1, reader->input) != NULL && feof(reader->input) == 0) {
+        InstructionWord word;
+        Error error;
         if (parser_is_empty_line(line) == True) {
-            reader->currentLine += 1;
-            continue;
-        }
-        if (parser_is_new_label(line) == True) {
             reader->currentLine += 1;
             continue;
         }
@@ -96,14 +94,25 @@ Error reader_run_second_pass(Reader reader) {
             if (error != NoErrorsFound) {
                 error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
                 reader->isErrorOccurred = True;
-
             }
+            reader->currentLine += 1;
+            continue;
         }
-        /*כאן צריך להוסיף מכניזם שמעדכן שורת קוד (במסגרת ללואת הווייל) ומוציא שגיאה על כל שורה לא תקינה*/
-        /*if (!parser_is_directive(line) && pa)*/
+        if (parser_is_directive(line) == True) {
+            reader->currentLine += 1;
+            continue;
+        }
+        if (parser_is_empty_label(line) == True) {
+            reader->currentLine += 1;
+            continue;
+        }
+        word = instruction_list_get_instruction(builder_get_instructions_list(reader->builder), instructionNumber);
+        builder_update_instruction(word, reader->builder, &error);
+        if (error != NoErrorsFound)
+            error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
+        ++instructionNumber;
         reader->currentLine += 1;
     }
-    builder_update_instructions(reader->builder, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
     return NoErrorsFound;
 }
 
