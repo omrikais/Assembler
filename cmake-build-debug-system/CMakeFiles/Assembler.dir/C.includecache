@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/omrikaisari/CLionProjects/Assembler/builder.c
+stdlib.h
+-
+builder.h
+/Users/omrikaisari/CLionProjects/Assembler/builder.h
+string.h
+-
+
 /Users/omrikaisari/CLionProjects/Assembler/builder.h
 code_table.h
 /Users/omrikaisari/CLionProjects/Assembler/code_table.h
