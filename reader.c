@@ -17,6 +17,8 @@ Bool is_valid_file_name(const char *file);
 
 char **copy_char_array(const char **charArray, size_t size);
 
+Error check_entry(Reader reader, const char *line);
+
 Reader reader_create(const char **objectFiles, size_t objectFilesSize, Error *error) {
     Reader reader;
     reader = malloc(sizeof(struct reader_t));
@@ -94,11 +96,7 @@ Error reader_run_second_pass(Reader reader) {
             continue;
         }
         if (parser_is_entry(line) == True) {
-            error = evaluate_entry_directive(reader->builder, line);
-            if (error != NoErrorsFound) {
-                error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
-                reader->isErrorOccurred = True;
-            }
+            error = check_entry(reader, line);
             reader->currentLine += 1;
             continue;
         }
@@ -116,6 +114,15 @@ Error reader_run_second_pass(Reader reader) {
         reader->currentLine += 1;
     }
     return NoErrorsFound;
+}
+
+Error check_entry(Reader reader, const char *line) {
+    Error error = evaluate_entry_directive(reader->builder, line);
+    if (error != NoErrorsFound) {
+        error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
+        reader->isErrorOccurred = True;
+    }
+    return error;
 }
 
 
