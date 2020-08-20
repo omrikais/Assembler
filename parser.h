@@ -12,7 +12,7 @@
 
 Bool parser_is_new_label(const char *line);
 
-char *parser_get_label(char *line, Error *error);
+char *parser_get_label(const char *line, Error *error);
 
 Bool parser_is_directive(char *line);
 

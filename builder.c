@@ -128,30 +128,6 @@ Error evaluate_entry_directive(Builder builder, char *line) {
     return NoErrorsFound;
 }
 
-/*צריך לחשוב איך להדפיס את השורות האלה*/
-/*void builder_update_instructions(Builder builder, int lineNumber, char *fileName) {
-    InstructionWord word;
-    Error error;
-    InstructionsList instructions = builder->instructions;
-    int i, size = instruction_list_get_number_of_instructions(instructions);
-    for (i = 1; i <= size; ++i) {
-        word = instruction_list_get_instruction(instructions, i);
-        if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct &&
-            has_operand(word, SOURCE_INDEX) == True) {
-            error = change_operand_direct(builder, word, SOURCE_INDEX);
-        }
-        if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Direct &&
-            has_operand(word, DESTINATION_INDEX) == True)
-            error = change_operand_direct(builder, word, DESTINATION_INDEX);
-        if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Relative)
-            error = change_operand_relative(builder, word, SOURCE_INDEX);
-        if (instruction_word_get_addressing_method(word, DESTINATION_INDEX) == Relative)
-            error = change_operand_relative(builder, word, DESTINATION_INDEX);
-        if (error != NoErrorsFound)
-            error_print(error, lineNumber, fileName);
-    }
-}*/
-
 void builder_update_instruction(InstructionWord word, Builder builder, Error *error) {
     if (instruction_word_get_addressing_method(word, SOURCE_INDEX) == Direct &&
         has_operand(word, SOURCE_INDEX) == True) {
@@ -178,7 +154,7 @@ void builder_update_instruction(InstructionWord word, Builder builder, Error *er
 }
 
 Error change_operand_direct(Builder builder, InstructionWord word, int operandIndex) {
-    const char *label;
+    const char *label = NULL;
     SymbolEntry entry;
     int location;
     Property property;
@@ -251,7 +227,7 @@ Error evaluate_code_line(Builder builder, char *line) {
     SymbolEntry entry;
     InstructionWord word = NULL;
     Error result;
-    int IC = instruction_list_get_ic(builder->instructions);
+    int ic = instruction_list_get_ic(builder->instructions);
     if (parser_is_new_label(line) == True) {
         label = parser_get_label(line, &result);
         if (label == NULL)
@@ -269,7 +245,7 @@ Error evaluate_code_line(Builder builder, char *line) {
     if (word == NULL) {
         return result;
     }
-    instruction_word_set_ic(word, IC);
+    instruction_word_set_ic(word, ic);
     instruction_list_add_instruction(builder->instructions, word);
     instruction_word_destroy_tmp(word);/*check this*/
     return result;
@@ -306,7 +282,6 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
         handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
                        &destinationContent, 1, result);
         if (*result != NoErrorsFound) {
-            /*free all function*/
             return NULL;
         }
         word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
@@ -320,13 +295,11 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
     handle_operand(tmpLine, &sourceAddressingMethod, &sourceRegister, &sourceOperandContent,
                    &sourceContent, 1, result);
     if (*result != NoErrorsFound) {
-        /*free all function*/
         return NULL;
     }
     handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
                    &destinationContent, 2, result);
     if (*result != NoErrorsFound) {
-        /*free all function*/
         return NULL;
     }
     word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,

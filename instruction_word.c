@@ -17,13 +17,13 @@ struct instruction_word_t {
     char *sourceOperandContentStr;
     long destinationOperandContent;
     char *destinationOperandContentStr;
-    int valueOfIC;
-    int numberOfWords;
+    int valueOfIc;
+    size_t numberOfWords;
     Bool isDestinationExtern;
     Bool isSourceExtern;
 };
 
-int instruction_word_how_many_words_by_operand(int addressingMethod);
+unsigned int instruction_word_how_many_words_by_operand(int addressingMethod);
 
 
 
@@ -42,7 +42,7 @@ InstructionWord instruction_word_create(int opcode, int func, int sourceAddressi
     word->numberOfWords = instruction_word_determine_number_of_words(word);
     word->destinationOperandContentStr = NULL;
     word->sourceOperandContentStr = NULL;
-    word->isDestinationExtern = -1;
+    word->isDestinationExtern = False;
     word->isSourceExtern = False;
     return word;
 }
@@ -112,7 +112,7 @@ void instruction_word_destroy_tmp(InstructionWord word) {
     free(word);
 }
 
-int instruction_word_how_many_words_by_operand(int addressingMethod) {
+unsigned int instruction_word_how_many_words_by_operand(int addressingMethod) {
     int numberOfWords = 0;
     switch (addressingMethod) {
         case Immediate:
@@ -135,11 +135,11 @@ int instruction_word_get_addressing_method(InstructionWord word, int operandInde
 }
 
 void instruction_word_set_ic(InstructionWord word, int valueOfIc) {
-    word->valueOfIC = valueOfIc;
+    word->valueOfIc = valueOfIc;
 }
 
 int instruction_word_get_ic(InstructionWord word) {
-    return word->valueOfIC;
+    return word->valueOfIc;
 }
 
 Bool instruction_word_has_operand(Operation operation, int indexOfOperation) {
@@ -156,8 +156,8 @@ Bool instruction_word_has_operand(Operation operation, int indexOfOperation) {
     return False;
 }
 
-int instruction_word_determine_number_of_words(InstructionWord word) {
-    int totalWords = 1;     /*this number includes the instruction word itself*/
+unsigned int instruction_word_determine_number_of_words(InstructionWord word) {
+    unsigned int totalWords = 1;     /*this number includes the instruction word itself*/
     Bool hasDestination, hasSource;
     int opcode = (word->func != 0) ? ((word->opcode) * 10 + word->func) : word->opcode;
     hasSource = instruction_word_has_operand(opcode, SOURCE_INDEX);
@@ -186,7 +186,7 @@ int instruction_word_get_number_of_words(InstructionWord word) {
     return word->numberOfWords;
 }
 
-int instruction_word_get_operand_content(InstructionWord word, int operandIndex) {
+long instruction_word_get_operand_content(InstructionWord word, int operandIndex) {
     if (operandIndex == DESTINATION_INDEX)
         return word->destinationOperandContent;
     return word->sourceOperandContent;

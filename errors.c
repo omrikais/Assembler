@@ -23,7 +23,10 @@ line has a wrong type of data element","One of the operands has incompatible add
 void error_print(Error error, int lineNumber, const char *fileName) {
     char *errorsSentences[] = {ERRORS_SENTENCES};
     char toPrint[MAX_LINE_LENGTH];
-    sprintf(toPrint, "Error in file: %s, at line %d: %s\n", fileName, lineNumber, errorsSentences[error]);
+    if (lineNumber > 0)
+        sprintf(toPrint, "Error in file: %s, at line %d: %s\n", fileName, lineNumber, errorsSentences[error]);
+    else
+        sprintf(toPrint, "Error in file %s: %s\n", fileName, errorsSentences[error]);
     fprintf(stderr, "%s", toPrint);
 }
 

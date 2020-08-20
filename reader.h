@@ -24,4 +24,6 @@ void free_string_array(char **array, size_t size);
 
 Builder reader_get_builder(Reader reader);
 
+Bool reader_is_error_occurred(Reader reader);
+
 #endif /*ASSEMBLER_READER_H*/

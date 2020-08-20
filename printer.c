@@ -2,13 +2,11 @@
 
 #include "printer.h"
 #include "symbol_table.h"
-#include <string.h>
-#include <stdlib.h>
 
 
 void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, FILE *outputExtern);
 
-void print_current_element(long currentElement, int currentIC, FILE *output);
+void print_current_element(long currentElement, int currentIc, FILE *output);
 
 void print_entry(SymbolEntry entry, FILE *output);
 
@@ -29,7 +27,6 @@ void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outp
     instruction += parameters[5] << 3;
     instruction += 4;
     free(parameters);
-    /*showbits(instruction);*/
     instruction = instruction & mask;
     sprintf(toPrint, "%07ld %06lx\n", address, instruction);
     fputs(toPrint, outputObject);
@@ -85,8 +82,8 @@ void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, F
 }
 
 void print_object_file(InstructionsList instructions, DataItemsList dataList, FILE *outputObject, FILE *outputExtern) {
-    int ICF = instruction_list_get_ic(instructions);
-    int numberOfInstructionWords = ICF - BEGIN_ADDRESS;
+    int icf = instruction_list_get_ic(instructions);
+    int numberOfInstructionWords = icf - BEGIN_ADDRESS;
     int numberOfDataWords = data_items_get_dc(dataList);
     int i, size = instruction_list_get_number_of_instructions(instructions);
     List *arrayOfDataElements = data_items_get_list_of_data(dataList);
@@ -97,23 +94,23 @@ void print_object_file(InstructionsList instructions, DataItemsList dataList, FI
         print_instruction_word(word, outputObject, outputExtern);
     }
     size = data_items_get_number_of_data_items(dataList);
-    print_data(arrayOfDataElements, size, ICF, outputObject);
+    print_data(arrayOfDataElements, size, icf, outputObject);
     free(arrayOfDataElements);
 }
 
-void print_current_element(long currentElement, int currentIC, FILE *output) {
+void print_current_element(long currentElement, int currentIc, FILE *output) {
     char toPrint[MAX_LENGTH];
     long formattedCurrentElement, mask = 0;
     mask = ~mask;
     mask <<= 24;
     mask = ~mask;
     formattedCurrentElement = currentElement & mask;
-    sprintf(toPrint, "%07d %06lx\n", currentIC, formattedCurrentElement);
+    sprintf(toPrint, "%07d %06lx\n", currentIc, formattedCurrentElement);
     fputs(toPrint, output);
 }
 
-void print_data(List *dataList, size_t sizeOfDataList, int ICF, FILE *output) {
-    int i, j, sizeOfCurrentElementList, currentIC = ICF;
+void print_data(List *dataList, size_t sizeOfDataList, int icf, FILE *output) {
+    int i, j, sizeOfCurrentElementList, currentIc = icf;
     long *currentElement;
     List currentList;
     for (i = 0; i < sizeOfDataList; ++i) {
@@ -121,8 +118,8 @@ void print_data(List *dataList, size_t sizeOfDataList, int ICF, FILE *output) {
         sizeOfCurrentElementList = list_size(currentList);
         for (j = 1; j <= sizeOfCurrentElementList; ++j) {
             currentElement = list_get_data_element_at_index(currentList, j);
-            print_current_element(*currentElement, currentIC, output);
-            currentIC += 1;
+            print_current_element(*currentElement, currentIc, output);
+            currentIc += 1;
         }
     }
 }

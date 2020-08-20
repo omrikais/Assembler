@@ -1,20 +1,14 @@
 #include <stdio.h>
-#include <string.h>
 #include "list.h"
 #include "parser.h"
 #include "instruction_word.h"
-#include "code_table.h"
 #include "data_table.h"
-#include "symbol_table.h"
 #include "builder.h"
 
 void print_int(void *n) {
     printf(" %d", *((int *) n));
 }
 
-void print_float(void *f) {
-    printf(" %f", *(float *) f);
-}
 
 int main() {
     Builder builder = init();

@@ -25,7 +25,7 @@ void list_destroy(List list, DestroyFunction destroy);
 
 void list_node_destroy(ListNode node, DestroyFunction destroy);
 
-int list_size(List list);
+size_t list_size(List list);
 
 /* Function to add a node_t at the beginning of Linked ListNode.
 This function expects a pointer to the Data to be added

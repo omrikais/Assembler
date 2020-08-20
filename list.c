@@ -54,7 +54,7 @@ void list_destroy(List list, DestroyFunction destroy) {
     list_node_destroy(current, destroy);
 }
 
-int list_size(List list) {
+size_t list_size(List list) {
     int size = 0;
     ListNode current = list;
     if (list == NULL)

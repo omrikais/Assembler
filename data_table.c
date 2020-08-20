@@ -2,11 +2,10 @@
 /*Created by Omri Kaisari on 08/08/2020.*/
 
 #include "data_table.h"
-#include <stdlib.h>
 
 struct data_list_t {
     List data;
-    int DC;
+    int dc;
     int numberOfDataItems;
 };
 
@@ -15,7 +14,7 @@ void data_item_list_destroy(List list);
 DataItemsList data_items_list_create() {
     DataItemsList list = malloc(sizeof(struct data_list_t));
     list->data = list_create();
-    list->DC = 0;
+    list->dc = 0;
     list->numberOfDataItems = 0;
     return list;
 }
@@ -42,7 +41,7 @@ void data_items_list_add_data_element(DataItemsList list, void *dataElement, siz
 }
 
 void data_items_list_update_dc(DataItemsList list, int value) {
-    (list->DC) += value;
+    (list->dc) += value;
 }
 
 void *data_items_list_get_data(DataItemsList list, int i) {
@@ -56,7 +55,7 @@ void data_items_list_destroy(DataItemsList list) {
 }
 
 int data_items_get_dc(DataItemsList list) {
-    return list->DC;
+    return list->dc;
 }
 
 void data_item_list_destroy(List list) {

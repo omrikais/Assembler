@@ -31,6 +31,7 @@ Reader reader_create(const char **objectFiles, size_t objectFilesSize, Error *er
     reader->nextFileIndex = 0;
     reader->currentLine = 1;
     reader->isErrorOccurred = False;
+    reader->input = NULL;
     return reader;
 }
 
@@ -43,25 +44,29 @@ void reader_destroy(Reader reader) {
 Error reader_load_next_file(Reader reader) {
     close(reader->builder);
     reader->builder = init();
-    if (reader->nextFileIndex != 0 && (reader->nextFileIndex < reader->objectFilesSize) &&
-        (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex - 1])))
+    if (reader->input != NULL)
         fclose(reader->input);
     if (reader->nextFileIndex >= reader->objectFilesSize) {
-        fclose(reader->input);
         return NoMoreFiles;
     }
     if (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex]) != True) {
+        error_print(FileTypeWrong, -1, (reader->objectFiles)[reader->nextFileIndex]);
         ++(reader->nextFileIndex);
         return FileTypeWrong;
     }
     reader->input = fopen((reader->objectFiles)[reader->nextFileIndex], "r");
+    if (reader->input == NULL) {
+        error_print(FileNotExist, -1, (reader->objectFiles)[reader->nextFileIndex]);
+        ++(reader->nextFileIndex);
+        return FileNotExist;
+    }
     ++(reader->nextFileIndex);
     return NoErrorsFound;
 }
 
 Error reader_run_first_pass(Reader reader) {
     char line[MAX_LINE_LENGTH];
-    Error error;
+    Error error = NoErrorsFound;
     reader->currentLine = 1;
     while (fgets(line, MAX_LINE_LENGTH, reader->input) != NULL /*&& feof(reader->input) == 0*/) {
         line[81] = '\0';
@@ -75,7 +80,6 @@ Error reader_run_first_pass(Reader reader) {
     builder_update_data_symbols_location(reader->builder);
     return error;
 }
-
 
 Error reader_run_second_pass(Reader reader) {
     char line[MAX_LENGTH];
@@ -98,18 +102,16 @@ Error reader_run_second_pass(Reader reader) {
             reader->currentLine += 1;
             continue;
         }
-        if (parser_is_directive(line) == True) {
-            reader->currentLine += 1;
-            continue;
-        }
-        if (parser_is_empty_label(line) == True) {
+        if (parser_is_directive(line) == True || parser_is_empty_label(line) == True) {
             reader->currentLine += 1;
             continue;
         }
         word = instruction_list_get_instruction(builder_get_instructions_list(reader->builder), instructionNumber);
         builder_update_instruction(word, reader->builder, &error);
-        if (error != NoErrorsFound)
+        if (error != NoErrorsFound) {
             error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
+            reader->isErrorOccurred = True;
+        }
         ++instructionNumber;
         reader->currentLine += 1;
     }
@@ -118,7 +120,7 @@ Error reader_run_second_pass(Reader reader) {
 
 
 Bool is_valid_file_name(const char *file) {
-    int length;
+    size_t length;
     char tmpStr[MAX_LENGTH], *ending;
     strcpy(tmpStr, file);
     length = strlen(tmpStr);
@@ -148,7 +150,10 @@ void free_string_array(char **array, size_t size) {
     free(array);
 }
 
-
 Builder reader_get_builder(Reader reader) {
     return reader->builder;
+}
+
+Bool reader_is_error_occurred(Reader reader) {
+    return reader->isErrorOccurred;
 }

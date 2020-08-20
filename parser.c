@@ -2,7 +2,6 @@
 
 #include "parser.h"
 #include <string.h>
-#include <stdlib.h>
 #include <ctype.h>
 
 char *trim_label(const char *line);
@@ -24,6 +23,8 @@ Bool is_number(char c);
 Error check_comma_between_data_elements(const char *line);
 
 Error check_arguments_of_data(const char *line);
+
+Error after_label_check(const char *line);
 
 Bool parser_is_new_label(const char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
@@ -62,36 +63,38 @@ Bool parser_is_empty_label(const char *line) {
     if (ptr != NULL)
         free(ptr);
     return False;
-
 }
 
-char *parser_get_label(char *line, Error *error) {
-    char tmpLine[MAX_LINE_LENGTH];
-    char *token, *result, *strPtr;
+char *parser_get_label(const char *line, Error *error) {
+    char tmpLine[MAX_LINE_LENGTH], *result;
+    char *token;
     strcpy(tmpLine, line);
     token = strtok(tmpLine, ":");
     token = strtok(token, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
     *error = parser_is_valid_label(token);
-    if (*error == NoErrorsFound) {
+    if (*error == NoErrorsFound && (*error = after_label_check(line)) == NoErrorsFound) {
         result = malloc(sizeof(char) * (strlen(token) + 1));
         strcpy(result, token);
-        strcpy(tmpLine, line);
-        token = strtok(tmpLine, "\n: \t");  /*on the label*/
-        token = strtok(NULL, "\n: \t"); /*on the first word after the label*/
-        if (token == NULL) {
-            *error = OnlyLabel;
-            free(result);
-            return NULL;
-        }
         return result;
     }
     return NULL;
 }
 
+Error after_label_check(const char *line) {
+    char tmpLine[MAX_LINE_LENGTH], *token;
+    strcpy(tmpLine, line);
+    strtok(tmpLine, "\n: \t");  /*on the label*/
+    token = strtok(NULL, "\n: \t"); /*on the first word after the label*/
+    if (token == NULL) {
+        return OnlyLabel;
+    }
+    return NoErrorsFound;
+}
+
 char *delete_spaces(const char *line) {
     char tmpLine[MAX_LINE_LENGTH], *cleanStr = NULL;
     int i = 0, j = 0;
-    while ((i < strlen(line)) && (line[i] != '\0' || line[i] != '\n')) {
+    while ((i < strlen(line)) != 0) {
         if (line[i] != ' ') {
             tmpLine[j++] = line[i++];
         } else
@@ -183,14 +186,14 @@ List parser_get_string_data(const char *line) {
     /*returns an ascii array of the string ,assumes to get a string directive line*/
     char tmpLine[MAX_LENGTH], *token;
     char *stringAsciiArray;
-    int i = 0, current;
+    int i, current;
     List charList = list_create();
     strcpy(tmpLine, line);
     strtok(tmpLine, STRING_DELIM);
     token = strtok(NULL, STRING_DELIM);/*token is now on the string*/
     stringAsciiArray = malloc(sizeof(int) * (strlen(token) + 1));
     strcpy(stringAsciiArray, token);
-    for (; i < strlen(stringAsciiArray) + 1; ++i) {
+    for (i = 0; i < strlen(stringAsciiArray) + 1; ++i) {
         current = (int) stringAsciiArray[i];
         list_insert_node_at_end(charList, &current, sizeof(int));
     }

@@ -28,7 +28,6 @@ void print_int(void *n) {
 
 int main() {
     char *args[] = {"./valid"};
-    long mask = 0;
     assemble(args, 1);
     return 0;
 }
