@@ -1,8 +1,8 @@
 /* Created by Omri Kaisari on 14/08/2020.*/
 
+#include <string.h>
 #include "file_generator.h"
 #include "printer.h"
-#include <string.h>
 
 Error file_generator_make_as_array(const char **args, int size, char ***stringArrayPtr);
 

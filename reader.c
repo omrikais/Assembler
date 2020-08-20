@@ -1,7 +1,8 @@
 /*Created by Omri Kaisari on 11/08/2020.*/
 
-#include "reader.h"
 #include <string.h>
+#include "reader.h"
+
 
 struct reader_t {
     Builder builder;

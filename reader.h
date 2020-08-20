@@ -5,8 +5,8 @@
 #ifndef ASSEMBLER_READER_H
 #define ASSEMBLER_READER_H
 
-#include "builder.h"
 #include <stdio.h>
+#include "builder.h"
 
 typedef struct reader_t *Reader;
 

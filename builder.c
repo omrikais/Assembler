@@ -1,8 +1,8 @@
 /*Created by Omri Kaisari on 09/08/2020.*/
 
 #include <stdlib.h>
-#include "builder.h"
 #include <string.h>
+#include "builder.h"
 
 struct builder_t {
     InstructionsList instructions;

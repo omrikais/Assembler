@@ -1,9 +1,10 @@
 
 /*Created by Omri Kaisari on 07/08/2020.*/
 
+#include <stdio.h>
 #include "errors.h"
 #include "constants.h"
-#include <stdio.h>
+
 
 #define ERRORS_SENTENCES "The specified command doesn't exists",\
 "File type is not .as, please provide .as file","File doesn't exits","No Files were given as command line arguments",\

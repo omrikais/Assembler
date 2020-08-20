@@ -17,12 +17,12 @@ constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 
 /Users/omrikaisari/CLionProjects/Assembler/parser.c
-parser.h
-/Users/omrikaisari/CLionProjects/Assembler/parser.h
 string.h
 -
 ctype.h
 -
+parser.h
+/Users/omrikaisari/CLionProjects/Assembler/parser.h
 
 /Users/omrikaisari/CLionProjects/Assembler/parser.h
 constants.h

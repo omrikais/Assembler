@@ -1,10 +1,8 @@
-
 /* Created by Omri Kaisari on 05/08/2020.*/
 
 #include <stdlib.h>
-#include "instruction_word.h"
-
 #include <string.h>
+#include "instruction_word.h"
 
 struct instruction_word_t {
     int opcode;

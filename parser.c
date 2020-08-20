@@ -1,8 +1,8 @@
 /*Created by Omri Kaisari on 06/08/2020.*/
 
-#include "parser.h"
 #include <string.h>
 #include <ctype.h>
+#include "parser.h"
 
 char *trim_label(const char *line);
 
@@ -34,12 +34,9 @@ Bool parser_is_new_label(const char *line) {
 
 Bool parser_is_directive(char *line) {
     char tmpLine[MAX_LINE_LENGTH], *token, *trimmed;
-    strcpy(tmpLine, line);
-    if (parser_is_new_label(line)) {
-        trimmed = trim_label(line);
-        strcpy(tmpLine, trimmed);
-        free(trimmed);
-    }
+    trimmed = trim_label(line);
+    strcpy(tmpLine, trimmed);
+    free(trimmed);
     token = strtok(tmpLine, " \t\n");   /*directive word*/
     if (token != NULL && strchr(token, DIRECTIVE_CHAR) != NULL)
         return True;
@@ -129,12 +126,11 @@ Operation find_operation(char *word) {
     char *functions[] = {FUNCTIONS};
     int functionsNumbers[] = {FUNCTIONS_NUMBERS};
     int i;
-    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i) {
+    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i)
         if (strcmp(word, functions[i]) == 0) {
             Operation operation = (Operation) functionsNumbers[i];
             return operation;
         }
-    }
     return OperationNotFound;
 }
 
