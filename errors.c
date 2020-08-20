@@ -14,7 +14,7 @@ directive is not define","The label in this line isn't valid, it doesn't starts 
 "The label in this line isn't valid, it contains non alphanumeric characters.","This line has too many commas","This line has missing comma","The extern directive\
 in this line has too many operands. Should be only one.","This line has consecutive commas","The label of the directive\
  is missing","The label in this line already exist. Please choose another label.","There is not matching label for this\
-entry directive line","","","","","This extern directive line has label that is already defined locally in the file",\
+ entry directive line","","","","","This extern directive line has label that is already defined locally in the file",\
 "An opening quotation mark is missing","An ending quotation mark is missing","String Directive should have only one\
  valid string as an argument", "The argument of the string directive has no quotation marks","A comma comes immediately\
  after a directive or operation","This line has data directive with a comma after the last element","This directive \

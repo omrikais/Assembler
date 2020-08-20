@@ -52,7 +52,7 @@ Bool parser_is_entry(const char *line) {
 Bool parser_is_empty_label(const char *line) {
     Error error;
     char *ptr = NULL;
-    if (parser_is_new_label(line) == True) {
+    if (parser_is_new_label(line)) {
         ptr = parser_get_label(line, &error);
         if (error == OnlyLabel)
             return True;
@@ -230,7 +230,7 @@ parser_check_operands(const char *line, int numberOfOperands) {/*This function e
     Error result;
     strcpy(tmpLine, line);
     token = tmpLine;
-    if (is_consecutive_commas(line) == True)
+    if (is_consecutive_commas(line))
         return ConsecutiveComma;
     if (parser_is_new_label(tmpLine)) {
         trimmed = trim_label(tmpLine);
@@ -413,7 +413,7 @@ long parser_get_immediate_operand(const char *operand) {
     for (; i < (strlen(operand) - 1); ++i) {
         if (i == 1 && operand[i] == '-')
             continue;
-        if (is_number(operand[i]) == False)
+        if (!is_number(operand[i]))
             return NA;
     }
     return operandValue;
@@ -484,13 +484,13 @@ Error check_comma_between_data_elements(const char *line) {
             isNumberEnded = True;
             isCommaAppeared = True;
         }
-        if (is_number(strPtr[i]) == True && isCommaAppeared == False && isNumberEnded == True)
+        if (is_number(strPtr[i]) && !isCommaAppeared && isNumberEnded)
             return MissingComma;
-        if (is_number(strPtr[i]) == True && isCommaAppeared == True && isNumberEnded == True) {
+        if (is_number(strPtr[i]) && isCommaAppeared && isNumberEnded) {
             isCommaAppeared = False;
             isNumberEnded = False;
         }
-        if (is_number(strPtr[i]) == True && isNumberEnded == False)
+        if (is_number(strPtr[i]) && !isNumberEnded)
             continue;
     }
     return NoErrorsFound;
@@ -503,8 +503,7 @@ Error check_arguments_of_data(const char *line) {
     strcpy(tmpLine, line);
     strPtr = line + strlen(".data");
     for (i = 0; i < strlen(strPtr) - 1; ++i) {
-        if (!isspace(strPtr[i]) && is_number(strPtr[i]) == False && strPtr[i] != ',' && strPtr[i] != '-' &&
-            strPtr[i] != '+')
+        if (!isspace(strPtr[i]) && !is_number(strPtr[i]) && strPtr[i] != ',' && strPtr[i] != '-' && strPtr[i] != '+')
             return WrongTypeDataArgument;
     }
     return NoErrorsFound;
