@@ -107,11 +107,9 @@ char *delete_spaces(const char *line) {
 }
 
 char *trim_label(const char *line) {
-    char tmpStr[MAX_LINE_LENGTH];
-    char *token;
-    char *trimmed;
+    char tmpStr[MAX_LINE_LENGTH], *token, *trimmed;
     strcpy(tmpStr, line);
-    if (parser_is_new_label(line) == False) {
+    if (!parser_is_new_label(line)) {
         trimmed = malloc(sizeof(char) * (strlen(tmpStr) + 1));
         strcpy(trimmed, tmpStr);
         return trimmed;
@@ -161,8 +159,7 @@ Operation parse_get_operation(const char *line) { /*trim the line, and then only
 }
 
 Directive parser_get_directive(char *line) {
-    char tmpLine[MAX_LENGTH];
-    char *token;
+    char tmpLine[MAX_LENGTH], *token;
     char *directives[] = {DIRECTIVES};
     strcpy(tmpLine, line);
     token = strtok(tmpLine, DIRECTIVE_DELIM);
@@ -184,8 +181,7 @@ Directive parser_get_directive(char *line) {
 
 List parser_get_string_data(const char *line) {
     /*returns an ascii array of the string ,assumes to get a string directive line*/
-    char tmpLine[MAX_LENGTH], *token;
-    char *stringAsciiArray;
+    char tmpLine[MAX_LENGTH], *token, *stringAsciiArray;
     int i, current;
     List charList = list_create();
     strcpy(tmpLine, line);
@@ -232,8 +228,8 @@ int parser_get_number_of_operands(Operation operation) {
     return numberOfOperandsByFunction[find_index_of_element(functionsNumbers, operation)];
 }
 
-Error parser_check_operands(const char *line, int numberOfOperands) {/*This function expects to receive instruction
- * line*/
+Error
+parser_check_operands(const char *line, int numberOfOperands) {/*This function expects to receive instruction line*/
     char tmpLine[MAX_LENGTH], *trimmed, *token;
     Error result;
     strcpy(tmpLine, line);
@@ -255,8 +251,7 @@ Error parser_check_operands(const char *line, int numberOfOperands) {/*This func
 }
 
 Error is_too_few_or_many_operands(const char *line, int numberOfOperands) { /*assumes that line begins with opcode */
-    char tmpLine[MAX_LINE_LENGTH];
-    char *token;
+    char tmpLine[MAX_LINE_LENGTH], *token;
     int commaCounter = how_many_commas(line);
     Error result = NoErrorsFound;
     strcpy(tmpLine, line);
@@ -289,8 +284,7 @@ Error is_too_few_or_many_operands(const char *line, int numberOfOperands) { /*as
 }
 
 int how_many_commas(const char *string) {
-    int counter = 0;
-    int i;
+    int counter = 0, i;
     for (i = 0; i < strlen(string); i++)
         if (string[i] == ',')
             counter++;
@@ -298,8 +292,7 @@ int how_many_commas(const char *string) {
 }
 
 Error check_zero_operands_syntax(char const *line) {    /*line begins with the op word*/
-    char tmpLine[MAX_LENGTH];
-    char *token;
+    char tmpLine[MAX_LENGTH], *token;
     Error result = NoErrorsFound;
     strcpy(tmpLine, line);
     if (strchr(tmpLine, COMMA_CHAR) != NULL) {
@@ -345,9 +338,7 @@ Bool parser_is_empty_line(const char *line) {
 
 char *parser_get_operand(const char *line, int operandIndex) {
     /*assumes that line  with correct operands structure */
-    char tmpLine[MAX_LENGTH];
-    char *token, *operand;
-    char *noLabelLine;
+    char tmpLine[MAX_LENGTH], *token, *operand, *noLabelLine;
     noLabelLine = trim_label(line);
     strcpy(tmpLine, noLabelLine);
     free(noLabelLine);
@@ -383,8 +374,7 @@ size_t parser_get_size_of_element(void *element, Directive type) {
 }
 
 char *parser_get_extern_label(const char *line, Error *result) {
-    char tmpLine[MAX_LENGTH];
-    char *token, *operand;
+    char tmpLine[MAX_LENGTH], *token, *operand;
     strcpy(tmpLine, line);
     strtok(tmpLine, ". \n\t");/*should be on extern*/
     token = strtok(NULL, ". \n\t");/*should be on label*/

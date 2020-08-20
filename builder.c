@@ -17,10 +17,6 @@ Bool is_label_exists(List list, const char *label);
 void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, long *operandContent,
                     char **operandContentString, int operandIndex, Error *error);
 
-Error change_operand_direct(Builder builder, InstructionWord word, int operandIndex);
-
-Error change_operand_relative(Builder builder, InstructionWord word, int operandIndex);
-
 Error check_operands_addressing_method(InstructionWord word, int numberOfOperands);
 
 Error
@@ -156,30 +152,6 @@ void builder_update_instruction(InstructionWord word, Builder builder, Error *er
         return;
 }
 
-/*Error change_operand_direct(Builder builder, InstructionWord word, int operandIndex) {
-    const char *label = NULL;
-    SymbolEntry entry;
-    int location;
-    Property property;
-    Bool isOneOperand = !(has_operand(word, DESTINATION_INDEX));
-    if (operandIndex == DESTINATION_INDEX)
-        label = instruction_word_get_destination_string(word);
-    if (isOneOperand == False && operandIndex == SOURCE_INDEX)
-        label = instruction_word_get_source_string(word);
-    entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
-    if (entry == NULL) {
-        return EntryLabelNotExists;
-    }
-    location = symbol_get_location(entry);
-    property = symbol_get_property(entry);
-    if (property == External) {
-        location = 0;
-        instruction_word_set_is_extern(word, operandIndex);
-    }
-    instruction_word_set_operand_content(word, location, operandIndex);
-    return NoErrorsFound;
-}*/
-
 Error change_operand(Builder builder, InstructionWord word, int operandIndex, AddressingMethod method) {
     const char *label = NULL;
     SymbolEntry entry;
@@ -207,24 +179,6 @@ Error change_operand(Builder builder, InstructionWord word, int operandIndex, Ad
     instruction_word_set_operand_content(word, labelLocation - wordLocation, operandIndex);
     return NoErrorsFound;
 }
-
-/*Error change_operand_relative(Builder builder, InstructionWord word, int operandIndex) {
-    const char *label;
-    SymbolEntry entry;
-    int labelLocation, wordLocation;
-    Bool isOneOperand = !(has_operand(word, DESTINATION_INDEX));
-    if (operandIndex == DESTINATION_INDEX)
-        label = instruction_word_get_destination_string(word);
-    if (isOneOperand == False && operandIndex == SOURCE_INDEX)
-        label = instruction_word_get_source_string(word);
-    entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
-    if (entry == NULL)
-        return EntryLabelNotExists;
-    labelLocation = symbol_get_location(entry);
-    wordLocation = instruction_word_get_ic(word);
-    instruction_word_set_operand_content(word, labelLocation - wordLocation, operandIndex);
-    return NoErrorsFound;
-}*/
 
 Bool is_label_exists(List list, const char *label) {
     if (list_find_element(list, label, (Equals) symbol_entry_compare) != NULL) {

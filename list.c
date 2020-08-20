@@ -1,7 +1,7 @@
 
 /*Created by Omri Kaisari on 05/08/2020.*/
 
-#include<stdlib.h>
+#include <stdlib.h>
 #include "list.h"
 
 
@@ -100,7 +100,7 @@ size_t list_get_size_of() {
     return sizeof(struct node_t);
 }
 
-void * list_find_element(List list, const void *element, Equals compereFunction) {
+void *list_find_element(List list, const void *element, Equals compereFunction) {
     ListNode current = list;
     while (current != NULL) {
         if (current->data != NULL) {
