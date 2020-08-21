@@ -291,9 +291,8 @@ Error check_zero_operands_syntax(char const *line) {    /*line begins with the o
     char tmpLine[MAX_LENGTH], *token;
     Error result = NoErrorsFound;
     strcpy(tmpLine, line);
-    if (strchr(tmpLine, COMMA_CHAR) != NULL) {
+    if (strchr(tmpLine, COMMA_CHAR) != NULL)
         result = IllegalComma;
-    }
     strtok(tmpLine, " \n\t,");   /*token is still on the op word*/
     token = strtok(NULL, WHITE_DELIMITERS);  /*token should be on \n or null*/
     if (token == NULL || *token == '\n')
@@ -502,10 +501,9 @@ Error check_arguments_of_data(const char *line) {
     int i;
     strcpy(tmpLine, line);
     strPtr = line + strlen(".data");
-    for (i = 0; i < strlen(strPtr) - 1; ++i) {
+    for (i = 0; i < strlen(strPtr) - 1; ++i)
         if (!isspace(strPtr[i]) && !is_number(strPtr[i]) && strPtr[i] != ',' && strPtr[i] != '-' && strPtr[i] != '+')
             return WrongTypeDataArgument;
-    }
     return NoErrorsFound;
 }
 

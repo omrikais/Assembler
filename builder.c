@@ -74,9 +74,8 @@ Error evaluate_extern(Builder builder, char *line) {
 Error update_operand(InstructionWord word, Builder builder, int operandIndex) {
     Error error = NoErrorsFound;
     AddressingMethod method = instruction_word_get_addressing_method(word, operandIndex);
-    if ((method == Direct || method == Relative) && has_operand(word, operandIndex) == True) {
+    if ((method == Direct || method == Relative) && has_operand(word, operandIndex) == True)
         error = change_operand(builder, word, operandIndex, method);
-    }
     return error;
 }
 
@@ -113,9 +112,8 @@ Error handle_directive(Builder builder, const char *line, Directive directive, c
     if (error != NoErrorsFound)
         return error;
     if (label != NULL) {
-        if (is_label_exists(builder->symbols, label) == True) {
+        if (is_label_exists(builder->symbols, label) == True)
             return LabelAlreadyExists;
-        }
         entry = symbol_entry_create(label, data_items_get_dc(builder->dataList), DataP);
         list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
         symbol_entry_tmp_destroy(entry);
@@ -163,9 +161,8 @@ Error change_operand(Builder builder, InstructionWord word, int operandIndex, Ad
     if (isOneOperand == False && operandIndex == SOURCE_INDEX)
         label = instruction_word_get_source_string(word);
     entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
-    if (entry == NULL) {
+    if (entry == NULL)
         return EntryLabelNotExists;
-    }
     labelLocation = symbol_get_location(entry);
     if (method == Direct) {
         property = symbol_get_property(entry);
@@ -181,9 +178,8 @@ Error change_operand(Builder builder, InstructionWord word, int operandIndex, Ad
 }
 
 Bool is_label_exists(List list, const char *label) {
-    if (list_find_element(list, label, (Equals) symbol_entry_compare) != NULL) {
+    if (list_find_element(list, label, (Equals) symbol_entry_compare) != NULL)
         return True;
-    }
     return False;
 }
 
@@ -227,9 +223,8 @@ Error evaluate_code_line(Builder builder, char *line) {
         symbol_entry_tmp_destroy(entry);
     }
     word = fill_instruction_word(&result, line);
-    if (word == NULL) {
+    if (word == NULL)
         return result;
-    }
     instruction_word_set_ic(word, ic);
     instruction_list_add_instruction(builder->instructions, word);
     instruction_word_destroy_tmp(word);/*check this*/
@@ -266,9 +261,8 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
     if (numberOfOperands == 1) {
         handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
                        &destinationContent, 1, result);
-        if (*result != NoErrorsFound) {
+        if (*result != NoErrorsFound)
             return NULL;
-        }
         word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                        destinationAddressingMethod, destinationRegister, sourceOperandContent,
                                        destinationOperandContent);
@@ -279,14 +273,12 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
     }
     handle_operand(tmpLine, &sourceAddressingMethod, &sourceRegister, &sourceOperandContent,
                    &sourceContent, 1, result);
-    if (*result != NoErrorsFound) {
+    if (*result != NoErrorsFound)
         return NULL;
-    }
     handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
                    &destinationContent, 2, result);
-    if (*result != NoErrorsFound) {
+    if (*result != NoErrorsFound)
         return NULL;
-    }
     word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
                                    destinationAddressingMethod, destinationRegister, sourceOperandContent,
                                    destinationOperandContent);

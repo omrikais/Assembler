@@ -24,7 +24,6 @@ struct instruction_word_t {
 unsigned int instruction_word_how_many_words_by_operand(int addressingMethod);
 
 
-
 InstructionWord instruction_word_create(int opcode, int func, int sourceAddressingMethod, int sourceRegister,
                                         int destinationAddressingMethod, int destinationRegister,
                                         long sourceOperandContent, long destinationOperandContent) {
@@ -143,10 +142,9 @@ int instruction_word_get_ic(InstructionWord word) {
 Bool instruction_word_has_operand(Operation operation, int indexOfOperation) {
     int numberOfOperand[] = {NUMBER_OF_OPERANDS};
     int functionsNumbers[] = {FUNCTIONS_NUMBERS}, i;
-    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i) {
+    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i)
         if (functionsNumbers[i] == operation)
             break;
-    }
     if (indexOfOperation == DESTINATION_INDEX && numberOfOperand[i] > 0)
         return True;
     if (indexOfOperation == SOURCE_INDEX && numberOfOperand[i] == 2)
@@ -169,10 +167,9 @@ Bool has_operand(InstructionWord word, int operandIndex) {
     int opcode = (word->func != 0) ? ((word->opcode) * 10 + word->func) : word->opcode;
     int numberOfOperand[] = {NUMBER_OF_OPERANDS};
     int functionsNumbers[] = {FUNCTIONS_NUMBERS}, i;
-    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i) {
+    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i)
         if (functionsNumbers[i] == opcode)
             break;
-    }
     if (operandIndex == DESTINATION_INDEX && numberOfOperand[i] > 0)
         return True;
     if (operandIndex == SOURCE_INDEX && numberOfOperand[i] == 2)
@@ -200,4 +197,3 @@ void instruction_word_set_is_extern(InstructionWord word, int operandIndex) {
 Bool instruction_word_is_operand_external(InstructionWord word, int operandIndex) {
     return (operandIndex == SOURCE_INDEX) ? word->isSourceExtern : word->isDestinationExtern;
 }
-

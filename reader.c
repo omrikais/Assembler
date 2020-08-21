@@ -49,9 +49,8 @@ Error reader_load_next_file(Reader reader) {
     reader->builder = init();
     if (reader->input != NULL)
         fclose(reader->input);
-    if (reader->nextFileIndex >= reader->objectFilesSize) {
+    if (reader->nextFileIndex >= reader->objectFilesSize)
         return NoMoreFiles;
-    }
     if (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex]) != True) {
         error_print(FileTypeWrong, -1, (reader->objectFiles)[reader->nextFileIndex]);
         ++(reader->nextFileIndex);
@@ -133,9 +132,8 @@ Bool is_valid_file_name(const char *file) {
     strcpy(tmpStr, file);
     length = strlen(tmpStr);
     ending = (tmpStr + length - ENDING_LENGTH);
-    if (strcmp(ending, ASSEMBLER_ENDING_STR) != 0) {
+    if (strcmp(ending, ASSEMBLER_ENDING_STR) != 0)
         return False;
-    }
     return True;
 }
 

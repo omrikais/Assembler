@@ -3,7 +3,6 @@
 #include "printer.h"
 #include "symbol_table.h"
 
-
 void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, FILE *outputExtern);
 
 void print_current_element(long currentElement, int currentIc, FILE *output);
@@ -153,9 +152,3 @@ Error print_entry_file(List symbols, FILE *output) {
         return NoEntries;
     return NoErrorsFound;
 }
-
-
-
-
-
-
