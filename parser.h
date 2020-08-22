@@ -1,6 +1,4 @@
-
 /*Created by Omri Kaisari on 06/08/2020.*/
-
 
 #ifndef ASSEMBLER_PARSER_H
 #define ASSEMBLER_PARSER_H
@@ -9,10 +7,9 @@
 #include "errors.h"
 #include "list.h"
 
-
 Bool parser_is_new_label(const char *line);
 
-char *parser_get_label(char *line, Error *error);
+char *parser_get_label(const char *line, Error *error);
 
 Bool parser_is_directive(char *line);
 
@@ -57,5 +54,3 @@ Error parser_is_valid_label(const char *label);
 Bool parser_is_empty_label(const char *line);
 
 #endif /*ASSEMBLER_PARSER_H*/
-
-

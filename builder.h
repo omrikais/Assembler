@@ -27,7 +27,7 @@ Error evaluate(Builder builder, char *line);
 
 InstructionWord fill_instruction_word(Error *result, const char *line);
 
-Error evaluate_entry_directive(Builder builder, char *line);
+Error evaluate_entry_directive(Builder builder, const char *line);
 
 void builder_update_data_symbols_location(Builder builder);
 

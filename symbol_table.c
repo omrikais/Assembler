@@ -63,7 +63,3 @@ size_t symbol_size_of() {
 const char *symbol_entry_get_label(SymbolEntry entry) {
     return entry->label;
 }
-
- 
- 
-

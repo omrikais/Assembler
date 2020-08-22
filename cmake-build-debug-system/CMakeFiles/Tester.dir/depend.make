@@ -25,8 +25,23 @@ CMakeFiles/Tester.dir/data_table.c.o: ../data_table.c
 CMakeFiles/Tester.dir/data_table.c.o: ../data_table.h
 CMakeFiles/Tester.dir/data_table.c.o: ../list.h
 
+CMakeFiles/Tester.dir/errors.c.o: ../constants.h
 CMakeFiles/Tester.dir/errors.c.o: ../errors.c
 CMakeFiles/Tester.dir/errors.c.o: ../errors.h
+
+CMakeFiles/Tester.dir/file_generator.c.o: ../builder.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../code_table.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../constants.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../data_table.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../errors.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../file_generator.c
+CMakeFiles/Tester.dir/file_generator.c.o: ../file_generator.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../instruction_word.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../list.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../parser.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../printer.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../reader.h
+CMakeFiles/Tester.dir/file_generator.c.o: ../symbol_table.h
 
 CMakeFiles/Tester.dir/instruction_word.c.o: ../constants.h
 CMakeFiles/Tester.dir/instruction_word.c.o: ../instruction_word.c
@@ -42,9 +57,16 @@ CMakeFiles/Tester.dir/parser.c.o: ../list.h
 CMakeFiles/Tester.dir/parser.c.o: ../parser.c
 CMakeFiles/Tester.dir/parser.c.o: ../parser.h
 
+CMakeFiles/Tester.dir/printer.c.o: ../code_table.h
+CMakeFiles/Tester.dir/printer.c.o: ../constants.h
+CMakeFiles/Tester.dir/printer.c.o: ../data_table.h
+CMakeFiles/Tester.dir/printer.c.o: ../errors.h
 CMakeFiles/Tester.dir/printer.c.o: ../instruction_word.h
+CMakeFiles/Tester.dir/printer.c.o: ../list.h
+CMakeFiles/Tester.dir/printer.c.o: ../parser.h
 CMakeFiles/Tester.dir/printer.c.o: ../printer.c
 CMakeFiles/Tester.dir/printer.c.o: ../printer.h
+CMakeFiles/Tester.dir/printer.c.o: ../symbol_table.h
 
 CMakeFiles/Tester.dir/reader.c.o: ../builder.h
 CMakeFiles/Tester.dir/reader.c.o: ../code_table.h

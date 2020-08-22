@@ -1,9 +1,6 @@
 
 /*Created by Omri Kaisari on 07/08/2020.*/
 
-
-
-
 #ifndef ASSEMBLER_ERRORS_H
 #define ASSEMBLER_ERRORS_H
 

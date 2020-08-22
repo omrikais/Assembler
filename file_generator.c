@@ -1,8 +1,8 @@
 /* Created by Omri Kaisari on 14/08/2020.*/
 
+#include <string.h>
 #include "file_generator.h"
 #include "printer.h"
-#include <string.h>
 
 Error file_generator_make_as_array(const char **args, int size, char ***stringArrayPtr);
 
@@ -18,13 +18,15 @@ Error assemble(const char **args, int size) {
     if (reader == NULL) {
         return error;
     }
-    while (reader_load_next_file(reader) != NoMoreFiles) {
+    while ((error = reader_load_next_file(reader)) != NoMoreFiles) {
+        if (error == FileTypeWrong || error == FileNotExist)
+            continue;
         error = reader_run_first_pass(reader);
         if (error != NoErrorsFound) {
             continue;
         }
         error = reader_run_second_pass(reader);
-        if (error != NoErrorsFound) {
+        if (reader_is_error_occurred(reader) == True) {
             continue;
         }
         sprintf(fileName, "%s.ob", args[i]);

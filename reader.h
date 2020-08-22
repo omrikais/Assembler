@@ -5,8 +5,8 @@
 #ifndef ASSEMBLER_READER_H
 #define ASSEMBLER_READER_H
 
-#include "builder.h"
 #include <stdio.h>
+#include "builder.h"
 
 typedef struct reader_t *Reader;
 
@@ -23,5 +23,7 @@ Error reader_run_second_pass(Reader reader);
 void free_string_array(char **array, size_t size);
 
 Builder reader_get_builder(Reader reader);
+
+Bool reader_is_error_occurred(Reader reader);
 
 #endif /*ASSEMBLER_READER_H*/

@@ -1,21 +1,21 @@
 file(REMOVE_RECURSE
-  "Assembler"
-  "Assembler.pdb"
-  "CMakeFiles/Assembler.dir/Assembler.c.o"
-  "CMakeFiles/Assembler.dir/builder.c.o"
-  "CMakeFiles/Assembler.dir/code_table.c.o"
-  "CMakeFiles/Assembler.dir/data_table.c.o"
-  "CMakeFiles/Assembler.dir/errors.c.o"
-  "CMakeFiles/Assembler.dir/file_generator.c.o"
-  "CMakeFiles/Assembler.dir/instruction_word.c.o"
-  "CMakeFiles/Assembler.dir/list.c.o"
-  "CMakeFiles/Assembler.dir/parser.c.o"
-  "CMakeFiles/Assembler.dir/printer.c.o"
-  "CMakeFiles/Assembler.dir/reader.c.o"
-  "CMakeFiles/Assembler.dir/symbol_table.c.o"
+  "CMakeFiles/assembler.dir/assembler.c.o"
+  "CMakeFiles/assembler.dir/builder.c.o"
+  "CMakeFiles/assembler.dir/code_table.c.o"
+  "CMakeFiles/assembler.dir/data_table.c.o"
+  "CMakeFiles/assembler.dir/errors.c.o"
+  "CMakeFiles/assembler.dir/file_generator.c.o"
+  "CMakeFiles/assembler.dir/instruction_word.c.o"
+  "CMakeFiles/assembler.dir/list.c.o"
+  "CMakeFiles/assembler.dir/parser.c.o"
+  "CMakeFiles/assembler.dir/printer.c.o"
+  "CMakeFiles/assembler.dir/reader.c.o"
+  "CMakeFiles/assembler.dir/symbol_table.c.o"
+  "assembler"
+  "assembler.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
 foreach(lang C)
-  include(CMakeFiles/Assembler.dir/cmake_clean_${lang}.cmake OPTIONAL)
+  include(CMakeFiles/assembler.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

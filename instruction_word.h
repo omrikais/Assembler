@@ -14,7 +14,7 @@ InstructionWord instruction_word_create(int opcode, int func, int sourceAddressi
 
 void instruction_word_destroy(InstructionWord word);
 
-int instruction_word_determine_number_of_words(InstructionWord word);
+unsigned int instruction_word_determine_number_of_words(InstructionWord word);
 
 void instruction_word_set_ic(InstructionWord word, int valueOfIc);
 
@@ -38,7 +38,7 @@ long *instruction_word_get_all_parameters(InstructionWord word);
 
 void instruction_word_destroy_tmp(InstructionWord word);
 
-int instruction_word_get_operand_content(InstructionWord word, int operandIndex);
+long instruction_word_get_operand_content(InstructionWord word, int operandIndex);
 
 size_t instruction_word_get_size();
 

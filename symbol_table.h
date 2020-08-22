@@ -1,4 +1,3 @@
-
 /*Created by Omri Kaisari on 08/08/2020.*/
 
 #ifndef ASSEMBLER_SYMBOL_TABLE_H

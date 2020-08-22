@@ -4,18 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/omrikaisari/CLionProjects/Assembler/Assembler.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/Assembler.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/builder.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/builder.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/code_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/code_table.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/data_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/data_table.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/errors.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/errors.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/file_generator.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/file_generator.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/instruction_word.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/list.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/list.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/parser.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/parser.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/printer.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/printer.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/reader.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/reader.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/symbol_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/Assembler.dir/symbol_table.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/assembler.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/assembler.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/builder.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/builder.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/code_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/code_table.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/data_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/data_table.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/errors.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/errors.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/file_generator.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/file_generator.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/instruction_word.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/list.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/list.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/parser.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/parser.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/printer.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/printer.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/reader.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/reader.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/symbol_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/assembler.dir/symbol_table.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

@@ -14,7 +14,7 @@ void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outp
 
 void print_header_line(int numberOfInstructionWords, int numberOfDataWords, FILE *output);
 
-void print_data(List *dataList, size_t sizeOfDataList, int ICF, FILE *output);
+void print_data(List *dataList, size_t sizeOfDataList, int icf, FILE *output);
 
 void print_object_file(InstructionsList instructions, DataItemsList dataList, FILE *outputObject, FILE *outputExtern);
 
