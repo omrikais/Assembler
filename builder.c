@@ -62,7 +62,7 @@ Error evaluate_extern(Builder builder, char *line) {
     }
     if (is_label_exists(builder->symbols, label) == True) {
         free(label);
-        return TheExternOperandIsAlreadyDefined;
+        return NoErrorsFound;
     }
     entry = symbol_entry_create(label, 0, External);
     list_insert_node_at_end(builder->symbols, entry, symbol_size_of());

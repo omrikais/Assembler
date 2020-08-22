@@ -9,10 +9,10 @@
 /Users/omrikaisari/CLionProjects/Assembler/builder.c
 stdlib.h
 -
-builder.h
-/Users/omrikaisari/CLionProjects/Assembler/builder.h
 string.h
 -
+builder.h
+/Users/omrikaisari/CLionProjects/Assembler/builder.h
 
 /Users/omrikaisari/CLionProjects/Assembler/builder.h
 code_table.h
@@ -27,12 +27,12 @@ constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 symbol_table.h
 /Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
+errors.h
+/Users/omrikaisari/CLionProjects/Assembler/errors.h
 
 /Users/omrikaisari/CLionProjects/Assembler/code_table.c
 code_table.h
 /Users/omrikaisari/CLionProjects/Assembler/code_table.h
-stdlib.h
--
 
 /Users/omrikaisari/CLionProjects/Assembler/code_table.h
 parser.h
@@ -47,34 +47,48 @@ list.h
 /Users/omrikaisari/CLionProjects/Assembler/data_table.c
 data_table.h
 /Users/omrikaisari/CLionProjects/Assembler/data_table.h
-stdlib.h
--
 
 /Users/omrikaisari/CLionProjects/Assembler/data_table.h
 list.h
 /Users/omrikaisari/CLionProjects/Assembler/list.h
 
 /Users/omrikaisari/CLionProjects/Assembler/errors.c
+stdio.h
+-
 errors.h
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
+constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
 
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
+
+/Users/omrikaisari/CLionProjects/Assembler/file_generator.c
+string.h
+-
+file_generator.h
+/Users/omrikaisari/CLionProjects/Assembler/file_generator.h
+printer.h
+/Users/omrikaisari/CLionProjects/Assembler/printer.h
+
+/Users/omrikaisari/CLionProjects/Assembler/file_generator.h
+constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
+reader.h
+/Users/omrikaisari/CLionProjects/Assembler/reader.h
 
 /Users/omrikaisari/CLionProjects/Assembler/instruction_word.c
 stdlib.h
-/Users/omrikaisari/CLionProjects/Assembler/stdlib.h
+-
+string.h
+-
 instruction_word.h
+/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
+
 /Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
 constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
-string.h
--
-
-/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
 
 /Users/omrikaisari/CLionProjects/Assembler/list.c
-stdio.h
--
 stdlib.h
 -
 list.h
@@ -87,14 +101,12 @@ constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 
 /Users/omrikaisari/CLionProjects/Assembler/parser.c
-parser.h
-/Users/omrikaisari/CLionProjects/Assembler/parser.h
 string.h
 -
-stdlib.h
--
 ctype.h
-/Users/omrikaisari/CLionProjects/Assembler/ctype.h
+-
+parser.h
+/Users/omrikaisari/CLionProjects/Assembler/parser.h
 
 /Users/omrikaisari/CLionProjects/Assembler/parser.h
 constants.h
@@ -107,26 +119,34 @@ list.h
 /Users/omrikaisari/CLionProjects/Assembler/printer.c
 printer.h
 /Users/omrikaisari/CLionProjects/Assembler/printer.h
-string.h
--
+symbol_table.h
+/Users/omrikaisari/CLionProjects/Assembler/symbol_table.h
 
 /Users/omrikaisari/CLionProjects/Assembler/printer.h
 stdio.h
 -
 instruction_word.h
 /Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
+list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
+code_table.h
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
+data_table.h
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
+constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
 
 /Users/omrikaisari/CLionProjects/Assembler/reader.c
-reader.h
-/Users/omrikaisari/CLionProjects/Assembler/reader.h
 string.h
 -
+reader.h
+/Users/omrikaisari/CLionProjects/Assembler/reader.h
 
 /Users/omrikaisari/CLionProjects/Assembler/reader.h
-builder.h
-/Users/omrikaisari/CLionProjects/Assembler/builder.h
 stdio.h
 -
+builder.h
+/Users/omrikaisari/CLionProjects/Assembler/builder.h
 
 /Users/omrikaisari/CLionProjects/Assembler/symbol_table.c
 stdlib.h

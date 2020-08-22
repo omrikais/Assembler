@@ -69,215 +69,215 @@ CMAKE_SOURCE_DIR = /tmp/tmp.BOYisKdkU2
 CMAKE_BINARY_DIR = /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp
 
 # Include any dependencies generated for this target.
-include CMakeFiles/Assembler.dir/depend.make
+include CMakeFiles/assembler.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/Assembler.dir/progress.make
+include CMakeFiles/assembler.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/Assembler.dir/flags.make
+include CMakeFiles/assembler.dir/flags.make
 
-CMakeFiles/Assembler.dir/list.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/list.c.o: ../list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Assembler.dir/list.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/list.c.o   -c /tmp/tmp.BOYisKdkU2/list.c
+CMakeFiles/assembler.dir/list.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/list.c.o: ../list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/assembler.dir/list.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/list.c.o   -c /tmp/tmp.BOYisKdkU2/list.c
 
-CMakeFiles/Assembler.dir/list.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/list.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/list.c > CMakeFiles/Assembler.dir/list.c.i
+CMakeFiles/assembler.dir/list.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/list.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/list.c > CMakeFiles/assembler.dir/list.c.i
 
-CMakeFiles/Assembler.dir/list.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/list.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/list.c -o CMakeFiles/Assembler.dir/list.c.s
+CMakeFiles/assembler.dir/list.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/list.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/list.c -o CMakeFiles/assembler.dir/list.c.s
 
-CMakeFiles/Assembler.dir/instruction_word.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/instruction_word.c.o: ../instruction_word.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Assembler.dir/instruction_word.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/instruction_word.c.o   -c /tmp/tmp.BOYisKdkU2/instruction_word.c
+CMakeFiles/assembler.dir/instruction_word.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/instruction_word.c.o: ../instruction_word.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/assembler.dir/instruction_word.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/instruction_word.c.o   -c /tmp/tmp.BOYisKdkU2/instruction_word.c
 
-CMakeFiles/Assembler.dir/instruction_word.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/instruction_word.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/instruction_word.c > CMakeFiles/Assembler.dir/instruction_word.c.i
+CMakeFiles/assembler.dir/instruction_word.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/instruction_word.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/instruction_word.c > CMakeFiles/assembler.dir/instruction_word.c.i
 
-CMakeFiles/Assembler.dir/instruction_word.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/instruction_word.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/instruction_word.c -o CMakeFiles/Assembler.dir/instruction_word.c.s
+CMakeFiles/assembler.dir/instruction_word.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/instruction_word.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/instruction_word.c -o CMakeFiles/assembler.dir/instruction_word.c.s
 
-CMakeFiles/Assembler.dir/parser.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/parser.c.o: ../parser.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Assembler.dir/parser.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/parser.c.o   -c /tmp/tmp.BOYisKdkU2/parser.c
+CMakeFiles/assembler.dir/parser.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/parser.c.o: ../parser.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/assembler.dir/parser.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/parser.c.o   -c /tmp/tmp.BOYisKdkU2/parser.c
 
-CMakeFiles/Assembler.dir/parser.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/parser.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/parser.c > CMakeFiles/Assembler.dir/parser.c.i
+CMakeFiles/assembler.dir/parser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/parser.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/parser.c > CMakeFiles/assembler.dir/parser.c.i
 
-CMakeFiles/Assembler.dir/parser.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/parser.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/parser.c -o CMakeFiles/Assembler.dir/parser.c.s
+CMakeFiles/assembler.dir/parser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/parser.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/parser.c -o CMakeFiles/assembler.dir/parser.c.s
 
-CMakeFiles/Assembler.dir/errors.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/errors.c.o: ../errors.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Assembler.dir/errors.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/errors.c.o   -c /tmp/tmp.BOYisKdkU2/errors.c
+CMakeFiles/assembler.dir/errors.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/errors.c.o: ../errors.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/assembler.dir/errors.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/errors.c.o   -c /tmp/tmp.BOYisKdkU2/errors.c
 
-CMakeFiles/Assembler.dir/errors.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/errors.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/errors.c > CMakeFiles/Assembler.dir/errors.c.i
+CMakeFiles/assembler.dir/errors.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/errors.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/errors.c > CMakeFiles/assembler.dir/errors.c.i
 
-CMakeFiles/Assembler.dir/errors.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/errors.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/errors.c -o CMakeFiles/Assembler.dir/errors.c.s
+CMakeFiles/assembler.dir/errors.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/errors.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/errors.c -o CMakeFiles/assembler.dir/errors.c.s
 
-CMakeFiles/Assembler.dir/code_table.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/code_table.c.o: ../code_table.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Assembler.dir/code_table.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/code_table.c.o   -c /tmp/tmp.BOYisKdkU2/code_table.c
+CMakeFiles/assembler.dir/code_table.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/code_table.c.o: ../code_table.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/assembler.dir/code_table.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/code_table.c.o   -c /tmp/tmp.BOYisKdkU2/code_table.c
 
-CMakeFiles/Assembler.dir/code_table.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/code_table.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/code_table.c > CMakeFiles/Assembler.dir/code_table.c.i
+CMakeFiles/assembler.dir/code_table.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/code_table.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/code_table.c > CMakeFiles/assembler.dir/code_table.c.i
 
-CMakeFiles/Assembler.dir/code_table.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/code_table.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/code_table.c -o CMakeFiles/Assembler.dir/code_table.c.s
+CMakeFiles/assembler.dir/code_table.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/code_table.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/code_table.c -o CMakeFiles/assembler.dir/code_table.c.s
 
-CMakeFiles/Assembler.dir/data_table.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/data_table.c.o: ../data_table.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Assembler.dir/data_table.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/data_table.c.o   -c /tmp/tmp.BOYisKdkU2/data_table.c
+CMakeFiles/assembler.dir/data_table.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/data_table.c.o: ../data_table.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/assembler.dir/data_table.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/data_table.c.o   -c /tmp/tmp.BOYisKdkU2/data_table.c
 
-CMakeFiles/Assembler.dir/data_table.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/data_table.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/data_table.c > CMakeFiles/Assembler.dir/data_table.c.i
+CMakeFiles/assembler.dir/data_table.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/data_table.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/data_table.c > CMakeFiles/assembler.dir/data_table.c.i
 
-CMakeFiles/Assembler.dir/data_table.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/data_table.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/data_table.c -o CMakeFiles/Assembler.dir/data_table.c.s
+CMakeFiles/assembler.dir/data_table.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/data_table.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/data_table.c -o CMakeFiles/assembler.dir/data_table.c.s
 
-CMakeFiles/Assembler.dir/symbol_table.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/symbol_table.c.o: ../symbol_table.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Assembler.dir/symbol_table.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/symbol_table.c.o   -c /tmp/tmp.BOYisKdkU2/symbol_table.c
+CMakeFiles/assembler.dir/symbol_table.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/symbol_table.c.o: ../symbol_table.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/assembler.dir/symbol_table.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/symbol_table.c.o   -c /tmp/tmp.BOYisKdkU2/symbol_table.c
 
-CMakeFiles/Assembler.dir/symbol_table.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/symbol_table.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/symbol_table.c > CMakeFiles/Assembler.dir/symbol_table.c.i
+CMakeFiles/assembler.dir/symbol_table.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/symbol_table.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/symbol_table.c > CMakeFiles/assembler.dir/symbol_table.c.i
 
-CMakeFiles/Assembler.dir/symbol_table.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/symbol_table.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/symbol_table.c -o CMakeFiles/Assembler.dir/symbol_table.c.s
+CMakeFiles/assembler.dir/symbol_table.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/symbol_table.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/symbol_table.c -o CMakeFiles/assembler.dir/symbol_table.c.s
 
-CMakeFiles/Assembler.dir/builder.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/builder.c.o: ../builder.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Assembler.dir/builder.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/builder.c.o   -c /tmp/tmp.BOYisKdkU2/builder.c
+CMakeFiles/assembler.dir/builder.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/builder.c.o: ../builder.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/assembler.dir/builder.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/builder.c.o   -c /tmp/tmp.BOYisKdkU2/builder.c
 
-CMakeFiles/Assembler.dir/builder.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/builder.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/builder.c > CMakeFiles/Assembler.dir/builder.c.i
+CMakeFiles/assembler.dir/builder.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/builder.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/builder.c > CMakeFiles/assembler.dir/builder.c.i
 
-CMakeFiles/Assembler.dir/builder.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/builder.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/builder.c -o CMakeFiles/Assembler.dir/builder.c.s
+CMakeFiles/assembler.dir/builder.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/builder.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/builder.c -o CMakeFiles/assembler.dir/builder.c.s
 
-CMakeFiles/Assembler.dir/reader.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/reader.c.o: ../reader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Assembler.dir/reader.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/reader.c.o   -c /tmp/tmp.BOYisKdkU2/reader.c
+CMakeFiles/assembler.dir/reader.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/reader.c.o: ../reader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/assembler.dir/reader.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/reader.c.o   -c /tmp/tmp.BOYisKdkU2/reader.c
 
-CMakeFiles/Assembler.dir/reader.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/reader.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/reader.c > CMakeFiles/Assembler.dir/reader.c.i
+CMakeFiles/assembler.dir/reader.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/reader.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/reader.c > CMakeFiles/assembler.dir/reader.c.i
 
-CMakeFiles/Assembler.dir/reader.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/reader.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/reader.c -o CMakeFiles/Assembler.dir/reader.c.s
+CMakeFiles/assembler.dir/reader.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/reader.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/reader.c -o CMakeFiles/assembler.dir/reader.c.s
 
-CMakeFiles/Assembler.dir/printer.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/printer.c.o: ../printer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Assembler.dir/printer.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/printer.c.o   -c /tmp/tmp.BOYisKdkU2/printer.c
+CMakeFiles/assembler.dir/printer.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/printer.c.o: ../printer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/assembler.dir/printer.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/printer.c.o   -c /tmp/tmp.BOYisKdkU2/printer.c
 
-CMakeFiles/Assembler.dir/printer.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/printer.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/printer.c > CMakeFiles/Assembler.dir/printer.c.i
+CMakeFiles/assembler.dir/printer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/printer.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/printer.c > CMakeFiles/assembler.dir/printer.c.i
 
-CMakeFiles/Assembler.dir/printer.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/printer.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/printer.c -o CMakeFiles/Assembler.dir/printer.c.s
+CMakeFiles/assembler.dir/printer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/printer.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/printer.c -o CMakeFiles/assembler.dir/printer.c.s
 
-CMakeFiles/Assembler.dir/file_generator.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/file_generator.c.o: ../file_generator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Assembler.dir/file_generator.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/file_generator.c.o   -c /tmp/tmp.BOYisKdkU2/file_generator.c
+CMakeFiles/assembler.dir/file_generator.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/file_generator.c.o: ../file_generator.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/assembler.dir/file_generator.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/file_generator.c.o   -c /tmp/tmp.BOYisKdkU2/file_generator.c
 
-CMakeFiles/Assembler.dir/file_generator.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/file_generator.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/file_generator.c > CMakeFiles/Assembler.dir/file_generator.c.i
+CMakeFiles/assembler.dir/file_generator.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/file_generator.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/file_generator.c > CMakeFiles/assembler.dir/file_generator.c.i
 
-CMakeFiles/Assembler.dir/file_generator.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/file_generator.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/file_generator.c -o CMakeFiles/Assembler.dir/file_generator.c.s
+CMakeFiles/assembler.dir/file_generator.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/file_generator.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/file_generator.c -o CMakeFiles/assembler.dir/file_generator.c.s
 
-CMakeFiles/Assembler.dir/Assembler.c.o: CMakeFiles/Assembler.dir/flags.make
-CMakeFiles/Assembler.dir/Assembler.c.o: ../Assembler.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Assembler.dir/Assembler.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Assembler.dir/Assembler.c.o   -c /tmp/tmp.BOYisKdkU2/Assembler.c
+CMakeFiles/assembler.dir/assembler.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/assembler.c.o: ../assembler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/assembler.dir/assembler.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/assembler.c.o   -c /tmp/tmp.BOYisKdkU2/assembler.c
 
-CMakeFiles/Assembler.dir/Assembler.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Assembler.dir/Assembler.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/Assembler.c > CMakeFiles/Assembler.dir/Assembler.c.i
+CMakeFiles/assembler.dir/assembler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/assembler.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/assembler.c > CMakeFiles/assembler.dir/assembler.c.i
 
-CMakeFiles/Assembler.dir/Assembler.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Assembler.dir/Assembler.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/Assembler.c -o CMakeFiles/Assembler.dir/Assembler.c.s
+CMakeFiles/assembler.dir/assembler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/assembler.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/assembler.c -o CMakeFiles/assembler.dir/assembler.c.s
 
-# Object files for target Assembler
-Assembler_OBJECTS = \
-"CMakeFiles/Assembler.dir/list.c.o" \
-"CMakeFiles/Assembler.dir/instruction_word.c.o" \
-"CMakeFiles/Assembler.dir/parser.c.o" \
-"CMakeFiles/Assembler.dir/errors.c.o" \
-"CMakeFiles/Assembler.dir/code_table.c.o" \
-"CMakeFiles/Assembler.dir/data_table.c.o" \
-"CMakeFiles/Assembler.dir/symbol_table.c.o" \
-"CMakeFiles/Assembler.dir/builder.c.o" \
-"CMakeFiles/Assembler.dir/reader.c.o" \
-"CMakeFiles/Assembler.dir/printer.c.o" \
-"CMakeFiles/Assembler.dir/file_generator.c.o" \
-"CMakeFiles/Assembler.dir/Assembler.c.o"
+# Object files for target assembler
+assembler_OBJECTS = \
+"CMakeFiles/assembler.dir/list.c.o" \
+"CMakeFiles/assembler.dir/instruction_word.c.o" \
+"CMakeFiles/assembler.dir/parser.c.o" \
+"CMakeFiles/assembler.dir/errors.c.o" \
+"CMakeFiles/assembler.dir/code_table.c.o" \
+"CMakeFiles/assembler.dir/data_table.c.o" \
+"CMakeFiles/assembler.dir/symbol_table.c.o" \
+"CMakeFiles/assembler.dir/builder.c.o" \
+"CMakeFiles/assembler.dir/reader.c.o" \
+"CMakeFiles/assembler.dir/printer.c.o" \
+"CMakeFiles/assembler.dir/file_generator.c.o" \
+"CMakeFiles/assembler.dir/assembler.c.o"
 
-# External object files for target Assembler
-Assembler_EXTERNAL_OBJECTS =
+# External object files for target assembler
+assembler_EXTERNAL_OBJECTS =
 
-Assembler: CMakeFiles/Assembler.dir/list.c.o
-Assembler: CMakeFiles/Assembler.dir/instruction_word.c.o
-Assembler: CMakeFiles/Assembler.dir/parser.c.o
-Assembler: CMakeFiles/Assembler.dir/errors.c.o
-Assembler: CMakeFiles/Assembler.dir/code_table.c.o
-Assembler: CMakeFiles/Assembler.dir/data_table.c.o
-Assembler: CMakeFiles/Assembler.dir/symbol_table.c.o
-Assembler: CMakeFiles/Assembler.dir/builder.c.o
-Assembler: CMakeFiles/Assembler.dir/reader.c.o
-Assembler: CMakeFiles/Assembler.dir/printer.c.o
-Assembler: CMakeFiles/Assembler.dir/file_generator.c.o
-Assembler: CMakeFiles/Assembler.dir/Assembler.c.o
-Assembler: CMakeFiles/Assembler.dir/build.make
-Assembler: CMakeFiles/Assembler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable Assembler"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Assembler.dir/link.txt --verbose=$(VERBOSE)
+assembler: CMakeFiles/assembler.dir/list.c.o
+assembler: CMakeFiles/assembler.dir/instruction_word.c.o
+assembler: CMakeFiles/assembler.dir/parser.c.o
+assembler: CMakeFiles/assembler.dir/errors.c.o
+assembler: CMakeFiles/assembler.dir/code_table.c.o
+assembler: CMakeFiles/assembler.dir/data_table.c.o
+assembler: CMakeFiles/assembler.dir/symbol_table.c.o
+assembler: CMakeFiles/assembler.dir/builder.c.o
+assembler: CMakeFiles/assembler.dir/reader.c.o
+assembler: CMakeFiles/assembler.dir/printer.c.o
+assembler: CMakeFiles/assembler.dir/file_generator.c.o
+assembler: CMakeFiles/assembler.dir/assembler.c.o
+assembler: CMakeFiles/assembler.dir/build.make
+assembler: CMakeFiles/assembler.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable assembler"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/assembler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/Assembler.dir/build: Assembler
+CMakeFiles/assembler.dir/build: assembler
 
-.PHONY : CMakeFiles/Assembler.dir/build
+.PHONY : CMakeFiles/assembler.dir/build
 
-CMakeFiles/Assembler.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/Assembler.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/Assembler.dir/clean
+CMakeFiles/assembler.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/assembler.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/assembler.dir/clean
 
-CMakeFiles/Assembler.dir/depend:
-	cd /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.BOYisKdkU2 /tmp/tmp.BOYisKdkU2 /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles/Assembler.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/Assembler.dir/depend
+CMakeFiles/assembler.dir/depend:
+	cd /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.BOYisKdkU2 /tmp/tmp.BOYisKdkU2 /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp /tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles/assembler.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/assembler.dir/depend
 

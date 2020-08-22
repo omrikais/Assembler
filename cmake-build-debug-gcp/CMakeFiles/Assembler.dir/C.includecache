@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/tmp/tmp.BOYisKdkU2/Assembler.c
-file_generator.h
-/tmp/tmp.BOYisKdkU2/file_generator.h
-
-/tmp/tmp.BOYisKdkU2/builder.c
-stdlib.h
--
-builder.h
-/tmp/tmp.BOYisKdkU2/builder.h
-string.h
--
-
 /tmp/tmp.BOYisKdkU2/builder.h
 code_table.h
 /tmp/tmp.BOYisKdkU2/code_table.h
@@ -31,12 +19,8 @@ constants.h
 /tmp/tmp.BOYisKdkU2/constants.h
 symbol_table.h
 /tmp/tmp.BOYisKdkU2/symbol_table.h
-
-/tmp/tmp.BOYisKdkU2/code_table.c
-code_table.h
-/tmp/tmp.BOYisKdkU2/code_table.h
-stdlib.h
--
+errors.h
+/tmp/tmp.BOYisKdkU2/errors.h
 
 /tmp/tmp.BOYisKdkU2/code_table.h
 parser.h
@@ -48,73 +32,21 @@ list.h
 
 /tmp/tmp.BOYisKdkU2/constants.h
 
-/tmp/tmp.BOYisKdkU2/data_table.c
-data_table.h
-/tmp/tmp.BOYisKdkU2/data_table.h
-stdlib.h
--
-
 /tmp/tmp.BOYisKdkU2/data_table.h
 list.h
 /tmp/tmp.BOYisKdkU2/list.h
 
-/tmp/tmp.BOYisKdkU2/errors.c
-errors.h
 /tmp/tmp.BOYisKdkU2/errors.h
-constants.h
-/tmp/tmp.BOYisKdkU2/constants.h
-stdio.h
--
-
-/tmp/tmp.BOYisKdkU2/errors.h
-
-/tmp/tmp.BOYisKdkU2/file_generator.c
-file_generator.h
-/tmp/tmp.BOYisKdkU2/file_generator.h
-printer.h
-/tmp/tmp.BOYisKdkU2/printer.h
-string.h
--
-
-/tmp/tmp.BOYisKdkU2/file_generator.h
-constants.h
-/tmp/tmp.BOYisKdkU2/constants.h
-reader.h
-/tmp/tmp.BOYisKdkU2/reader.h
-
-/tmp/tmp.BOYisKdkU2/instruction_word.c
-stdlib.h
--
-instruction_word.h
-/tmp/tmp.BOYisKdkU2/instruction_word.h
-string.h
--
 
 /tmp/tmp.BOYisKdkU2/instruction_word.h
 constants.h
 /tmp/tmp.BOYisKdkU2/constants.h
 
-/tmp/tmp.BOYisKdkU2/list.c
-stdlib.h
--
-list.h
-/tmp/tmp.BOYisKdkU2/list.h
-
 /tmp/tmp.BOYisKdkU2/list.h
 stdlib.h
 -
 constants.h
 /tmp/tmp.BOYisKdkU2/constants.h
-
-/tmp/tmp.BOYisKdkU2/parser.c
-parser.h
-/tmp/tmp.BOYisKdkU2/parser.h
-string.h
--
-stdlib.h
--
-ctype.h
--
 
 /tmp/tmp.BOYisKdkU2/parser.h
 constants.h
@@ -123,30 +55,6 @@ errors.h
 /tmp/tmp.BOYisKdkU2/errors.h
 list.h
 /tmp/tmp.BOYisKdkU2/list.h
-
-/tmp/tmp.BOYisKdkU2/printer.c
-printer.h
-/tmp/tmp.BOYisKdkU2/printer.h
-symbol_table.h
-/tmp/tmp.BOYisKdkU2/symbol_table.h
-string.h
--
-stdlib.h
--
-
-/tmp/tmp.BOYisKdkU2/printer.h
-stdio.h
--
-instruction_word.h
-/tmp/tmp.BOYisKdkU2/instruction_word.h
-list.h
-/tmp/tmp.BOYisKdkU2/list.h
-code_table.h
-/tmp/tmp.BOYisKdkU2/code_table.h
-data_table.h
-/tmp/tmp.BOYisKdkU2/data_table.h
-constants.h
-/tmp/tmp.BOYisKdkU2/constants.h
 
 /tmp/tmp.BOYisKdkU2/reader.c
 reader.h
@@ -159,14 +67,6 @@ builder.h
 /tmp/tmp.BOYisKdkU2/builder.h
 stdio.h
 -
-
-/tmp/tmp.BOYisKdkU2/symbol_table.c
-stdlib.h
--
-string.h
--
-symbol_table.h
-/tmp/tmp.BOYisKdkU2/symbol_table.h
 
 /tmp/tmp.BOYisKdkU2/symbol_table.h
 list.h
