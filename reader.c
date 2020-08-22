@@ -70,14 +70,15 @@ Error reader_run_first_pass(Reader reader) {
     char line[MAX_LINE_LENGTH];
     Error error = NoErrorsFound;
     reader->currentLine = 1;
-    while (fgets(line, MAX_LINE_LENGTH, reader->input) != NULL /*&& feof(reader->input) == 0*/) {
-        line[81] = '\0';
+    while (fgets(line, MAX_LINE_LENGTH, reader->input) != NULL) {
+        int currentFile = reader->nextFileIndex - 1;
+        line[MAX_LENGTH] = '\0';
         error = evaluate(reader->builder, line);
         if (error != NoErrorsFound) {
-            error_print(error, reader->currentLine, reader->objectFiles[reader->nextFileIndex - 1]);
+            error_print(error, reader->currentLine, reader->objectFiles[currentFile]);
             reader->isErrorOccurred = True;
         }
-        reader->currentLine += 1;
+        ++reader->currentLine;
     }
     builder_update_data_symbols_location(reader->builder);
     return error;

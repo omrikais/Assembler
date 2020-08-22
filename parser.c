@@ -157,21 +157,17 @@ Operation parse_get_operation(const char *line) { /*trim the line, and then only
 Directive parser_get_directive(char *line) {
     char tmpLine[MAX_LENGTH], *token;
     char *directives[] = {DIRECTIVES};
+    int size = 4, i = 0;
     strcpy(tmpLine, line);
     token = strtok(tmpLine, DIRECTIVE_DELIM);
     if (token[0] == tmpLine[0])              /*the first char is the same -> there were some chars before '.'*/
         token = strtok(NULL, DIRECTIVE_DELIM);
     token = strtok(token, " \t\n");     /*should be only the directive name*/
-    if (token == NULL)
-        return NoDirectiveFound;
-    if (strcmp(token, directives[Entry]) == 0)
-        return Entry;
-    if (strcmp(token, directives[Data]) == 0)
-        return Data;
-    if (strcmp(token, directives[String]) == 0)
-        return String;
-    if (strcmp(token, directives[Extern]) == 0)
-        return Extern;
+    while (token != NULL && i < size) {
+        if (strcmp(token, directives[i]) == 0)
+            return (Directive) i;
+        i++;
+    }
     return NoDirectiveFound;
 }
 
@@ -321,7 +317,7 @@ Error parser_is_valid_label(const char *label) {
 }
 
 Bool parser_is_empty_line(const char *line) {
-    char tmpLine[MAX_LENGTH], *token;
+    char tmpLine[MAX_LINE_LENGTH], *token;
     strcpy(tmpLine, line);
     token = strtok(tmpLine, " \t\n");
     if (token == NULL)
