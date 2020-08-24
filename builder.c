@@ -108,10 +108,10 @@ Error evaluate_directive_line(Builder builder, char *line) {
 Error handle_directive(Builder builder, const char *line, Directive directive, const char *label) {
     Error error = (directive == String) ? parser_check_string_directive_form(line)
                                         : parser_check_data_directive_form(line);
+    SymbolEntry entry;
     if (error != NoErrorsFound)
         return error;
     if (label != NULL) {
-        SymbolEntry entry;
         if (is_label_exists(builder->symbols, label) == True)
             return LabelAlreadyExists;
         entry = symbol_entry_create(label, data_items_get_dc(builder->dataList), DataP);
@@ -205,11 +205,11 @@ void builder_update_data_symbols_location(Builder builder) {
 
 Error evaluate_code_line(Builder builder, char *line) {
     char *label;
+    SymbolEntry entry;
     InstructionWord word = NULL;
     Error result;
     int ic = instruction_list_get_ic(builder->instructions);
     if (parser_is_new_label(line) == True) {
-        SymbolEntry entry;
         label = parser_get_label(line, &result);
         if (label == NULL)
             return result;
@@ -227,7 +227,7 @@ Error evaluate_code_line(Builder builder, char *line) {
         return result;
     instruction_word_set_ic(word, ic);
     instruction_list_add_instruction(builder->instructions, word);
-    instruction_word_destroy_tmp(word);
+    instruction_word_destroy_tmp(word);/*check this*/
     return result;
 }
 

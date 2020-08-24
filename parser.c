@@ -26,6 +26,8 @@ Error check_arguments_of_data(const char *line);
 
 Error after_label_check(const char *line);
 
+char *get_string_of_string_directive(const char *line);
+
 Bool parser_is_new_label(const char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
         return False;
@@ -432,14 +434,7 @@ char *parser_get_label_from_operand(const char *operand) {
 
 Error parser_check_string_directive_form(const char *line) {
     /*assumes data (string or data) directive*/
-    char tmpLine[MAX_LINE_LENGTH], *trimmed, *token, *cleanStr;
-    trimmed = trim_label(line);
-    strcpy(tmpLine, trimmed);
-    free(trimmed);
-    cleanStr = delete_spaces(tmpLine);
-    strcpy(tmpLine, cleanStr);
-    free(cleanStr);
-    token = tmpLine + strlen(".string");
+    char *token = get_string_of_string_directive(line);
     if (strchr(token, '\"') == NULL)
         return StringWithoutQuotes;
     if (token[0] != '\"')
@@ -455,6 +450,21 @@ Error parser_check_string_directive_form(const char *line) {
     return NoErrorsFound;
 }
 
+char *get_string_of_string_directive(const char *line) {
+    char tmpLine[MAX_LINE_LENGTH], *trimmed, *token, *cleanStr, *result;
+    int lengthOfDirective;
+    trimmed = trim_label(line);
+    cleanStr = delete_spaces(trimmed);
+    strcpy(tmpLine, cleanStr);
+    free(trimmed);
+    free(cleanStr);
+    lengthOfDirective = (strstr(tmpLine, ".string") != NULL) ? strlen(".string") : strlen(".data");
+    token = tmpLine + lengthOfDirective;
+    result = malloc(sizeof(char) * (strlen(token) + 1));
+    strcpy(result, token);
+    return result;
+}
+
 Error parser_check_data_directive_form(const char *line) {
     char tmpLine[MAX_LINE_LENGTH], *stringPtr;
     stringPtr = trim_label(line);
@@ -465,11 +475,8 @@ Error parser_check_data_directive_form(const char *line) {
 
 Error check_comma_between_data_elements(const char *line) {
     Bool isNumberEnded = False, isCommaAppeared = True;
-    char tmpLine[MAX_LINE_LENGTH];
-    const char *strPtr;
     int i;
-    strcpy(tmpLine, line);
-    strPtr = line + strlen(".data");
+    char *strPtr = get_string_of_string_directive(line);
     for (i = 0; i < strlen(strPtr) - 1; ++i) {
         if (isspace(strPtr[i])) {
             isNumberEnded = True;
@@ -479,8 +486,10 @@ Error check_comma_between_data_elements(const char *line) {
             isNumberEnded = True;
             isCommaAppeared = True;
         }
-        if (is_number(strPtr[i]) && !isCommaAppeared && isNumberEnded)
+        if (is_number(strPtr[i]) && !isCommaAppeared && isNumberEnded) {
+            free(strPtr);
             return MissingComma;
+        }
         if (is_number(strPtr[i]) && isCommaAppeared && isNumberEnded) {
             isCommaAppeared = False;
             isNumberEnded = False;
@@ -488,6 +497,7 @@ Error check_comma_between_data_elements(const char *line) {
         if (is_number(strPtr[i]) && !isNumberEnded)
             continue;
     }
+    free(strPtr);
     return NoErrorsFound;
 }
 
@@ -505,18 +515,21 @@ Error check_arguments_of_data(const char *line) {
 
 Error parser_check_commas_in_data_directive(const char *line) {
     /*assumes to get line of data directive without a label*/
-    char tmpLine[MAX_LINE_LENGTH], *strPtr;
+    char *strPtr = get_string_of_string_directive(line);
     Error result;
-    strPtr = delete_spaces(line);
-    strcpy(tmpLine, strPtr);
-    free(strPtr);
-    strPtr = tmpLine + strlen(".data");
-    if (strstr(strPtr, ",,") != NULL)
+    if (strstr(strPtr, ",,") != NULL) {
+        free(strPtr);
         return ConsecutiveComma;
-    if (strPtr[0] == ',')
+    }
+    if (strPtr[0] == ',') {
+        free(strPtr);
         return CommaAfterDirective;
-    if (tmpLine[strlen(tmpLine) - 2] == ',')
+    }
+    if (strPtr[strlen(strPtr) - 2] == ',') {
+        free(strPtr);
         return CommaAfterLast;
+    }
+    free(strPtr);
     result = check_comma_between_data_elements(line);
     if (result != NoErrorsFound)
         return result;
