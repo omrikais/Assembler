@@ -19,8 +19,7 @@ void handle_operand(const char *line, int *addressingMethod, int *registerOfOper
 
 Error check_operands_addressing_method(InstructionWord word, int numberOfOperands);
 
-Error
-handle_directive(Builder builder, const char *line, Directive directive, const char *label);
+Error handle_directive(Builder builder, const char *line, Directive directive, const char *label);
 
 Error update_operand(InstructionWord word, Builder builder, int operandIndex);
 
@@ -211,7 +210,7 @@ Error evaluate_code_line(Builder builder, char *line) {
     int ic = instruction_list_get_ic(builder->instructions);
     if (parser_is_new_label(line) == True) {
         label = parser_get_label(line, &result);
-        if (label == NULL)
+        if (label == NULL || (result = parser_after_label_check(line)) != NoErrorsFound)
             return result;
         if (is_label_exists(builder->symbols, label) == True) {
             free(label);

@@ -53,4 +53,6 @@ Error parser_is_valid_label(const char *label);
 
 Bool parser_is_empty_label(const char *line);
 
+Error parser_after_label_check(const char *line);
+
 #endif /*ASSEMBLER_PARSER_H*/

@@ -24,7 +24,7 @@ Error check_comma_between_data_elements(const char *line);
 
 Error check_arguments_of_data(const char *line);
 
-Error after_label_check(const char *line);
+Error parser_after_label_check(const char *line);
 
 char *get_string_of_string_directive(const char *line);
 
@@ -71,7 +71,7 @@ char *parser_get_label(const char *line, Error *error) {
     token = strtok(tmpLine, ":");
     token = strtok(token, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
     *error = parser_is_valid_label(token);
-    if (*error == NoErrorsFound && (*error = after_label_check(line)) == NoErrorsFound) {
+    if (*error == NoErrorsFound && (*error = parser_after_label_check(line)) == NoErrorsFound) {
         result = malloc(sizeof(char) * (strlen(token) + 1));
         strcpy(result, token);
         return result;
@@ -79,7 +79,7 @@ char *parser_get_label(const char *line, Error *error) {
     return NULL;
 }
 
-Error after_label_check(const char *line) {
+Error parser_after_label_check(const char *line) {
     char tmpLine[MAX_LINE_LENGTH], *token;
     strcpy(tmpLine, line);
     strtok(tmpLine, "\n: \t");  /*on the label*/
@@ -434,19 +434,30 @@ char *parser_get_label_from_operand(const char *operand) {
 
 Error parser_check_string_directive_form(const char *line) {
     /*assumes data (string or data) directive*/
-    char *token = get_string_of_string_directive(line);
-    if (strchr(token, '\"') == NULL)
+    char *token = get_string_of_string_directive(line), *startPtr = token;
+    if (strchr(token, '\"') == NULL) {
+        free(token);
         return StringWithoutQuotes;
-    if (token[0] != '\"')
+    }
+    if (token[0] != '\"') {
+        free(token);
         return NoOpenQuoteMark;
-    if (token[strlen(token) - 2] != '\"')
+    }
+    if (token[strlen(token) - 2] != '\"') {
+        free(token);
         return NoEndQuoteMark;
+    }
     strtok(token, "\"");
     token = strtok(NULL, "\"");
-    if (token == NULL)
+    if (token == NULL) {
+        free(startPtr);
         return NoErrorsFound;
-    if (token[0] != '\n')
+    }
+    if (token[0] != '\n') {
+        free(startPtr);
         return StringDirectiveHasMoreThenOneArgument;
+    }
+    free(startPtr);
     return NoErrorsFound;
 }
 

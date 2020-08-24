@@ -22,7 +22,7 @@ Error assemble(const char **args, int size) {
         if (error == FileTypeWrong || error == FileNotExist)
             continue;
         error = reader_run_first_pass(reader);
-        if (error != NoErrorsFound) {
+        if (reader_is_error_occurred(reader)) {
             continue;
         }
         error = reader_run_second_pass(reader);

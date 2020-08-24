@@ -47,6 +47,7 @@ void reader_destroy(Reader reader) {
 Error reader_load_next_file(Reader reader) {
     close(reader->builder);
     reader->builder = init();
+    reader->isErrorOccurred = False;
     if (reader->input != NULL)
         fclose(reader->input);
     if (reader->nextFileIndex >= reader->objectFilesSize)
