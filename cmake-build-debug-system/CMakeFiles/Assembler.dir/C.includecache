@@ -10,6 +10,12 @@
 
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
 
+/Users/omrikaisari/CLionProjects/Assembler/list.c
+stdlib.h
+-
+list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
+
 /Users/omrikaisari/CLionProjects/Assembler/list.h
 stdlib.h
 -

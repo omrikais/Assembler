@@ -67,7 +67,7 @@ size_t list_size(List list) {
 
 void list_insert_node_at_end(List list, void *newData, size_t dataSize) {
     ListNode newNode = list_create_list_node(newData, dataSize);
-    ListNode temp = list;
+    pNode temp = list;
     while (temp->next != NULL) {
         temp = temp->next;
     }
@@ -76,8 +76,7 @@ void list_insert_node_at_end(List list, void *newData, size_t dataSize) {
 }
 
 void *list_get_data_element_at_index(List list, int i) {
-    /*the first element is in index 1
-     * returns the original Data element*/
+    /*the first element is at index 1 ,returns the original Data element*/
     int j = 0;
     ListNode current = list;
     while (j < i) {

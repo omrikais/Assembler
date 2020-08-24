@@ -17,6 +17,8 @@ typedef void (*DestroyFunction)(void *nodeData);
 
 typedef int (*Equals)(const void *a, const void *b);
 
+typedef ListNode pNode;
+
 List list_create();
 
 ListNode list_create_list_node(void *data, size_t dataSize);
