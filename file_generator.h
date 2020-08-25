@@ -8,6 +8,6 @@
 #include "reader.h"
 
 
-Error assemble(const char **args, int size);
+void assemble(const char **args, int size);
 
 #endif /*ASSEMBLER_FILE_GENERATOR_H*/

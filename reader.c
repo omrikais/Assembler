@@ -20,13 +20,12 @@ char **copy_char_array(const char **charArray, size_t size);
 
 Error check_entry(Reader reader, const char *line);
 
-Reader reader_create(const char **objectFiles, size_t objectFilesSize, Error *error) {
+Reader reader_create(const char **objectFiles, size_t objectFilesSize) {
     Reader reader;
     reader = malloc(sizeof(struct reader_t));
     reader->builder = init();
     reader->objectFilesSize = objectFilesSize;
     if (objectFilesSize == 0) {
-        *error = NoFiles;
         reader_destroy(reader);
         return NULL;
     }

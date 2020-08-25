@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/omrikaisari/CLionProjects/Assembler/assembler.c
+file_generator.h
+/Users/omrikaisari/CLionProjects/Assembler/file_generator.h
+
 /Users/omrikaisari/CLionProjects/Assembler/builder.h
 code_table.h
 /Users/omrikaisari/CLionProjects/Assembler/code_table.h
@@ -38,6 +42,20 @@ list.h
 
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
 
+/Users/omrikaisari/CLionProjects/Assembler/file_generator.c
+string.h
+-
+file_generator.h
+/Users/omrikaisari/CLionProjects/Assembler/file_generator.h
+printer.h
+/Users/omrikaisari/CLionProjects/Assembler/printer.h
+
+/Users/omrikaisari/CLionProjects/Assembler/file_generator.h
+constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
+reader.h
+/Users/omrikaisari/CLionProjects/Assembler/reader.h
+
 /Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
 constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
@@ -55,6 +73,20 @@ errors.h
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
 list.h
 /Users/omrikaisari/CLionProjects/Assembler/list.h
+
+/Users/omrikaisari/CLionProjects/Assembler/printer.h
+stdio.h
+-
+instruction_word.h
+/Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
+list.h
+/Users/omrikaisari/CLionProjects/Assembler/list.h
+code_table.h
+/Users/omrikaisari/CLionProjects/Assembler/code_table.h
+data_table.h
+/Users/omrikaisari/CLionProjects/Assembler/data_table.h
+constants.h
+/Users/omrikaisari/CLionProjects/Assembler/constants.h
 
 /Users/omrikaisari/CLionProjects/Assembler/reader.c
 string.h
