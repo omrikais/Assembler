@@ -54,12 +54,14 @@ Error reader_load_next_file(Reader reader) {
     if (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex]) != True) {
         error_print(FileTypeWrong, -1, (reader->objectFiles)[reader->nextFileIndex]);
         ++(reader->nextFileIndex);
+        reader->isErrorOccurred = True;
         return FileTypeWrong;
     }
     reader->input = fopen((reader->objectFiles)[reader->nextFileIndex], "r");
     if (reader->input == NULL) {
         error_print(FileNotExist, -1, (reader->objectFiles)[reader->nextFileIndex]);
         ++(reader->nextFileIndex);
+        reader->isErrorOccurred = True;
         return FileNotExist;
     }
     ++(reader->nextFileIndex);
@@ -133,7 +135,7 @@ Bool is_valid_file_name(const char *file) {
     strcpy(tmpStr, file);
     length = strlen(tmpStr);
     ending = (tmpStr + length - ENDING_LENGTH);
-    if (strcmp(ending, ASSEMBLER_ENDING_STR) != 0)
+    if (strcmp(ending, ASSEMBLER_FILE_EXTENSION) != 0)
         return False;
     return True;
 }

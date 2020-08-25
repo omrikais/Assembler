@@ -25,7 +25,7 @@ List *data_items_get_list_of_data(DataItemsList dataItemsList) {
     int i;
     List *listArray;
     listArray = malloc(sizeof(List) * (listSize));
-    for (i = 1; i <= listSize; ++i) {
+    for (i = FIRST_ELEMENT; i <= listSize; ++i) {
         listArray[i - 1] = list_get_data_element_at_index(data, i);
     }
     return listArray;

@@ -29,14 +29,8 @@ void list_node_destroy(ListNode node, DestroyFunction destroy);
 
 size_t list_size(List list);
 
-/* Function to add a node_t at the beginning of Linked ListNode.
-This function expects a pointer to the Data to be added
-and size of the Data type */
 void list_insert_node_at_end(List list, void *newData, size_t dataSize);
 
-/* Function to print nodes in a given linked list. printFunction is used
-to access the function to be used for printing current node_t Data.
-Note that different Data types need different specifier in printf() */
 void print_list(List node, PrintNodeFunction printFunction);
 
 /*Function to print an integer*/

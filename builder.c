@@ -195,7 +195,7 @@ void builder_update_data_symbols_location(Builder builder) {
     List symbols = builder->symbols;
     SymbolEntry entry;
     int diff = instruction_list_get_ic(builder->instructions);
-    for (i = 1; i <= list_size(symbols); ++i) {
+    for (i = FIRST_ELEMENT; i <= list_size(symbols); ++i) {
         entry = list_get_data_element_at_index(symbols, i);
         if (symbol_get_property(entry) == DataP)
             symbol_update_location(entry, diff);
@@ -226,7 +226,7 @@ Error evaluate_code_line(Builder builder, char *line) {
         return result;
     instruction_word_set_ic(word, ic);
     instruction_list_add_instruction(builder->instructions, word);
-    instruction_word_destroy_tmp(word);/*check this*/
+    instruction_word_destroy_tmp(word);
     return result;
 }
 
@@ -244,20 +244,20 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
         *result = CommandNotFound;
         return NULL;
     }
-    opCode = ((int) operation > 19) ? (((int) operation) / 10) : ((int) operation);
-    functionCode = ((int) operation > 19) ? (((int) operation) % 10) : 0;
+    opCode = ((int) operation > NO_FUNCTION_OPERATIONS) ? (((int) operation) / OPERATION_UNIT) : ((int) operation);
+    functionCode = ((int) operation > NO_FUNCTION_OPERATIONS) ? (((int) operation) % OPERATION_UNIT) : 0;
     numberOfOperands = parser_get_number_of_operands(operation);
     *result = parser_check_operands(tmpLine, numberOfOperands);
     if (*result != NoErrorsFound) {
         instruction_word_destroy(word);
         return NULL;
     }
-    if (numberOfOperands == 0) {
+    if (numberOfOperands == NO_OPERANDS) {
         word = instruction_word_create(opCode, functionCode, 0, 0, 0, 0, 0, 0);
         *result = NoErrorsFound;
         return word;
     }
-    if (numberOfOperands == 1) {
+    if (numberOfOperands == ONE_OPERAND) {
         handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
                        &destinationContent, 1, result);
         if (*result != NoErrorsFound)
@@ -271,11 +271,11 @@ InstructionWord fill_instruction_word(Error *result, const char *line) { /*assum
         return word;
     }
     handle_operand(tmpLine, &sourceAddressingMethod, &sourceRegister, &sourceOperandContent,
-                   &sourceContent, 1, result);
+                   &sourceContent, SOURCE_INDEX, result);
     if (*result != NoErrorsFound)
         return NULL;
     handle_operand(tmpLine, &destinationAddressingMethod, &destinationRegister, &destinationOperandContent,
-                   &destinationContent, 2, result);
+                   &destinationContent, DESTINATION_INDEX, result);
     if (*result != NoErrorsFound)
         return NULL;
     word = instruction_word_create(opCode, functionCode, sourceAddressingMethod, sourceRegister,
@@ -293,21 +293,21 @@ Error check_operands_addressing_method(InstructionWord word, int numberOfOperand
     int opcode = instruction_word_get_opcode(word);
     AddressingMethod method1 = instruction_word_get_addressing_method(word, DESTINATION_INDEX);
     AddressingMethod method2;
-    if (numberOfOperands == 1) {
-        if (method1 == 0 && opcode != PRN)
+    if (numberOfOperands == ONE_OPERAND) {
+        if (method1 == Immediate && opcode != PRN)
             return IncompatibleAddressing;
-        if (method1 == 3 && opcode == 9)
+        if (method1 == Register && opcode == ONE_OPERAND_OPERATION)
             return IncompatibleAddressing;
-        if (method1 == 2 && opcode != 9)
+        if (method1 == Relative && opcode != ONE_OPERAND_OPERATION)
             return IncompatibleAddressing;
     }
-    if (numberOfOperands == 2) {
+    if (numberOfOperands == TWO_OPERANDS) {
         method2 = instruction_word_get_addressing_method(word, SOURCE_INDEX);
-        if ((method2 == 0 || method2 == 3) && opcode == 4)
+        if ((method2 == Immediate || method2 == Register) && opcode == LEA)
             return IncompatibleAddressing;
-        if (method2 == 2 || method1 == 2)
+        if (method2 == Relative || method1 == Relative)
             return IncompatibleAddressing;
-        if (method1 == 0 && opcode != 1)
+        if (method1 == Immediate && opcode != CMP)
             return IncompatibleAddressing;
     }
     return NoErrorsFound;

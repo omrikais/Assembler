@@ -7,6 +7,7 @@
 #define FUNCTIONS_NUMBERS 0,1,21,22,4,51,52,53,54,91,92,93,12,13,14,15
 #define NUMBER_OF_OPERANDS 2,2,2,2,2,1,1,1,1,1,1,1,1,1,0,0
 #define NUMBER_OF_FUNCTIONS 16
+#define NUMBER_OF_DIRECTIVE 4
 #define BEGIN_ADDRESS 100
 #define DIRECTIVES "data","string","entry","extern"
 #define NA (-1)
@@ -25,10 +26,26 @@
 #define REGISTER_CHAR 'r'
 #define STRING_DELIM "\""
 #define ENDING_LENGTH 3
-#define ASSEMBLER_ENDING_STR ".as"
+#define ASSEMBLER_FILE_EXTENSION ".as"
+#define OBJECT_FILE_EXTENSION ".ob"
+#define ENTRY_FILE_EXTENSION ".ent"
+#define EXTERN_FILE_EXTENSION ".ext"
 #define SOURCE_INDEX   1
 #define DESTINATION_INDEX   2
 #define MAX_LINE_LENGTH 255
+#define FIRST_FILE_INDEX 1
+#define FIRST_ELEMENT 1
+#define NO_OPERANDS 0
+#define ONE_OPERAND 1
+#define TWO_OPERANDS 2
+#define WHITE_DELIM_WITH_NEW_LINE " \t\n"
+#define ENTRY ".entry"
+#define IGNORED_DELIM "\n: \t"
+#define IGNORED "., \n\t"
+#define IGNORED_WHITE ", \t"
+#define STRING_END '\0'
+#define BEGINNING 0
+#define MAX_LABEL_LENGTH 31
 
 
 enum boolean {
@@ -39,6 +56,10 @@ typedef enum boolean Bool;
 
 enum addressing {
     Immediate = 0, Direct = 1, Relative = 2, Register = 3
+};
+
+enum parameters_array_index {
+    opcode = 0, sourceAddressingMethod, sourceRegister, destinationAddressingMethod, destinationRegister, func
 };
 
 enum directive {
@@ -55,6 +76,7 @@ enum operations {
     NOT = 52,
     INC = 53,
     DEC = 54,
+    ONE_OPERAND_OPERATION = 9,
     JMP = 91,
     BNE = 92,
     JSR = 93,
@@ -62,6 +84,8 @@ enum operations {
     PRN = 13,
     RTS = 14,
     STOP = 15,
+    NO_FUNCTION_OPERATIONS = 19,
+    OPERATION_UNIT = 10,
     OperationNotFound
 };
 

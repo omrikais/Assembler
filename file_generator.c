@@ -22,16 +22,20 @@ void assemble(const char **args, int size) {
 
 void analyze_files(const char **args, Reader reader) {
     Error error;
-    int i = 1;
+    int i = FIRST_FILE_INDEX;
     while ((error = reader_load_next_file(reader)) != NoMoreFiles) {
-        if (error == FileTypeWrong || error == FileNotExist)
+        if (error == FileTypeWrong || error == FileNotExist) {
+            ++i;
             continue;
+        }
         error = reader_run_first_pass(reader);
         if (reader_is_error_occurred(reader)) {
+            ++i;
             continue;
         }
         error = reader_run_second_pass(reader);
-        if (reader_is_error_occurred(reader) == True) {
+        if (reader_is_error_occurred(reader)) {
+            ++i;
             continue;
         }
         write_output_files(args, &error, reader, i);
@@ -42,9 +46,9 @@ void analyze_files(const char **args, Reader reader) {
 void write_output_files(const char **args, Error *error, Reader reader, int currentFileIndex) {
     char fileName[MAX_LENGTH];
     FILE *outputObject, *outputExtern, *outputEntry;
-    sprintf(fileName, "%s.ob", args[currentFileIndex]);
+    sprintf(fileName, "%s%s", args[currentFileIndex], OBJECT_FILE_EXTENSION);
     outputObject = fopen(fileName, "w");
-    sprintf(fileName, "%s.ext", args[currentFileIndex]);
+    sprintf(fileName, "%s%s", args[currentFileIndex], EXTERN_FILE_EXTENSION);
     outputExtern = fopen(fileName, "w");
     print_object_file(builder_get_instructions_list(reader_get_builder(reader)),
                       builder_get_data_items_list(reader_get_builder(reader)), outputObject,
@@ -54,7 +58,7 @@ void write_output_files(const char **args, Error *error, Reader reader, int curr
         remove(fileName);
     else
         fclose(outputExtern);
-    sprintf(fileName, "%s.ent", args[currentFileIndex]);
+    sprintf(fileName, "%s%s", args[currentFileIndex], ENTRY_FILE_EXTENSION);
     outputEntry = fopen(fileName, "w");
     (*error) = print_entry_file(builder_get_symbols_list(reader_get_builder(reader)), outputEntry);
     fclose(outputEntry);
@@ -69,9 +73,9 @@ Error file_generator_make_as_array(const char **args, int size, char ***stringAr
     if (args == NULL)
         return NoFiles;
     *stringArrayPtr = malloc(sizeof(char *) * (size - 1));
-    for (i = 1; i < size; ++i) {
+    for (i = FIRST_FILE_INDEX; i < size; ++i) {
         strcpy(currentFileName, args[i]);
-        strcat(currentFileName, ".as");
+        strcat(currentFileName, ASSEMBLER_FILE_EXTENSION);
         (*stringArrayPtr)[i - 1] = malloc(sizeof(char) * (strlen(currentFileName) + 1));
         strcpy((*stringArrayPtr)[i - 1], currentFileName);
     }

@@ -54,12 +54,12 @@ int instruction_word_get_opcode(InstructionWord word) {
 
 long *instruction_word_get_all_parameters(InstructionWord word) {
     long *parameters = malloc(sizeof(*parameters) * WORD_PARAMETERS);
-    parameters[0] = word->opcode;
-    parameters[1] = word->sourceAddressingMethod;
-    parameters[2] = word->sourceRegister;
-    parameters[3] = word->destinationAddressingMethod;
-    parameters[4] = word->destinationRegister;
-    parameters[5] = word->func;
+    parameters[opcode] = word->opcode;
+    parameters[sourceAddressingMethod] = word->sourceAddressingMethod;
+    parameters[sourceRegister] = word->sourceRegister;
+    parameters[destinationAddressingMethod] = word->destinationAddressingMethod;
+    parameters[destinationRegister] = word->destinationRegister;
+    parameters[func] = word->func;
     return parameters;
 }
 
@@ -128,7 +128,7 @@ int instruction_word_get_addressing_method(InstructionWord word, int operandInde
         return word->sourceAddressingMethod;
     if (operandIndex == DESTINATION_INDEX)
         return word->destinationAddressingMethod;
-    return -1;
+    return NA;
 }
 
 void instruction_word_set_ic(InstructionWord word, int valueOfIc) {
@@ -145,9 +145,9 @@ Bool instruction_word_has_operand(Operation operation, int indexOfOperation) {
     for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i)
         if (functionsNumbers[i] == operation)
             break;
-    if (indexOfOperation == DESTINATION_INDEX && numberOfOperand[i] > 0)
+    if (indexOfOperation == DESTINATION_INDEX && numberOfOperand[i] > NO_OPERANDS)
         return True;
-    if (indexOfOperation == SOURCE_INDEX && numberOfOperand[i] == 2)
+    if (indexOfOperation == SOURCE_INDEX && numberOfOperand[i] == TWO_OPERANDS)
         return True;
     return False;
 }
@@ -155,7 +155,7 @@ Bool instruction_word_has_operand(Operation operation, int indexOfOperation) {
 unsigned int instruction_word_determine_number_of_words(InstructionWord word) {
     unsigned int totalWords = 1;     /*this number includes the instruction word itself*/
     Bool hasDestination, hasSource;
-    int opcode = (word->func != 0) ? ((word->opcode) * 10 + word->func) : word->opcode;
+    int opcode = (word->func != 0) ? ((word->opcode) * OPERATION_UNIT + word->func) : word->opcode;
     hasSource = instruction_word_has_operand(opcode, SOURCE_INDEX);
     hasDestination = instruction_word_has_operand(opcode, DESTINATION_INDEX);
     totalWords += ((instruction_word_how_many_words_by_operand(word->destinationAddressingMethod) * hasDestination) +
@@ -164,15 +164,15 @@ unsigned int instruction_word_determine_number_of_words(InstructionWord word) {
 }
 
 Bool has_operand(InstructionWord word, int operandIndex) {
-    int opcode = (word->func != 0) ? ((word->opcode) * 10 + word->func) : word->opcode;
+    int opcode = (word->func != 0) ? ((word->opcode) * OPERATION_UNIT + word->func) : word->opcode;
     int numberOfOperand[] = {NUMBER_OF_OPERANDS};
     int functionsNumbers[] = {FUNCTIONS_NUMBERS}, i;
     for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i)
         if (functionsNumbers[i] == opcode)
             break;
-    if (operandIndex == DESTINATION_INDEX && numberOfOperand[i] > 0)
+    if (operandIndex == DESTINATION_INDEX && numberOfOperand[i] > NO_OPERANDS)
         return True;
-    if (operandIndex == SOURCE_INDEX && numberOfOperand[i] == 2)
+    if (operandIndex == SOURCE_INDEX && numberOfOperand[i] == TWO_OPERANDS)
         return True;
     return False;
 }

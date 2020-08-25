@@ -39,14 +39,14 @@ Bool parser_is_directive(char *line) {
     trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
-    token = strtok(tmpLine, " \t\n");   /*directive word*/
+    token = strtok(tmpLine, WHITE_DELIM_WITH_NEW_LINE);   /*directive word*/
     if (token != NULL && strchr(token, DIRECTIVE_CHAR) != NULL)
         return True;
     return False;
 }
 
 Bool parser_is_entry(const char *line) {
-    if (strstr(line, ".entry") != NULL)
+    if (strstr(line, ENTRY) != NULL)
         return True;
     return False;
 }
@@ -68,7 +68,7 @@ char *parser_get_label(const char *line, Error *error) {
     char tmpLine[MAX_LINE_LENGTH], *result;
     char *token;
     strcpy(tmpLine, line);
-    token = strtok(tmpLine, ":");
+    token = strtok(tmpLine, LABEL_DELIM);
     token = strtok(token, WHITE_DELIMITERS);    /*if the label doesn't begin with alphabetic char, null returned*/
     *error = parser_is_valid_label(token);
     if (*error == NoErrorsFound && (*error = parser_after_label_check(line)) == NoErrorsFound) {
@@ -82,8 +82,8 @@ char *parser_get_label(const char *line, Error *error) {
 Error parser_after_label_check(const char *line) {
     char tmpLine[MAX_LINE_LENGTH], *token;
     strcpy(tmpLine, line);
-    strtok(tmpLine, "\n: \t");  /*on the label*/
-    token = strtok(NULL, "\n: \t"); /*on the first word after the label*/
+    strtok(tmpLine, IGNORED_DELIM);  /*on the label*/
+    token = strtok(NULL, IGNORED_DELIM); /*on the first word after the label*/
     if (token == NULL) {
         return OnlyLabel;
     }
@@ -99,7 +99,7 @@ char *delete_spaces(const char *line) {
         } else
             i++;
     }
-    tmpLine[j] = '\0';
+    tmpLine[j] = STRING_END;
     cleanStr = malloc(sizeof(char) * (strlen(tmpLine) + 1));
     strcpy(cleanStr, tmpLine);
     return cleanStr;
@@ -113,11 +113,11 @@ char *trim_label(const char *line) {
         strcpy(trimmed, tmpStr);
         return trimmed;
     }
-    token = strchr(tmpStr, ':');
-    token += 1;
-    if (token[0] == '\0')
+    token = strchr(tmpStr, LABEL_DELIM_CHAR);
+    ++token;
+    if (token[BEGINNING] == STRING_END)
         return NULL;        /*there is nothing after the label*/
-    while (isspace(token[0]))
+    while (isspace(token[BEGINNING]))
         ++token;
     trimmed = malloc(sizeof(char) * (strlen(token) + 1));
     strcpy(trimmed, token);
@@ -159,10 +159,11 @@ Operation parse_get_operation(const char *line) { /*trim the line, and then only
 Directive parser_get_directive(char *line) {
     char tmpLine[MAX_LENGTH], *token;
     char *directives[] = {DIRECTIVES};
-    int size = 4, i = 0;
+    int size = NUMBER_OF_DIRECTIVE, i = 0;
     strcpy(tmpLine, line);
     token = strtok(tmpLine, DIRECTIVE_DELIM);
-    if (token[0] == tmpLine[0])              /*the first char is the same -> there were some chars before '.'*/
+    if (token[BEGINNING] ==
+        tmpLine[BEGINNING])              /*the first char is the same -> there were some chars before '.'*/
         token = strtok(NULL, DIRECTIVE_DELIM);
     token = strtok(token, " \t\n");     /*should be only the directive name*/
     while (token != NULL && i < size) {
@@ -199,8 +200,8 @@ List parser_get_data_array(const char *line) {
     trimmed = trim_label(line);
     strcpy(tmpLine, trimmed);
     free(trimmed);
-    strtok(tmpLine, "., \n\t");
-    while ((token = strtok(NULL, "., \n\t")) != NULL) {
+    strtok(tmpLine, IGNORED);
+    while ((token = strtok(NULL, IGNORED)) != NULL) {
         currentNumber = atol(token);
         list_insert_node_at_end(dataList, &currentNumber, sizeof(long));
     }
@@ -236,9 +237,9 @@ parser_check_operands(const char *line, int numberOfOperands) {/*This function e
         free(trimmed);
         token = tmpLine;
     }
-    if (isprint(tmpLine[0]) == 0)
+    if (isprint(tmpLine[BEGINNING]) == 0)
         token = strtok(tmpLine, WHITE_DELIMITERS);   /*now token is on the op word*/
-    if (numberOfOperands == 0)
+    if (numberOfOperands == NO_OPERANDS)
         return check_zero_operands_syntax(token);
     result = is_too_few_or_many_operands(tmpLine, numberOfOperands);
     return result;
@@ -249,21 +250,21 @@ Error is_too_few_or_many_operands(const char *line, int numberOfOperands) { /*as
     int commaCounter = how_many_commas(line);
     Error result = NoErrorsFound;
     strcpy(tmpLine, line);
-    strtok(tmpLine, ", \t");
+    strtok(tmpLine, IGNORED_WHITE);
     token = strtok(NULL, ", \t");     /*token should be on the first operand*/
     if (token == NULL || token[0] == '\n')
         return TooFewOperands;
-    if (numberOfOperands == 1) {
-        token = strtok(NULL, ", \t");
+    if (numberOfOperands == ONE_OPERAND) {
+        token = strtok(NULL, IGNORED_WHITE);
         if (commaCounter > 0)
             result = IllegalComma;
         if (token == NULL || token[0] == '\n')
             return result;
         return TooManyOperands;
     }
-    if (numberOfOperands == 2) {
-        token = strtok(NULL, ", \t");           /*token should be on the second operand*/
-        if (token == NULL || token[0] == '\n')
+    if (numberOfOperands == TWO_OPERANDS) {
+        token = strtok(NULL, IGNORED_WHITE);           /*token should be on the second operand*/
+        if (token == NULL || token[BEGINNING] == '\n')
             return TooFewOperands;
         token = strtok(NULL, ", \t\n");
         if (token != NULL)
@@ -306,7 +307,7 @@ Bool is_consecutive_commas(const char *string) {
 
 Error parser_is_valid_label(const char *label) {
     int i;
-    if (strlen(label) > 31)
+    if (strlen(label) > MAX_LABEL_LENGTH)
         return LabelTooLong;
     for (i = 0; i < strlen(label); ++i) {
         if (i == 0)
@@ -321,7 +322,7 @@ Error parser_is_valid_label(const char *label) {
 Bool parser_is_empty_line(const char *line) {
     char tmpLine[MAX_LINE_LENGTH], *token;
     strcpy(tmpLine, line);
-    token = strtok(tmpLine, " \t\n");
+    token = strtok(tmpLine, WHITE_DELIM_WITH_NEW_LINE);
     if (token == NULL)
         return True;
     if (token[0] == ';')
@@ -348,13 +349,13 @@ char *parser_get_operand(const char *line, int operandIndex) {
 
 AddressingMethod parser_get_addressing_method_of_operand(const char *operand) {
     /*assumes that operand is an operand string with no spaces*/
-    if (operand[0] == IMMEDIATE_ADDRESSING_SYMBOL)
+    if (operand[BEGINNING] == IMMEDIATE_ADDRESSING_SYMBOL)
         return Immediate;
-    if (operand[0] == RELATIVE_ADDRESSING_SYMBOL)
+    if (operand[BEGINNING] == RELATIVE_ADDRESSING_SYMBOL)
         return Relative;
-    if (operand[0] == REGISTER_CHAR && strlen(operand) == 2)
+    if (operand[BEGINNING] == REGISTER_CHAR && strlen(operand) == 2)
         return Register;
-    if (isalpha(operand[0]))
+    if (isalpha(operand[BEGINNING]))
         return Direct;
     return NA;
 }
