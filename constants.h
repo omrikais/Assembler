@@ -67,7 +67,10 @@
 #define DESTINATION_REGISTER_SHIFT 8
 #define FUNC_SHIFT 3
 #define INSTRUCTION_ARE_VALUE 4
+#define DIRECT_ARE 2
+#define RELATIVE_ARE 4
 #define COMMENT_DELIMITER ';'
+#define WORD_WIDTH 24
 
 
 enum boolean {

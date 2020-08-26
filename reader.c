@@ -31,7 +31,7 @@ Reader reader_create(const char **objectFiles, size_t objectFilesSize) {
     }
     reader->objectFiles = copy_char_array(objectFiles, objectFilesSize);
     reader->nextFileIndex = 0;
-    reader->currentLine = 1;
+    reader->currentLine = FIRST_ELEMENT;
     reader->isErrorOccurred = False;
     reader->input = NULL;
     return reader;
@@ -71,10 +71,10 @@ Error reader_load_next_file(Reader reader) {
 Error reader_run_first_pass(Reader reader) {
     char line[MAX_LINE_LENGTH];
     Error error = NoErrorsFound;
-    reader->currentLine = 1;
+    reader->currentLine = FIRST_ELEMENT;
     while (fgets(line, MAX_LINE_LENGTH, reader->input) != NULL) {
         int currentFile = reader->nextFileIndex - 1;
-        line[MAX_LENGTH] = '\0';
+        line[MAX_LENGTH] = STRING_END;
         error = evaluate(reader->builder, line);
         if (error != NoErrorsFound) {
             error_print(error, reader->currentLine, reader->objectFiles[currentFile]);
@@ -88,23 +88,23 @@ Error reader_run_first_pass(Reader reader) {
 
 Error reader_run_second_pass(Reader reader) {
     char line[MAX_LENGTH];
-    int instructionNumber = 1;
+    int instructionNumber = FIRST_ELEMENT;
     rewind(reader->input);
-    reader->currentLine = 1;
+    reader->currentLine = FIRST_ELEMENT;
     while (fgets(line, MAX_LENGTH - 1, reader->input) != NULL && feof(reader->input) == 0) {
         InstructionWord word;
         Error error;
         if (parser_is_empty_line(line) == True) {
-            reader->currentLine += 1;
+            ++reader->currentLine;
             continue;
         }
         if (parser_is_entry(line) == True) {
             error = check_entry(reader, line);
-            reader->currentLine += 1;
+            ++reader->currentLine;
             continue;
         }
         if (parser_is_directive(line) == True || parser_is_empty_label(line) == True) {
-            reader->currentLine += 1;
+            ++reader->currentLine;
             continue;
         }
         word = instruction_list_get_instruction(builder_get_instructions_list(reader->builder), instructionNumber);
@@ -114,7 +114,7 @@ Error reader_run_second_pass(Reader reader) {
             reader->isErrorOccurred = True;
         }
         ++instructionNumber;
-        reader->currentLine += 1;
+        ++reader->currentLine;
     }
     return NoErrorsFound;
 }

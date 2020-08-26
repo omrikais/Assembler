@@ -22,18 +22,19 @@ void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outp
     build_instruction_word(parameters, &instruction);
     free(parameters);
     instruction = instruction & mask;
-    sprintf(toPrint, "%07ld %06lx\n", address, instruction);
+    sprintf(toPrint, "%07ld %06lx", address, instruction);
     fputs(toPrint, outputObject);
     if (hasTwoOperand == True) {
         print_operand(word, SOURCE_INDEX, outputObject, outputExtern);
         print_operand(word, DESTINATION_INDEX, outputObject, outputExtern);
-    } else
+    } else {
         print_operand(word, DESTINATION_INDEX, outputObject, outputExtern);
+    }
 }
 
 long make_mask(long mask) {
     mask = ~mask;
-    mask <<= 24;
+    mask <<= WORD_WIDTH;
     mask = ~mask;
     return mask;
 }
@@ -66,14 +67,14 @@ void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, F
     long operandContent = instruction_word_get_operand_content(word, operandIndex) << 3, mask = 0;
     AddressingMethod addressing = instruction_word_get_addressing_method(word, operandIndex);
     if (addressing == Direct)
-        operandContent += 2;
+        operandContent += DIRECT_ARE;
     if (addressing == Relative)
-        operandContent += 4;
+        operandContent += RELATIVE_ARE;
     if (addressing == Register)
         return;
     if (addressing == Immediate) {
         if (has_operand(word, operandIndex) == True)
-            operandContent += 4;
+            operandContent += RELATIVE_ARE;
         else
             return;
     }
@@ -87,7 +88,7 @@ void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, F
     }
     mask = make_mask(mask);
     operandContent = operandContent & mask;
-    sprintf(toPrint, "%07d %06lx\n", address, operandContent);
+    sprintf(toPrint, "\n%07d %06lx", address, operandContent);
     fputs(toPrint, outputObject);
 }
 
@@ -99,9 +100,10 @@ void print_object_file(InstructionsList instructions, DataItemsList dataList, FI
     List *arrayOfDataElements = data_items_get_list_of_data(dataList);
     InstructionWord word;
     print_header_line(numberOfInstructionWords, numberOfDataWords, outputObject);
-    for (i = 1; i <= size; ++i) {
+    for (i = FIRST_ELEMENT; i <= size; ++i) {
         word = instruction_list_get_instruction(instructions, i);
         print_instruction_word(word, outputObject, outputExtern);
+        (i != size) ? fputc(NEW_LINE_CHAR, outputObject) : i;
     }
     size = data_items_get_number_of_data_items(dataList);
     print_data(arrayOfDataElements, size, icf, outputObject);
@@ -113,7 +115,7 @@ void print_current_element(long currentElement, int currentIc, FILE *output) {
     long formattedCurrentElement, mask = 0;
     mask = make_mask(mask);
     formattedCurrentElement = currentElement & mask;
-    sprintf(toPrint, "%07d %06lx\n", currentIc, formattedCurrentElement);
+    sprintf(toPrint, "%07d %06lx", currentIc, formattedCurrentElement);
     fputs(toPrint, output);
 }
 
@@ -122,12 +124,14 @@ void print_data(List *dataList, size_t sizeOfDataList, int icf, FILE *output) {
     long *currentElement;
     List currentList;
     for (i = 0; i < sizeOfDataList; ++i) {
+        fputc(NEW_LINE_CHAR, output);
         currentList = dataList[i];
         sizeOfCurrentElementList = list_size(currentList);
-        for (j = 1; j <= sizeOfCurrentElementList; ++j) {
+        for (j = FIRST_ELEMENT; j <= sizeOfCurrentElementList; ++j) {
+            (j != FIRST_ELEMENT) ? fputc(NEW_LINE_CHAR, output) : j;
             currentElement = list_get_data_element_at_index(currentList, j);
             print_current_element(*currentElement, currentIc, output);
-            currentIc += 1;
+            ++currentIc;
         }
     }
 }
@@ -142,7 +146,7 @@ void print_entry(SymbolEntry entry, FILE *output) {
     char toPrint[MAX_LENGTH];
     const char *label = symbol_entry_get_label(entry);
     int address = symbol_get_location(entry);
-    sprintf(toPrint, "%s %07d\n", label, address);
+    sprintf(toPrint, "%s %07d", label, address);
     fputs(toPrint, output);
 }
 
@@ -150,9 +154,10 @@ Error print_entry_file(List symbols, FILE *output) {
     int size = list_size(symbols), i;
     SymbolEntry entry;
     Bool isExistsEntry = False;
-    for (i = 1; i <= size; ++i) {
+    for (i = FIRST_ELEMENT; i <= size; ++i) {
         entry = list_get_data_element_at_index(symbols, i);
         if (symbol_get_second_property(entry) == EntryP) {
+            (isExistsEntry) ? putc(NEW_LINE_CHAR, output) : i;
             isExistsEntry = True;
             print_entry(entry, output);
         }
