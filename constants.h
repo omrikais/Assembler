@@ -3,6 +3,7 @@
 
 #ifndef ASSEMBLER_CONSTANTS_H
 #define ASSEMBLER_CONSTANTS_H
+
 #define FUNCTIONS "mov","cmp","add","sub","lea","clr","not","inc","dec","jmp","bne","jsr","red","prn","rts","stop"
 #define FUNCTIONS_NUMBERS 0,1,21,22,4,51,52,53,54,91,92,93,12,13,14,15
 #define NUMBER_OF_OPERANDS 2,2,2,2,2,1,1,1,1,1,1,1,1,1,0,0
@@ -17,14 +18,17 @@
 #define LABEL_DELIM ":"
 #define WHITE_DELIMITERS " \t"
 #define NEW_LINE_DELIM "\n"
+#define NEW_LINE_CHAR '\n'
 #define DIRECTIVE_DELIM "."
 #define DIRECTIVE_CHAR '.'
 #define SPACE_DELIM " "
 #define COMMA_CHAR ','
+#define DOUBLE_COMMA ",,"
 #define IMMEDIATE_ADDRESSING_SYMBOL '#'
 #define RELATIVE_ADDRESSING_SYMBOL '&'
 #define REGISTER_CHAR 'r'
 #define STRING_DELIM "\""
+#define STRING_DELIM_CHAR '\"'
 #define ENDING_LENGTH 3
 #define ASSEMBLER_FILE_EXTENSION ".as"
 #define OBJECT_FILE_EXTENSION ".ob"
@@ -39,13 +43,24 @@
 #define ONE_OPERAND 1
 #define TWO_OPERANDS 2
 #define WHITE_DELIM_WITH_NEW_LINE " \t\n"
+#define DIRECTIVE_DELIMITERS ". \n\t"
 #define ENTRY ".entry"
+#define DATA ".data"
+#define STRING ".string"
 #define IGNORED_DELIM "\n: \t"
 #define IGNORED "., \n\t"
+#define LABEL_LINE_DELIMITERS ":, \n"
+#define INSTRUCTION_LINE_DELIMITERS " \n\t,"
 #define IGNORED_WHITE ", \t"
 #define STRING_END '\0'
+#define PLUS_CHAR '+'
+#define MINUS_CHAR '-'
 #define BEGINNING 0
 #define MAX_LABEL_LENGTH 31
+#define MINIMAL_REGISTER 0
+#define MAXIMAL_REGISTER 7
+#define MAX_REGISTER_OPERAND_STR_LENGTH 2
+#define COMMENT_DELIMITER ';'
 
 
 enum boolean {
