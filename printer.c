@@ -9,22 +9,17 @@ void print_current_element(long currentElement, int currentIc, FILE *output);
 
 void print_entry(SymbolEntry entry, FILE *output);
 
+void build_instruction_word(const long *parameters, long *instruction);
+
+long make_mask(long mask);
+
 void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outputExtern) {
     long *parameters = instruction_word_get_all_parameters(word);
     long instruction = 0, address = instruction_word_get_ic(word), mask = 0;
     char toPrint[MAX_LENGTH];
-    Bool hasTwoOperand = has_operand(word, DESTINATION_INDEX);
-    mask = ~mask;
-    mask <<= 24;
-    mask = ~mask;
-    instruction += parameters[opcode];
-    instruction <<= 18;
-    instruction += parameters[sourceAddressingMethod] << 16;
-    instruction += parameters[sourceRegister] << 13;
-    instruction += parameters[destinationAddressingMethod] << 11;
-    instruction += parameters[destinationRegister] << 8;
-    instruction += parameters[func] << 3;
-    instruction += 4;
+    mask = make_mask(mask);
+    Bool hasTwoOperand = has_operand(word, DESTINATION_INDEX);;
+    build_instruction_word(parameters, &instruction);
     free(parameters);
     instruction = instruction & mask;
     sprintf(toPrint, "%07ld %06lx\n", address, instruction);
@@ -34,6 +29,24 @@ void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outp
         print_operand(word, DESTINATION_INDEX, outputObject, outputExtern);
     } else
         print_operand(word, DESTINATION_INDEX, outputObject, outputExtern);
+}
+
+long make_mask(long mask) {
+    mask = ~mask;
+    mask <<= 24;
+    mask = ~mask;
+    return mask;
+}
+
+void build_instruction_word(const long *parameters, long *instruction) {
+    (*instruction) += parameters[opcode];
+    (*instruction) <<= OPCODE_SHIFT;
+    (*instruction) += parameters[sourceAddressingMethod] << SOURCE_METHOD_SHIFT;
+    (*instruction) += parameters[sourceRegister] << SOURCE_REGISTER_SHIFT;
+    (*instruction) += parameters[destinationAddressingMethod] << DESTINATION_METHOD_SHIFT;
+    (*instruction) += parameters[destinationRegister] << DESTINATION_REGISTER_SHIFT;
+    (*instruction) += parameters[func] << FUNC_SHIFT;
+    (*instruction) += INSTRUCTION_ARE_VALUE;
 }
 
 void print_extern_entry(InstructionWord word, int operandIndex, FILE *outputExtern, int address) {
@@ -72,9 +85,7 @@ void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, F
         operandContent = 1;
         print_extern_entry(word, operandIndex, outputExtern, address);
     }
-    mask = ~mask;
-    mask <<= 24;
-    mask = ~mask;
+    mask = make_mask(mask);
     operandContent = operandContent & mask;
     sprintf(toPrint, "%07d %06lx\n", address, operandContent);
     fputs(toPrint, outputObject);
@@ -100,9 +111,7 @@ void print_object_file(InstructionsList instructions, DataItemsList dataList, FI
 void print_current_element(long currentElement, int currentIc, FILE *output) {
     char toPrint[MAX_LENGTH];
     long formattedCurrentElement, mask = 0;
-    mask = ~mask;
-    mask <<= 24;
-    mask = ~mask;
+    mask = make_mask(mask);
     formattedCurrentElement = currentElement & mask;
     sprintf(toPrint, "%07d %06lx\n", currentIc, formattedCurrentElement);
     fputs(toPrint, output);
