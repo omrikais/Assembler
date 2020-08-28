@@ -1,6 +1,6 @@
-OBJS	= list.o instruction_word.o parser.o errors.o code_table.o data_table.o symbol_table.o builder.o reader.o printer.o file_generator.o assembler.o
-SOURCE	= list.c instruction_word.c parser.c errors.c code_table.c data_table.c symbol_table.c builder.c reader.c printer.c file_generator.c assembler.c
-HEADER	= list.h instruction_word.h constants.h parser.h errors.h code_table.h data_table.h symbol_table.h builder.h reader.h printer.h file_generator.h
+OBJS	= list.o instruction_word.o parser.o errors.o code_table.o data_table.o symbol_table.o builder.o reader.o printer.o files_handler.o assembler.o
+SOURCE	= list.c instruction_word.c parser.c errors.c code_table.c data_table.c symbol_table.c builder.c reader.c printer.c files_handler.c assembler.c
+HEADER	= list.h instruction_word.h constants.h parser.h errors.h code_table.h data_table.h symbol_table.h builder.h reader.h printer.h files_handler.h
 OUT	= assembler
 CC	 = gcc
 FLAGS	 = -g -c -Wall -pedantic -std=c89
@@ -39,8 +39,8 @@ reader.o: reader.c
 printer.o: printer.c
 	$(CC) $(FLAGS) printer.c
 
-file_generator.o: file_generator.c
-	$(CC) $(FLAGS) file_generator.c
+files_handler.o: files_handler.c
+	$(CC) $(FLAGS) files_handler.c
 
 assembler.o: assembler.c
 	$(CC) $(FLAGS) assembler.c

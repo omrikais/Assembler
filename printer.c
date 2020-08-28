@@ -3,22 +3,76 @@
 #include "printer.h"
 #include "symbol_table.h"
 
+/**
+ * @brief prints the first line in object file, which contains two numbers in a specified format
+ * @param numberOfInstructionWords
+ * @param numberOfDataWords
+ * @param output
+ */
+void print_header_line(int numberOfInstructionWords, int numberOfDataWords, FILE *output);
+
+/**
+ * @brief prints a complete data array or a string to the object file as specified
+ *          (a line to each char or array element).
+ * @param dataList          the data element to print
+ * @param sizeOfDataList    the size of the data element
+ * @param icf               the final IC
+ * @param output
+ */
+void print_data(List *dataList, size_t sizeOfDataList, int icf, FILE *output);
+
+/**
+ * @brief prints to outputObject word as specified in the assembler manual
+ * @param word
+ * @param outputObject
+ * @param outputExtern
+ */
+void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outputExtern);
+
+/**
+ * @brief prints the operand word of instruction word to the suitable output file
+ * @param word
+ * @param operandIndex  can be DESTINATION_INDEX or SOURCE_INDEX
+ * @param outputObject
+ * @param outputExtern
+ */
 void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, FILE *outputExtern);
 
+/**
+ * @brief prints word of a data array or a char of a string
+ * @param currentElement
+ * @param currentIc
+ * @param output
+ */
 void print_current_element(long currentElement, int currentIc, FILE *output);
 
+/**
+ * @brief prints an entry line to the suitable output file
+ * @param entry
+ * @param output
+ */
 void print_entry(SymbolEntry entry, FILE *output);
 
+/**
+ * @brief builds an instruction word array of data to print
+ * @param parameters    the parameters of instruction word as defined in the suitable macro in constants.h
+ * @param instruction   the instruction word number to print
+ */
 void build_instruction_word(const long *parameters, long *instruction);
 
+/**
+ * @brief creates a bit mask in order to avoid unequal word length printing
+ * @param mask  can be of any value, will be initialized.
+ * @return      the mask to bitwise OR with the instruction word number to pront
+ */
 long make_mask(long mask);
 
 void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outputExtern) {
     long *parameters = instruction_word_get_all_parameters(word);
     long instruction = 0, address = instruction_word_get_ic(word), mask = 0;
     char toPrint[MAX_LENGTH];
+    Bool hasTwoOperand = has_operand(word, DESTINATION_INDEX);
     mask = make_mask(mask);
-    Bool hasTwoOperand = has_operand(word, DESTINATION_INDEX);;
     build_instruction_word(parameters, &instruction);
     free(parameters);
     instruction = instruction & mask;
@@ -92,7 +146,8 @@ void print_operand(InstructionWord word, int operandIndex, FILE *outputObject, F
     fputs(toPrint, outputObject);
 }
 
-void print_object_file(InstructionsList instructions, DataItemsList dataList, FILE *outputObject, FILE *outputExtern) {
+void print_object_and_extern_files(InstructionsList instructions, DataItemsList dataList, FILE *outputObject,
+                                   FILE *outputExtern) {
     int icf = instruction_list_get_ic(instructions);
     int numberOfInstructionWords = icf - BEGIN_ADDRESS;
     int numberOfDataWords = data_items_get_dc(dataList);

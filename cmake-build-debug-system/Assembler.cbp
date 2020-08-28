@@ -250,13 +250,13 @@
 			<Option target="Tester"/>
 			<Option target="FileGeneratorTests"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/file_generator.c">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/files_handler.c">
 			<Option target="BuilderTests"/>
 			<Option target="assembler"/>
 			<Option target="Tester"/>
 			<Option target="FileGeneratorTests"/>
 		</Unit>
-		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/file_generator.h">
+		<Unit filename="/Users/omrikaisari/CLionProjects/Assembler/files_handler.h">
 			<Option target="BuilderTests"/>
 			<Option target="assembler"/>
 			<Option target="Tester"/>

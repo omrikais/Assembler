@@ -4,27 +4,101 @@
 #include <ctype.h>
 #include "parser.h"
 
+/**
+ * @brief gets an input line and returns copy of the line without the label of the original line.
+ *          if no label exist, return copy of the original line
+ * @param line
+ * @return
+ */
 char *trim_label(const char *line);
 
+/**
+ * @brief gets a string of assembly operation and returns the the equivalent Operation type as defined in constants.h
+ * @param word  the string of the operation
+ * @return      the equivalent Operation type
+ */
 Operation find_operation(char *word);
 
+/**
+ * @brief finds the index of a given operation on array of opcodes
+ * @param array         an opcodes array of the defined operation of the assembler
+ * @param operation     the operation to fine
+ * @return
+ */
 int find_index_of_element(const int *array, Operation operation);
 
+/**
+ * @brief gets a line with zero operands operation and checks if its syntax if well built.
+ * @param line  the line with zero operands operation
+ * @return      error code if the syntax isn't well build or NoErrorsFound
+ */
 Error check_zero_operands_syntax(char const *line);
 
-Bool is_consecutive_commas(const char *string);
+/**
+ * @brief checks if an input line as in it consecutive commas
+ * @param line
+ * @return True if consecutives commas occurred.
+ */
+Bool is_consecutive_commas(const char *line);
 
+/**
+ * @brief checks an input line in terms of its numbers of operands based the opcode in it.
+ * @param line
+ * @param numberOfOperands  the number of operands that should appear in the line, based on its opcode
+ * @return                  error code if the the actual number of operands is not accord the given number of operands
+ */
 Error is_too_few_or_many_operands(const char *line, int numberOfOperands);
 
-int how_many_commas(const char *string);
+/**
+ * @brief gets an input line (an instruction line) and returns the number of comma chars in it.
+ * @param line
+ * @return
+ */
+int how_many_commas(const char *line);
 
+/**
+ * @brief get a char and checks whether it is a number char.
+ * @param c
+ * @return  True if c is a number char or False otherwise
+ */
 Bool is_number(char c);
 
+/**
+ * @brief gets a data input line and checks whether the commas between the arguments are correctly written
+ * @param line
+ * @return      a relevant error code or NoErrorsFound
+ */
 Error check_comma_between_data_elements(const char *line);
 
+/**
+ * @brief gets a data input line and checks if it includes only integers within it.
+ * @param line
+ * @return      a relevant error code or NoErrorsFound
+ */
 Error check_arguments_of_data(const char *line);
 
-char *get_string_of_string_directive(const char *line);
+/**
+ * @brief  gets a data or string directive input line and returns a string of its numbers array (if it is a data
+ *              directive) or the string of it, if it is a string directive
+ * @param line
+ * @return      a copy of the string found in the line argument
+ */
+char *get_string_of_directive(const char *line);
+
+/**
+ * @brief       gets a data directive input line and checks if the commas in this line are according to the syntax of
+ *              the assembly language.
+ * @param line  a data directive input line
+ * @return      a relevant error code or NoErrorsFound
+ */
+Error check_commas_in_data_directive(const char *line);
+
+/**
+ * @brief       gets a string of a label and checks whether the label defined according to the assembly language rules
+ * @param label a string of a label
+ * @return      a relevant error code or NoErrorsFound
+ */
+Error parser_is_valid_label(const char *label);
 
 Bool parser_is_new_label(const char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
@@ -49,18 +123,6 @@ Bool parser_is_entry(const char *line) {
     return False;
 }
 
-Bool parser_is_empty_label(const char *line) {
-    Error error;
-    char *ptr = NULL;
-    if (parser_is_new_label(line)) {
-        ptr = parser_get_label(line, &error);
-        if (error == OnlyLabel)
-            return True;
-    }
-    if (ptr != NULL)
-        free(ptr);
-    return False;
-}
 
 char *parser_get_label(const char *line, Error *error) {
     char tmpLine[MAX_LINE_LENGTH], *result;
@@ -276,10 +338,10 @@ Error is_too_few_or_many_operands(const char *line, int numberOfOperands) { /*as
     return NoErrorsFound;
 }
 
-int how_many_commas(const char *string) {
+int how_many_commas(const char *line) {
     int counter = 0, i;
-    for (i = 0; i < strlen(string); i++)
-        if (string[i] == COMMA_CHAR)
+    for (i = 0; i < strlen(line); i++)
+        if (line[i] == COMMA_CHAR)
             counter++;
     return counter;
 }
@@ -297,9 +359,9 @@ Error check_zero_operands_syntax(char const *line) {    /*line begins with the o
     return TooManyOperands;
 }
 
-Bool is_consecutive_commas(const char *string) {
+Bool is_consecutive_commas(const char *line) {
     char *doubleComma;
-    doubleComma = strstr(string, DOUBLE_COMMA);
+    doubleComma = strstr(line, DOUBLE_COMMA);
     return doubleComma == NULL ? False : True;
 }
 
@@ -433,7 +495,7 @@ char *parser_get_label_from_operand(const char *operand) {
 
 Error parser_check_string_directive_form(const char *line) {
     /*assumes data (string or data) directive*/
-    char *token = get_string_of_string_directive(line), *startPtr = token;
+    char *token = get_string_of_directive(line), *startPtr = token;
     if (strchr(token, STRING_DELIM_CHAR) == NULL) {
         free(token);
         return StringWithoutQuotes;
@@ -460,7 +522,7 @@ Error parser_check_string_directive_form(const char *line) {
     return NoErrorsFound;
 }
 
-char *get_string_of_string_directive(const char *line) {
+char *get_string_of_directive(const char *line) {
     char tmpLine[MAX_LINE_LENGTH], *trimmed, *token, *cleanStr, *result;
     int lengthOfDirective;
     trimmed = trim_label(line);
@@ -480,13 +542,13 @@ Error parser_check_data_directive_form(const char *line) {
     stringPtr = trim_label(line);
     strcpy(tmpLine, stringPtr);
     free(stringPtr);
-    return parser_check_commas_in_data_directive(tmpLine);
+    return check_commas_in_data_directive(tmpLine);
 }
 
 Error check_comma_between_data_elements(const char *line) {
     Bool isNumberEnded = False, isCommaAppeared = True;
     int i;
-    char *strPtr = get_string_of_string_directive(line);
+    char *strPtr = get_string_of_directive(line);
     for (i = 0; i < strlen(strPtr) - 1; ++i) {
         if (isspace(strPtr[i])) {
             isNumberEnded = True;
@@ -524,9 +586,9 @@ Error check_arguments_of_data(const char *line) {
     return NoErrorsFound;
 }
 
-Error parser_check_commas_in_data_directive(const char *line) {
+Error check_commas_in_data_directive(const char *line) {
     /*assumes to get line of data directive without a label*/
-    char *strPtr = get_string_of_string_directive(line);
+    char *strPtr = get_string_of_directive(line);
     Error result;
     if (strstr(strPtr, DOUBLE_COMMA) != NULL) {
         free(strPtr);

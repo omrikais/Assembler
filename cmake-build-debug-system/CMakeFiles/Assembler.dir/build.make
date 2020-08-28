@@ -54,10 +54,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/omrikaisari/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.6397.106/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/omrikaisari/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.6948.80/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/omrikaisari/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.6397.106/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
+RM = "/Users/omrikaisari/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.6948.80/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -207,18 +207,18 @@ CMakeFiles/assembler.dir/printer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/printer.c.s"
 	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/omrikaisari/CLionProjects/Assembler/printer.c -o CMakeFiles/assembler.dir/printer.c.s
 
-CMakeFiles/assembler.dir/file_generator.c.o: CMakeFiles/assembler.dir/flags.make
-CMakeFiles/assembler.dir/file_generator.c.o: ../file_generator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/assembler.dir/file_generator.c.o"
-	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/file_generator.c.o   -c /Users/omrikaisari/CLionProjects/Assembler/file_generator.c
+CMakeFiles/assembler.dir/files_handler.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/files_handler.c.o: ../files_handler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/assembler.dir/files_handler.c.o"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/files_handler.c.o   -c /Users/omrikaisari/CLionProjects/Assembler/files_handler.c
 
-CMakeFiles/assembler.dir/file_generator.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/file_generator.c.i"
-	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/omrikaisari/CLionProjects/Assembler/file_generator.c > CMakeFiles/assembler.dir/file_generator.c.i
+CMakeFiles/assembler.dir/files_handler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/files_handler.c.i"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/omrikaisari/CLionProjects/Assembler/files_handler.c > CMakeFiles/assembler.dir/files_handler.c.i
 
-CMakeFiles/assembler.dir/file_generator.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/file_generator.c.s"
-	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/omrikaisari/CLionProjects/Assembler/file_generator.c -o CMakeFiles/assembler.dir/file_generator.c.s
+CMakeFiles/assembler.dir/files_handler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/files_handler.c.s"
+	/opt/local/bin/gcc-mp-10 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/omrikaisari/CLionProjects/Assembler/files_handler.c -o CMakeFiles/assembler.dir/files_handler.c.s
 
 CMakeFiles/assembler.dir/assembler.c.o: CMakeFiles/assembler.dir/flags.make
 CMakeFiles/assembler.dir/assembler.c.o: ../assembler.c
@@ -245,7 +245,7 @@ assembler_OBJECTS = \
 "CMakeFiles/assembler.dir/builder.c.o" \
 "CMakeFiles/assembler.dir/reader.c.o" \
 "CMakeFiles/assembler.dir/printer.c.o" \
-"CMakeFiles/assembler.dir/file_generator.c.o" \
+"CMakeFiles/assembler.dir/files_handler.c.o" \
 "CMakeFiles/assembler.dir/assembler.c.o"
 
 # External object files for target assembler
@@ -261,7 +261,7 @@ assembler: CMakeFiles/assembler.dir/symbol_table.c.o
 assembler: CMakeFiles/assembler.dir/builder.c.o
 assembler: CMakeFiles/assembler.dir/reader.c.o
 assembler: CMakeFiles/assembler.dir/printer.c.o
-assembler: CMakeFiles/assembler.dir/file_generator.c.o
+assembler: CMakeFiles/assembler.dir/files_handler.c.o
 assembler: CMakeFiles/assembler.dir/assembler.c.o
 assembler: CMakeFiles/assembler.dir/build.make
 assembler: CMakeFiles/assembler.dir/link.txt

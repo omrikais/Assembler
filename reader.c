@@ -103,7 +103,7 @@ Error reader_run_second_pass(Reader reader) {
             ++reader->currentLine;
             continue;
         }
-        if (parser_is_directive(line) == True || parser_is_empty_label(line) == True) {
+        if (parser_is_directive(line) == True || parser_after_label_check(line) == OnlyLabel) {
             ++reader->currentLine;
             continue;
         }

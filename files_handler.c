@@ -1,13 +1,33 @@
 /* Created by Omri Kaisari on 14/08/2020.*/
 
 #include <string.h>
-#include "file_generator.h"
+#include "files_handler.h"
 #include "printer.h"
 
+/**
+ * @brief gets a stings array as given to main and converts it to appropriate file-name strings array
+ * @param args              the given array to main
+ * @param size              the size of args
+ * @param stringArrayPtr    pointer to which the functions returns the file name array
+ * @return
+ */
 Error file_generator_make_as_array(const char **args, int size, char ***stringArrayPtr);
 
+/**
+ * @brief creates all the needed output files and checks if ext. and ent. are needed
+ * @param args              the file name array of the input files
+ * @param error             an error pointer to which error code might be returned
+ * @param reader            a reader type with all the needed information for producing the files
+ * @param currentFileIndex  the index of the current input file in args
+ */
 void write_output_files(const char **args, Error *error, Reader reader, int currentFileIndex);
 
+/**
+ * @brief checks the file naming correctness and runs the first and the second pass of the assembly process.
+ *          it also sends the relevant parameters to write_output_files in order to produce the needed output files
+ * @param args      the file name array of the input files
+ * @param reader    a reader type with all the needed information for producing the files
+ */
 void analyze_files(const char **args, Reader reader);
 
 void assemble(const char **args, int size) {
@@ -50,9 +70,9 @@ void write_output_files(const char **args, Error *error, Reader reader, int curr
     outputObject = fopen(fileName, "w");
     sprintf(fileName, "%s%s", args[currentFileIndex], EXTERN_FILE_EXTENSION);
     outputExtern = fopen(fileName, "w");
-    print_object_file(builder_get_instructions_list(reader_get_builder(reader)),
-                      builder_get_data_items_list(reader_get_builder(reader)), outputObject,
-                      outputExtern);
+    print_object_and_extern_files(builder_get_instructions_list(reader_get_builder(reader)),
+                                  builder_get_data_items_list(reader_get_builder(reader)), outputObject,
+                                  outputExtern);
     fclose(outputObject);
     if (ftell(outputExtern) == 0)
         remove(fileName);

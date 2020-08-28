@@ -85,5 +85,4 @@ X1234YZASFJKFDSA524bsdasfjdgdaf: .data 5
 .entry X1234YZASFJKFDSA524bsdasfjdgdaf
 label01: .data -000000, +000000, +000001, -000004
 mychars: .string "RANDOM1234567890!*&#(@%!&E(1"
-
 .extern fasdiu3245dghfgshdsf78dhkj12345

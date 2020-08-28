@@ -10,14 +10,30 @@
 #include "data_table.h"
 #include "constants.h"
 
-void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outputExtern);
+/**
+ * @brief the printer module prints all the needed files in the assembly process, the object file (.obj) and, if
+ * needed, the entry (.ent) and extern (.ext) files
+ */
 
-void print_header_line(int numberOfInstructionWords, int numberOfDataWords, FILE *output);
 
-void print_data(List *dataList, size_t sizeOfDataList, int icf, FILE *output);
+/**
+ * @brief prints a complete object file according to the assembler specifications, and an extern file, only if at least
+ *          one extern label exists. if no such label exists, it won't produce extern file
+ * @param instructions      the instructions list of the current file
+ * @param dataList          the data list of the current file
+ * @param outputObject
+ * @param outputExtern
+ */
+void print_object_and_extern_files(InstructionsList instructions, DataItemsList dataList, FILE *outputObject,
+                                   FILE *outputExtern);
 
-void print_object_file(InstructionsList instructions, DataItemsList dataList, FILE *outputObject, FILE *outputExtern);
-
+/**
+ * @brief prints a complete entry file, only if at least one entry label exists  if no such label exists, it won't
+ *          produce entry file
+ * @param symbols   a list of all the symbols appeared at the source file
+ * @param output
+ * @return
+ */
 Error print_entry_file(List symbols, FILE *output);
 
 

@@ -7,7 +7,7 @@ CMakeFiles/assembler.dir/assembler.c.o: ../code_table.h
 CMakeFiles/assembler.dir/assembler.c.o: ../constants.h
 CMakeFiles/assembler.dir/assembler.c.o: ../data_table.h
 CMakeFiles/assembler.dir/assembler.c.o: ../errors.h
-CMakeFiles/assembler.dir/assembler.c.o: ../file_generator.h
+CMakeFiles/assembler.dir/assembler.c.o: ../files_handler.h
 CMakeFiles/assembler.dir/assembler.c.o: ../instruction_word.h
 CMakeFiles/assembler.dir/assembler.c.o: ../list.h
 CMakeFiles/assembler.dir/assembler.c.o: ../parser.h
@@ -42,19 +42,19 @@ CMakeFiles/assembler.dir/errors.c.o: ../constants.h
 CMakeFiles/assembler.dir/errors.c.o: ../errors.c
 CMakeFiles/assembler.dir/errors.c.o: ../errors.h
 
-CMakeFiles/assembler.dir/file_generator.c.o: ../builder.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../code_table.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../constants.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../data_table.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../errors.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../file_generator.c
-CMakeFiles/assembler.dir/file_generator.c.o: ../file_generator.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../instruction_word.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../list.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../parser.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../printer.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../reader.h
-CMakeFiles/assembler.dir/file_generator.c.o: ../symbol_table.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../builder.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../code_table.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../constants.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../data_table.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../errors.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../files_handler.c
+CMakeFiles/assembler.dir/files_handler.c.o: ../files_handler.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../instruction_word.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../list.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../parser.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../printer.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../reader.h
+CMakeFiles/assembler.dir/files_handler.c.o: ../symbol_table.h
 
 CMakeFiles/assembler.dir/instruction_word.c.o: ../constants.h
 CMakeFiles/assembler.dir/instruction_word.c.o: ../instruction_word.c

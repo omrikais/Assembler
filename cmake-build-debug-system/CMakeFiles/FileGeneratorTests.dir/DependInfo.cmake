@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/omrikaisari/CLionProjects/Assembler/code_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/FileGeneratorTests.dir/code_table.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/data_table.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/FileGeneratorTests.dir/data_table.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/errors.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/FileGeneratorTests.dir/errors.c.o"
-  "/Users/omrikaisari/CLionProjects/Assembler/file_generator.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/FileGeneratorTests.dir/file_generator.c.o"
+  "/Users/omrikaisari/CLionProjects/Assembler/files_handler.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/FileGeneratorTests.dir/files_handler.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/instruction_word.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/FileGeneratorTests.dir/instruction_word.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/list.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/FileGeneratorTests.dir/list.c.o"
   "/Users/omrikaisari/CLionProjects/Assembler/parser.c" "/Users/omrikaisari/CLionProjects/Assembler/cmake-build-debug-system/CMakeFiles/FileGeneratorTests.dir/parser.c.o"
