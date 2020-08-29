@@ -1,0 +1,92 @@
+Error in file: ../inputs/fpass_errors.as, at line 8: The label in this line already exist. Please choose another label.
+Error in file: ../inputs/fpass_errors.as, at line 9: The label in this line already exist. Please choose another label.
+Error in file: ../inputs/fpass_errors.as, at line 14: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/fpass_errors.as, at line 15: The label in this line isn't valid, it contains non alphanumeric characters.
+Error in file: ../inputs/fpass_errors.as, at line 16: The label of the directive is missing
+Error in file: ../inputs/fpass_errors.as, at line 17: The label in this line already exist. Please choose another label.
+Error in file: ../inputs/fpass_errors.as, at line 18: The label in this line isn't valid, it consists more then 31 characters.
+Error in file: ../inputs/fpass_errors.as, at line 19: The label in this line isn't valid, it contains non alphanumeric characters.
+Error in file: ../inputs/fpass_errors.as, at line 20: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/fpass_errors.as, at line 23: An ending quotation mark is missing
+Error in file: ../inputs/fpass_errors.as, at line 24: An opening quotation mark is missing
+Error in file: ../inputs/fpass_errors.as, at line 25: The argument of the string directive has no quotation marks
+Error in file: ../inputs/fpass_errors.as, at line 26: A comma comes immediately after a directive or operation
+Error in file: ../inputs/fpass_errors.as, at line 27: This line has consecutive commas
+Error in file: ../inputs/fpass_errors.as, at line 28: This line has data directive with a comma after the last element
+Error in file: ../inputs/fpass_errors.as, at line 30: This directive line has a wrong type of data element
+Error in file: ../inputs/fpass_errors.as, at line 31: This directive line has a wrong type of data element
+Error in file: ../inputs/fpass_errors.as, at line 32: This directive line has a wrong type of data element
+Error in file: ../inputs/fpass_errors.as, at line 33: This directive line has a wrong type of data element
+Error in file: ../inputs/fpass_errors.as, at line 36: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 37: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 38: The operation in this line has too many operands
+Error in file: ../inputs/fpass_errors.as, at line 39: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 40: The operation in this line has too many operands
+Error in file: ../inputs/fpass_errors.as, at line 41: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 42: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 43: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 44: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 45: The operation in this line has too many operands
+Error in file: ../inputs/fpass_errors.as, at line 46: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 47: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 48: The operation in this line has too many operands
+Error in file: ../inputs/fpass_errors.as, at line 49: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 50: The operation in this line has too many operands
+Error in file: ../inputs/fpass_errors.as, at line 51: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 52: The operation in this line has too many operands
+Error in file: ../inputs/fpass_errors.as, at line 53: The operation in this line has too many operands
+Error in file: ../inputs/fpass_errors.as, at line 58: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 59: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 60: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 61: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 62: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 63: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 65: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 66: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 67: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 69: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 70: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 71: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 72: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 73: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 75: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 76: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 77: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 78: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 79: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 81: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 82: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 83: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 84: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 85: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 87: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 88: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 89: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 90: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 91: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 95: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 97: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/fpass_errors.as, at line 100: One of this line operands has undefined addressing method
+Error in file: ../inputs/fpass_errors.as, at line 101: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 102: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 103: The operation in this line has too few operands
+Error in file: ../inputs/fpass_errors.as, at line 105: The specified command doesn't exists
+Error in file: ../inputs/fpass_errors.as, at line 106: The specified command doesn't exists
+Error in file: ../inputs/spass_errors.as, at line 10: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 15: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 18: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 20: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 21: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 22: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 23: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 24: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 25: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 27: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 28: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 30: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 31: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/spass_errors.as, at line 32: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 33: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/spass_errors.as, at line 34: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/spass_errors.as, at line 36: There is not matching label for this entry directive line
+Error in file: ../inputs/spass_errors.as, at line 42: There is not matching label for this entry directive line
