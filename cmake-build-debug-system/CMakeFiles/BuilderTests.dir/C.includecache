@@ -76,15 +76,15 @@ constants.h
 
 /Users/omrikaisari/CLionProjects/Assembler/errors.h
 
-/Users/omrikaisari/CLionProjects/Assembler/file_generator.c
+/Users/omrikaisari/CLionProjects/Assembler/files_handler.c
 string.h
 -
-file_generator.h
-/Users/omrikaisari/CLionProjects/Assembler/file_generator.h
+files_handler.h
+/Users/omrikaisari/CLionProjects/Assembler/files_handler.h
 printer.h
 /Users/omrikaisari/CLionProjects/Assembler/printer.h
 
-/Users/omrikaisari/CLionProjects/Assembler/file_generator.h
+/Users/omrikaisari/CLionProjects/Assembler/files_handler.h
 constants.h
 /Users/omrikaisari/CLionProjects/Assembler/constants.h
 reader.h

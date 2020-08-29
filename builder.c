@@ -134,9 +134,10 @@ Error evaluate_entry_directive(Builder builder, const char *line) {
     Error result;
     SymbolEntry entry = NULL;
     List symbols = builder->symbols;
+    char *label;
     if (parser_is_empty_directive(line, Entry))
         return EmptyDirective;
-    char *label = parser_get_extern_label(line, &result);
+    label = parser_get_extern_label(line, &result);
     if (result != NoErrorsFound) {
         free(label);
         return result;
@@ -194,9 +195,10 @@ Bool is_label_exists(List list, const char *label) {
 
 void add_data_item_to_table(Builder builder, const char *line, Directive directive, Error *error) {
     List data = (directive == String) ? (parser_get_string_data(line)) : parser_get_data_array(line, error);
+    size_t size;
     if (*error != NoErrorsFound)
         return;
-    size_t size = list_size(data);
+    size = list_size(data);
     data_items_list_add_data_element(builder->dataList, data, list_get_size_of());
     data_items_list_update_dc(builder->dataList, size);
     list_node_destroy(data, NULL);
