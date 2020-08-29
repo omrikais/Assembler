@@ -4,7 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/assembler.dir/code_table.c.o"
   "CMakeFiles/assembler.dir/data_table.c.o"
   "CMakeFiles/assembler.dir/errors.c.o"
-  "CMakeFiles/assembler.dir/file_generator.c.o"
+  "CMakeFiles/assembler.dir/files_handler.c.o"
   "CMakeFiles/assembler.dir/instruction_word.c.o"
   "CMakeFiles/assembler.dir/list.c.o"
   "CMakeFiles/assembler.dir/parser.c.o"

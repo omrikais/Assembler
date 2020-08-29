@@ -380,41 +380,41 @@ errors.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/errors.c.s
 .PHONY : errors.c.s
 
-file_generator.o: file_generator.c.o
+files_handler.o: files_handler.c.o
 
-.PHONY : file_generator.o
+.PHONY : files_handler.o
 
 # target to build an object file
-file_generator.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/file_generator.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/file_generator.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/file_generator.c.o
-.PHONY : file_generator.c.o
+files_handler.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/files_handler.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/files_handler.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/files_handler.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/files_handler.c.o
+.PHONY : files_handler.c.o
 
-file_generator.i: file_generator.c.i
+files_handler.i: files_handler.c.i
 
-.PHONY : file_generator.i
+.PHONY : files_handler.i
 
 # target to preprocess a source file
-file_generator.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/file_generator.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/file_generator.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/file_generator.c.i
-.PHONY : file_generator.c.i
+files_handler.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/files_handler.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/files_handler.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/files_handler.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/files_handler.c.i
+.PHONY : files_handler.c.i
 
-file_generator.s: file_generator.c.s
+files_handler.s: files_handler.c.s
 
-.PHONY : file_generator.s
+.PHONY : files_handler.s
 
 # target to generate assembly for a file
-file_generator.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/file_generator.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/file_generator.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/file_generator.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/file_generator.c.s
-.PHONY : file_generator.c.s
+files_handler.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/assembler.dir/build.make CMakeFiles/assembler.dir/files_handler.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tester.dir/build.make CMakeFiles/Tester.dir/files_handler.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BuilderTests.dir/build.make CMakeFiles/BuilderTests.dir/files_handler.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FileGeneratorTests.dir/build.make CMakeFiles/FileGeneratorTests.dir/files_handler.c.s
+.PHONY : files_handler.c.s
 
 instruction_word.o: instruction_word.c.o
 
@@ -716,9 +716,9 @@ help:
 	@echo "... errors.o"
 	@echo "... errors.i"
 	@echo "... errors.s"
-	@echo "... file_generator.o"
-	@echo "... file_generator.i"
-	@echo "... file_generator.s"
+	@echo "... files_handler.o"
+	@echo "... files_handler.i"
+	@echo "... files_handler.s"
 	@echo "... instruction_word.o"
 	@echo "... instruction_word.i"
 	@echo "... instruction_word.s"

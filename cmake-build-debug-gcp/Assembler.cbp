@@ -250,13 +250,13 @@
 			<Option target="BuilderTests"/>
 			<Option target="FileGeneratorTests"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BOYisKdkU2/file_generator.c">
+		<Unit filename="/tmp/tmp.BOYisKdkU2/files_handler.c">
 			<Option target="assembler"/>
 			<Option target="Tester"/>
 			<Option target="BuilderTests"/>
 			<Option target="FileGeneratorTests"/>
 		</Unit>
-		<Unit filename="/tmp/tmp.BOYisKdkU2/file_generator.h">
+		<Unit filename="/tmp/tmp.BOYisKdkU2/files_handler.h">
 			<Option target="assembler"/>
 			<Option target="Tester"/>
 			<Option target="BuilderTests"/>

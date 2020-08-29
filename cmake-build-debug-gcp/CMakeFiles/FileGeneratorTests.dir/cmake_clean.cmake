@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/FileGeneratorTests.dir/code_table.c.o"
   "CMakeFiles/FileGeneratorTests.dir/data_table.c.o"
   "CMakeFiles/FileGeneratorTests.dir/errors.c.o"
-  "CMakeFiles/FileGeneratorTests.dir/file_generator.c.o"
+  "CMakeFiles/FileGeneratorTests.dir/files_handler.c.o"
   "CMakeFiles/FileGeneratorTests.dir/instruction_word.c.o"
   "CMakeFiles/FileGeneratorTests.dir/list.c.o"
   "CMakeFiles/FileGeneratorTests.dir/parser.c.o"

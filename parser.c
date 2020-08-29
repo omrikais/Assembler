@@ -83,7 +83,7 @@ Error check_arguments_of_data(const char *line);
  * @param line
  * @return      a copy of the string found in the line argument
  */
-char *get_string_of_directive(const char *line);
+char *get_string_of_directive(const char *line, Bool deleteSpaces);
 
 /**
  * @brief       gets a data directive input line and checks if the commas in this line are according to the syntax of
@@ -495,7 +495,7 @@ char *parser_get_label_from_operand(const char *operand) {
 
 Error parser_check_string_directive_form(const char *line) {
     /*assumes data (string or data) directive*/
-    char *token = get_string_of_directive(line), *startPtr = token;
+    char *token = get_string_of_directive(line, True), *startPtr = token;
     if (strchr(token, STRING_DELIM_CHAR) == NULL) {
         free(token);
         return StringWithoutQuotes;
@@ -522,14 +522,17 @@ Error parser_check_string_directive_form(const char *line) {
     return NoErrorsFound;
 }
 
-char *get_string_of_directive(const char *line) {
+char *get_string_of_directive(const char *line, Bool deleteSpaces) {
     char tmpLine[MAX_LINE_LENGTH], *trimmed, *token, *cleanStr, *result;
     int lengthOfDirective;
     trimmed = trim_label(line);
-    cleanStr = delete_spaces(trimmed);
-    strcpy(tmpLine, cleanStr);
+    if (deleteSpaces) {
+        cleanStr = delete_spaces(trimmed);
+        strcpy(tmpLine, cleanStr);
+        free(cleanStr);
+    } else
+        strcpy(tmpLine, trimmed);
     free(trimmed);
-    free(cleanStr);
     lengthOfDirective = (strstr(tmpLine, STRING) != NULL) ? strlen(STRING) : strlen(DATA);
     token = tmpLine + lengthOfDirective;
     result = malloc(sizeof(char) * (strlen(token) + 1));
@@ -548,7 +551,7 @@ Error parser_check_data_directive_form(const char *line) {
 Error check_comma_between_data_elements(const char *line) {
     Bool isNumberEnded = False, isCommaAppeared = True;
     int i;
-    char *strPtr = get_string_of_directive(line);
+    char *strPtr = get_string_of_directive(line, False);
     for (i = 0; i < strlen(strPtr) - 1; ++i) {
         if (isspace(strPtr[i])) {
             isNumberEnded = True;
@@ -592,7 +595,7 @@ Error check_arguments_of_data(const char *line) {
 
 Error check_commas_in_data_directive(const char *line) {
     /*assumes to get line of data directive without a label*/
-    char *strPtr = get_string_of_directive(line);
+    char *strPtr = get_string_of_directive(line, True);
     Error result;
     if (strstr(strPtr, DOUBLE_COMMA) != NULL) {
         free(strPtr);
