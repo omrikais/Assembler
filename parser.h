@@ -93,7 +93,7 @@ List parser_get_string_data(const char *line);
  * @param line
  * @return a list with all the numbers that construct the data array in the directive line
  */
-List parser_get_data_array(const char *line);
+List parser_get_data_array(const char *line, Error *error);
 
 /**
  * @brief gets string or data directive element (a list) and returns the size of this element. if is a string element

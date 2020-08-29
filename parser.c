@@ -4,6 +4,8 @@
 #include <ctype.h>
 #include "parser.h"
 
+Bool is_operation_string(const char *label);
+
 /**
  * @brief gets an input line and returns copy of the line without the label of the original line.
  *          if no label exist, return copy of the original line
@@ -252,7 +254,7 @@ List parser_get_string_data(const char *line) {
     return charList;
 }
 
-List parser_get_data_array(const char *line) {
+List parser_get_data_array(const char *line, Error *error) {
     /*assumes to get a Data directive with valid arguments*/
     char tmpLine[MAX_LENGTH], *token, *trimmed;
     List dataList = list_create();
@@ -262,7 +264,13 @@ List parser_get_data_array(const char *line) {
     free(trimmed);
     strtok(tmpLine, IGNORED);
     while ((token = strtok(NULL, IGNORED)) != NULL) {
-        currentNumber = atol(token);
+        char *endPtr = NULL;
+        currentNumber = strtol(token, &endPtr, 10);
+        if (endPtr != NULL && strlen(endPtr) != 0) {
+            *error = BadDataElement;
+            list_destroy(dataList, NULL);
+            return NULL;
+        }
         list_insert_node_at_end(dataList, &currentNumber, sizeof(long));
     }
     return dataList;
@@ -369,6 +377,8 @@ Error parser_is_valid_label(const char *label) {
     int i;
     if (strlen(label) > MAX_LABEL_LENGTH)
         return LabelTooLong;
+    if (is_operation_string(label))
+        return LabelBadNameOperation;
     for (i = 0; i < strlen(label); ++i) {
         if (i == 0)
             if (isalpha(label[i]) == 0)
@@ -377,6 +387,16 @@ Error parser_is_valid_label(const char *label) {
             return LabelWithNonAlphanumeric;
     }
     return NoErrorsFound;
+}
+
+Bool is_operation_string(const char *label) {
+    char *functions[] = {FUNCTIONS};
+    int i;
+    for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i) {
+        if (strcmp(functions[i], label) == 0)
+            return True;
+    }
+    return False;
 }
 
 Bool parser_is_empty_line(const char *line) {
@@ -464,15 +484,20 @@ int parser_get_register_num(const char *operand) {
 }
 
 long parser_get_immediate_operand(const char *operand) {
-    long operandValue = atol(operand + 1);
-    int i = 1;
+    char *ptr = NULL;
+    int i;
+    long operandValue = strtol(operand + 1, &ptr, 10);
     if (strlen(operand) <= 1)
-        return NA;
-    for (; i < (strlen(operand) - 1); ++i) {
+        return NA_NUMBER;
+    for (i = FIRST_ELEMENT; i < (strlen(operand) - 1); ++i) {
         if (i == FIRST_ELEMENT && operand[i] == MINUS_CHAR)
             continue;
         if (!is_number(operand[i]))
-            return NA;
+            return NA_NUMBER;
+    }
+    if (ptr != NULL && (strlen(ptr) != 0)) {
+        if (*ptr != COMMA_CHAR || *ptr != NEW_LINE_CHAR)
+            return NA_NUMBER;
     }
     return operandValue;
 }

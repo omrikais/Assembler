@@ -43,7 +43,7 @@ Next:   cmp  #5,#6
 ; 15. invalid operand (incomplete immediate #)  
         prn  # 48
 
-; 16. invalid characters (r3) -- FAILD
+; 16. invalid characters (r3)
         cmp  r1,#r3
 
 ; 17. label was already declared earlier
@@ -91,10 +91,10 @@ Z4:     .data   #123
 ; 31. invalid characters (.4)
 Z5:     .data   12.4
 
-; 32. invalid characters (-5)  -- FAILD
+; 32. invalid characters (-5)
 Z6:     .data   --5
 
-; 33. invalid label (cannot be an instruction name) -- FAILD
+; 33. invalid label (cannot be an instruction name)
 mov:    .data   5
 
 ; 34. invalid label (cannot be a register name) -- FAILD

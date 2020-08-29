@@ -12,6 +12,7 @@
 #define BEGIN_ADDRESS 100
 #define DIRECTIVES "data","string","entry","extern"
 #define NA (-1)
+#define NA_NUMBER 67108864
 #define MAX_LENGTH 82
 #define WORD_PARAMETERS 6
 #define LABEL_DELIM_CHAR ':'

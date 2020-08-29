@@ -117,8 +117,8 @@ Error handle_directive(Builder builder, const char *line, Directive directive, c
         list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
         symbol_entry_tmp_destroy(entry);
     }
-    add_data_item_to_table(builder, line, directive);
-    return NoErrorsFound;
+    add_data_item_to_table(builder, line, directive, &error);
+    return error;
 }
 
 
@@ -182,8 +182,10 @@ Bool is_label_exists(List list, const char *label) {
     return False;
 }
 
-void add_data_item_to_table(Builder builder, const char *line, Directive directive) {
-    List data = (directive == String) ? (parser_get_string_data(line)) : parser_get_data_array(line);
+void add_data_item_to_table(Builder builder, const char *line, Directive directive, Error *error) {
+    List data = (directive == String) ? (parser_get_string_data(line)) : parser_get_data_array(line, error);
+    if (*error != NoErrorsFound)
+        return;
     size_t size = list_size(data);
     data_items_list_add_data_element(builder->dataList, data, list_get_size_of());
     data_items_list_update_dc(builder->dataList, size);
@@ -318,8 +320,13 @@ void handle_operand(const char *line, int *addressingMethod, int *registerOfOper
                     char **operandContentString, int operandIndex, Error *error) {
     char *operand = parser_get_operand(line, operandIndex);
     (*addressingMethod) = parser_get_addressing_method_of_operand(operand);
-    if ((*addressingMethod) == Immediate) {/*an error mechanism is needed here*/
+    if ((*addressingMethod) == Immediate) {
         (*operandContent) = parser_get_immediate_operand(operand);
+        if (*operandContent == NA_NUMBER) {
+            free(operand);
+            *error = WrongImmediateOperand;
+            return;
+        }
     } else if ((*addressingMethod) == Register) {
         (*registerOfOperand) = parser_get_register_num(operand);
     } else if ((*addressingMethod) == NA) {

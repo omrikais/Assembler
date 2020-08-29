@@ -17,7 +17,8 @@ in this line has too many operands. Should be only one.","This line has consecut
  valid string as an argument", "The argument of the string directive has no quotation marks","A comma comes immediately\
  after a directive or operation","This line has data directive with a comma after the last element","This directive \
 line has a wrong type of data element","One of the operands has incompatible addressing method with the operation",\
-"A label without content is not valid","One of this line operands has undefined addressing method"
+"A label without content is not valid","One of this line operands has undefined addressing method","Wrong type of \
+immediate operand","There is invalid element in this line data array","Label name cannot be an operation name"
 
 void error_print(Error error, int lineNumber, const char *fileName) {
     char *errorsSentences[] = {ERRORS_SENTENCES};

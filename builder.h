@@ -19,7 +19,7 @@ void close(Builder builder);
 
 Error evaluate_directive_line(Builder builder, char *line);
 
-void add_data_item_to_table(Builder builder, const char *line, Directive directive);
+void add_data_item_to_table(Builder builder, const char *line, Directive directive, Error *error);
 
 Error evaluate_code_line(Builder builder, char *line);
 

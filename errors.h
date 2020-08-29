@@ -36,7 +36,10 @@ enum error_t {
     WrongTypeDataArgument,
     IncompatibleAddressing,
     OnlyLabel,
-    InvalidAddressingMethod
+    InvalidAddressingMethod,
+    WrongImmediateOperand,
+    BadDataElement,
+    LabelBadNameOperation
 };
 
 typedef enum error_t Error;

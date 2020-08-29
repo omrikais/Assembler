@@ -58,7 +58,7 @@ int main() {
     printf("\n");
     /*printf("%s\n", (char *) arr);*/
     char s4[] = "hi: .data +4,5,6,7,9,+8\n";
-    List list1 = parser_get_data_array(s4);
+    List list1 = parser_get_data_array(s4, NULL);
     print_list(list1, print_int);
     /*print_list(list1, print_int);*/
     printf("\nThe List Size is: %d\n", list_size(list1));
