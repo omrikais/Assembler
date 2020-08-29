@@ -1,0 +1,31 @@
+Error in file: ../inputs/badpath-pass1.as, at line 5: The operation in this line has too few operands
+Error in file: ../inputs/badpath-pass1.as, at line 8: The operation in this line has too few operands
+Error in file: ../inputs/badpath-pass1.as, at line 11: The operation in this line has too few operands
+Error in file: ../inputs/badpath-pass1.as, at line 17: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/badpath-pass1.as, at line 23: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/badpath-pass1.as, at line 26: The specified command doesn't exists
+Error in file: ../inputs/badpath-pass1.as, at line 29: The specified command doesn't exists
+Error in file: ../inputs/badpath-pass1.as, at line 32: This line has consecutive commas
+Error in file: ../inputs/badpath-pass1.as, at line 35: The operation in this line has too many operands
+Error in file: ../inputs/badpath-pass1.as, at line 38: The operation in this line has too many operands
+Error in file: ../inputs/badpath-pass1.as, at line 41: One of this line operands has undefined addressing method
+Error in file: ../inputs/badpath-pass1.as, at line 44: The operation in this line has too many operands
+Error in file: ../inputs/badpath-pass1.as, at line 50: The label in this line already exist. Please choose another label.
+Error in file: ../inputs/badpath-pass1.as, at line 56: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/badpath-pass1.as, at line 59: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/badpath-pass1.as, at line 62: The operation in this line has too many operands
+Error in file: ../inputs/badpath-pass1.as, at line 71: This line has missing comma
+Error in file: ../inputs/badpath-pass1.as, at line 83: This line has consecutive commas
+Error in file: ../inputs/badpath-pass1.as, at line 86: This line has data directive with a comma after the last element
+Error in file: ../inputs/badpath-pass1.as, at line 89: This directive line has a wrong type of data element
+Error in file: ../inputs/badpath-pass1.as, at line 92: This directive line has a wrong type of data element
+Error in file: ../inputs/badpath-pass1.as, at line 104: The label in this line already exist. Please choose another label.
+Error in file: ../inputs/badpath-pass1.as, at line 110: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/badpath-pass1.as, at line 122: The extern directivein this line has too many operands. Should be only one.
+Error in file: ../inputs/badpath-pass1.as, at line 131: The specified command doesn't exists
+Error in file: ../inputs/badpath-pass1.as, at line 134: The specified directive is not define
+Error in file: ../inputs/badpath-pass1.as, at line 140: The argument of the string directive has no quotation marks
+Error in file: ../inputs/badpath-pass1.as, at line 143: An ending quotation mark is missing
+Error in file: ../inputs/badpath-pass1.as, at line 149: The label in this line isn't valid, it consists more then 31 characters.
+Error in file: ../inputs/badpath-pass1.as, at line 158: The specified directive is not define
+Error in file: ../inputs/badpath-pass1.as, at line 164: The operation in this line has too many operands
