@@ -574,15 +574,19 @@ Error check_comma_between_data_elements(const char *line) {
 }
 
 Error check_arguments_of_data(const char *line) {
-    char tmpLine[MAX_LINE_LENGTH];
+    char tmpLine[MAX_LINE_LENGTH], *noSpacesLine;
     const char *strPtr;
     int i;
-    strcpy(tmpLine, line);
-    strPtr = line + strlen(DATA);
+    noSpacesLine = delete_spaces(line);
+    strcpy(tmpLine, noSpacesLine);
+    strPtr = tmpLine + strlen(DATA);
     for (i = 0; i < strlen(strPtr) - 1; ++i)
         if (!isspace(strPtr[i]) && !is_number(strPtr[i]) && strPtr[i] != COMMA_CHAR && strPtr[i] != MINUS_CHAR &&
-            strPtr[i] != PLUS_CHAR)
+            strPtr[i] != PLUS_CHAR) {
+            free(noSpacesLine);
             return WrongTypeDataArgument;
+        }
+    free(noSpacesLine);
     return NoErrorsFound;
 }
 
