@@ -18,8 +18,9 @@ in this line has too many operands. Should be only one.","This line has consecut
  after a directive or operation","This line has data directive with a comma after the last element","This directive \
 line has a wrong type of data element","One of the operands has incompatible addressing method with the operation",\
 "A label without content is not valid","One of this line operands has undefined addressing method","Wrong type of \
-immediate operand","There is invalid element in this line data array","Label name cannot be an operation name"
-
+immediate operand","There is invalid element in this line data array","Label name cannot be an operation name",\
+"Label name cannot be a reference to a valid register","Directive declared without any parameters","The label in this \
+extern directive line already exists as local label"
 void error_print(Error error, int lineNumber, const char *fileName) {
     char *errorsSentences[] = {ERRORS_SENTENCES};
     char toPrint[MAX_LINE_LENGTH];

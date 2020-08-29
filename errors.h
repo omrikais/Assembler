@@ -39,7 +39,10 @@ enum error_t {
     InvalidAddressingMethod,
     WrongImmediateOperand,
     BadDataElement,
-    LabelBadNameOperation
+    LabelBadNameOperation,
+    LabelBadNameRegister,
+    EmptyDirective,
+    DirectiveLabelAlreadyExistsAsCode
 };
 
 typedef enum error_t Error;

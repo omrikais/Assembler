@@ -97,7 +97,7 @@ Z6:     .data   --5
 ; 33. invalid label (cannot be an instruction name)
 mov:    .data   5
 
-; 34. invalid label (cannot be a register name) -- FAILD
+; 34. invalid label (cannot be a register name)
 r6:     .data   200
 
 ; 35. label was already declared earlier
@@ -115,10 +115,10 @@ X:      .entry  DATA1
 ; 39. this line is ok (it is ok to declare the same external more than once)
         .extern DATA4
 
-; 40. local label cannot be declared as external -- FAILD
+; 40. local label cannot be declared as external --
         .extern Start
 
-; 41. this line is ok (label Y declaration ignored - warning may be issued) -- FAILD
+; 41. this line is ok (label Y declaration ignored - warning may be issued)
 Y:      .extern DATA8
 
 ; 42. this line is ok (label STOP is declared later)
@@ -148,10 +148,10 @@ STR1:   .string "abc, ,defg"
 ; 50. invalid label (too long)
 SuperCalifragilisticExpiAlidocious: .data 4
           
-; 51. missing argument in directive  --FAILD
+; 51. missing argument in directive
 Z9:     .data
 
-; 52. missing argument in directive  --FAILD
+; 52. missing argument in directive
         .entry
 
 ; 53. undefined directive

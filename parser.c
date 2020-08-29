@@ -6,6 +6,8 @@
 
 Bool is_operation_string(const char *label);
 
+Bool is_register_label(const char *label);
+
 /**
  * @brief gets an input line and returns copy of the line without the label of the original line.
  *          if no label exist, return copy of the original line
@@ -379,6 +381,8 @@ Error parser_is_valid_label(const char *label) {
         return LabelTooLong;
     if (is_operation_string(label))
         return LabelBadNameOperation;
+    if (is_register_label(label))
+        return LabelBadNameRegister;
     for (i = 0; i < strlen(label); ++i) {
         if (i == 0)
             if (isalpha(label[i]) == 0)
@@ -387,6 +391,12 @@ Error parser_is_valid_label(const char *label) {
             return LabelWithNonAlphanumeric;
     }
     return NoErrorsFound;
+}
+
+Bool is_register_label(const char *label) {
+    return (strlen(label) == 2 && label[0] == REGISTER_CHAR &&
+            label[1] >= MINIMAL_REGISTER_CHAR && label[1] <= MAXIMAL_REGISTER_CHAR);
+
 }
 
 Bool is_operation_string(const char *label) {
@@ -407,6 +417,23 @@ Bool parser_is_empty_line(const char *line) {
         return True;
     if (token[0] == COMMENT_DELIMITER)
         return True;
+    return False;
+}
+
+Bool parser_is_empty_directive(const char *line, Directive directive) {
+    char *directives[] = {DIRECTIVES};
+    char tmpLine[MAX_LINE_LENGTH], *trimmed, *directiveStr, *lineStr, *noSpacesLine;
+    directiveStr = directives[directive];
+    trimmed = trim_label(line);
+    strcpy(tmpLine, trimmed);
+    free(trimmed);
+    noSpacesLine = delete_spaces(tmpLine);
+    lineStr = noSpacesLine + strlen(directiveStr) + 1;
+    if (strtok(lineStr, DIRECTIVE_DELIMITERS) == NULL) {
+        free(noSpacesLine);
+        return True;
+    }
+    free(noSpacesLine);
     return False;
 }
 
@@ -448,8 +475,10 @@ size_t parser_get_size_of_element(void *element, Directive type) {
 }
 
 char *parser_get_extern_label(const char *line, Error *result) {
-    char tmpLine[MAX_LENGTH], *token, *operand;
-    strcpy(tmpLine, line);
+    char tmpLine[MAX_LENGTH], *token, *operand, *trimmed;
+    trimmed = trim_label(line);
+    strcpy(tmpLine, trimmed);
+    free(trimmed);
     strtok(tmpLine, DIRECTIVE_DELIMITERS);/*should be on extern*/
     token = strtok(NULL, DIRECTIVE_DELIMITERS);/*should be on label*/
     if (token == NULL) {

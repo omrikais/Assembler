@@ -173,4 +173,6 @@ Error parser_check_data_directive_form(const char *line);
  */
 Error parser_after_label_check(const char *line);
 
+Bool parser_is_empty_directive(const char *line, Directive directive);
+
 #endif /*ASSEMBLER_PARSER_H*/

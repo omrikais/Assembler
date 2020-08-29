@@ -60,8 +60,11 @@ Error evaluate_extern(Builder builder, char *line) {
         return result;
     }
     if (is_label_exists(builder->symbols, label) == True) {
-        free(label);
-        return NoErrorsFound;
+        entry = list_find_element(builder->symbols, label, (Equals) symbol_entry_compare);
+        if (symbol_get_property(entry) != External) {
+            free(label);
+            return DirectiveLabelAlreadyExistsAsCode;
+        }
     }
     entry = symbol_entry_create(label, 0, External);
     list_insert_node_at_end(builder->symbols, entry, symbol_size_of());
@@ -92,6 +95,11 @@ Error evaluate_directive_line(Builder builder, char *line) {
         if (label != NULL)
             free(label);
         return DirectiveNotFound;
+    }
+    if (parser_is_empty_directive(line, directive)) {
+        if (label != NULL)
+            free(label);
+        return EmptyDirective;
     }
     if (directive == String || directive == Data) {
         error = handle_directive(builder, line, directive, label);
@@ -126,6 +134,8 @@ Error evaluate_entry_directive(Builder builder, const char *line) {
     Error result;
     SymbolEntry entry = NULL;
     List symbols = builder->symbols;
+    if (parser_is_empty_directive(line, Entry))
+        return EmptyDirective;
     char *label = parser_get_extern_label(line, &result);
     if (result != NoErrorsFound) {
         free(label);
