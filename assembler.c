@@ -4,7 +4,7 @@
 
 
 int main(int argc, char *argv[]) {
-    freopen("fpass_errors.txt", "w", stderr);
+    freopen("badpath-relative.txt", "w", stderr);
     assemble((const char **) argv, argc);
     return 0;
 }

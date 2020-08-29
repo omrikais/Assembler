@@ -175,4 +175,11 @@ Error parser_after_label_check(const char *line);
 
 Bool parser_is_empty_directive(const char *line, Directive directive);
 
+/**
+ * @brief       gets a string of a label and checks whether the label defined according to the assembly language rules
+ * @param label a string of a label
+ * @return      a relevant error code or NoErrorsFound
+ */
+Error parser_is_valid_label(const char *label);
+
 #endif /*ASSEMBLER_PARSER_H*/

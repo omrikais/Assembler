@@ -20,7 +20,8 @@ line has a wrong type of data element","One of the operands has incompatible add
 "A label without content is not valid","One of this line operands has undefined addressing method","Wrong type of \
 immediate operand","There is invalid element in this line data array","Label name cannot be an operation name",\
 "Label name cannot be a reference to a valid register","Directive declared without any parameters","The label in this \
-extern directive line already exists as local label"
+extern directive line already exists as local label","The number width in this directive line is bigger than 24 bit",\
+"The number width in immediate addressing line is bigger than 21 bit"
 void error_print(Error error, int lineNumber, const char *fileName) {
     char *errorsSentences[] = {ERRORS_SENTENCES};
     char toPrint[MAX_LINE_LENGTH];

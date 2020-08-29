@@ -1,0 +1,3 @@
+Error in file: ../inputs/badpath-datasize.as, at line 19: The number width in this line is bigger than 24 bit
+Error in file: ../inputs/badpath-datasize.as, at line 22: The number width in this line is bigger than 24 bit
+Error in file: ../inputs/badpath-datasize.as, at line 25: The number width in this line is bigger than 24 bit

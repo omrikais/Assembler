@@ -13,6 +13,8 @@
 #define DIRECTIVES "data","string","entry","extern"
 #define NA (-1)
 #define NA_NUMBER 67108864
+#define MAX_24_BIT_NUMBER 8388607
+#define MAX_21_BIT_NUMBER 1048575
 #define MAX_LENGTH 82
 #define WORD_PARAMETERS 6
 #define LABEL_DELIM_CHAR ':'

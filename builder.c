@@ -337,12 +337,21 @@ void handle_operand(const char *line, int *addressingMethod, int *registerOfOper
             *error = WrongImmediateOperand;
             return;
         }
+        if (*operandContent > MAX_21_BIT_NUMBER || *operandContent < -MAX_21_BIT_NUMBER - 1) {
+            *error = OverflowInstruction;
+            free(operand);
+            return;
+        }
     } else if ((*addressingMethod) == Register) {
         (*registerOfOperand) = parser_get_register_num(operand);
     } else if ((*addressingMethod) == NA) {
         *error = InvalidAddressingMethod;
-    } else
+    } else {
         (*operandContentString) = parser_get_label_from_operand(operand);
+        if ((*error = parser_is_valid_label(*operandContentString)) != NoErrorsFound) {
+            free(*operandContentString);
+        }
+    }
     free(operand);
 }
 

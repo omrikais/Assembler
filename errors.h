@@ -42,7 +42,9 @@ enum error_t {
     LabelBadNameOperation,
     LabelBadNameRegister,
     EmptyDirective,
-    DirectiveLabelAlreadyExistsAsCode
+    DirectiveLabelAlreadyExistsAsCode,
+    OverflowDirective,
+    OverflowInstruction
 };
 
 typedef enum error_t Error;

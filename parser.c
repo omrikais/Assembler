@@ -97,13 +97,6 @@ char *get_string_of_directive(const char *line, Bool deleteSpaces);
  */
 Error check_commas_in_data_directive(const char *line);
 
-/**
- * @brief       gets a string of a label and checks whether the label defined according to the assembly language rules
- * @param label a string of a label
- * @return      a relevant error code or NoErrorsFound
- */
-Error parser_is_valid_label(const char *label);
-
 Bool parser_is_new_label(const char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
         return False;
@@ -270,6 +263,11 @@ List parser_get_data_array(const char *line, Error *error) {
         currentNumber = strtol(token, &endPtr, 10);
         if (endPtr != NULL && strlen(endPtr) != 0) {
             *error = BadDataElement;
+            list_destroy(dataList, NULL);
+            return NULL;
+        }
+        if (currentNumber > MAX_24_BIT_NUMBER || currentNumber < -MAX_24_BIT_NUMBER - 1) {
+            *error = OverflowDirective;
             list_destroy(dataList, NULL);
             return NULL;
         }

@@ -1,0 +1,7 @@
+Error in file: ../inputs/badpath-pass2.as, at line 28: There is not matching label for this entry directive line
+Error in file: ../inputs/badpath-pass2.as, at line 31: There is not matching label for this entry directive line
+Error in file: ../inputs/badpath-pass2.as, at line 34: There is not matching label for this entry directive line
+Error in file: ../inputs/badpath-pass2.as, at line 37: There is not matching label for this entry directive line
+Error in file: ../inputs/badpath-pass2.as, at line 46: There is not matching label for this entry directive line
+Error in file: ../inputs/badpath-pass2.as, at line 49: There is not matching label for this entry directive line
+Error in file: ../inputs/badpath-pass2.as, at line 52: There is not matching label for this entry directive line
