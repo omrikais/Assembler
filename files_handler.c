@@ -99,6 +99,10 @@ Error file_generator_make_as_array(const char **args, int size, char ***stringAr
 void assemble(const char **args, int size) {
     char **fileNames;
     Reader reader;
+    if (size == 1) {
+        error_print(NoInputFiles, NO_FILE, NULL);
+        return;
+    }
     file_generator_make_as_array(args, size, &fileNames);
     reader = reader_create((const char **) fileNames, size - 1);
     analyze_files(args, reader);

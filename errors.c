@@ -4,7 +4,7 @@
 
 /*all the errors massages, the massages ordered as they appears in the enum */
 #define ERRORS_SENTENCES "The specified command doesn't exists",\
-"File type is not .as, please provide .as file","File doesn't exits","No Files were given as command line arguments",\
+"File type is not .as, please provide .as file","File doesn't exit","No Files were given as command line arguments",\
 "The operation in this line has too many operands","The operation in this line has too few operands","The specified \
 directive is not define","The label in this line isn't valid, it doesn't starts with an alphabetic character.",\
 "The label in this line isn't valid, it consists more then 31 characters.",\
@@ -20,7 +20,7 @@ line has a wrong type of data element","One of the operands has incompatible add
 immediate operand","There is invalid element in this line data array","Label name cannot be an operation name",\
 "Label name cannot be a reference to a valid register","Directive declared without any parameters","The label in this \
 extern directive line already exists as local label","The number width in this directive line is bigger than 24 bit",\
-"The number width in immediate addressing line is bigger than 21 bit"
+"The number width in immediate addressing line is bigger than 21 bit","At least one argument should be given"
 
 /************************************************** Functions implementations *****************************************/
 
@@ -29,7 +29,9 @@ void error_print(Error error, int lineNumber, const char *fileName) {
     char toPrint[MAX_LINE_LENGTH];
     if (lineNumber > 0)
         sprintf(toPrint, "Error in file: %s, at line %d: %s\n", fileName, lineNumber, errorsSentences[error]);
-    else
+    if (lineNumber == NO_LINE)
         sprintf(toPrint, "Error in file %s: %s\n", fileName, errorsSentences[error]);
+    if (lineNumber == NO_FILE)
+        sprintf(toPrint, "%s\n", errorsSentences[error]);
     fprintf(stderr, "%s", toPrint);
 }

@@ -32,6 +32,7 @@ typedef int (*Equals)(const void *a, const void *b);
  * @brief       creates an empty linked list
  * @return      an empty linked list
  */
+
 List list_create();
 
 /**

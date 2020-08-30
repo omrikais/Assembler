@@ -44,7 +44,8 @@ enum error_t {
     EmptyDirective,                         /*the directive line has declaration without content*/
     DirectiveLabelAlreadyExistsAsCode,      /*the label of an extern already defined as local*/
     OverflowDirective,                      /*the directive has an element that overflows*/
-    OverflowInstruction                     /*the instruction has an element that overflows*/
+    OverflowInstruction,                    /*the instruction has an element that overflows*/
+    NoInputFiles                            /*the program got no arguments*/
 };
 
 typedef enum error_t Error;         /*Error type definition*/

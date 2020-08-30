@@ -3,7 +3,7 @@ SOURCE	= list.c instruction_word.c parser.c errors.c code_table.c data_table.c s
 HEADER	= list.h instruction_word.h constants.h parser.h errors.h code_table.h data_table.h symbol_table.h builder.h reader.h printer.h files_handler.h
 OUT	= assembler
 CC	 = gcc
-FLAGS	 = -g -c -Wall -pedantic -std=c89
+FLAGS	 = -g -c -Wall -pedantic -ansi
 LFLAGS	 = -lm
 
 all: $(OBJS)

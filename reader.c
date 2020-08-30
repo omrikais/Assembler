@@ -75,14 +75,14 @@ Error reader_load_next_file(Reader reader) {
     if (reader->nextFileIndex >= reader->objectFilesSize)
         return NoMoreFiles;
     if (is_valid_file_name((reader->objectFiles)[reader->nextFileIndex]) != True) {
-        error_print(FileTypeWrong, -1, (reader->objectFiles)[reader->nextFileIndex]);
+        error_print(FileTypeWrong, NO_LINE, (reader->objectFiles)[reader->nextFileIndex]);
         ++(reader->nextFileIndex);
         reader->isErrorOccurred = True;
         return FileTypeWrong;
     }
     reader->input = fopen((reader->objectFiles)[reader->nextFileIndex], "r");
     if (reader->input == NULL) {
-        error_print(FileNotExist, -1, (reader->objectFiles)[reader->nextFileIndex]);
+        error_print(FileNotExist, NO_LINE, (reader->objectFiles)[reader->nextFileIndex]);
         ++(reader->nextFileIndex);
         reader->isErrorOccurred = True;
         return FileNotExist;

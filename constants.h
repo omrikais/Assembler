@@ -153,6 +153,9 @@
 #define COMMENT_DELIMITER ';'
 /*the word width in the assembly language*/
 #define WORD_WIDTH 24
+/*no line is needed in the print*/
+#define NO_LINE (-1)
+#define NO_FILE (-5)
 
 /**
  * @brief the boolean type
