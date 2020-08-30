@@ -4,6 +4,9 @@
 #include <string.h>
 #include "instruction_word.h"
 
+/**
+ * @brief the instruction_word_t struct
+ */
 struct instruction_word_t {
     int opcode;
     int func;
@@ -11,18 +14,26 @@ struct instruction_word_t {
     int sourceRegister;
     int destinationAddressingMethod;
     int destinationRegister;
-    long sourceOperandContent;
-    char *sourceOperandContentStr;
-    long destinationOperandContent;
-    char *destinationOperandContentStr;
-    int valueOfIc;
-    size_t numberOfWords;
-    Bool isDestinationExtern;
-    Bool isSourceExtern;
+    long sourceOperandContent;                  /*the content of the operand in terms of int*/
+    char *sourceOperandContentStr;              /*the content of the operand in terms of string*/
+    long destinationOperandContent;             /*the content of the operand in terms of int*/
+    char *destinationOperandContentStr;         /*the content of the operand in terms of string*/
+    int valueOfIc;                              /*the value of the IC of the word*/
+    size_t numberOfWords;                       /*how many words the word and its operands need*/
+    Bool isDestinationExtern;                   /*does the destination operand is an extern label*/
+    Bool isSourceExtern;                        /*does the source operand is an extern label*/
 };
 
+/************************************************** Internal functions ************************************************/
+
+/**
+ * @brief                       returns the number of words needed for an operand based on its addressing method
+ * @param addressingMethod      the addressing method of the operand
+ * @return                      the number of words needed for an operand based on its addressing method
+ */
 unsigned int instruction_word_how_many_words_by_operand(int addressingMethod);
 
+/************************************************** Functions implementations *****************************************/
 
 InstructionWord instruction_word_create(int opcode, int func, int sourceAddressingMethod, int sourceRegister,
                                         int destinationAddressingMethod, int destinationRegister,
@@ -139,15 +150,15 @@ int instruction_word_get_ic(InstructionWord word) {
     return word->valueOfIc;
 }
 
-Bool instruction_word_has_operand(Operation operation, int indexOfOperation) {
+Bool instruction_word_has_operand(Operation operation, int operandIndex) {
     int numberOfOperand[] = {NUMBER_OF_OPERANDS};
     int functionsNumbers[] = {FUNCTIONS_NUMBERS}, i;
     for (i = 0; i < NUMBER_OF_FUNCTIONS; ++i)
         if (functionsNumbers[i] == operation)
             break;
-    if (indexOfOperation == DESTINATION_INDEX && numberOfOperand[i] > NO_OPERANDS)
+    if (operandIndex == DESTINATION_INDEX && numberOfOperand[i] > NO_OPERANDS)
         return True;
-    if (indexOfOperation == SOURCE_INDEX && numberOfOperand[i] == TWO_OPERANDS)
+    if (operandIndex == SOURCE_INDEX && numberOfOperand[i] == TWO_OPERANDS)
         return True;
     return False;
 }

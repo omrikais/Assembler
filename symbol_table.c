@@ -4,12 +4,18 @@
 #include <string.h>
 #include "symbol_table.h"
 
+/**
+ * @brief   the symbol_entry_type struct contains a symbol entry. it has the label of a sybol, its location and
+ *          its properties
+ */
 struct symbol_entry_type {
-    char *label;
-    int location;
-    Property property;
-    Property property2;
+    char *label;                /*the label of the symbol*/
+    int location;               /*the location of the symbol*/
+    Property property;          /*the first property*/
+    Property property2;         /*the second property*/
 };
+
+/************************************************** Functions implementations *****************************************/
 
 SymbolEntry symbol_entry_create(const char *label, int location, Property property) {
     SymbolEntry entry = malloc(sizeof(struct symbol_entry_type));

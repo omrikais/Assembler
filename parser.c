@@ -4,8 +4,20 @@
 #include <ctype.h>
 #include "parser.h"
 
+/************************************************** Internal functions ************************************************/
+
+/**
+ * @brief           checks if a given label is a command word
+ * @param label     the label to check
+ * @return          True if the label is a command word
+ */
 Bool is_operation_string(const char *label);
 
+/**
+ * @brief           checks if a given label is a valid register string
+ * @param label     the label to check
+ * @return          True if a given label is a valid register string
+ */
 Bool is_register_label(const char *label);
 
 /**
@@ -97,6 +109,8 @@ char *get_string_of_directive(const char *line, Bool deleteSpaces);
  */
 Error check_commas_in_data_directive(const char *line);
 
+/************************************************** Functions implementations *****************************************/
+
 Bool parser_is_new_label(const char *line) {
     if (strchr(line, LABEL_DELIM_CHAR) == NULL)
         return False;
@@ -119,7 +133,6 @@ Bool parser_is_entry(const char *line) {
         return True;
     return False;
 }
-
 
 char *parser_get_label(const char *line, Error *error) {
     char tmpLine[MAX_LINE_LENGTH], *result;

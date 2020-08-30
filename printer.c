@@ -3,6 +3,8 @@
 #include "printer.h"
 #include "symbol_table.h"
 
+/************************************************** Internal functions ************************************************/
+
 /**
  * @brief prints the first line in object file, which contains two numbers in a specified format
  * @param numberOfInstructionWords
@@ -66,6 +68,8 @@ void build_instruction_word(const long *parameters, long *instruction);
  * @return      the mask to bitwise OR with the instruction word number to pront
  */
 long make_mask(long mask);
+
+/************************************************** Functions implementations *****************************************/
 
 void print_instruction_word(InstructionWord word, FILE *outputObject, FILE *outputExtern) {
     long *parameters = instruction_word_get_all_parameters(word);

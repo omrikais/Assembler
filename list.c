@@ -21,8 +21,10 @@ ListNode list_create_list_node(void *data, size_t dataSize) {
     ListNode node = (ListNode) malloc(sizeof(struct node_t));
     int i;
     node->data = malloc(dataSize);
-    for (i = 0; i < dataSize; i++)
-        *((char *) node->data + i) = *((char *) data + i);
+    for (i = 0; i < dataSize; i++) {
+        char current = *((char *) data + i);
+        *((char *) node->data + i) = current;
+    }
     return node;
 }
 
@@ -67,7 +69,7 @@ size_t list_size(List list) {
 
 void list_insert_node_at_end(List list, void *newData, size_t dataSize) {
     ListNode newNode = list_create_list_node(newData, dataSize);
-    pNode temp = list;
+    ListNode temp = list;
     while (temp->next != NULL) {
         temp = temp->next;
     }
@@ -86,13 +88,6 @@ void *list_get_data_element_at_index(List list, int i) {
     return current->data;
 }
 
-void print_list(List node, PrintNodeFunction printFunction) {
-    while (node != NULL) {
-        if (node->data != NULL)
-            (*printFunction)(node->data);
-        node = node->next;
-    }
-}
 
 size_t list_get_size_of() {
     return sizeof(struct node_t);

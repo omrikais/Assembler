@@ -4,6 +4,8 @@
 #include "files_handler.h"
 #include "printer.h"
 
+/************************************************** Internal functions ************************************************/
+
 /**
  * @brief gets a stings array as given to main and converts it to appropriate file-name strings array
  * @param args              the given array to main
@@ -29,16 +31,6 @@ void write_output_files(const char **args, Error *error, Reader reader, int curr
  * @param reader    a reader type with all the needed information for producing the files
  */
 void analyze_files(const char **args, Reader reader);
-
-void assemble(const char **args, int size) {
-    char **fileNames;
-    Reader reader;
-    file_generator_make_as_array(args, size, &fileNames);
-    reader = reader_create((const char **) fileNames, size - 1);
-    analyze_files(args, reader);
-    reader_destroy(reader);
-    free_string_array(fileNames, size - 1);
-}
 
 void analyze_files(const char **args, Reader reader) {
     Error error;
@@ -100,4 +92,16 @@ Error file_generator_make_as_array(const char **args, int size, char ***stringAr
         strcpy((*stringArrayPtr)[i - 1], currentFileName);
     }
     return NoErrorsFound;
+}
+
+/************************************************** Functions implementations *****************************************/
+
+void assemble(const char **args, int size) {
+    char **fileNames;
+    Reader reader;
+    file_generator_make_as_array(args, size, &fileNames);
+    reader = reader_create((const char **) fileNames, size - 1);
+    analyze_files(args, reader);
+    reader_destroy(reader);
+    free_string_array(fileNames, size - 1);
 }

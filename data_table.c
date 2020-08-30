@@ -3,13 +3,24 @@
 
 #include "data_table.h"
 
+/**
+ * @brief the DataItemsList struct
+ */
 struct data_list_t {
-    List data;
-    int dc;
-    int numberOfDataItems;
+    List data;              /*a linked list stored all the data elements*/
+    int dc;                 /*the current DC value after adding the last element*/
+    int numberOfDataItems;  /*the total number of data elements*/
 };
 
+/************************************************** Internal functions ************************************************/
+
+/**
+ * @brief       a default destroy function for destroying list of primitive types
+ * @param list
+ */
 void data_item_list_destroy(List list);
+
+/************************************************** Functions implementations *****************************************/
 
 DataItemsList data_items_list_create() {
     DataItemsList list = malloc(sizeof(struct data_list_t));
@@ -40,8 +51,8 @@ void data_items_list_add_data_element(DataItemsList list, void *dataElement, siz
     (list->numberOfDataItems)++;
 }
 
-void data_items_list_update_dc(DataItemsList list, int value) {
-    (list->dc) += value;
+void data_items_list_update_dc(DataItemsList list, int delta) {
+    (list->dc) += delta;
 }
 
 void *data_items_list_get_data(DataItemsList list, int i) {

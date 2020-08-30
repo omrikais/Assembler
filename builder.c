@@ -4,26 +4,84 @@
 #include <string.h>
 #include "builder.h"
 
+/**
+ * @brief the builder struct in which all the relevant lists are stored, the builder is called by the reader module
+ */
 struct builder_t {
-    InstructionsList instructions;
-    DataItemsList dataList;
-    List symbols;
+    InstructionsList instructions;      /*the instructions list stored as InstructionsList type*/
+    DataItemsList dataList;             /*the data directives items, strings and numbers, stored as DataItemsList*/
+    List symbols;                       /*all the labels and their positions stored as linked list*/
 };
 
+/************************************************** Internal functions ************************************************/
+
+/**
+ * @brief           analyzes a directive line and stored its relevant information in the suitable builder lists
+ * @param builder   the current file builder
+ * @param line
+ * @return          error code or NoErrorFound
+ */
 Error evaluate_extern(Builder builder, char *line);
 
+/**
+ * @brief           gets a label and checks if it already exists in the symbol list
+ * @param list      the symbols list
+ * @param label
+ * @return          True the label already exists, False otherwise
+ */
 Bool is_label_exists(List list, const char *label);
 
+/**
+ * @brief                           gets an instruction line parameters and determines the operand handling
+ * @param line                      an instruction input line
+ * @param addressingMethod          an int pointer in which the addressing method of the operand will be stored
+ * @param registerOfOperand         an int pointer in which the register of the operand will be stored, if relevant
+ * @param operandContent            an long int pointer in which the content of the operand will be stored, if relevant
+ * @param operandContentString      an string in which the content of the operand will be stored as a string
+ * @param operandIndex              either SOURCE_INDEX or DESTINATION_INDEX
+ * @param error                     error code or NoErrorFound
+ */
 void handle_operand(const char *line, int *addressingMethod, int *registerOfOperand, long *operandContent,
                     char **operandContentString, int operandIndex, Error *error);
 
+/**
+ * @brief                       checks the relevant interactions between the opcade and the addressing method
+ * @param word                  an InstructionWord item
+ * @param numberOfOperands
+ * @return                      error code or NoErrorFound
+ */
 Error check_operands_addressing_method(InstructionWord word, int numberOfOperands);
 
+/**
+ * @brief               gets a string or data directive input line and stores its relevant information in the builder
+ * @param builder       the current file builder
+ * @param line
+ * @param directive     the directive type of this line
+ * @param label         the label of the label of the current line (if exists)
+ * @return              error code or NoErrorFound
+ */
 Error handle_directive(Builder builder, const char *line, Directive directive, const char *label);
 
+/**
+ * @brief               updates the relative and direct operands of an instruction word at the second pass
+ * @param word          the word to update
+ * @param builder       the current file builder
+ * @param operandIndex  either SOURCE_INDEX or DESTINATION_INDEX
+ * @return              error code or NoErrorFound
+ */
 Error update_operand(InstructionWord word, Builder builder, int operandIndex);
 
+/**
+ * @brief                   change the operand content and called by update_operand
+ * @param builder           the current file builder
+ * @param word              the word to change
+ * @param operandIndex      either SOURCE_INDEX or DESTINATION_INDEX
+ * @param method            the addressing method of the operand
+ * @return                  error code or NoErrorFound
+ */
 Error change_operand(Builder builder, InstructionWord word, int operandIndex, AddressingMethod method);
+
+/************************************************** Functions implementations *****************************************/
 
 Builder init() {
     Builder builder = malloc(sizeof(struct builder_t));

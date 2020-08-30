@@ -3,22 +3,45 @@
 #include <string.h>
 #include "reader.h"
 
-
+/**
+ * @brief       the reader struct. the reader maneges the builder and all the reading input files activity
+ */
 struct reader_t {
-    Builder builder;
-    char **objectFiles;
-    size_t objectFilesSize;
-    FILE *input;
-    int nextFileIndex;
-    int currentLine;
-    Bool isErrorOccurred;
+    Builder builder;                /*the builder object of the current source file*/
+    char **objectFiles;             /*the strings of all object files transferred to the program in the command line*/
+    size_t objectFilesSize;         /*the size of the objectFiles array*/
+    FILE *input;                    /*the input file*/
+    int nextFileIndex;              /*the index of the next file to read*/
+    int currentLine;                /*the current line that was read*/
+    Bool isErrorOccurred;           /*True if at least one error occurred*/
 };
 
+/************************************************** Internal functions ************************************************/
+
+/**
+ * @brief           checks if the file name is valid based on the naming convention
+ * @param file      the name to check
+ * @return          True if it is a valid name
+ */
 Bool is_valid_file_name(const char *file);
 
+/**
+ * @brief               copies args[] array to a newly created array
+ * @param charArray     the args[] array from the command line
+ * @param size          the size of the args[] array
+ * @return              a newly created array with the files names
+ */
 char **copy_char_array(const char **charArray, size_t size);
 
+/**
+ * @brief           checks if an entry line is valid
+ * @param reader
+ * @param line      the line to check
+ * @return          error code or NoErrorFound
+ */
 Error check_entry(Reader reader, const char *line);
+
+/************************************************** Functions implementations *****************************************/
 
 Reader reader_create(const char **objectFiles, size_t objectFilesSize) {
     Reader reader;
