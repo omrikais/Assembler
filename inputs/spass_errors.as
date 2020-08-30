@@ -37,6 +37,6 @@ dec MathFacts0
 .entry DataIsNice
 
 ; Assembler will ignore
-IgnoreMe:
+;IgnoreMe:
 
 jmp &IgnoreMe

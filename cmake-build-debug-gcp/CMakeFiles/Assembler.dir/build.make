@@ -207,18 +207,18 @@ CMakeFiles/assembler.dir/printer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/printer.c.s"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/printer.c -o CMakeFiles/assembler.dir/printer.c.s
 
-CMakeFiles/assembler.dir/file_generator.c.o: CMakeFiles/assembler.dir/flags.make
-CMakeFiles/assembler.dir/file_generator.c.o: ../file_generator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/assembler.dir/file_generator.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/file_generator.c.o   -c /tmp/tmp.BOYisKdkU2/file_generator.c
+CMakeFiles/assembler.dir/files_handler.c.o: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/files_handler.c.o: ../files_handler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/assembler.dir/files_handler.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/assembler.dir/files_handler.c.o   -c /tmp/tmp.BOYisKdkU2/files_handler.c
 
-CMakeFiles/assembler.dir/file_generator.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/file_generator.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/file_generator.c > CMakeFiles/assembler.dir/file_generator.c.i
+CMakeFiles/assembler.dir/files_handler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/assembler.dir/files_handler.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/files_handler.c > CMakeFiles/assembler.dir/files_handler.c.i
 
-CMakeFiles/assembler.dir/file_generator.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/file_generator.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/file_generator.c -o CMakeFiles/assembler.dir/file_generator.c.s
+CMakeFiles/assembler.dir/files_handler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/assembler.dir/files_handler.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/files_handler.c -o CMakeFiles/assembler.dir/files_handler.c.s
 
 CMakeFiles/assembler.dir/assembler.c.o: CMakeFiles/assembler.dir/flags.make
 CMakeFiles/assembler.dir/assembler.c.o: ../assembler.c
@@ -245,7 +245,7 @@ assembler_OBJECTS = \
 "CMakeFiles/assembler.dir/builder.c.o" \
 "CMakeFiles/assembler.dir/reader.c.o" \
 "CMakeFiles/assembler.dir/printer.c.o" \
-"CMakeFiles/assembler.dir/file_generator.c.o" \
+"CMakeFiles/assembler.dir/files_handler.c.o" \
 "CMakeFiles/assembler.dir/assembler.c.o"
 
 # External object files for target assembler
@@ -261,7 +261,7 @@ assembler: CMakeFiles/assembler.dir/symbol_table.c.o
 assembler: CMakeFiles/assembler.dir/builder.c.o
 assembler: CMakeFiles/assembler.dir/reader.c.o
 assembler: CMakeFiles/assembler.dir/printer.c.o
-assembler: CMakeFiles/assembler.dir/file_generator.c.o
+assembler: CMakeFiles/assembler.dir/files_handler.c.o
 assembler: CMakeFiles/assembler.dir/assembler.c.o
 assembler: CMakeFiles/assembler.dir/build.make
 assembler: CMakeFiles/assembler.dir/link.txt

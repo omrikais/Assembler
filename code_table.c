@@ -3,13 +3,17 @@
 
 #include "code_table.h"
 
-
+/**
+ * @brief   the code list struct stored all the instuction word of a give source code assembly file.
+ *          the list is implemented as a simple one direction linked list
+ */
 struct code_list_t {
-    List instructions;
-    int ic;
-    int numberOfInstructions;
+    List instructions;              /*a linked list of InstructionWord elements*/
+    int ic;                         /*The current IC, i.e. the last IC after adding the last word*/
+    int numberOfInstructions;       /*the total number of instructions word*/
 };
 
+/************************************************** Functions implementations *****************************************/
 
 InstructionsList instruction_list_create() {
     InstructionsList instructions = malloc(sizeof(struct code_list_t));

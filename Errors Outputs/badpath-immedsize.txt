@@ -1,0 +1,2 @@
+Error in file: ../inputs/badpath-immedsize.as, at line 19: The number width in immediate addressing line is bigger than 21 bit
+Error in file: ../inputs/badpath-immedsize.as, at line 25: The number width in immediate addressing line is bigger than 21 bit

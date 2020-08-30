@@ -220,18 +220,18 @@ CMakeFiles/FileGeneratorTests.dir/printer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FileGeneratorTests.dir/printer.c.s"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/printer.c -o CMakeFiles/FileGeneratorTests.dir/printer.c.s
 
-CMakeFiles/FileGeneratorTests.dir/file_generator.c.o: CMakeFiles/FileGeneratorTests.dir/flags.make
-CMakeFiles/FileGeneratorTests.dir/file_generator.c.o: ../file_generator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/FileGeneratorTests.dir/file_generator.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FileGeneratorTests.dir/file_generator.c.o   -c /tmp/tmp.BOYisKdkU2/file_generator.c
+CMakeFiles/FileGeneratorTests.dir/files_handler.c.o: CMakeFiles/FileGeneratorTests.dir/flags.make
+CMakeFiles/FileGeneratorTests.dir/files_handler.c.o: ../files_handler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/FileGeneratorTests.dir/files_handler.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/FileGeneratorTests.dir/files_handler.c.o   -c /tmp/tmp.BOYisKdkU2/files_handler.c
 
-CMakeFiles/FileGeneratorTests.dir/file_generator.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/FileGeneratorTests.dir/file_generator.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/file_generator.c > CMakeFiles/FileGeneratorTests.dir/file_generator.c.i
+CMakeFiles/FileGeneratorTests.dir/files_handler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/FileGeneratorTests.dir/files_handler.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/files_handler.c > CMakeFiles/FileGeneratorTests.dir/files_handler.c.i
 
-CMakeFiles/FileGeneratorTests.dir/file_generator.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FileGeneratorTests.dir/file_generator.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/file_generator.c -o CMakeFiles/FileGeneratorTests.dir/file_generator.c.s
+CMakeFiles/FileGeneratorTests.dir/files_handler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/FileGeneratorTests.dir/files_handler.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/files_handler.c -o CMakeFiles/FileGeneratorTests.dir/files_handler.c.s
 
 # Object files for target FileGeneratorTests
 FileGeneratorTests_OBJECTS = \
@@ -246,7 +246,7 @@ FileGeneratorTests_OBJECTS = \
 "CMakeFiles/FileGeneratorTests.dir/builder.c.o" \
 "CMakeFiles/FileGeneratorTests.dir/reader.c.o" \
 "CMakeFiles/FileGeneratorTests.dir/printer.c.o" \
-"CMakeFiles/FileGeneratorTests.dir/file_generator.c.o"
+"CMakeFiles/FileGeneratorTests.dir/files_handler.c.o"
 
 # External object files for target FileGeneratorTests
 FileGeneratorTests_EXTERNAL_OBJECTS =
@@ -262,7 +262,7 @@ FileGeneratorTests: CMakeFiles/FileGeneratorTests.dir/symbol_table.c.o
 FileGeneratorTests: CMakeFiles/FileGeneratorTests.dir/builder.c.o
 FileGeneratorTests: CMakeFiles/FileGeneratorTests.dir/reader.c.o
 FileGeneratorTests: CMakeFiles/FileGeneratorTests.dir/printer.c.o
-FileGeneratorTests: CMakeFiles/FileGeneratorTests.dir/file_generator.c.o
+FileGeneratorTests: CMakeFiles/FileGeneratorTests.dir/files_handler.c.o
 FileGeneratorTests: CMakeFiles/FileGeneratorTests.dir/build.make
 FileGeneratorTests: CMakeFiles/FileGeneratorTests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable FileGeneratorTests"

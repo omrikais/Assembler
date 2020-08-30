@@ -220,18 +220,18 @@ CMakeFiles/BuilderTests.dir/printer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/BuilderTests.dir/printer.c.s"
 	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/printer.c -o CMakeFiles/BuilderTests.dir/printer.c.s
 
-CMakeFiles/BuilderTests.dir/file_generator.c.o: CMakeFiles/BuilderTests.dir/flags.make
-CMakeFiles/BuilderTests.dir/file_generator.c.o: ../file_generator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/BuilderTests.dir/file_generator.c.o"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BuilderTests.dir/file_generator.c.o   -c /tmp/tmp.BOYisKdkU2/file_generator.c
+CMakeFiles/BuilderTests.dir/files_handler.c.o: CMakeFiles/BuilderTests.dir/flags.make
+CMakeFiles/BuilderTests.dir/files_handler.c.o: ../files_handler.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/BuilderTests.dir/files_handler.c.o"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/BuilderTests.dir/files_handler.c.o   -c /tmp/tmp.BOYisKdkU2/files_handler.c
 
-CMakeFiles/BuilderTests.dir/file_generator.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/BuilderTests.dir/file_generator.c.i"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/file_generator.c > CMakeFiles/BuilderTests.dir/file_generator.c.i
+CMakeFiles/BuilderTests.dir/files_handler.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/BuilderTests.dir/files_handler.c.i"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.BOYisKdkU2/files_handler.c > CMakeFiles/BuilderTests.dir/files_handler.c.i
 
-CMakeFiles/BuilderTests.dir/file_generator.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/BuilderTests.dir/file_generator.c.s"
-	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/file_generator.c -o CMakeFiles/BuilderTests.dir/file_generator.c.s
+CMakeFiles/BuilderTests.dir/files_handler.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/BuilderTests.dir/files_handler.c.s"
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.BOYisKdkU2/files_handler.c -o CMakeFiles/BuilderTests.dir/files_handler.c.s
 
 # Object files for target BuilderTests
 BuilderTests_OBJECTS = \
@@ -246,7 +246,7 @@ BuilderTests_OBJECTS = \
 "CMakeFiles/BuilderTests.dir/builder_tests.c.o" \
 "CMakeFiles/BuilderTests.dir/reader.c.o" \
 "CMakeFiles/BuilderTests.dir/printer.c.o" \
-"CMakeFiles/BuilderTests.dir/file_generator.c.o"
+"CMakeFiles/BuilderTests.dir/files_handler.c.o"
 
 # External object files for target BuilderTests
 BuilderTests_EXTERNAL_OBJECTS =
@@ -262,7 +262,7 @@ BuilderTests: CMakeFiles/BuilderTests.dir/builder.c.o
 BuilderTests: CMakeFiles/BuilderTests.dir/builder_tests.c.o
 BuilderTests: CMakeFiles/BuilderTests.dir/reader.c.o
 BuilderTests: CMakeFiles/BuilderTests.dir/printer.c.o
-BuilderTests: CMakeFiles/BuilderTests.dir/file_generator.c.o
+BuilderTests: CMakeFiles/BuilderTests.dir/files_handler.c.o
 BuilderTests: CMakeFiles/BuilderTests.dir/build.make
 BuilderTests: CMakeFiles/BuilderTests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.BOYisKdkU2/cmake-build-debug-gcp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable BuilderTests"

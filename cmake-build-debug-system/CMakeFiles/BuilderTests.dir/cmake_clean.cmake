@@ -6,7 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/BuilderTests.dir/code_table.c.o"
   "CMakeFiles/BuilderTests.dir/data_table.c.o"
   "CMakeFiles/BuilderTests.dir/errors.c.o"
-  "CMakeFiles/BuilderTests.dir/file_generator.c.o"
+  "CMakeFiles/BuilderTests.dir/files_handler.c.o"
   "CMakeFiles/BuilderTests.dir/instruction_word.c.o"
   "CMakeFiles/BuilderTests.dir/list.c.o"
   "CMakeFiles/BuilderTests.dir/parser.c.o"

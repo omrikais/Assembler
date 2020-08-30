@@ -5,7 +5,6 @@
 #include "list.h"
 
 
-/* A linked list node_t */
 struct node_t {
     void *data;
     ListNode next;
@@ -22,8 +21,10 @@ ListNode list_create_list_node(void *data, size_t dataSize) {
     ListNode node = (ListNode) malloc(sizeof(struct node_t));
     int i;
     node->data = malloc(dataSize);
-    for (i = 0; i < dataSize; i++)
-        *((char *) node->data + i) = *((char *) data + i);
+    for (i = 0; i < dataSize; i++) {
+        char current = *((char *) data + i);
+        *((char *) node->data + i) = current;
+    }
     return node;
 }
 
@@ -77,8 +78,7 @@ void list_insert_node_at_end(List list, void *newData, size_t dataSize) {
 }
 
 void *list_get_data_element_at_index(List list, int i) {
-    /*the first element is in index 1
-     * returns the original Data element*/
+    /*the first element is at index 1 ,returns the original Data element*/
     int j = 0;
     ListNode current = list;
     while (j < i) {
@@ -88,13 +88,6 @@ void *list_get_data_element_at_index(List list, int i) {
     return current->data;
 }
 
-void print_list(List node, PrintNodeFunction printFunction) {
-    while (node != NULL) {
-        if (node->data != NULL)
-            (*printFunction)(node->data);
-        node = node->next;
-    }
-}
 
 size_t list_get_size_of() {
     return sizeof(struct node_t);

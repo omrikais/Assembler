@@ -1,0 +1,8 @@
+Error in file: ../inputs/badpath-relative.as, at line 27: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/badpath-relative.as, at line 30: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/badpath-relative.as, at line 33: One of the operands has incompatible addressing method with the operation
+Error in file: ../inputs/badpath-relative.as, at line 36: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/badpath-relative.as, at line 39: The operation in this line has too many operands
+Error in file: ../inputs/badpath-relative.as, at line 42: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/badpath-relative.as, at line 45: The label in this line isn't valid, it doesn't starts with an alphabetic character.
+Error in file: ../inputs/badpath-relative.as, at line 48: The operation in this line has too many operands

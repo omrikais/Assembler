@@ -40,14 +40,14 @@ CMakeFiles/BuilderTests.dir/errors.c.o
  /Users/omrikaisari/CLionProjects/Assembler/constants.h
  /Users/omrikaisari/CLionProjects/Assembler/errors.c
  /Users/omrikaisari/CLionProjects/Assembler/errors.h
-CMakeFiles/BuilderTests.dir/file_generator.c.o
+CMakeFiles/BuilderTests.dir/files_handler.c.o
  /Users/omrikaisari/CLionProjects/Assembler/builder.h
  /Users/omrikaisari/CLionProjects/Assembler/code_table.h
  /Users/omrikaisari/CLionProjects/Assembler/constants.h
  /Users/omrikaisari/CLionProjects/Assembler/data_table.h
  /Users/omrikaisari/CLionProjects/Assembler/errors.h
- /Users/omrikaisari/CLionProjects/Assembler/file_generator.c
- /Users/omrikaisari/CLionProjects/Assembler/file_generator.h
+ /Users/omrikaisari/CLionProjects/Assembler/files_handler.c
+ /Users/omrikaisari/CLionProjects/Assembler/files_handler.h
  /Users/omrikaisari/CLionProjects/Assembler/instruction_word.h
  /Users/omrikaisari/CLionProjects/Assembler/list.h
  /Users/omrikaisari/CLionProjects/Assembler/parser.h
