@@ -146,8 +146,10 @@ Error evaluate_directive_line(Builder builder, char *line) {
     char *label = NULL;
     if (parser_is_new_label(line) == True) {
         label = parser_get_label(line, &error);
-        if (label == NULL)
+        if (label == NULL) {
+            free(label);
             return error;
+        }
     }
     if (directive == NoDirectiveFound) {
         if (label != NULL)
@@ -165,8 +167,11 @@ Error evaluate_directive_line(Builder builder, char *line) {
             free(label);
         return error;
     }
-    if (directive == Extern)
+    if (directive == Extern) {
+        free(label);
         return evaluate_extern(builder, line);
+    }
+    free(label);
     return NoErrorsFound;
 }
 
